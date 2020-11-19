@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_Claims2" targetNamespace="http://tempuri.org/DS_Claims2.xsd" xmlns:mstns="http://tempuri.org/DS_Claims2.xsd" xmlns="http://tempuri.org/DS_Claims2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="CONN" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CONN (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.CONN.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_MainClaimsTableAdapter" GeneratorDataComponentClassName="V_MainClaimsTableAdapter" Name="V_MainClaims" UserDataComponentName="V_MainClaimsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CONN (Web.config)" DbObjectName="EliteSystem.dbo.V_MainClaims" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ID, Month_Year, Received_Date, Receiver_Employee, Employee_Name, Entry_Date, Batch_No, Main_Company, Main_Company_Desc, Sub_Company, Sub_Company_Desc, Claims_Count, Value, Stamps, Delivered, Address, Medical_Name, 
+                  Medical_Name_Desc
+FROM     V_MainClaims</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="Month_Year" DataSetColumn="Month_Year" />
+              <Mapping SourceColumn="Received_Date" DataSetColumn="Received_Date" />
+              <Mapping SourceColumn="Receiver_Employee" DataSetColumn="Receiver_Employee" />
+              <Mapping SourceColumn="Employee_Name" DataSetColumn="Employee_Name" />
+              <Mapping SourceColumn="Entry_Date" DataSetColumn="Entry_Date" />
+              <Mapping SourceColumn="Batch_No" DataSetColumn="Batch_No" />
+              <Mapping SourceColumn="Main_Company" DataSetColumn="Main_Company" />
+              <Mapping SourceColumn="Main_Company_Desc" DataSetColumn="Main_Company_Desc" />
+              <Mapping SourceColumn="Sub_Company" DataSetColumn="Sub_Company" />
+              <Mapping SourceColumn="Sub_Company_Desc" DataSetColumn="Sub_Company_Desc" />
+              <Mapping SourceColumn="Claims_Count" DataSetColumn="Claims_Count" />
+              <Mapping SourceColumn="Value" DataSetColumn="Value" />
+              <Mapping SourceColumn="Stamps" DataSetColumn="Stamps" />
+              <Mapping SourceColumn="Delivered" DataSetColumn="Delivered" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Medical_Name" DataSetColumn="Medical_Name" />
+              <Mapping SourceColumn="Medical_Name_Desc" DataSetColumn="Medical_Name_Desc" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_Claims2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DS_Claims2" msprop:Generator_UserDSName="DS_Claims2">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_MainClaims" msprop:Generator_TableClassName="V_MainClaimsDataTable" msprop:Generator_TableVarName="tableV_MainClaims" msprop:Generator_TablePropName="V_MainClaims" msprop:Generator_RowDeletingName="V_MainClaimsRowDeleting" msprop:Generator_RowChangingName="V_MainClaimsRowChanging" msprop:Generator_RowEvHandlerName="V_MainClaimsRowChangeEventHandler" msprop:Generator_RowDeletedName="V_MainClaimsRowDeleted" msprop:Generator_UserTableName="V_MainClaims" msprop:Generator_RowChangedName="V_MainClaimsRowChanged" msprop:Generator_RowEvArgName="V_MainClaimsRowChangeEvent" msprop:Generator_RowClassName="V_MainClaimsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:decimal" />
+              <xs:element name="Month_Year" msprop:Generator_ColumnVarNameInTable="columnMonth_Year" msprop:Generator_ColumnPropNameInRow="Month_Year" msprop:Generator_ColumnPropNameInTable="Month_YearColumn" msprop:Generator_UserColumnName="Month_Year" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Received_Date" msprop:Generator_ColumnVarNameInTable="columnReceived_Date" msprop:Generator_ColumnPropNameInRow="Received_Date" msprop:Generator_ColumnPropNameInTable="Received_DateColumn" msprop:Generator_UserColumnName="Received_Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Receiver_Employee" msprop:Generator_ColumnVarNameInTable="columnReceiver_Employee" msprop:Generator_ColumnPropNameInRow="Receiver_Employee" msprop:Generator_ColumnPropNameInTable="Receiver_EmployeeColumn" msprop:Generator_UserColumnName="Receiver_Employee" type="xs:int" minOccurs="0" />
+              <xs:element name="Employee_Name" msprop:Generator_ColumnVarNameInTable="columnEmployee_Name" msprop:Generator_ColumnPropNameInRow="Employee_Name" msprop:Generator_ColumnPropNameInTable="Employee_NameColumn" msprop:Generator_UserColumnName="Employee_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Entry_Date" msprop:Generator_ColumnVarNameInTable="columnEntry_Date" msprop:Generator_ColumnPropNameInRow="Entry_Date" msprop:Generator_ColumnPropNameInTable="Entry_DateColumn" msprop:Generator_UserColumnName="Entry_Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Batch_No" msprop:Generator_ColumnVarNameInTable="columnBatch_No" msprop:Generator_ColumnPropNameInRow="Batch_No" msprop:Generator_ColumnPropNameInTable="Batch_NoColumn" msprop:Generator_UserColumnName="Batch_No" type="xs:int" minOccurs="0" />
+              <xs:element name="Main_Company" msprop:Generator_ColumnVarNameInTable="columnMain_Company" msprop:Generator_ColumnPropNameInRow="Main_Company" msprop:Generator_ColumnPropNameInTable="Main_CompanyColumn" msprop:Generator_UserColumnName="Main_Company" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Main_Company_Desc" msprop:Generator_ColumnVarNameInTable="columnMain_Company_Desc" msprop:Generator_ColumnPropNameInRow="Main_Company_Desc" msprop:Generator_ColumnPropNameInTable="Main_Company_DescColumn" msprop:Generator_UserColumnName="Main_Company_Desc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sub_Company" msprop:Generator_ColumnVarNameInTable="columnSub_Company" msprop:Generator_ColumnPropNameInRow="Sub_Company" msprop:Generator_ColumnPropNameInTable="Sub_CompanyColumn" msprop:Generator_UserColumnName="Sub_Company" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Sub_Company_Desc" msprop:Generator_ColumnVarNameInTable="columnSub_Company_Desc" msprop:Generator_ColumnPropNameInRow="Sub_Company_Desc" msprop:Generator_ColumnPropNameInTable="Sub_Company_DescColumn" msprop:Generator_UserColumnName="Sub_Company_Desc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Claims_Count" msprop:Generator_ColumnVarNameInTable="columnClaims_Count" msprop:Generator_ColumnPropNameInRow="Claims_Count" msprop:Generator_ColumnPropNameInTable="Claims_CountColumn" msprop:Generator_UserColumnName="Claims_Count" type="xs:int" minOccurs="0" />
+              <xs:element name="Value" msprop:Generator_ColumnVarNameInTable="columnValue" msprop:Generator_ColumnPropNameInRow="Value" msprop:Generator_ColumnPropNameInTable="ValueColumn" msprop:Generator_UserColumnName="Value" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Stamps" msprop:Generator_ColumnVarNameInTable="columnStamps" msprop:Generator_ColumnPropNameInRow="Stamps" msprop:Generator_ColumnPropNameInTable="StampsColumn" msprop:Generator_UserColumnName="Stamps" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Delivered" msprop:Generator_ColumnVarNameInTable="columnDelivered" msprop:Generator_ColumnPropNameInRow="Delivered" msprop:Generator_ColumnPropNameInTable="DeliveredColumn" msprop:Generator_UserColumnName="Delivered" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Medical_Name" msprop:Generator_ColumnVarNameInTable="columnMedical_Name" msprop:Generator_ColumnPropNameInRow="Medical_Name" msprop:Generator_ColumnPropNameInTable="Medical_NameColumn" msprop:Generator_UserColumnName="Medical_Name" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Medical_Name_Desc" msprop:Generator_ColumnVarNameInTable="columnMedical_Name_Desc" msprop:Generator_ColumnPropNameInRow="Medical_Name_Desc" msprop:Generator_ColumnPropNameInTable="Medical_Name_DescColumn" msprop:Generator_UserColumnName="Medical_Name_Desc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_MainClaims" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

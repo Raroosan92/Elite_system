@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_Account" targetNamespace="http://tempuri.org/DS_Account.xsd" xmlns:mstns="http://tempuri.org/DS_Account.xsd" xmlns="http://tempuri.org/DS_Account.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="CONN" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CONN (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.CONN.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_Listing_BondsTableAdapter" GeneratorDataComponentClassName="V_Listing_BondsTableAdapter" Name="V_Listing_Bonds" UserDataComponentName="V_Listing_BondsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CONN (Web.config)" DbObjectName="Elite_DB.dbo.V_Listing_Bonds" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, Medical_Type, Medical_TypeName, Type, TypeDescription, Bond_Date, Debtor, Creditor, Description, Acounting_NO, Claim_ID, Sent_To FROM dbo.V_Listing_Bonds</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="Medical_Type" DataSetColumn="Medical_Type" />
+              <Mapping SourceColumn="Medical_TypeName" DataSetColumn="Medical_TypeName" />
+              <Mapping SourceColumn="Type" DataSetColumn="Type" />
+              <Mapping SourceColumn="TypeDescription" DataSetColumn="TypeDescription" />
+              <Mapping SourceColumn="Bond_Date" DataSetColumn="Bond_Date" />
+              <Mapping SourceColumn="Debtor" DataSetColumn="Debtor" />
+              <Mapping SourceColumn="Creditor" DataSetColumn="Creditor" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Acounting_NO" DataSetColumn="Acounting_NO" />
+              <Mapping SourceColumn="Claim_ID" DataSetColumn="Claim_ID" />
+              <Mapping SourceColumn="Sent_To" DataSetColumn="Sent_To" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_Account" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DS_Account" msprop:Generator_UserDSName="DS_Account">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_Listing_Bonds" msprop:Generator_TableClassName="V_Listing_BondsDataTable" msprop:Generator_TableVarName="tableV_Listing_Bonds" msprop:Generator_TablePropName="V_Listing_Bonds" msprop:Generator_RowDeletingName="V_Listing_BondsRowDeleting" msprop:Generator_RowChangingName="V_Listing_BondsRowChanging" msprop:Generator_RowEvHandlerName="V_Listing_BondsRowChangeEventHandler" msprop:Generator_RowDeletedName="V_Listing_BondsRowDeleted" msprop:Generator_UserTableName="V_Listing_Bonds" msprop:Generator_RowChangedName="V_Listing_BondsRowChanged" msprop:Generator_RowEvArgName="V_Listing_BondsRowChangeEvent" msprop:Generator_RowClassName="V_Listing_BondsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:decimal" />
+              <xs:element name="Medical_Type" msprop:Generator_ColumnVarNameInTable="columnMedical_Type" msprop:Generator_ColumnPropNameInRow="Medical_Type" msprop:Generator_ColumnPropNameInTable="Medical_TypeColumn" msprop:Generator_UserColumnName="Medical_Type" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Medical_TypeName" msprop:Generator_ColumnVarNameInTable="columnMedical_TypeName" msprop:Generator_ColumnPropNameInRow="Medical_TypeName" msprop:Generator_ColumnPropNameInTable="Medical_TypeNameColumn" msprop:Generator_UserColumnName="Medical_TypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_UserColumnName="Type" type="xs:int" minOccurs="0" />
+              <xs:element name="TypeDescription" msprop:Generator_ColumnVarNameInTable="columnTypeDescription" msprop:Generator_ColumnPropNameInRow="TypeDescription" msprop:Generator_ColumnPropNameInTable="TypeDescriptionColumn" msprop:Generator_UserColumnName="TypeDescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bond_Date" msprop:Generator_ColumnVarNameInTable="columnBond_Date" msprop:Generator_ColumnPropNameInRow="Bond_Date" msprop:Generator_ColumnPropNameInTable="Bond_DateColumn" msprop:Generator_UserColumnName="Bond_Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Debtor" msprop:Generator_ColumnVarNameInTable="columnDebtor" msprop:Generator_ColumnPropNameInRow="Debtor" msprop:Generator_ColumnPropNameInTable="DebtorColumn" msprop:Generator_UserColumnName="Debtor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Creditor" msprop:Generator_ColumnVarNameInTable="columnCreditor" msprop:Generator_ColumnPropNameInRow="Creditor" msprop:Generator_ColumnPropNameInTable="CreditorColumn" msprop:Generator_UserColumnName="Creditor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Acounting_NO" msprop:Generator_ColumnVarNameInTable="columnAcounting_NO" msprop:Generator_ColumnPropNameInRow="Acounting_NO" msprop:Generator_ColumnPropNameInTable="Acounting_NOColumn" msprop:Generator_UserColumnName="Acounting_NO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Claim_ID" msprop:Generator_ColumnVarNameInTable="columnClaim_ID" msprop:Generator_ColumnPropNameInRow="Claim_ID" msprop:Generator_ColumnPropNameInTable="Claim_IDColumn" msprop:Generator_UserColumnName="Claim_ID" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Sent_To" msprop:Generator_ColumnVarNameInTable="columnSent_To" msprop:Generator_ColumnPropNameInRow="Sent_To" msprop:Generator_ColumnPropNameInTable="Sent_ToColumn" msprop:Generator_UserColumnName="Sent_To" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_Listing_Bonds" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

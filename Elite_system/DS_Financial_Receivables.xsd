@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_Financial_Receivables" targetNamespace="http://tempuri.org/DS_Financial_Receivables.xsd" xmlns:mstns="http://tempuri.org/DS_Financial_Receivables.xsd" xmlns="http://tempuri.org/DS_Financial_Receivables.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="CONN" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CONN (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.CONN.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_Financial_ReceivablesTableAdapter" GeneratorDataComponentClassName="V_Financial_ReceivablesTableAdapter" Name="V_Financial_Receivables" UserDataComponentName="V_Financial_ReceivablesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CONN (Web.config)" DbObjectName="EliteSystem.dbo.V_Financial_Receivables" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ID, Name, Phone, Address, Contracting_Value, Stamps, Count_NonDelivered, Total_Fin, Contract_Date, Employee_Name, Mobile
+FROM     V_Financial_Receivables</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Phone" DataSetColumn="Phone" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Stamps" DataSetColumn="Stamps" />
+              <Mapping SourceColumn="Count_NonDelivered" DataSetColumn="Count_NonDelivered" />
+              <Mapping SourceColumn="Total_Fin" DataSetColumn="Total_Fin" />
+              <Mapping SourceColumn="Contracting_Value" DataSetColumn="Contracting_Value1" />
+              <Mapping SourceColumn="Contract_Date" DataSetColumn="Contract_Date" />
+              <Mapping SourceColumn="Employee_Name" DataSetColumn="Employee_Name" />
+              <Mapping SourceColumn="Mobile" DataSetColumn="Mobile" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_Financial_Receivables" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DS_Financial_Receivables" msprop:Generator_UserDSName="DS_Financial_Receivables">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_Financial_Receivables" msprop:Generator_TableClassName="V_Financial_ReceivablesDataTable" msprop:Generator_TableVarName="tableV_Financial_Receivables" msprop:Generator_TablePropName="V_Financial_Receivables" msprop:Generator_RowDeletingName="V_Financial_ReceivablesRowDeleting" msprop:Generator_RowChangingName="V_Financial_ReceivablesRowChanging" msprop:Generator_RowEvHandlerName="V_Financial_ReceivablesRowChangeEventHandler" msprop:Generator_RowDeletedName="V_Financial_ReceivablesRowDeleted" msprop:Generator_UserTableName="V_Financial_Receivables" msprop:Generator_RowChangedName="V_Financial_ReceivablesRowChanged" msprop:Generator_RowEvArgName="V_Financial_ReceivablesRowChangeEvent" msprop:Generator_RowClassName="V_Financial_ReceivablesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:decimal" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_UserColumnName="Phone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Contracting_Value" msprop:Generator_ColumnVarNameInTable="columnContracting_Value" msprop:Generator_ColumnPropNameInRow="Contracting_Value" msprop:Generator_ColumnPropNameInTable="Contracting_ValueColumn" msprop:Generator_UserColumnName="Contracting_Value" type="xs:int" />
+              <xs:element name="Stamps" msprop:Generator_ColumnVarNameInTable="columnStamps" msprop:Generator_ColumnPropNameInRow="Stamps" msprop:Generator_ColumnPropNameInTable="StampsColumn" msprop:Generator_UserColumnName="Stamps" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Count_NonDelivered" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCount_NonDelivered" msprop:Generator_ColumnPropNameInRow="Count_NonDelivered" msprop:Generator_ColumnPropNameInTable="Count_NonDeliveredColumn" msprop:Generator_UserColumnName="Count_NonDelivered" type="xs:int" minOccurs="0" />
+              <xs:element name="Total_Fin" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal_Fin" msprop:Generator_ColumnPropNameInRow="Total_Fin" msprop:Generator_ColumnPropNameInTable="Total_FinColumn" msprop:Generator_UserColumnName="Total_Fin" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Contracting_Value1" msdata:Caption="Contracting_Value" msprop:Generator_ColumnVarNameInTable="columnContracting_Value1" msprop:Generator_ColumnPropNameInRow="Contracting_Value1" msprop:Generator_ColumnPropNameInTable="Contracting_Value1Column" msprop:Generator_UserColumnName="Contracting_Value1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Contract_Date" msprop:Generator_ColumnVarNameInTable="columnContract_Date" msprop:Generator_ColumnPropNameInRow="Contract_Date" msprop:Generator_ColumnPropNameInTable="Contract_DateColumn" msprop:Generator_UserColumnName="Contract_Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Employee_Name" msprop:Generator_ColumnVarNameInTable="columnEmployee_Name" msprop:Generator_ColumnPropNameInRow="Employee_Name" msprop:Generator_ColumnPropNameInTable="Employee_NameColumn" msprop:Generator_UserColumnName="Employee_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mobile" msprop:Generator_ColumnVarNameInTable="columnMobile" msprop:Generator_ColumnPropNameInRow="Mobile" msprop:Generator_ColumnPropNameInTable="MobileColumn" msprop:Generator_UserColumnName="Mobile" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_Financial_Receivables" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

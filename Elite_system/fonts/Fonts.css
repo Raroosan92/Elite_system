@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Al-Jazeera-Regular';
+    src: url('../fonts/Al-Jazeera-Arabic-Regular.eot');
+    src: url('../fonts/Al-Jazeera-Arabic-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Al-Jazeera-Arabic-Regular.woff') format('woff'),
+         url('../fonts/Al-Jazeera-Arabic-Regular.ttf') format('truetype'),
+         url('../fonts/Al-Jazeera-Arabic-Regular.svg#Al-Jazeera-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Al-Jazeera-Bold';
+    src: url('../fonts/Al-Jazeera-Arabic-Bold.eot');
+    src: url('../fonts/Al-Jazeera-Arabic-Bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Al-Jazeera-Arabic-Bold.woff') format('woff'),
+         url('../fonts/Al-Jazeera-Arabic-Bold.ttf') format('truetype'),
+         url('../fonts/Al-Jazeera-Arabic-Bold.svg#Al-Jazeera-Bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
