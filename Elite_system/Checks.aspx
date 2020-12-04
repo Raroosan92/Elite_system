@@ -30,6 +30,12 @@
             text-align: center;
             direction: rtl;
         }
+
+        .Barcode {
+            font-family: IDAutomationHC39M;
+            background-color: white;
+            margin-right: 73px;
+        }
     </style>
 
 
@@ -228,15 +234,24 @@
                             </tr>
                             <%--Rami--%>
                             <tr style="direction: rtl;">
-                                <td>
-                                    <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
-
-                                </td>
+                                <td></td>
                                 <td>
                                     <asp:Label runat="server" Text="BarCode" Font-Bold="True" Font-Size="Medium"></asp:Label>
                                 </td>
                             </tr>
+                            <tr style="direction: rtl;">
 
+                                <td>
+
+                                    <%--<asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>--%>
+                                    <br />
+                                    <br />
+                                    <asp:Label runat="server" Text="" ID="LblBarcode" CssClass="Barcode" Font-Size="xx-large"></asp:Label>
+                                    <br />
+                                    <br />
+
+                                </td>
+                            </tr>
                             <tr style="direction: rtl;">
                                 <td style="width: 98px">
                                     <asp:Button ID="Btn_Save1" runat="server" Text="إدخال" OnClick="Btn_Save1_Click" Height="26px" />
@@ -560,7 +575,7 @@
         })
     </script>
 
-  
+
 
 
     <%--rami لتغيير التاريخ من لوحة المفاتيح--%>

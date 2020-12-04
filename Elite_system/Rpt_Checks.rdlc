@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.69585in</Width>
+              <Width>2.12293in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.08144in</Width>
+              <Width>1.24523in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.16438in</Width>
@@ -313,38 +313,43 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.88667in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Image Name="Image1">
-                      <Source>Database</Source>
-                      <Value>=Fields!BarCode_Image.Value</Value>
-                      <MIMEType>image/png</MIMEType>
-                      <Sizing>FitProportional</Sizing>
-                      <ToolTip>BarCode</ToolTip>
+                    <Textbox Name="BarCode">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!BarCode.Value</Value>
+                              <Style>
+                                <FontFamily>IDAutomationHC39M</FontFamily>
+                                <FontSize>16pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>BarCode</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                        </RightBorder>
+                        <BackgroundColor>White</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                    </Image>
+                    </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -611,8 +616,8 @@
         <DataSetName>DS_Checks</DataSetName>
         <Top>1.84944in</Top>
         <Left>0.05665in</Left>
-        <Height>0.61458in</Height>
-        <Width>7.76224in</Width>
+        <Height>1.25125in</Height>
+        <Width>8.35311in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1035,10 +1040,10 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>2.78819in</Height>
+    <Height>3.10069in</Height>
     <Style />
   </Body>
-  <Width>7.81889in</Width>
+  <Width>8.45431in</Width>
   <Page>
     <PageHeader>
       <Height>0.27083in</Height>
@@ -1085,7 +1090,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.29167in</Height>
+      <Height>0.67709in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1114,7 +1119,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox38</rd:DefaultName>
-          <Top>0.04167in</Top>
+          <Top>0.42709in</Top>
           <Left>3.30901in</Left>
           <Height>0.25in</Height>
           <Width>1.28018in</Width>

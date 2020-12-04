@@ -13,6 +13,7 @@ namespace Elite_system
     public partial class RefundedCheckes : System.Web.UI.Page
     {
         Boolean CheckMore;
+        string empname;
         public void MSG(string Text)
         {
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>alert('" + Text + "')</script>", false);
@@ -333,12 +334,12 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE BarCode = '" + Txt_BarCode.Text + "'";
+                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
                 Cls_Connection.open_connection();
                 int Exist = int.Parse(cmd.ExecuteScalar().ToString());
                 cmd.Parameters.Clear();
-                cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE BarCode = '" + Txt_BarCode.Text + "'";
-                string empname = cmd.ExecuteScalar().ToString();
+                cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                empname = cmd.ExecuteScalar().ToString();
                 Cls_Connection.close_connection();
 
                 if (Exist == 1)
@@ -346,7 +347,7 @@ namespace Elite_system
                     if (empname != "")
                     {
                         //To Update Name in checkes
-                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Refunded] = " + 1 + ",Delivered=" + 0 + ",Modified= SYSDATETIME() WHERE BarCode = '" + Txt_BarCode.Text + "'";
+                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Refunded] = " + 1 + ",Delivered=" + 0 + ",Modified= SYSDATETIME() WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
                         Cls_Connection.open_connection();
                         cmd.ExecuteNonQuery();
                         Cls_Connection.close_connection();
@@ -490,9 +491,9 @@ namespace Elite_system
                 ////////////////////////////////   End Of Log        /////////////////////////////////////////////
                 Get_MainChecks_ForGridView();
             }
-
             Txt_BarCode.Text = "";
             Txt_BarCode.Focus();
+
         }
 
         protected void Btn_Save2_Click(object sender, EventArgs e)
@@ -523,6 +524,8 @@ namespace Elite_system
                 Get_MainChecks_ForGridView();
 
             }
+            Txt_CheckNo.Text = "";
+            Txt_CheckNo.Focus();
 
         }
 
@@ -633,7 +636,7 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Refunded=" + 1 + " and BarCode = '" + Txt_BarCode.Text + "'";
+                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Refunded=" + 1 + " and BarCode = '*" + Txt_BarCode.Text + "*'";
                 Cls_Connection.open_connection();
                 int Delivered = int.Parse(cmd.ExecuteScalar().ToString());
                 Cls_Connection.close_connection();
@@ -658,15 +661,8 @@ namespace Elite_system
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "Get_MainChecks_AssignChecks4";
-                if (Txt_BarCode.Text != "")
-                {
-                    cmd.Parameters.AddWithValue("@CheckNo", Txt_BarCode.Text);
-                }
-                else if (Txt_CheckNo.Text != "")
-                {
-                    cmd.Parameters.AddWithValue("@CheckNo", Txt_CheckNo.Text);
-                }
+                cmd.CommandText = "Get_MainChecks_AssignChecks6";
+                cmd.Parameters.AddWithValue("@EmployeeName", empname);
                 Cls_Connection.open_connection();
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);

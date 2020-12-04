@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Elite_system {
-    
-    
-    public partial class AssignCheck {
-        
+namespace Elite_system
+{
+
+
+    public partial class AssignCheck
+    {
+
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// UpdatePanel2 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
-        
+
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-        
+
         /// <summary>
         /// DDL_Employee control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Employee;
-        
+
         /// <summary>
         /// DDL_Sent_To control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Sent_To;
-        
+
         /// <summary>
         /// Txt_BarCode control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_BarCode;
-        
+
         /// <summary>
         /// Txt_CheckNo control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_CheckNo;
-        
+
         /// <summary>
         /// Btn_Save1 control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Save1;
-        
+
         /// <summary>
         /// Btn_Save2 control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Save2;
-        
+
         /// <summary>
         /// Btn_Delete control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Delete;
-        
+
         /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
+
         /// <summary>
         /// GV_ChecksAssigned control.
         /// </summary>

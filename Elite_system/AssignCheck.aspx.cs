@@ -14,6 +14,7 @@ namespace Elite_system
     {
         Boolean Check;
         Boolean CheckMore;
+        string Num;
         int Exist;
         public void MSG(string Text)
         {
@@ -163,6 +164,14 @@ namespace Elite_system
 
         public void Get_MainChecks_ForGridView()
         {
+            //if (Txt_BarCode.Text!="")
+            //{
+                Num = DDL_Employee.SelectedItem.Text;
+            //}
+            //else if (Txt_CheckNo.Text != "")
+            //{
+            //    Num = Txt_CheckNo.Text;
+            //}
             try
             {
 
@@ -174,14 +183,7 @@ namespace Elite_system
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "Get_MainChecks_AssignChecks4";
-                if (Txt_BarCode.Text != "")
-                {
-                    cmd.Parameters.AddWithValue("@CheckNo", Txt_BarCode.Text);
-                }
-                else if(Txt_CheckNo.Text!="")
-                {
-                    cmd.Parameters.AddWithValue("@CheckNo", Txt_CheckNo.Text);
-                }
+                cmd.Parameters.AddWithValue("@EmployeeName", Num);
                 Cls_Connection.open_connection();
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -371,14 +373,14 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE BarCode = '" + Txt_BarCode.Text + "'";
+                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
                 Cls_Connection.open_connection();
                 int Exist = int.Parse(cmd.ExecuteScalar().ToString());
                 Cls_Connection.close_connection();
                 if (Exist == 1)
                 {
                     //To Update Name in checkes
-                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= SYSDATETIME() WHERE BarCode = '" + Txt_BarCode.Text + "'";
+                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= SYSDATETIME() WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
                     Cls_Connection.open_connection();
                     cmd.ExecuteNonQuery();
                     Cls_Connection.close_connection();
@@ -508,7 +510,7 @@ namespace Elite_system
                 cmd.Connection = con;
 
 
-                cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE Refunded=" + 0 + " and BarCode = '" + Txt_BarCode.Text + "'";
+                cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE Refunded=" + 0 + " and BarCode = '*" + Txt_BarCode.Text + "*'";
 
 
                 Cls_Connection.open_connection();
@@ -546,7 +548,6 @@ namespace Elite_system
             {
                 MSG(" هذا الشيك محال الى الموظف : " + AssignedCheck);
             }
-
             Txt_BarCode.Text = "";
             Txt_BarCode.Focus();
         }
@@ -580,6 +581,8 @@ namespace Elite_system
             {
                 MSG(" هذا الشيك محال الى الموظف : " + AssignedCheck);
             }
+            Txt_CheckNo.Text = "";
+            Txt_CheckNo.Focus();
         }
 
         protected void ClearTempTable()

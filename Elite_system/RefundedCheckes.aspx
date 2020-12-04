@@ -158,16 +158,16 @@
 
 
       <script language="javascript" type="text/javascript">
-        window.onload = function load() {
-            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(jsFunctions);
-        }
-        function jsFunctions() {
-           
-            $("#<%=DDL_Sent_To.ClientID%>").select2();
+          window.onload = function load() {
+              Sys.WebForms.PageRequestManager.getInstance().add_endRequest(jsFunctions);
+          }
+          function jsFunctions() {
 
-        }
+              $("#<%=DDL_Sent_To.ClientID%>").select2();
 
-    </script>
+          }
+
+      </script>
     <script>
         $(function () {
             $

@@ -178,13 +178,14 @@
         }
         function jsFunctions() {
               $("#<%=DDL_Medical_Name.ClientID%>").select2();
-        
+        $("#<%=DDL_Main_Company.ClientID%>").select2();
     }
 
     </script>
     <script>
         $(function () {
             $("#<%=DDL_Medical_Name.ClientID%>").select2();
+            $("#<%=DDL_Main_Company.ClientID%>").select2();
         })
     </script>
 

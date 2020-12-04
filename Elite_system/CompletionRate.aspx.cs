@@ -53,18 +53,18 @@ namespace Elite_system
                 cmd.CommandText = "Get_CompletionRate";
                 DateTime dt1 = DateTime.ParseExact(Txt_FromDate.Text, "yyyy-MM-dd", null);
                 DateTime dt2 = DateTime.ParseExact(Txt_ToDate.Text, "yyyy-MM-dd", null);
-                
+
                 cmd.Parameters.AddWithValue("@From", dt1);
                 cmd.Parameters.AddWithValue("@To", dt2);
-                cmd.Parameters.AddWithValue("@EmployeeName",DDL_Employee.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@EmployeeName", DDL_Employee.SelectedItem.Text);
 
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 Cls_Connection.open_connection();
 
                 adp.Fill(dt_Result);
-                AssignCheckCount = dt_Result.Rows.Count;                               
-                cmd.CommandText = "Get_DeliveredChecks";               
-                DeliveredChecks =int.Parse( cmd.ExecuteScalar().ToString());
+                AssignCheckCount = dt_Result.Rows.Count;
+                cmd.CommandText = "Get_DeliveredChecks";
+                DeliveredChecks = int.Parse(cmd.ExecuteScalar().ToString());
                 UnDeliveredChecks = AssignCheckCount - DeliveredChecks;
 
                 Cls_Connection.close_connection();

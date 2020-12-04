@@ -222,13 +222,13 @@ namespace Elite_system
         protected global::System.Web.UI.WebControls.FileUpload fileImages;
 
         /// <summary>
-        /// PlaceHolder1 control.
+        /// LblBarcode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
+        protected global::System.Web.UI.WebControls.Label LblBarcode;
 
         /// <summary>
         /// Btn_Save1 control.

@@ -523,38 +523,43 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>1.14014in</Height>
+              <Height>1.37972in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Image Name="Image1">
-                      <Source>Database</Source>
-                      <Value>=Fields!BarCode_Image.Value</Value>
-                      <MIMEType>image/png</MIMEType>
-                      <Sizing>Clip</Sizing>
-                      <ToolTip>BarCode</ToolTip>
+                    <Textbox Name="BarCode">
+                      <CanGrow>true</CanGrow>
+                      <CanShrink>true</CanShrink>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!BarCode.Value</Value>
+                              <Style>
+                                <FontFamily>IDAutomationHC39M</FontFamily>
+                                <FontSize>16pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>BarCode</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                        </RightBorder>
+                        <BackgroundColor>White</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                    </Image>
+                    </Textbox>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -1017,8 +1022,8 @@
         </SortExpressions>
         <Top>0.4432in</Top>
         <Left>0.05083in</Left>
-        <Height>1.57764in</Height>
-        <Width>10.39363in</Width>
+        <Height>1.81722in</Height>
+        <Width>10.39364in</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1045,7 +1050,7 @@
     <Height>2.90501in</Height>
     <Style />
   </Body>
-  <Width>10.44446in</Width>
+  <Width>10.44447in</Width>
   <Page>
     <PageHeader>
       <Height>1.47445in</Height>
