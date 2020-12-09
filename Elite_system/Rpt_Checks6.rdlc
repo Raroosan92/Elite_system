@@ -608,7 +608,7 @@
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="BarCode">
-                      <CanGrow>true</CanGrow>
+                      <DataElementStyle>Attribute</DataElementStyle>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
@@ -629,6 +629,7 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>BarCode</rd:DefaultName>
+                      <DataElementOutput>Output</DataElementOutput>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -659,6 +660,7 @@
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
+                        <WritingMode>Horizontal</WritingMode>
                       </Style>
                     </Textbox>
                   </CellContents>
