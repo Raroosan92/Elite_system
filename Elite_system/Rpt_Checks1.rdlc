@@ -402,6 +402,7 @@
                         <WritingMode>Horizontal</WritingMode>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -685,7 +686,7 @@
         <DataSetName>DS_Checks</DataSetName>
         <Top>2.10249in</Top>
         <Left>0.26974in</Left>
-        <Height>2.04167in</Height>
+        <Height>2.04166in</Height>
         <Width>7.71357in</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -1101,7 +1102,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>10.9495cm</Height>
+    <Height>10.52614cm</Height>
     <Style />
   </Body>
   <Width>23.32924cm</Width>

@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.86667in</Width>
+              <Width>2.16667in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.04558in</Width>
@@ -603,7 +603,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.99167in</Height>
+              <Height>1.13334in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -619,7 +619,6 @@
                                 <FontFamily>IDAutomationHC39M</FontFamily>
                                 <FontSize>16pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
-                                <Color>#333333</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -677,8 +676,7 @@
                               <Value>=Fields!CheckedDesc.Value</Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
-                                <FontWeight>Normal</FontWeight>
-                                <Color>#333333</Color>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -733,8 +731,7 @@
                               <Value>=FormatDateTime(Fields!Check_Date.Value, DateFormat.ShortDate)</Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
-                                <FontWeight>Normal</FontWeight>
-                                <Color>#333333</Color>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -789,8 +786,7 @@
                               <Value>=Sum(Fields!Value.Value)</Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
-                                <FontWeight>Normal</FontWeight>
-                                <Color>#333333</Color>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -845,8 +841,7 @@
                               <Value>=Fields!Check_No.Value</Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
-                                <FontWeight>Normal</FontWeight>
-                                <Color>#333333</Color>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -901,8 +896,7 @@
                               <Value>=Fields!Company.Value</Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
-                                <FontWeight>Normal</FontWeight>
-                                <Color>#333333</Color>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -957,8 +951,7 @@
                               <Value>=Fields!Phone.Value</Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
-                                <FontWeight>Normal</FontWeight>
-                                <Color>#333333</Color>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1013,8 +1006,7 @@
                               <Value>=Fields!Address.Value</Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
-                                <FontWeight>Normal</FontWeight>
-                                <Color>#333333</Color>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1069,8 +1061,7 @@
                               <Value>=Fields!RegionDesc.Value</Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
-                                <FontWeight>Normal</FontWeight>
-                                <Color>#333333</Color>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1125,8 +1116,7 @@
                               <Value>=Fields!SentTo.Value</Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
-                                <FontWeight>Normal</FontWeight>
-                                <Color>#333333</Color>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1372,8 +1362,8 @@
           </SortExpression>
         </SortExpressions>
         <Top>0.375in</Top>
-        <Height>2.04745in</Height>
-        <Width>10.05497in</Width>
+        <Height>2.18912in</Height>
+        <Width>10.35497in</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1404,7 +1394,7 @@
     <Height>9.63083cm</Height>
     <Style />
   </Body>
-  <Width>25.53962cm</Width>
+  <Width>26.30162cm</Width>
   <Page>
     <PageHeader>
       <Height>3.17177cm</Height>
