@@ -607,7 +607,7 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="BarCode">
+                    <Textbox Name="BarCode2">
                       <DataElementStyle>Attribute</DataElementStyle>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -616,9 +616,11 @@
                             <TextRun>
                               <Value>=Fields!BarCode.Value</Value>
                               <Style>
-                                <FontFamily>IDAutomationHC39M</FontFamily>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>IDAutomationHC39M Free Version</FontFamily>
                                 <FontSize>16pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -633,26 +635,6 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
                         <BackgroundColor>White</BackgroundColor>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -662,6 +644,7 @@
                         <WritingMode>Horizontal</WritingMode>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
