@@ -163,25 +163,26 @@ namespace Elite_system
 
         private void PrintPDF()
         {
-            try { 
-            Warning[] warnings = null;
-            string[] streamids = null;
-            string mimeType = null;
-            string encoding = null;
-            string extension = null;
-            byte[] bytes;
+            try
+            {
+                Warning[] warnings = null;
+                string[] streamids = null;
+                string mimeType = null;
+                string encoding = null;
+                string extension = null;
+                byte[] bytes;
 
 
-            ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Ticket_GetTicket", ObjectDataSource1));
+                ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Ticket_GetTicket", ObjectDataSource1));
 
 
-            bytes = ReportViewer1.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamids, out warnings);
+                bytes = ReportViewer1.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamids, out warnings);
 
 
-            System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes);
-            Response.ContentType = "Application/pdf";
-            Response.BinaryWrite(ms.ToArray());
-            Response.End();
+                System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes);
+                Response.ContentType = "Application/pdf";
+                Response.BinaryWrite(ms.ToArray());
+                Response.End();
             }
             catch
             {
@@ -189,7 +190,7 @@ namespace Elite_system
             }
         }
 
-      
+
         protected void Button2_Click(object sender, EventArgs e)
         {
             PrintPDF();

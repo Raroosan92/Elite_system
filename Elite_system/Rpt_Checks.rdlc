@@ -349,7 +349,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -989,7 +988,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>RegionDesc</rd:DefaultName>
-        <Top>0.80431in</Top>
+        <Top>0.79389in</Top>
         <Left>3.32124in</Left>
         <Height>0.25in</Height>
         <Width>3.46243in</Width>

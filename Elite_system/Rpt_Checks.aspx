@@ -191,7 +191,7 @@
 
 
        <%--rami لتغيير التاريخ من لوحة المفاتيح--%>
-    <script>
+   <%-- <script>
         function DateField_KeyDown(dateField, CalendarExtender2) {
             lastKeyCodeEntered = window.event.keyCode;
             if ((lastKeyCodeEntered == '37')        //keyCode 37=left arrow
@@ -266,6 +266,6 @@
                 dtbehav.set_selectedDate(dateField.value);
             }
         }
-    </script>
+    </script>--%>
     <%--rami لتغيير التاريخ من لوحة المفاتيح--%>
 </asp:Content>

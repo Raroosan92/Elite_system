@@ -113,7 +113,7 @@ namespace Elite_system
                 Cls_Connection.close_connection();
                 ReportViewer1.Reset();
                 ReportViewer1.ProcessingMode = ProcessingMode.Local;
-                ReportViewer1.LocalReport.ReportPath = Server.MapPath("Rpt_Checks.rdlc");
+                ReportViewer1.LocalReport.ReportPath = Server.MapPath("Rpt_Checks1.rdlc");
                 ReportViewer1.LocalReport.DataSources.Clear();
                 ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_Checks", dt_Result));
                 ReportViewer1.LocalReport.Refresh();

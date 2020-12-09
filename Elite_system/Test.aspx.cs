@@ -549,7 +549,7 @@ namespace Elite_system
             //rami
             int attach_type = 300;
             string attach_place_store;
-            int strImageName = Convert.ToInt16(GridView1.SelectedRow.Cells[1].Text);
+            int strImageName = int.Parse(GridView1.SelectedRow.Cells[1].Text);
 
 
             SqlDataAdapter da = new SqlDataAdapter();

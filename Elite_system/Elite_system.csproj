@@ -978,13 +978,6 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
-    <Content Include="Web.config" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accounting_Tree.aspx.cs">
@@ -1602,12 +1595,14 @@
     <EmbeddedResource Include="Rpt_Checks.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_Checks1.rdlc" />
     <EmbeddedResource Include="Rpt_Checks3.rdlc" />
     <EmbeddedResource Include="Rpt_Checks3_.rdlc" />
     <EmbeddedResource Include="Rpt_Checks4.rdlc" />
     <EmbeddedResource Include="Rpt_Checks5.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_Checks6.rdlc" />
     <EmbeddedResource Include="Rpt_Claims_Updated.rdlc" />
     <EmbeddedResource Include="Rpt_Claims.rdlc" />
     <EmbeddedResource Include="Rpt_Claims2.rdlc" />
