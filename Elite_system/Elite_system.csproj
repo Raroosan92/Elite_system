@@ -722,6 +722,7 @@
     <Content Include="DS_Account.xsc">
       <DependentUpon>DS_Account.xsd</DependentUpon>
     </Content>
+    <Content Include="Test.aspx" />
     <Content Include="Testbarcode.aspx" />
     <Content Include="TreeLineImages\dash.gif" />
     <Content Include="TreeLineImages\dashminus.gif" />
@@ -969,7 +970,6 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Sub_Banks.aspx" />
-    <Content Include="Test.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Bundle.config">
       <SubType>Designer</SubType>
