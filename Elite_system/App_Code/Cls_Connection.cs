@@ -45,9 +45,9 @@ public class Cls_Connection
             }
 
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-
+            string x = ex.Message.ToString();
            
         }
 

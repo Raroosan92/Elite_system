@@ -637,6 +637,7 @@
     <Content Include="Rpt_Claims2.aspx" />
     <Content Include="Rpt_Mails.aspx" />
     <Content Include="Rpt_MedicalTypesWithNoClaims.aspx" />
+    <Content Include="Rpt_Medical_Name_Main_Company.aspx" />
     <Content Include="Rpt_Stamps.aspx" />
     <Content Include="Scripts\i18n\af.js" />
     <Content Include="Scripts\i18n\ar.js" />
@@ -891,6 +892,17 @@
     <Content Include="DS_Mails2.xss">
       <DependentUpon>DS_Mails2.xsd</DependentUpon>
     </Content>
+    <Content Include="DS_Medical_Name_Main_Company.xsc">
+      <DependentUpon>DS_Medical_Name_Main_Company.xsd</DependentUpon>
+    </Content>
+    <None Include="DS_Medical_Name_Main_Company.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Medical_Name_Main_Company.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DS_Medical_Name_Main_Company.xss">
+      <DependentUpon>DS_Medical_Name_Main_Company.xsd</DependentUpon>
+    </Content>
     <None Include="DS_Rpt_MedicalTypesWithNoClaims.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -978,6 +990,13 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accounting_Tree.aspx.cs">
@@ -1126,6 +1145,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_Mails2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_Medical_Name_Main_Company.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Medical_Name_Main_Company.xsd</DependentUpon>
     </Compile>
     <Compile Include="DS_Rpt_MedicalTypesWithNoClaims.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1520,6 +1544,13 @@
     <Compile Include="Rpt_MedicalTypesWithNoClaims.aspx.designer.cs">
       <DependentUpon>Rpt_MedicalTypesWithNoClaims.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Rpt_Medical_Name_Main_Company.aspx.cs">
+      <DependentUpon>Rpt_Medical_Name_Main_Company.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt_Medical_Name_Main_Company.aspx.designer.cs">
+      <DependentUpon>Rpt_Medical_Name_Main_Company.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Rpt_Stamps.aspx.cs">
       <DependentUpon>Rpt_Stamps.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1587,6 +1618,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Rpt_Medical_Name_Main_Company3.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_Medical_Name_Main_Company2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_Medical_Name_Main_Company.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rpt_Account.rdlc" />
     <EmbeddedResource Include="Rpt_Check2.rdlc" />
     <EmbeddedResource Include="RptCompletionRate.rdlc">
