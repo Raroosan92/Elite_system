@@ -64,6 +64,24 @@ namespace Elite_system
                 cmd.Parameters.AddWithValue("@Main_Company", long.Parse(DDL_Main_Company.SelectedValue));
                 cmd.Parameters.AddWithValue("@Sub_Company", long.Parse(DDL_Sub_Company.SelectedValue));
 
+
+                if (DDL_InOut.SelectedValue == "0")
+                {
+                    cmd.Parameters.AddWithValue("@InOut", 0);
+                }
+                else if (DDL_InOut.SelectedValue == "1")
+                {
+
+                    cmd.Parameters.AddWithValue("@InOut", 1);
+
+                }
+                else if (DDL_InOut.SelectedValue == "2")
+                {
+
+                    cmd.Parameters.AddWithValue("@InOut", 2);
+                }
+
+
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 Cls_Connection.open_connection();
                 adp.Fill(dt_Result);

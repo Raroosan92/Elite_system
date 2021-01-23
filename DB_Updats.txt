@@ -1,0 +1,138 @@
+update Main_Check set BarCode_Image=null;      شادي هاي خليها بدي اشاورك فيها
+-----------------------------------------------------------------------------------------------------------------------------------
+
+ALTER proc [dbo].[Get_MainChecks_AssignChecks4]
+@CheckNo nvarchar(200) = null,
+@EmployeeName nvarchar(200) = null
+as
+begin
+SELECT 
+		top 600	[id]as [التسلسل]
+           ,[Company] AS [اسم الشركة]
+           ,[Check_Date] AS [تاريخ الشيك]
+           ,[MainBank] AS [اسم البنك الرئيسي]
+           ,[SentTo]AS [مرسل الى]
+           ,[Value]AS [قيمته]
+           ,[Check_No] AS [رقم الشيك]
+           ,[Months] AS [شهر]
+           ,[Notes]AS [ملاحظات]
+           ,[Address] AS [العنوان]
+           ,[Phone] AS [رقم الهاتف]
+           ,[BarCode]
+           ,[EmployeeName] AS [أسم الموظف المحال له الشيك]
+		   ,[Delivered] AS [مسلّم/غير مسلّم]
+		   , [Refunded] AS [مرتجع/غير مرتجع]
+FROM      [dbo].[V_Main_Check] where( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date)) order by id desc
+end
+-----------------------------------------------------------------------------------------------------------------------------------
+
+create proc [dbo].[Get_MainChecks_AssignChecks5]
+@CheckNo nvarchar(200) = null,
+@EmployeeName nvarchar(200) = null
+as
+begin
+SELECT 
+		top 600	[id]as [التسلسل]
+           ,[Company] AS [اسم الشركة]
+           ,[Check_Date] AS [تاريخ الشيك]
+           ,[MainBank] AS [اسم البنك الرئيسي]
+           ,[SentTo]AS [مرسل الى]
+           ,[Value]AS [قيمته]
+           ,[Check_No] AS [رقم الشيك]
+           ,[Months] AS [شهر]
+           ,[Notes]AS [ملاحظات]
+           ,[Address] AS [العنوان]
+           ,[Phone] AS [رقم الهاتف]
+           ,[BarCode]
+           ,[EmployeeName] AS [أسم الموظف المحال له الشيك]
+		   ,[Delivered] AS [مسلّم/غير مسلّم]
+		   , [Refunded] AS [مرتجع/غير مرتجع]
+FROM      [dbo].[V_Main_Check] where( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date)) and Delivered=1 order by id desc
+end
+-----------------------------------------------------------------------------------------------------------------------------------
+
+create proc [dbo].[Get_MainChecks_AssignChecks6]
+@EmployeeName nvarchar(200) = null
+as
+begin
+SELECT 
+		top 600	[id]as [التسلسل]
+           ,[Company] AS [اسم الشركة]
+           ,[Check_Date] AS [تاريخ الشيك]
+           ,[MainBank] AS [اسم البنك الرئيسي]
+           ,[SentTo]AS [مرسل الى]
+           ,[Value]AS [قيمته]
+           ,[Check_No] AS [رقم الشيك]
+           ,[Months] AS [شهر]
+           ,[Notes]AS [ملاحظات]
+           ,[Address] AS [العنوان]
+           ,[Phone] AS [رقم الهاتف]
+           ,[BarCode]
+           ,[EmployeeName] AS [أسم الموظف المحال له الشيك]
+		   ,[Delivered] AS [مسلّم/غير مسلّم]
+		   , [Refunded] AS [مرتجع/غير مرتجع]
+FROM      [dbo].[V_Main_Check] where( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date)) and Refunded=1 order by id desc
+end
+-----------------------------------------------------------------------------------------------------------------------------------
+ALTER proc [dbo].[Get_V_Claims_Report3]
+@From date,
+@To date,
+@Medical_Name numeric(18,0)=null,
+@Main_Company numeric(18,0)=null,
+@Sub_Company numeric(18,0)=null,
+@InOut int=null
+as
+begin
+
+
+if @InOut=0
+
+BEGIN
+if (@Sub_Company=0)
+select * from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and [Main_Company]=@Main_Company and [Received_Date] between @From and @To
+else
+select * from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and [Main_Company]=@Main_Company and [Sub_Company]=@Sub_Company and [Received_Date] between @From and @To
+
+end
+
+else if @InOut=1
+BEGIN
+
+if (@Sub_Company=0)
+select * from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and [Main_Company]=@Main_Company and [Received_Date] between @From and @To and Procedure1 is not null and Procedure1 !=0
+else
+select * from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and [Main_Company]=@Main_Company and [Sub_Company]=@Sub_Company and [Received_Date] between @From and @To and Procedure1 is not null and Procedure1 !=0
+
+
+end
+
+else
+
+BEGIN
+
+if (@Sub_Company=0)
+select * from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and [Main_Company]=@Main_Company and [Received_Date] between @From and @To and (Procedure1 is null or Procedure1 =0)
+else
+select * from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and [Main_Company]=@Main_Company and [Sub_Company]=@Sub_Company and [Received_Date] between @From and @To and (Procedure1 is null or Procedure1 =0)
+
+
+end
+
+end
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------

@@ -98,6 +98,21 @@
                                     <asp:Label runat="server" Text="الشركة الفرعية"></asp:Label>
                                 </td>
                             </tr>
+
+                             <tr>
+
+                                <td class="auto-style1">
+                                    <asp:DropDownList ID="DDL_InOut" runat="server" Width="220px">
+                                        <asp:ListItem Text="-- اختر--" Value="0" />
+                                        <asp:ListItem Text="IN" Value="1" />
+                                        <asp:ListItem Text="OUT" Value="2" />                                        
+                                    </asp:DropDownList>
+                                </td>
+                                <td style="width: 98px">
+
+                                    <asp:Label ID="Label2" runat="server" Text="IN / OUT"></asp:Label></td>
+
+                            </tr>
                             <tr>
 
                                 <td class="auto-style1">

@@ -833,7 +833,7 @@ namespace Elite_system
             //rami
             int attach_type = 600;
             string attach_place_store;
-            int strImageName = Convert.ToInt16(DDL_Medical_Name.SelectedValue);
+            int strImageName = int.Parse(DDL_Medical_Name.SelectedValue);
 
 
             SqlDataAdapter da = new SqlDataAdapter();
