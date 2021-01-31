@@ -62,8 +62,12 @@ namespace Elite_system
                 cmd.Parameters.AddWithValue("@To", dt2);
                 cmd.Parameters.AddWithValue("@Medical_Name", long.Parse(DDL_Medical_Name.SelectedValue));
                 cmd.Parameters.AddWithValue("@Main_Company", long.Parse(DDL_Main_Company.SelectedValue));
-                cmd.Parameters.AddWithValue("@Sub_Company", long.Parse(DDL_Sub_Company.SelectedValue));
+                
 
+                if (DDL_Sub_Company.SelectedValue == "")
+                {
+                    cmd.Parameters.AddWithValue("@Sub_Company", 0);
+                }
 
                 if (DDL_InOut.SelectedValue == "0")
                 {

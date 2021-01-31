@@ -621,6 +621,7 @@
     <Content Include="MasterPage.master" />
     <Content Include="imgSideBar\elements\_DS_Store" />
     <Content Include="Medical_Types_Check.aspx" />
+    <Content Include="Payment_Of_Claims.aspx" />
     <Content Include="Procedures.aspx" />
     <Content Include="RamiRami.aspx" />
     <Content Include="RefundedCheckes.aspx" />
@@ -1424,6 +1425,13 @@
       <DependentUpon>Medical_Types_Check.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Payment_Of_Claims.aspx.cs">
+      <DependentUpon>Payment_Of_Claims.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment_Of_Claims.aspx.designer.cs">
+      <DependentUpon>Payment_Of_Claims.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Procedures.aspx.cs">
       <DependentUpon>Procedures.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
