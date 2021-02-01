@@ -42,21 +42,30 @@ namespace Elite_system
         protected global::System.Web.UI.WebControls.DropDownList DDL_Main_Company;
 
         /// <summary>
-        /// DDL_Sub_Company control.
+        /// Txt_PayAmmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDL_Sub_Company;
+        protected global::System.Web.UI.WebControls.TextBox Txt_PayAmmount;
 
         /// <summary>
-        /// GridView_SubClaims control.
+        /// Btn_Save control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView_SubClaims;
+        protected global::System.Web.UI.WebControls.Button Btn_Save;
+
+        /// <summary>
+        /// GridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView;
     }
 }
