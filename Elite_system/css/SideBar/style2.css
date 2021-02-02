@@ -56,8 +56,10 @@ theme.
   padding: 0px; }
 
 a {
-  text-decoration: none;
-  transition: all 0.3s ease-in-out; }
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    font-size: 13.6px;
+}
   a:hover, a:focus {
     text-decoration: none;
     outline: none; }

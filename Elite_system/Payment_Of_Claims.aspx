@@ -49,6 +49,14 @@
                         <div class="COLR" style="float: right">
                             <div class="table-responsive">
                                 <table class="table table-striped">
+                                     <tr style="background-color: #2f323a;">
+                                        <td class="auto-style1">
+
+                                        </td>
+                                        <td style="width: 98px">
+                                            <asp:Label ID="Label4" runat="server" Text="الدفع" ForeColor="#f2f2f2" Font-Bold="True" Font-Size="Larger"></asp:Label>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td class="auto-style1">
                                             <asp:DropDownList ID="DDL_Medical_Name" runat="server" AutoPostBack="True" DataTextField="Name" DataValueField="ID" OnSelectedIndexChanged="DDL_Medical_Name_SelectedIndexChanged" Width="300px"></asp:DropDownList>
@@ -73,7 +81,7 @@
 
                                     <tr>
                                         <td>
-                                          <%--  <asp:DropDownList ID="DDL_Sub_Company" runat="server" AutoPostBack="True" Width="300px" DataTextField="Sub_Company" DataValueField="ID">
+                                            <%--  <asp:DropDownList ID="DDL_Sub_Company" runat="server" AutoPostBack="True" Width="300px" DataTextField="Sub_Company" DataValueField="ID">
                                             </asp:DropDownList>--%>
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_PayAmmount" Width="300px"></asp:TextBox>
                                         </td>
@@ -90,18 +98,41 @@
                                         <td></td>
                                     </tr>
 
-
+                                    <tr style="direction: rtl;">
+                                        <td>
+                                            <asp:Label ID="main_ClaimID" runat="server" Text=""></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="LL" runat="server" Text="رقم المطالبة"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr style="direction: rtl;">
+                                        <td>
+                                            <asp:Label ID="Sub_ClaimID" runat="server" Text=""></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="Label1" runat="server" Text="رقم المطالبة الفرعية"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr style="direction: rtl;">
+                                        <td>
+                                            <asp:Label ID="Patient_Name" runat="server" Text=""></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="Label3" runat="server" Text="اسم المريض"></asp:Label>
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="text-center my-5" style="direction: ltr; float:left">
+            <section class="text-center my-5" style="direction: ltr; float: left">
                 <div class="container">
                     <div class="row">
                     </div>
-                    <div id="Main_GV">
+                    <div id="Main_GV" style="overflow-y: scroll; height: 572px;">
                         <asp:GridView ID="GridView" runat="server" CssClass="Grid" AllowPaging="false" OnSelectedIndexChanged="GridView_SelectedIndexChanged">
                             <Columns>
                                 <asp:CommandField ShowSelectButton="True" SelectText="اختر" ControlStyle-ForeColor="Black" />

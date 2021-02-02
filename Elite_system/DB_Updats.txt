@@ -1,5 +1,3 @@
-update Main_Check set BarCode_Image=null;      شادي هاي خليها بدي اشاورك فيها
------------------------------------------------------------------------------------------------------------------------------------
 
 ALTER proc [dbo].[Get_V_Claims_Report3]
 @From date,
@@ -10,7 +8,7 @@ ALTER proc [dbo].[Get_V_Claims_Report3]
 @InOut int=null
 as
 begin
-ffgfgddfdg
+
 
 if @InOut=0
 
@@ -57,10 +55,10 @@ as
 begin
 
 if @Main_Company=0
-select id, Main_Claims_ID 'التسلسل' ,Medical_TypeName as 'اسم الجهة الطبية' ,cast( Entry_Date as nvarchar) as 'تاريخ الادخال', Main_CompanyDesc as 'اسم الشركة', Claims_Count as 'عدد المطالبات', [Value] as 'قيمة المطالبة', patient_name 'اسم المريض',Sub_CompanyDesc 'عن شركة' , PatientRatio 'نسبة تحمل المريض' , Tax 'الضريبة' from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name AND patient_name <>''
+select Sub_ClaimsID 'رقم الفرعية', Main_Claims_ID 'رقم المطالبة' ,Medical_TypeName as 'اسم الجهة الطبية' ,cast( Entry_Date as nvarchar) as 'تاريخ الادخال', Main_CompanyDesc as 'اسم الشركة', Claims_Count as 'عدد المطالبات', [Value] as 'قيمة المطالبة', patient_name 'اسم المريض',Sub_CompanyDesc 'عن شركة' , PatientRatio 'نسبة تحمل المريض' , Tax 'الضريبة' from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name AND patient_name <>''
 --select id  ,Medical_TypeName  ,cast( Entry_Date as nvarchar) , Main_CompanyDesc , Claims_Count , [Value] , patient_name ,Sub_CompanyDesc  , PatientRatio , Tax from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name
 else
-select id, Main_Claims_ID 'التسلسل' ,Medical_TypeName as 'اسم الجهة الطبية' ,cast( Entry_Date as nvarchar) as 'تاريخ الادخال', Main_CompanyDesc as 'اسم الشركة', Claims_Count as 'عدد المطالبات', [Value] as 'قيمة المطالبة', patient_name 'اسم المريض',Sub_CompanyDesc 'عن شركة' , PatientRatio 'نسبة تحمل المريض' , Tax 'الضريبة'  from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and Main_Company=@Main_Company AND patient_name <>''
+select Sub_ClaimsID 'رقم الفرعية', Main_Claims_ID 'رقم المطالبة' ,Medical_TypeName as 'اسم الجهة الطبية' ,cast( Entry_Date as nvarchar) as 'تاريخ الادخال', Main_CompanyDesc as 'اسم الشركة', Claims_Count as 'عدد المطالبات', [Value] as 'قيمة المطالبة', patient_name 'اسم المريض',Sub_CompanyDesc 'عن شركة' , PatientRatio 'نسبة تحمل المريض' , Tax 'الضريبة'  from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and Main_Company=@Main_Company AND patient_name <>''
 --select id  ,Medical_TypeName  ,cast( Entry_Date as nvarchar) , Main_CompanyDesc , Claims_Count , [Value] , patient_name ,Sub_CompanyDesc  , PatientRatio , Tax  from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and Main_Company=@Main_Company
 end
 -----------------------------------------------------------------------------------------------------------------------------------

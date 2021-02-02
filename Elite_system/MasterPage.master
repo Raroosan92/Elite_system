@@ -102,29 +102,31 @@
                             <div class="navbar" runat="server">
                                 <ul class="nav nav-pills nav-stacked" runat="server">
 
-                                    <li class="active"><a href="../Default.aspx">الرئيسية<img src="../imgSideBar/header/nav-icon1.png" /></a></li>
+                                    <li class="active"><a href="../Default.aspx">الرئيسية<img src="../imgSideBar/header/Main.png" /></a></li>
 
-                                    <li id="Claims" runat="server"><a href="../Claims.aspx">المطالبات<img src="../imgSideBar/header/nav-icon2.png" /></a></li>
+                                    <li id="Claims" runat="server"><a href="../Claims.aspx">المطالبات<img src="../imgSideBar/header/claim.png" /></a></li>
 
-                                    <li id="Medical_Types" runat="server" class=""><a href="../Medical_Types.aspx">الجهات الطبية<img src="../imgSideBar/header/nav-icon6.png" /></a></li>
+                                    <li id="Li1" runat="server"><a href="../Payment_Of_Claims.aspx">دفع للمطالبات<img src="../imgSideBar/header/credit-card.png" /></a></li>
 
-                                    <li id="Companies" runat="server" class=""><a href="../Companies.aspx">الشركات<img src="../imgSideBar/header/nav-icon5.png" /></a></li>
+                                    <li id="Medical_Types" runat="server" class=""><a href="../Medical_Types.aspx">الجهات الطبية<img src="../imgSideBar/header/doctor.png" /></a></li>
 
-                                    <li id="Mail" runat="server" class=""><a href="../Mail.aspx">البريد<img src="../imgSideBar/header/nav-icon3.png" /></a></li>
+                                    <li id="Companies" runat="server" class=""><a href="../Companies.aspx">الشركات<img src="../imgSideBar/header/company.png" /></a></li>
 
-                                    <li id="Employees" runat="server" class=""><a href="../Employees.aspx">الموظفين<img src="../imgSideBar/header/nav-icon6.png" /></a></li>
+                                    <li id="Mail" runat="server" class=""><a href="../Mail.aspx">البريد<img src="../imgSideBar/header/email.png" /></a></li>
 
-                                    <li id="Receipt" runat="server" class=""><a href="../Receipt.aspx">سندات القبض<img src="../imgSideBar/header/nav-icon4.png" /></a></li>
+                                    <li id="Employees" runat="server" class=""><a href="../Employees.aspx">الموظفين<img src="../imgSideBar/header/employee.png" /></a></li>
+
+                                    <li id="Receipt" runat="server" class=""><a href="../Receipt.aspx">سندات القبض<img src="../imgSideBar/header/bill.png" /></a></li>
 
                                     <%-- <li class=""><a href="../Listing_Bonds.aspx">سندات القيد<img src="../imgSideBar/header/nav-icon6.png" /></a></li>--%>
 
 
-                                    <li id="RegisterUser" runat="server" class=""><a href="../Admin/RegisterUser.aspx">ادراة المستخدمين<img src="../imgSideBar/header/nav-icon6.png" /></a></li>
+                                    <li id="RegisterUser" runat="server" class=""><a href="../Admin/RegisterUser.aspx">ادراة المستخدمين<img src="../imgSideBar/header/user.png" /></a></li>
                                     <li class="">
 
                                         <li class="" id="AllChecks" runat="server">
                                             <div class="dropup">
-                                                <a class="" style="margin-left: 50%;" data-toggle="dropdown">الشيكات<img src="../imgSideBar/header/nav-icon6.png" /><span class="caret"></span></a>
+                                                <a class="" style="margin-left: 50%;" data-toggle="dropdown">الشيكات<img src="../imgSideBar/header/bank-check.png" /><span class="caret"></span></a>
                                                 <ul class="dropdown-menu nav-stacked" style="direction: rtl;">
                                                     <li id="Checks" runat="server" class=""><a href="../Checks">ادخال شيكات<img src="../imgSideBar/header/nav-icon6.png" /></a></li>
                                                     <li id="AssignCheck" runat="server" class=""><a href="../AssignCheck">احالة شيكات<img src="../imgSideBar/header/nav-icon8.png" /></a></li>
@@ -136,7 +138,7 @@
 
                                         <li class="" id="AllAccounting" runat="server">
                                             <div class="dropup">
-                                                <a class="" style="margin-left: 50%;" data-toggle="dropdown">المحاسبة<img src="../imgSideBar/header/nav-icon6.png" /><span class="caret"></span></a>
+                                                <a class="" style="margin-left: 50%;" data-toggle="dropdown">المحاسبة<img src="../imgSideBar/header/accounting.png" /><span class="caret"></span></a>
                                                 <ul class="dropdown-menu nav-stacked" style="direction: rtl;">
 
                                                     <li id="Accounting_Tree" runat="server" class=""><a href="../Accounting_Tree.aspx">الشجرة المحاسبية
@@ -149,7 +151,7 @@
 
                                         <li class="" id="AllSettings" runat="server">
                                             <div class="dropup">
-                                                <a class="" style="margin-left: 50%;" data-toggle="dropdown">اعدادات<img src="../imgSideBar/header/nav-icon6.png" /><span class="caret"></span></a>
+                                                <a class="" style="margin-left: 50%;" data-toggle="dropdown">اعدادات<img src="../imgSideBar/header/settings.png" /><span class="caret"></span></a>
                                                 <ul class="dropdown-menu nav-stacked" style="direction: rtl;">
                                                     <li id="Main_Banks" runat="server" class=""><a href="../Main_Banks.aspx">البنوك الرئيسية<img src="../imgSideBar/header/nav-icon7.png" /></a></li>
                                                     <li id="Sub_Banks" runat="server" class=""><a href="../Sub_Banks.aspx">البنوك الفرعية<img src="../imgSideBar/header/nav-icon8.png" /></a></li>
@@ -165,7 +167,7 @@
                                         </li>
                                         <li class="" id="AllReports" runat="server">
                                             <div class="dropup">
-                                                <a class="" style="margin-left: 50%;" data-toggle="dropdown">الكشوفات<img src="../imgSideBar/header/nav-icon6.png" /><span class="caret"></span></a>
+                                                <a class="" style="margin-left: 47%;" data-toggle="dropdown">الكشوفات<img src="../imgSideBar/header/Reports.png" /><span class="caret"></span></a>
                                                 <ul class="dropdown-menu nav-stacked" style="direction: rtl;">
 
                                                     <li id="Rpt_Checks2" runat="server" class=""><a href="../Rpt_Checks2.aspx">الجهات الطبية المتعاقدة<img src="../imgSideBar/header/nav-icon8.png" /></a></li>

@@ -246,7 +246,7 @@
 
                 <br />
                 <div class="COLR" style="margin-left: -68px">
-                    <div class="table-responsive" style="width: 113%; margin-left: -76px;">
+                    <div class="table-responsive" style="width: 100%; margin-left: -7px;">
                         <table class="table-responsive">
 
                             <tr>

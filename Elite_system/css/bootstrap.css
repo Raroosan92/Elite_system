@@ -2253,11 +2253,11 @@ th {
 }
 .table {
     /*margin-top:10%;*/
-  width: 86%;
-  float:right;
-      margin-right: 10%;
-  max-width: 100%;
-  margin-bottom: 20px;
+    width: 86%;
+    float: right;
+    margin-right: 15%;
+    max-width: 100%;
+    margin-bottom: 20px;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -3991,10 +3991,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li {
   float: left;
 }
-.nav-pills > li > a {
-  border-radius: 4px;
-  text-align:end;
-}
+    .nav-pills > li > a {
+        border-radius: 4px;
+        text-align: end;
+        font-size: 13.6px;
+    }
 .nav-pills > li + li {
   margin-left: 2px;
 }
