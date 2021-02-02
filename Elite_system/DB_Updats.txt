@@ -10,7 +10,7 @@ ALTER proc [dbo].[Get_V_Claims_Report3]
 @InOut int=null
 as
 begin
-
+ffgfgddfdg
 
 if @InOut=0
 
