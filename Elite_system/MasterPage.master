@@ -106,7 +106,7 @@
 
                                     <li id="Claims" runat="server"><a href="../Claims.aspx">المطالبات<img src="../imgSideBar/header/claim.png" /></a></li>
 
-                                    <li id="Li1" runat="server"><a href="../Payment_Of_Claims.aspx">دفع للمطالبات<img src="../imgSideBar/header/credit-card.png" /></a></li>
+                                    <li id="PaymentOfClaim" runat="server"><a href="../Payment_Of_Claims.aspx">دفع للمطالبات<img src="../imgSideBar/header/credit-card.png" /></a></li>
 
                                     <li id="Medical_Types" runat="server" class=""><a href="../Medical_Types.aspx">الجهات الطبية<img src="../imgSideBar/header/doctor.png" /></a></li>
 

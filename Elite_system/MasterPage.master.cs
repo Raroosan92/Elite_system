@@ -131,6 +131,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
             HtmlControl Rpt_Claims4 = (HtmlControl)Page.Master.FindControl("Rpt_Claims4");
             Rpt_Claims3.Attributes.Add("style", "display:none");
 
+            HtmlControl PaymentOfClaim = (HtmlControl)Page.Master.FindControl("PaymentOfClaim");
+            PaymentOfClaim.Attributes.Add("style", "display:none");
             #endregion
 
             if (Request.Cookies["UserName"] != null)
@@ -336,10 +338,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     AllReports.Attributes.Add("style", "display:Block");
                     Rpt_MedicalTypesWithNoClaims.Attributes.Add("style", "display:Block");
                 }
+                if (HttpContext.Current.User.IsInRole("Payment_Of_Claims"))
+                {
+                    PaymentOfClaim.Attributes.Add("style", "display:Block");
+                }
             }
             else
             {
-
+                PaymentOfClaim.Attributes.Add("style", "display:Block");
                 claim.Attributes.Add("style", "display:Block");
                 Medical_Types.Attributes.Add("style", "display:Block");
                 Mail.Attributes.Add("style", "display:Block");
