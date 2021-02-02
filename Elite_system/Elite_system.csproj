@@ -231,6 +231,7 @@
     <Content Include="css\thumbnail-slider.css" />
     <Content Include="css\waitMe.css" />
     <Content Include="css\waitMe.min.css" />
+    <Content Include="DB_Updats.txt" />
     <Content Include="DeliveredChecks.aspx" />
     <Content Include="google22e3f0ac626b01ab.html" />
     <Content Include="img\Elite1.jpg" />

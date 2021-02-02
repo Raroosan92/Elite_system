@@ -1,0 +1,86 @@
+update Main_Check set BarCode_Image=null;      شادي هاي خليها بدي اشاورك فيها
+-----------------------------------------------------------------------------------------------------------------------------------
+
+ALTER proc [dbo].[Get_V_Claims_Report3]
+@From date,
+@To date,
+@Medical_Name numeric(18,0)=null,
+@Main_Company numeric(18,0)=null,
+@Sub_Company numeric(18,0)=null,
+@InOut int=null
+as
+begin
+
+
+if @InOut=0
+
+BEGIN
+if (@Main_Company = 0)
+select * from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and ([Received_Date] between @From and @To)
+else if (@Sub_Company=0)
+select * from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and [Main_Company]=@Main_Company and [Received_Date] between @From and @To
+else
+select * from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and [Main_Company]=@Main_Company and [Sub_Company]=@Sub_Company and [Received_Date] between @From and @To
+
+end
+
+else if @InOut=1
+BEGIN
+
+if (@Sub_Company=0)
+select * from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and [Main_Company]=@Main_Company and [Received_Date] between @From and @To and Procedure1 is not null and Procedure1 !=0
+else
+select * from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and [Main_Company]=@Main_Company and [Sub_Company]=@Sub_Company and [Received_Date] between @From and @To and Procedure1 is not null and Procedure1 !=0
+
+
+end
+
+else
+
+BEGIN
+
+if (@Sub_Company=0)
+select * from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and [Main_Company]=@Main_Company and [Received_Date] between @From and @To and (Procedure1 is null or Procedure1 =0)
+else
+select * from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and [Main_Company]=@Main_Company and [Sub_Company]=@Sub_Company and [Received_Date] between @From and @To and (Procedure1 is null or Procedure1 =0)
+
+
+end
+
+end
+-----------------------------------------------------------------------------------------------------------------------------------
+create proc [dbo].[Get_V_Payment_Of_Claims]
+
+@Medical_Name numeric(18,0)=null,
+@Main_Company numeric(18,0)=null
+as
+begin
+
+if @Main_Company=0
+select id, Main_Claims_ID 'التسلسل' ,Medical_TypeName as 'اسم الجهة الطبية' ,cast( Entry_Date as nvarchar) as 'تاريخ الادخال', Main_CompanyDesc as 'اسم الشركة', Claims_Count as 'عدد المطالبات', [Value] as 'قيمة المطالبة', patient_name 'اسم المريض',Sub_CompanyDesc 'عن شركة' , PatientRatio 'نسبة تحمل المريض' , Tax 'الضريبة' from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name AND patient_name <>''
+--select id  ,Medical_TypeName  ,cast( Entry_Date as nvarchar) , Main_CompanyDesc , Claims_Count , [Value] , patient_name ,Sub_CompanyDesc  , PatientRatio , Tax from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name
+else
+select id, Main_Claims_ID 'التسلسل' ,Medical_TypeName as 'اسم الجهة الطبية' ,cast( Entry_Date as nvarchar) as 'تاريخ الادخال', Main_CompanyDesc as 'اسم الشركة', Claims_Count as 'عدد المطالبات', [Value] as 'قيمة المطالبة', patient_name 'اسم المريض',Sub_CompanyDesc 'عن شركة' , PatientRatio 'نسبة تحمل المريض' , Tax 'الضريبة'  from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and Main_Company=@Main_Company AND patient_name <>''
+--select id  ,Medical_TypeName  ,cast( Entry_Date as nvarchar) , Main_CompanyDesc , Claims_Count , [Value] , patient_name ,Sub_CompanyDesc  , PatientRatio , Tax  from [dbo].[V_ClaimsRpt2] where [Medical_Name]=@Medical_Name and Main_Company=@Main_Company
+end
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
