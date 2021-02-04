@@ -133,6 +133,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
             HtmlControl PaymentOfClaim = (HtmlControl)Page.Master.FindControl("PaymentOfClaim");
             PaymentOfClaim.Attributes.Add("style", "display:none");
+
+            HtmlControl Rpt_Medical_Name_Main_Company = (HtmlControl)Page.Master.FindControl("Rpt_Medical_Name_Main_Company");
+            PaymentOfClaim.Attributes.Add("style", "display:none");
+
+            HtmlControl CompletionRate = (HtmlControl)Page.Master.FindControl("CompletionRate");
+            PaymentOfClaim.Attributes.Add("style", "display:none");
+
+            HtmlControl Claims_Report_Company = (HtmlControl)Page.Master.FindControl("Claims_Report_Company ");
+            PaymentOfClaim.Attributes.Add("style", "display:none");
             #endregion
 
             if (Request.Cookies["UserName"] != null)
@@ -342,9 +351,27 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 {
                     PaymentOfClaim.Attributes.Add("style", "display:Block");
                 }
+
+                if (HttpContext.Current.User.IsInRole("Claims_Report_Company "))
+                {
+                    Claims_Report_Company.Attributes.Add("style", "display:Block");
+                }
+
+                if (HttpContext.Current.User.IsInRole("CompletionRate"))
+                {
+                    CompletionRate.Attributes.Add("style", "display:Block");
+                }
+
+                if (HttpContext.Current.User.IsInRole("Rpt_Medical_Name_Main_Company"))
+                {
+                    Rpt_Medical_Name_Main_Company.Attributes.Add("style", "display:Block");
+                }
             }
             else
             {
+                Claims_Report_Company.Attributes.Add("style", "display:Block");
+                CompletionRate.Attributes.Add("style", "display:Block");
+                Rpt_Medical_Name_Main_Company.Attributes.Add("style", "display:Block");
                 PaymentOfClaim.Attributes.Add("style", "display:Block");
                 claim.Attributes.Add("style", "display:Block");
                 Medical_Types.Attributes.Add("style", "display:Block");
