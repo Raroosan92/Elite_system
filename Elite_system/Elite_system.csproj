@@ -1640,6 +1640,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Rpt_Claims_Updated.rdlc" />
     <EmbeddedResource Include="Rpt_Medical_Name_Main_Company3.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -1665,7 +1666,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Rpt_Checks6.rdlc" />
-    <EmbeddedResource Include="Rpt_Claims_Updated.rdlc" />
     <EmbeddedResource Include="Rpt_Claims.rdlc" />
     <EmbeddedResource Include="Rpt_Claims2.rdlc" />
     <EmbeddedResource Include="Rpt_Claims3.rdlc">

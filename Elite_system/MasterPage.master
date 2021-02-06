@@ -172,7 +172,7 @@
 
                                                     <li id="Rpt_Checks2" runat="server" class=""><a href="../Rpt_Checks2.aspx">الجهات الطبية المتعاقدة<img src="../imgSideBar/header/nav-icon8.png" /></a></li>
                                                     <li id="Rpt_Claims2" runat="server" class=""><a href="../Rpt_Claims2.aspx">مطالبات الجهة الطبية<img src="../imgSideBar/header/nav-icon7.png" /></a></li>
-                                                    <li id="Rpt_Claims" runat="server" class=""><a href="../Rpt_Claims.aspx">المطالبات حسب الشركة<img src="../imgSideBar/header/nav-icon7.png" /></a></li>
+                                                    <li id="Rpt_Claims" runat="server" class=""><a href="../Rpt_Claims.aspx">كشف مطالبات تجميعي<img src="../imgSideBar/header/nav-icon7.png" /></a></li>
 
                                                      <li id="Claims_Report_Company" runat="server" class=""><a href="../Rpt_Claims4.aspx">المطالبات حسب الشركة2<img src="../imgSideBar/header/nav-icon7.png" /></a></li>
 

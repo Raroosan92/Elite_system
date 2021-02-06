@@ -140,7 +140,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             HtmlControl CompletionRate = (HtmlControl)Page.Master.FindControl("CompletionRate");
             PaymentOfClaim.Attributes.Add("style", "display:none");
 
-            HtmlControl Claims_Report_Company = (HtmlControl)Page.Master.FindControl("Claims_Report_Company ");
+            HtmlControl Claims_Report_Company = (HtmlControl)Page.Master.FindControl("Claims_Report_Company");
             PaymentOfClaim.Attributes.Add("style", "display:none");
             #endregion
 
