@@ -1044,16 +1044,16 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>2.32292in</Size>
+                <Size>0.51388in</Size>
                 <CellContents>
-                  <Textbox Name="Textbox22">
+                  <Textbox Name="Textbox9">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>الجهات الطبية</Value>
+                            <Value>ت</Value>
                             <Style>
                               <FontSize>14pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -1065,7 +1065,7 @@
                         </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox22</rd:DefaultName>
+                    <rd:DefaultName>Textbox9</rd:DefaultName>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1092,7 +1092,59 @@
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
-                <TablixMember />
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>2.32292in</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox22">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>الجهات الطبية</Value>
+                                <Style>
+                                  <FontSize>14pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox22</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Style>Solid</Style>
+                          </Border>
+                          <TopBorder>
+                            <Color>Black</Color>
+                          </TopBorder>
+                          <BottomBorder>
+                            <Color>Black</Color>
+                          </BottomBorder>
+                          <LeftBorder>
+                            <Color>Black</Color>
+                          </LeftBorder>
+                          <RightBorder>
+                            <Color>Black</Color>
+                          </RightBorder>
+                          <BackgroundColor>Silver</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixMember>
               </TablixMembers>
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
@@ -1110,18 +1162,18 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.32292in</Size>
+                    <Size>0.51388in</Size>
                     <CellContents>
-                      <Textbox Name="Medical_TypeName">
+                      <Textbox Name="Textbox10">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Fields!Medical_TypeName.Value</Value>
+                                <Value>=RowNumber(nothing)</Value>
                                 <Style>
-                                  <FontSize>12pt</FontSize>
+                                  <FontSize>14pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
                               </TextRun>
@@ -1131,7 +1183,7 @@
                             </Style>
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>Medical_TypeName</rd:DefaultName>
+                        <rd:DefaultName>Textbox10</rd:DefaultName>
                         <Style>
                           <Border>
                             <Style>Solid</Style>
@@ -1159,21 +1211,73 @@
                   </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <Group Name="Details1" />
-                    </TablixMember>
-                    <TablixMember>
-                      <KeepWithGroup>Before</KeepWithGroup>
-                    </TablixMember>
-                    <TablixMember>
-                      <KeepWithGroup>Before</KeepWithGroup>
+                      <TablixHeader>
+                        <Size>2.32292in</Size>
+                        <CellContents>
+                          <Textbox Name="Medical_TypeName">
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>=Fields!Medical_TypeName.Value</Value>
+                                    <Style>
+                                      <FontSize>12pt</FontSize>
+                                      <FontWeight>Bold</FontWeight>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                            <rd:DefaultName>Medical_TypeName</rd:DefaultName>
+                            <Style>
+                              <Border>
+                                <Style>Solid</Style>
+                              </Border>
+                              <TopBorder>
+                                <Color>Black</Color>
+                              </TopBorder>
+                              <BottomBorder>
+                                <Color>Black</Color>
+                              </BottomBorder>
+                              <LeftBorder>
+                                <Color>Black</Color>
+                              </LeftBorder>
+                              <RightBorder>
+                                <Color>Black</Color>
+                              </RightBorder>
+                              <VerticalAlign>Middle</VerticalAlign>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <Group Name="Details1" />
+                        </TablixMember>
+                        <TablixMember>
+                          <KeepWithGroup>Before</KeepWithGroup>
+                        </TablixMember>
+                        <TablixMember>
+                          <KeepWithGroup>Before</KeepWithGroup>
+                        </TablixMember>
+                      </TablixMembers>
                     </TablixMember>
                   </TablixMembers>
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.32292in</Size>
+                    <Size>0.51388in</Size>
                     <CellContents>
-                      <Textbox Name="Textbox8">
+                      <Textbox Name="Textbox13">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
@@ -1192,7 +1296,7 @@
                             </Style>
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>Textbox8</rd:DefaultName>
+                        <rd:DefaultName>Textbox13</rd:DefaultName>
                         <Style>
                           <Border>
                             <Style>Solid</Style>
@@ -1216,27 +1320,78 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
-                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
-                    <TablixMember />
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>2.32292in</Size>
+                        <CellContents>
+                          <Textbox Name="Textbox8">
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value />
+                                    <Style>
+                                      <FontSize>12pt</FontSize>
+                                      <FontWeight>Bold</FontWeight>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                            <rd:DefaultName>Textbox8</rd:DefaultName>
+                            <Style>
+                              <Border>
+                                <Style>Solid</Style>
+                              </Border>
+                              <TopBorder>
+                                <Color>Black</Color>
+                              </TopBorder>
+                              <BottomBorder>
+                                <Color>Black</Color>
+                              </BottomBorder>
+                              <LeftBorder>
+                                <Color>Black</Color>
+                              </LeftBorder>
+                              <RightBorder>
+                                <Color>Black</Color>
+                              </RightBorder>
+                              <VerticalAlign>Middle</VerticalAlign>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember />
+                      </TablixMembers>
+                    </TablixMember>
                   </TablixMembers>
                 </TablixMember>
               </TablixMembers>
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>2.32292in</Size>
+                <Size>0.51388in</Size>
                 <CellContents>
-                  <Textbox Name="Textbox24">
+                  <Textbox Name="Textbox14">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>المجموع</Value>
+                            <Value />
                             <Style>
                               <FontSize>14pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -1248,7 +1403,7 @@
                         </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox24</rd:DefaultName>
+                    <rd:DefaultName>Textbox14</rd:DefaultName>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1275,7 +1430,59 @@
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
-                <TablixMember />
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>2.32292in</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox24">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>المجموع</Value>
+                                <Style>
+                                  <FontSize>14pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox24</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Style>Solid</Style>
+                          </Border>
+                          <TopBorder>
+                            <Color>Black</Color>
+                          </TopBorder>
+                          <BottomBorder>
+                            <Color>Black</Color>
+                          </BottomBorder>
+                          <LeftBorder>
+                            <Color>Black</Color>
+                          </LeftBorder>
+                          <RightBorder>
+                            <Color>Black</Color>
+                          </RightBorder>
+                          <BackgroundColor>LightGrey</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixMember>
               </TablixMembers>
               <KeepWithGroup>Before</KeepWithGroup>
             </TablixMember>
@@ -1286,7 +1493,7 @@
         <Top>1.95833in</Top>
         <Left>0.18344in</Left>
         <Height>1.93749in</Height>
-        <Width>8.03358in</Width>
+        <Width>8.54746in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1643,7 +1850,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>8.27259in</Width>
+  <Width>9.21702in</Width>
   <Page>
     <PageHeader>
       <Height>0.30903in</Height>
