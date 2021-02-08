@@ -30,6 +30,43 @@ namespace Elite_system
                 DDL_Type.DataBind();
                 DDL_Type.Items.Insert(0, new ListItem("--اختر--", "0"));
 
+                DDL_Medical_Name2.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name2.DataBind();
+                DDL_Medical_Name2.Items.Insert(0, new ListItem("--اختر--", "0"));
+
+                DDL_Medical_Name3.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name3.DataBind();
+                DDL_Medical_Name3.Items.Insert(0, new ListItem("--اختر--", "0"));
+
+                DDL_Medical_Name4.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name4.DataBind();
+                DDL_Medical_Name4.Items.Insert(0, new ListItem("--اختر--", "0"));
+
+                DDL_Medical_Name5.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name5.DataBind();
+                DDL_Medical_Name5.Items.Insert(0, new ListItem("--اختر--", "0"));
+
+                DDL_Medical_Name6.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name6.DataBind();
+                DDL_Medical_Name6.Items.Insert(0, new ListItem("--اختر--", "0"));
+
+                DDL_Medical_Name7.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name7.DataBind();
+                DDL_Medical_Name7.Items.Insert(0, new ListItem("--اختر--", "0"));
+
+                DDL_Medical_Name8.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name8.DataBind();
+                DDL_Medical_Name8.Items.Insert(0, new ListItem("--اختر--", "0"));
+
+                DDL_Medical_Name9.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name9.DataBind();
+                DDL_Medical_Name9.Items.Insert(0, new ListItem("--اختر--", "0"));
+
+                DDL_Medical_Name10.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name10.DataBind();
+                DDL_Medical_Name10.Items.Insert(0, new ListItem("--اختر--", "0"));
+
+
                 DDL_Medical_Name.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
                 DDL_Medical_Name.DataBind();
                 DDL_Medical_Name.Items.Insert(0, new ListItem("--اختر--", "0"));
@@ -80,8 +117,47 @@ namespace Elite_system
                     cmd.Parameters.AddWithValue("@Batch_No", int.Parse(Txt_Batch_No.Text));
                     batch = " دفعة رقم " + Txt_Batch_No.Text;
                 }
-
-                cmd.Parameters.AddWithValue("@Medical_Name", long.Parse(DDL_Medical_Name.SelectedValue));
+                if (DDL_Medical_Name.SelectedValue != "0")
+                {
+                    cmd.Parameters.AddWithValue("@Medical_Name", long.Parse(DDL_Medical_Name.SelectedValue));
+                }
+                if (DDL_Medical_Name2.SelectedValue != "0")
+                {
+                    cmd.Parameters.AddWithValue("@Medical_Name2", long.Parse(DDL_Medical_Name2.SelectedValue));
+                }
+         
+                if (DDL_Medical_Name3.SelectedValue != "0")
+                {
+                    cmd.Parameters.AddWithValue("@Medical_Name3", long.Parse(DDL_Medical_Name3.SelectedValue));
+                }
+                if (DDL_Medical_Name4.SelectedValue != "0")
+                {
+                    cmd.Parameters.AddWithValue("@Medical_Name4", long.Parse(DDL_Medical_Name4.SelectedValue));
+                }
+                if (DDL_Medical_Name5.SelectedValue != "0")
+                {
+                    cmd.Parameters.AddWithValue("@Medical_Name5", long.Parse(DDL_Medical_Name5.SelectedValue));
+                }
+                if (DDL_Medical_Name6.SelectedValue != "0")
+                {
+                    cmd.Parameters.AddWithValue("@Medical_Name6", long.Parse(DDL_Medical_Name6.SelectedValue));
+                }
+                if (DDL_Medical_Name7.SelectedValue != "0")
+                {
+                    cmd.Parameters.AddWithValue("@Medical_Name7", long.Parse(DDL_Medical_Name7.SelectedValue));
+                }
+                if (DDL_Medical_Name8.SelectedValue != "0")
+                {
+                    cmd.Parameters.AddWithValue("@Medical_Name8", long.Parse(DDL_Medical_Name8.SelectedValue));
+                }
+                if (DDL_Medical_Name9.SelectedValue != "0")
+                {
+                    cmd.Parameters.AddWithValue("@Medical_Name9", long.Parse(DDL_Medical_Name9.SelectedValue));
+                }
+                if (DDL_Medical_Name10.SelectedValue != "0")
+                {
+                    cmd.Parameters.AddWithValue("@Medical_Name10", long.Parse(DDL_Medical_Name10.SelectedValue));
+                }
 
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 adp.Fill(dt_Result);

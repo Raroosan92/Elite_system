@@ -124,6 +124,32 @@
                                         <td class="auto-style1">
                                            
                                             <asp:DropDownList ID="DDL_Medical_Name" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                             <br />
+                                    <asp:DropDownList ID="DDL_Medical_Name2" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name3" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name4" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name5" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name6" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name7" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name8" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name9" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name10" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="الجهة الطبية"></asp:Label>
@@ -168,6 +194,15 @@
         function jsFunctions() {
             $("#<%=DDL_Main_Company.ClientID%>").select2();
             $("#<%=DDL_Medical_Name.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name2.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name3.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name4.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name5.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name6.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name7.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name8.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name9.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name10.ClientID%>").select2();
         }
 
     </script>
@@ -175,6 +210,15 @@
         $(function () {
             $("#<%=DDL_Main_Company.ClientID%>").select2();
             $("#<%=DDL_Medical_Name.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name2.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name3.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name4.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name5.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name6.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name7.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name8.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name9.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name10.ClientID%>").select2();
         })
     </script>
 

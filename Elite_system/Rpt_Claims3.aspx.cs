@@ -24,6 +24,11 @@ namespace Elite_system
                 DDL_Medical_Name.DataBind();
                 DDL_Medical_Name.Items.Insert(0, new ListItem("--اختر--", "0"));
 
+                DDL_Medical_Name.DataSource = Cls_Main_Claims.Get_Medical_Types();
+                DDL_Medical_Name.DataBind();
+                DDL_Medical_Name.Items.Insert(0, new ListItem("--اختر--", "0"));
+
+               
                 DDL_Main_Company.DataSource = Cls_Main_Claims.Get_Companies3();                
                 DDL_Main_Company.DataBind();
                 DDL_Main_Company.Items.Insert(0, new ListItem("--اختر--", "0"));

@@ -123,6 +123,87 @@ namespace Elite_system
         protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name;
 
         /// <summary>
+        /// DDL_Medical_Name2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name2;
+
+        /// <summary>
+        /// DDL_Medical_Name3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name3;
+
+        /// <summary>
+        /// DDL_Medical_Name4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name4;
+
+        /// <summary>
+        /// DDL_Medical_Name5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name5;
+
+        /// <summary>
+        /// DDL_Medical_Name6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name6;
+
+        /// <summary>
+        /// DDL_Medical_Name7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name7;
+
+        /// <summary>
+        /// DDL_Medical_Name8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name8;
+
+        /// <summary>
+        /// DDL_Medical_Name9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name9;
+
+        /// <summary>
+        /// DDL_Medical_Name10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name10;
+
+        /// <summary>
         /// Button2 control.
         /// </summary>
         /// <remarks>

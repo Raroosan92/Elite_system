@@ -37,7 +37,7 @@
         .Report {
             MARGIN-LEFT: -14%;
             width: 75% !important;
-            height:500PX;
+            height: 500PX;
         }
 
         @media only screen and (max-width: 1000px) {
@@ -81,17 +81,17 @@
                             </tr>
 
                             <tr>
-                                        <td>
-                                            <asp:DropDownList runat="server" ID="DDL_Type" DataTextField="Description" DataValueField="ID" Width="270px"></asp:DropDownList>
-                                        </td>
-                                        <td>
-                                            <asp:Label runat="server" Text="نوع الجهة الطبية"></asp:Label>
-                                        </td>
-                                    </tr>
+                                <td>
+                                    <asp:DropDownList runat="server" ID="DDL_Type" DataTextField="Description" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                </td>
+                                <td>
+                                    <asp:Label runat="server" Text="نوع الجهة الطبية"></asp:Label>
+                                </td>
+                            </tr>
                             <tr>
 
                                 <td>
-                                    <asp:TextBox AutoCompleteType="Disabled" ID="Txt_FromDate"  runat="server" Width="150px"></asp:TextBox>
+                                    <asp:TextBox AutoCompleteType="Disabled" ID="Txt_FromDate" runat="server" Width="150px"></asp:TextBox>
                                     <ajaxToolkit:CalendarExtender ID="CalendarExtender1" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_FromDate" />
                                 </td>
                                 <td>
@@ -102,7 +102,7 @@
                             <tr>
 
                                 <td class="auto-style1">
-                                    <asp:TextBox AutoCompleteType="Disabled" ID="Txt_ToDate"  runat="server" Width="150px" ></asp:TextBox>
+                                    <asp:TextBox AutoCompleteType="Disabled" ID="Txt_ToDate" runat="server" Width="150px"></asp:TextBox>
                                     <ajaxToolkit:CalendarExtender ID="CalendarExtender2" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_ToDate" />
                                 </td>
                                 <td style="width: 98px">
@@ -119,15 +119,41 @@
                                 </td>
                             </tr>
 
-                             <tr>
-                                        <td class="auto-style1">
-                                           
-                                            <asp:DropDownList ID="DDL_Medical_Name" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
-                                        </td>
-                                        <td style="width: 98px">
-                                            <asp:Label runat="server" Text="الجهة الطبية"></asp:Label>
-                                        </td>
-                                    </tr>
+                            <tr>
+                                <td class="auto-style1">
+
+                                    <asp:DropDownList ID="DDL_Medical_Name" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+                                    <asp:DropDownList ID="DDL_Medical_Name2" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name3" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name4" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name5" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name6" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name7" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name8" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name9" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                    <br />
+
+                                    <asp:DropDownList ID="DDL_Medical_Name10" runat="server" DataTextField="Name" DataValueField="ID" Width="270px"></asp:DropDownList>
+                                </td>
+                                <td style="width: 98px">
+                                    <asp:Label runat="server" Text="الجهة الطبية"></asp:Label>
+                                </td>
+                            </tr>
 
                             <tr>
                                 <td class="auto-style1"></td>
@@ -167,6 +193,15 @@
         function jsFunctions() {
             $("#<%=DDL_Main_Company.ClientID%>").select2();
             $("#<%=DDL_Medical_Name.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name2.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name3.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name4.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name5.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name6.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name7.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name8.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name9.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name10.ClientID%>").select2();
         }
 
     </script>
@@ -174,11 +209,21 @@
         $(function () {
             $("#<%=DDL_Main_Company.ClientID%>").select2();
             $("#<%=DDL_Medical_Name.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name2.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name3.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name4.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name5.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name6.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name7.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name8.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name9.ClientID%>").select2();
+            $("#<%=DDL_Medical_Name10.ClientID%>").select2();
         })
     </script>
 
 
-       <%--rami لتغيير التاريخ من لوحة المفاتيح--%>
+    <%--rami لتغيير التاريخ من لوحة المفاتيح--%>
     <%--<script>
         function DateField_KeyDown(dateField, CalendarExtender2) {
             lastKeyCodeEntered = window.event.keyCode;
