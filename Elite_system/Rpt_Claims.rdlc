@@ -604,7 +604,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>المجمــــــــوع </Value>
+                              <Value>المجموع</Value>
                               <Style>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -789,7 +789,6 @@
                       </Style>
                     </Textbox>
                     <ColSpan>3</ColSpan>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
