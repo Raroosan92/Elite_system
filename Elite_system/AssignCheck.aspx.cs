@@ -380,7 +380,7 @@ namespace Elite_system
                 if (Exist == 1)
                 {
                     //To Update Name in checkes
-                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= SYSDATETIME() WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= " + DateTime.UtcNow.AddHours(2) + " WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
                     Cls_Connection.open_connection();
                     cmd.ExecuteNonQuery();
                     Cls_Connection.close_connection();
@@ -423,7 +423,7 @@ namespace Elite_system
                 if (Exist == 1)
                 {
                     //To Update Name in checkes
-                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= SYSDATETIME() WHERE Check_No = '" + Txt_CheckNo.Text + "'";
+                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= " + DateTime.UtcNow.AddHours(2) + " WHERE Check_No = '" + Txt_CheckNo.Text + "'";
                     Cls_Connection.open_connection();
                     cmd.ExecuteNonQuery();
                     Check = true;
@@ -442,7 +442,7 @@ namespace Elite_system
                     else
                     {
                         //To Update Name in checkes
-                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= SYSDATETIME() WHERE Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
+                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= " + DateTime.UtcNow.AddHours(2) + " WHERE Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
                         Cls_Connection.open_connection();
                         cmd.ExecuteNonQuery();
                         Check = true;
@@ -634,7 +634,7 @@ namespace Elite_system
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
 
                 cmd.Connection = con;
-                cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = NULL ,Modified= SYSDATETIME() WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
+                cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = NULL ,Modified= " + DateTime.UtcNow.AddHours(2) + " WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
                 Cls_Connection.open_connection();
                 cmd.ExecuteNonQuery();
 

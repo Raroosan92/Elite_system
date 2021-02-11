@@ -18,9 +18,9 @@ namespace Elite_system
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
             if (!Page.IsPostBack)
             {
-                Txt_FromDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                Txt_ToDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                DDL_Medical_Name.DataSource = Cls_Main_Claims.Get_Medical_Types();
+                Txt_FromDate.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Txt_ToDate.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                DDL_Medical_Name.DataSource = Cls_Main_Claims.Get_Medical_Types3();
                 DDL_Medical_Name.DataBind();
                 DDL_Medical_Name.Items.Insert(0, new ListItem("--اختر--", "0"));
 
@@ -69,9 +69,13 @@ namespace Elite_system
                 cmd.Parameters.AddWithValue("@Main_Company", long.Parse(DDL_Main_Company.SelectedValue));
                 
 
-                if (DDL_Sub_Company.SelectedValue == "")
+                if (DDL_Sub_Company.SelectedValue == "0")
                 {
                     cmd.Parameters.AddWithValue("@Sub_Company", 0);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Sub_Company", DDL_Sub_Company.SelectedValue);
                 }
 
                 if (DDL_InOut.SelectedValue == "0")

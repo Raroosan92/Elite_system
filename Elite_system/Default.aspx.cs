@@ -11,8 +11,7 @@ namespace Elite_system
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-
+            ServerTime.Text = DateTimeOffset.UtcNow.AddHours(2).ToString();
         }
     }
 }

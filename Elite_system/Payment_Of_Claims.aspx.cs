@@ -70,7 +70,7 @@ namespace Elite_system
                         cmd.Connection = con;
                         cmd.CommandType = CommandType.Text;
 
-                        cmd.CommandText = "update Sub_Claims set PatientRatio = '" + Txt_PayAmmount.Text + "' WHERE Main_Claims_ID= '" + main_ClaimID.Text + "' AND ID= '" + Sub_ClaimID.Text + "' AND patient_name = N'" + Patient_Name.Text + "'";
+                        cmd.CommandText = "update Sub_Claims set PayValue = '" + Txt_PayAmmount.Text + "' WHERE Main_Claims_ID= '" + main_ClaimID.Text + "' AND ID= '" + Sub_ClaimID.Text + "' AND patient_name = N'" + Patient_Name.Text + "'";
                         Cls_Connection.open_connection();
                         cmd.ExecuteNonQuery();
                         Cls_Connection.close_connection();
@@ -122,7 +122,7 @@ namespace Elite_system
                 GridView.DataSource = dt;
                 GridView.DataBind();
                 GridView.Visible = true;
-
+                lbl_count.Text= dt.Rows.Count.ToString();
                 Cls_Connection.close_connection();
 
             }

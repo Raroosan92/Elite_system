@@ -1,163 +1,3 @@
-ALTER proc [dbo].[Get_V_Claims_Report4]
-@From date,
-@To date,
-@Main_Company numeric(18,0),
-@Batch_No int=null,
-@Medical_Name numeric(18,0)=null,
-@Medical_Name2 numeric(18,0)=null,
-@Medical_Name3 numeric(18,0)=null,
-@Medical_Name4 numeric(18,0)=null,
-@Medical_Name5 numeric(18,0)=null,
-@Medical_Name6 numeric(18,0)=null,
-@Medical_Name7 numeric(18,0)=null,
-@Medical_Name8 numeric(18,0)=null,
-@Medical_Name9 numeric(18,0)=null,
-@Medical_Name10 numeric(18,0)=null,
-@Type int=null
-as
-begin
-
-if @Type=0
-
-BEGIN
-if @Batch_No=0 and @Medical_Name=0
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Received_Date] between @From and @To order by Medical_TypeName asc
-
-else if @Batch_No=0 and @Medical_Name!=0
-
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Received_Date] between @From and @To
-and [Medical_Name] in (@Medical_Name , @Medical_Name2
-, @Medical_Name3 , @Medical_Name4 , @Medical_Name5 
-, @Medical_Name6 , @Medical_Name7 , @Medical_Name8
-, @Medical_Name9 , @Medical_Name10)
-order by Medical_TypeName asc
-
-else if @Batch_No!=0 and @Medical_Name=0
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Received_Date] between @From and @To and Batch_No=@Batch_No order by Medical_TypeName asc
-
-else 
-
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Received_Date] between @From and @To and Batch_No=@Batch_No
-and [Medical_Name] in (@Medical_Name , @Medical_Name2
-, @Medical_Name3 , @Medical_Name4 , @Medical_Name5 
-, @Medical_Name6 , @Medical_Name7 , @Medical_Name8
-, @Medical_Name9 , @Medical_Name10)
-order by Medical_TypeName asc
-
-END
-
-else
-
-BEGIN
-if @Batch_No=0 and @Medical_Name=0
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Type]=@Type and [Received_Date] between @From and @To order by Medical_TypeName asc
-
-else if @Batch_No=0 and @Medical_Name!=0
-
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Type]=@Type and [Received_Date] between @From and @To
-and [Medical_Name] in (@Medical_Name , @Medical_Name2
-, @Medical_Name3 , @Medical_Name4 , @Medical_Name5 
-, @Medical_Name6 , @Medical_Name7 , @Medical_Name8
-, @Medical_Name9 , @Medical_Name10)
-order by Medical_TypeName asc
-
-else if @Batch_No!=0 and @Medical_Name=0
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Type]=@Type and [Received_Date] between @From and @To and Batch_No=@Batch_No order by Medical_TypeName asc
-
-else 
-
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Type]=@Type and [Received_Date] between @From and @To and Batch_No=@Batch_No
-and [Medical_Name] in (@Medical_Name , @Medical_Name2
-, @Medical_Name3 , @Medical_Name4 , @Medical_Name5 
-, @Medical_Name6 , @Medical_Name7 , @Medical_Name8
-, @Medical_Name9 , @Medical_Name10)
-order by Medical_TypeName asc
-END
-
-end
------------------------------------------------------------------------------------------------------------------------------------
-ALTER proc [dbo].[Get_V_Claims_Report]
-@From date,
-@To date,
-@Main_Company numeric(18,0),
-@Batch_No int=null,
-@Medical_Name numeric(18,0)=null,
-@Medical_Name2 numeric(18,0)=null,
-@Medical_Name3 numeric(18,0)=null,
-@Medical_Name4 numeric(18,0)=null,
-@Medical_Name5 numeric(18,0)=null,
-@Medical_Name6 numeric(18,0)=null,
-@Medical_Name7 numeric(18,0)=null,
-@Medical_Name8 numeric(18,0)=null,
-@Medical_Name9 numeric(18,0)=null,
-@Medical_Name10 numeric(18,0)=null,
-@Type int=null
-as
-begin
-
-
-if @Type=0
-
-BEGIN
-
-if @Batch_No=0 and @Medical_Name=0
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Received_Date] between @From and @To order by Medical_TypeName asc
-
-else if @Batch_No=0 and @Medical_Name!=0
-
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Received_Date] between @From and @To 
-and [Medical_Name] in (@Medical_Name , @Medical_Name2
-, @Medical_Name3 , @Medical_Name4 , @Medical_Name5 
-, @Medical_Name6 , @Medical_Name7 , @Medical_Name8
-, @Medical_Name9 , @Medical_Name10)
-order by Medical_TypeName asc
-
-else if @Batch_No!=0 and @Medical_Name=0
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Received_Date] between @From and @To and Batch_No=@Batch_No order by Medical_TypeName asc
-
-else 
-
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Received_Date] between @From and @To and Batch_No=@Batch_No
-and [Medical_Name] in (@Medical_Name , @Medical_Name2
-, @Medical_Name3 , @Medical_Name4 , @Medical_Name5 
-, @Medical_Name6 , @Medical_Name7 , @Medical_Name8
-, @Medical_Name9 , @Medical_Name10)
-order by Medical_TypeName asc
-
-end
-
-
-else
-
-BEGIN
-
-
-if @Batch_No=0 and @Medical_Name=0
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Type]=@Type and [Received_Date] between @From and @To order by Medical_TypeName asc
-
-else if @Batch_No=0 and @Medical_Name!=0
-
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Type]=@Type and [Received_Date] between @From and @To
-and [Medical_Name] in (@Medical_Name , @Medical_Name2
-, @Medical_Name3 , @Medical_Name4 , @Medical_Name5 
-, @Medical_Name6 , @Medical_Name7 , @Medical_Name8
-, @Medical_Name9 , @Medical_Name10)
-order by Medical_TypeName asc
-
-else if @Batch_No!=0 and @Medical_Name=0
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Type]=@Type and [Received_Date] between @From and @To and Batch_No=@Batch_No order by Medical_TypeName asc
-
-else 
-
-select * from [dbo].[V_ClaimsRpt] where [Main_Company]=@Main_Company and [Type]=@Type and [Received_Date] between @From and @To and Batch_No=@Batch_No
-and [Medical_Name] in (@Medical_Name , @Medical_Name2
-, @Medical_Name3 , @Medical_Name4 , @Medical_Name5 
-, @Medical_Name6 , @Medical_Name7 , @Medical_Name8
-, @Medical_Name9 , @Medical_Name10)
-order by Medical_TypeName asc
-END
-
-end
 -----------------------------------------------------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------------------------------------------------
@@ -179,3 +19,34 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+

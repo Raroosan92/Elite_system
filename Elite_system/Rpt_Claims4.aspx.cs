@@ -20,8 +20,8 @@ namespace Elite_system
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
             if (!Page.IsPostBack)
             {
-                Txt_FromDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                Txt_ToDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                Txt_FromDate.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Txt_ToDate.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
 
                 DDL_Main_Company.DataSource = Cls_Main_Claims.Get_Companies();
                 DDL_Main_Company.DataBind();
@@ -31,43 +31,43 @@ namespace Elite_system
                 DDL_Type.DataBind();
                 DDL_Type.Items.Insert(0, new ListItem("--اختر--", "0"));
 
-                DDL_Medical_Name.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name.DataSource = Cls_Main_Claims.Get_Medical_Types3();
                 DDL_Medical_Name.DataBind();
                 DDL_Medical_Name.Items.Insert(0, new ListItem("--اختر--", "0"));
 
-                DDL_Medical_Name2.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name2.DataSource = Cls_Main_Claims.Get_Medical_Types3();
                 DDL_Medical_Name2.DataBind();
                 DDL_Medical_Name2.Items.Insert(0, new ListItem("--اختر--", "0"));
 
-                DDL_Medical_Name3.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name3.DataSource = Cls_Main_Claims.Get_Medical_Types3();
                 DDL_Medical_Name3.DataBind();
                 DDL_Medical_Name3.Items.Insert(0, new ListItem("--اختر--", "0"));
 
-                DDL_Medical_Name4.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name4.DataSource = Cls_Main_Claims.Get_Medical_Types3();
                 DDL_Medical_Name4.DataBind();
                 DDL_Medical_Name4.Items.Insert(0, new ListItem("--اختر--", "0"));
 
-                DDL_Medical_Name5.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name5.DataSource = Cls_Main_Claims.Get_Medical_Types3();
                 DDL_Medical_Name5.DataBind();
                 DDL_Medical_Name5.Items.Insert(0, new ListItem("--اختر--", "0"));
 
-                DDL_Medical_Name6.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name6.DataSource = Cls_Main_Claims.Get_Medical_Types3();
                 DDL_Medical_Name6.DataBind();
                 DDL_Medical_Name6.Items.Insert(0, new ListItem("--اختر--", "0"));
 
-                DDL_Medical_Name7.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name7.DataSource = Cls_Main_Claims.Get_Medical_Types3();
                 DDL_Medical_Name7.DataBind();
                 DDL_Medical_Name7.Items.Insert(0, new ListItem("--اختر--", "0"));
 
-                DDL_Medical_Name8.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name8.DataSource = Cls_Main_Claims.Get_Medical_Types3();
                 DDL_Medical_Name8.DataBind();
                 DDL_Medical_Name8.Items.Insert(0, new ListItem("--اختر--", "0"));
 
-                DDL_Medical_Name9.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name9.DataSource = Cls_Main_Claims.Get_Medical_Types3();
                 DDL_Medical_Name9.DataBind();
                 DDL_Medical_Name9.Items.Insert(0, new ListItem("--اختر--", "0"));
 
-                DDL_Medical_Name10.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
+                DDL_Medical_Name10.DataSource = Cls_Main_Claims.Get_Medical_Types3();
                 DDL_Medical_Name10.DataBind();
                 DDL_Medical_Name10.Items.Insert(0, new ListItem("--اختر--", "0"));
 

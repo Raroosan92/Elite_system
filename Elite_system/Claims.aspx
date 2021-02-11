@@ -133,7 +133,6 @@
 
                                     <tr style="background-color: #2f323a;">
                                         <td class="auto-style1">
-
                                             <asp:Label ID="Label3" runat="server" Text=" العدد " ForeColor="#f2f2f2" Font-Bold="True" Font-Size="Larger"></asp:Label>
                                             &nbsp;&nbsp; &nbsp;&nbsp;
                                             <asp:Label ID="Label5" runat="server" Text="" ForeColor="#f2f2f2" Font-Bold="True" Font-Size="Larger"></asp:Label>
@@ -509,10 +508,10 @@
                                     <tr id="PatientRatio" runat="server">
                                         <td>
 
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_PatientRatio" Width="300px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_PatientRatio" placeholder="5 تعني 5%" Width="300px"></asp:TextBox>
                                         </td>
                                         <td>
-                                            <asp:Label runat="server" Text="نسبة تحمل المريض"></asp:Label>
+                                            <asp:Label runat="server" Text="% نسبة تحمل المريض"></asp:Label>
                                         </td>
                                     </tr>
 
@@ -528,10 +527,10 @@
                                     <tr id="Tax" runat="server">
                                         <td>
 
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Tax" Width="300px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Tax" placeholder="5 تعني 5%" Width="300px"></asp:TextBox>
                                         </td>
                                         <td>
-                                            <asp:Label runat="server" Text="ضريبة الدخل"></asp:Label>
+                                            <asp:Label runat="server" Text="% ضريبة الدخل"></asp:Label>
                                         </td>
                                     </tr>
 

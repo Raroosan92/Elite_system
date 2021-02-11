@@ -24,8 +24,8 @@ namespace Elite_system
 
             if (!Page.IsPostBack)
             {
-                Txt_FromDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                Txt_ToDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                Txt_FromDate.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Txt_ToDate.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
 
                 DDL_Employee.DataSource = Cls_Employees.Get_Employee();
                 DDL_Employee.DataBind();

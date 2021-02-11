@@ -67,8 +67,8 @@ namespace Elite_system
 
                 //Get_MainMail_ForUpdate();
                 //Get_SubMails_ForGridView();
-                Txt_Entry_Date.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                Txt_Received_Date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                Txt_Entry_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Txt_Received_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
                 DDL_Company.Focus();
 
                 if (DDL_Company.SelectedValue == "0")
@@ -246,7 +246,7 @@ namespace Elite_system
 
                 if (Txt_Entry_Date.Text != "")
                 {
-                    Main_Mail._Entry_Date = DateTime.Now;
+                    Main_Mail._Entry_Date = DateTime.UtcNow.AddHours(2);
                 }
 
                 if (Txt_Received_Date.Text != "")
@@ -296,7 +296,7 @@ namespace Elite_system
                 cmd.CommandText = "Select IDENT_CURRENT('Main_Mail')";
                 int strImageName = int.Parse(cmd.ExecuteScalar().ToString());
 
-                DateTime datevalue = (DateTime.Now);
+                DateTime datevalue = (DateTime.UtcNow.AddHours(2));
                 string dd = datevalue.Day.ToString();
                 string mm = datevalue.Month.ToString();
                 string yy = datevalue.Year.ToString();
@@ -509,7 +509,7 @@ namespace Elite_system
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CONN"].ConnectionString);
                 cmd.Connection = conn;
                 conn.Open();
-                DateTime datevalue = (DateTime.Now);
+                DateTime datevalue = (DateTime.UtcNow.AddHours(2));
                 string dd = datevalue.Day.ToString();
                 string mm = datevalue.Month.ToString();
                 string yy = datevalue.Year.ToString();
@@ -700,8 +700,8 @@ namespace Elite_system
             ClearFields(Form.Controls);
             Txt_Mails_Count.Text = "";
             Txt_Notes.Text = "";
-            Txt_Entry_Date.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            Txt_Received_Date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            Txt_Entry_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+            Txt_Received_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
             DDL_Company.Focus();
 
             GridView_Mails.DataSource = null;

@@ -11,5 +11,14 @@ namespace Elite_system {
     
     
     public partial class Default {
+        
+        /// <summary>
+        /// ServerTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ServerTime;
     }
 }

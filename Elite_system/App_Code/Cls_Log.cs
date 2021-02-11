@@ -91,7 +91,7 @@ namespace Elite_system
                 string UserName = HttpContext.Current.Request.Cookies["UserName"].Value.ToString();
                 cmd.Parameters.AddWithValue("@Log_UserName", UserName);
                 cmd.Parameters.AddWithValue("@Log_Event", Log_Event);
-                cmd.Parameters.AddWithValue("@Log_Date", DateTime.Now.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@Log_Date", DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd"));
 
                 Cls_Connection.open_connection();
                 cmd.ExecuteNonQuery();

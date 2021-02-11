@@ -19,14 +19,14 @@ namespace Elite_system
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
             if (!Page.IsPostBack)
             {
-                Txt_FromDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                Txt_ToDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                Txt_FromDate.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Txt_ToDate.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
 
                 DDL_Main_Company.DataSource = Cls_Main_Claims.Get_Companies();
                 DDL_Main_Company.DataBind();
                 DDL_Main_Company.Items.Insert(0, new ListItem("--اختر--", "0"));
 
-                DDL_Main_Medical.DataSource = Cls_Main_Claims.Get_Medical_Types();
+                DDL_Main_Medical.DataSource = Cls_Main_Claims.Get_Medical_Types3();
                 DDL_Main_Medical.DataBind();
                 DDL_Main_Medical.Items.Insert(0, new ListItem("--اختر--", "0"));
             }

@@ -24,7 +24,7 @@ namespace Elite_system
                 string _ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
 
                 string _DatabaseName = "DB_A5D8AE_EliteSystem";
-                //string _BackupName = _DatabaseName + "_" + DateTime.Now.Day.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Year.ToString() + ".bak";
+                //string _BackupName = _DatabaseName + "_" + DateTime.UtcNow.AddHours(2).Day.ToString() + "_" + DateTime.UtcNow.AddHours(2).Month.ToString() + "_" + DateTime.UtcNow.AddHours(2).Year.ToString() + ".bak";
                 string _BackupName = _DatabaseName + ".bak";
                 SqlConnection sqlConnection = new SqlConnection();
                 sqlConnection.ConnectionString = _ConnectionString;

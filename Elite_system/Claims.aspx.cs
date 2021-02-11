@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Dynamic;
+using System.Globalization;
 using System.IO;
 using System.Web;
 using System.Web.UI;
@@ -36,7 +37,7 @@ namespace Elite_system
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
             //--rami لتغيير التاريخ من لوحة المفاتيح--
             Txt_Received_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender2.ClientID + "');return (event.keyCode!=13);");
             Txt_Entry_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender3.ClientID + "');return (event.keyCode!=13);");
@@ -138,11 +139,11 @@ namespace Elite_system
                     DDL_ProcedureDesc5.Items.Insert(0, new ListItem("--اختر--", "0"));
                 }
 
-                //rami
+                //rami 
                 // ------------- Get MonthYear ----------------------
                 string MonthYear;
-                int Month = int.Parse(DateTime.Now.Month.ToString());
-                int Year = int.Parse(DateTime.Now.Year.ToString());
+                int Month = int.Parse(DateTime.UtcNow.AddHours(2).Month.ToString());
+                int Year = int.Parse(DateTime.UtcNow.AddHours(2).Year.ToString());
                 if (Month > 1)
                 {
                     MonthYear = (Month - 1).ToString() + "/" + Year.ToString();
@@ -177,7 +178,7 @@ namespace Elite_system
                 DDL_Medical_Name_Search.Items.Insert(0, new ListItem("--اختر--", "0"));
 
 
-                int year = DateTime.Now.Year;
+                int year = DateTime.UtcNow.AddHours(2).Year;
                 for (int i = year - 5; i <= year + 5; i++)
                 {
                     ListItem li = new ListItem(i.ToString());
@@ -208,8 +209,8 @@ namespace Elite_system
 
 
 
-                Txt_Entry_Date.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                Txt_Received_Date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                Txt_Entry_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Txt_Received_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
 
                 GetClaimsCount();
 
@@ -292,7 +293,7 @@ namespace Elite_system
 
                 Main_Listing_Bonds._Company = long.Parse(ID_Medical_Name[i]);
                 Main_Listing_Bonds._Type = 296;
-                Main_Listing_Bonds._Bond_Date = DateTime.Now.Date;
+                Main_Listing_Bonds._Bond_Date = DateTime.UtcNow.AddHours(2).Date;
                 string Contracting_Value = Cls_Medical_Types_And_Companies.Get_Contracting_Value(long.Parse(ID_Medical_Name[i]));
                 Main_Listing_Bonds._Debtor = decimal.Parse(Contracting_Value);
                 Main_Listing_Bonds._Description = " أتعاب مطالبات " + Txt_Month_Year.Text;
@@ -348,8 +349,8 @@ namespace Elite_system
                 string Result;
 
               
-                int Month = int.Parse(DateTime.Now.Month.ToString());
-                int Year = int.Parse(DateTime.Now.Year.ToString());
+                int Month = int.Parse(DateTime.UtcNow.AddHours(2).Month.ToString());
+                int Year = int.Parse(DateTime.UtcNow.AddHours(2).Year.ToString());
                 if (Month > 1)
                 {
                     Month = Month - 1;
@@ -748,7 +749,7 @@ namespace Elite_system
                 {
                     try
                     {
-                        Sub_Claims._PatientRatio = decimal.Parse(Txt_PatientRatio.Text);
+                        Sub_Claims._PatientRatio = (decimal.Parse(Txt_PatientRatio.Text)/100);
                     }
                     catch (Exception)
                     {
@@ -762,7 +763,7 @@ namespace Elite_system
                 {
                     try
                     {
-                        Sub_Claims._Tax = decimal.Parse(Txt_Tax.Text);
+                        Sub_Claims._Tax = (decimal.Parse(Txt_Tax.Text)/100);
                     }
                     catch (Exception)
                     {
@@ -798,7 +799,7 @@ namespace Elite_system
                 cmd.CommandText = "Select IDENT_CURRENT('Sub_Claims')";
                 int strImageName = int.Parse(cmd.ExecuteScalar().ToString());
 
-                DateTime datevalue = (DateTime.Now);
+                DateTime datevalue = (DateTime.UtcNow.AddHours(2));
                 string dd = datevalue.Day.ToString();
                 string mm = datevalue.Month.ToString();
                 string yy = datevalue.Year.ToString();
@@ -1168,7 +1169,7 @@ namespace Elite_system
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CONN"].ConnectionString);
             cmd.Connection = conn;
             conn.Open();
-            DateTime datevalue = (DateTime.Now);
+            DateTime datevalue = (DateTime.UtcNow.AddHours(2));
             string dd = datevalue.Day.ToString();
             string mm = datevalue.Month.ToString();
             string yy = datevalue.Year.ToString();
@@ -1253,7 +1254,7 @@ namespace Elite_system
             {
                 try
                 {
-                    Sub_Claims._PatientRatio = decimal.Parse(Txt_PatientRatio.Text);
+                    Sub_Claims._PatientRatio = (decimal.Parse(Txt_PatientRatio.Text)/100);
                 }
                 catch (Exception)
                 {
@@ -1267,7 +1268,7 @@ namespace Elite_system
             {
                 try
                 {
-                    Sub_Claims._Tax = decimal.Parse(Txt_Tax.Text);
+                    Sub_Claims._Tax = (decimal.Parse(Txt_Tax.Text)/100);
                 }
                 catch (Exception)
                 {
@@ -1657,7 +1658,7 @@ namespace Elite_system
                 }
                 else
                 {
-                    Month_Year = DDL_Month.SelectedItem.Text + "/" + DateTime.Now.Year.ToString();
+                    Month_Year = DDL_Month.SelectedItem.Text;
                 }
                 string Medical_Name;
                 if (DDL_Medical_Name_Search.SelectedItem.Text == "--اختر--")
@@ -1666,7 +1667,7 @@ namespace Elite_system
                 }
                 else
                 {
-                    Medical_Name = DDL_Medical_Name_Search.SelectedItem.Text;
+                    Medical_Name = DDL_Medical_Name_Search.SelectedValue;
                 }
                 string Year;
                 if (DDL_Year.SelectedItem.Text == "--اختر--")
@@ -1683,7 +1684,7 @@ namespace Elite_system
             }
 
         }
-
+       
         object result;
         public void Get_SubClaims_ForUpdate()
         {
@@ -1793,10 +1794,13 @@ namespace Elite_system
                     {
                         DDL_ProcedureDesc5.SelectedValue = dr.GetValue(dr.GetOrdinal("Procedure5")).ToString();
                     }
+                    double PatientRatio = double.Parse(dr.GetValue(dr.GetOrdinal("PatientRatio")).ToString());
 
-                    Txt_PatientRatio.Text = dr.GetValue(dr.GetOrdinal("PatientRatio")).ToString();
+                    Txt_PatientRatio.Text = (PatientRatio * 100).ToString();
 
-                    Txt_Tax.Text = dr.GetValue(dr.GetOrdinal("Tax")).ToString();
+                    double tax = double.Parse(dr.GetValue(dr.GetOrdinal("Tax")).ToString());
+                    
+                    Txt_Tax.Text = (tax * 100).ToString();
 
                 }
 
@@ -2215,7 +2219,7 @@ namespace Elite_system
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "Search_Claims_GV2";
-
+                
                 cmd.Parameters.AddWithValue("@Medical_Name", Medical_Name);
                 cmd.Parameters.AddWithValue("@Month_Year", Month_Year);
                 cmd.Parameters.AddWithValue("@year", year);
@@ -2491,8 +2495,8 @@ namespace Elite_system
             else
             {
 
-                string Month = DateTime.Now.Month.ToString();
-                string Year = DateTime.Now.Year.ToString();
+                string Month = DateTime.UtcNow.AddHours(2).Month.ToString();
+                string Year = DateTime.UtcNow.AddHours(2).Year.ToString();
                 string Medical_ID = int.Parse(DDL_Medical_Name.SelectedValue).ToString();
                 string Batch_No = Txt_Batch_No.Text;
                 Int64 Claim_ID;
@@ -2613,8 +2617,8 @@ namespace Elite_system
             else
             {
 
-                string Month = DateTime.Now.Month.ToString();
-                string Year = DateTime.Now.Year.ToString();
+                string Month = DateTime.UtcNow.AddHours(2).Month.ToString();
+                string Year = DateTime.UtcNow.AddHours(2).Year.ToString();
                 string Medical_ID = int.Parse(DDL_Medical_Name.SelectedValue).ToString();
                 string Batch_No = Txt_Batch_No.Text;
                 Int64 Claim_ID;

@@ -122,13 +122,21 @@
                                             <asp:Label ID="Label3" runat="server" Text="اسم المريض"></asp:Label>
                                         </td>
                                     </tr>
+                                     <tr style="direction: rtl;">
+                                        <td>
+                                            <asp:Label ID="lbl_count" runat="server" Text=" " Font-Size="26px" ForeColor="red"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="Label5" runat="server" Text="العدد الكلي"></asp:Label>
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="text-center my-5" style="direction: ltr; float: left">
+            <section class="text-center my-5" style="direction: ltr; margin-right:10%">
                 <div class="container">
                     <div class="row">
                     </div>

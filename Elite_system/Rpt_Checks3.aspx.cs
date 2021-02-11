@@ -5,11 +5,16 @@ using System.Configuration;
 using Microsoft.Reporting.WebForms;
 using System.Web.UI.WebControls;
 using System.Web;
+using System.Web.UI;
 
 namespace Elite_system
 {
     public partial class Rpt_Checks3 : System.Web.UI.Page
     {
+        public void MSG(string Text)
+        {
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>alert('" + Text + "')</script>", false);
+        }
         DataTable dt_Result = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,8 +24,8 @@ namespace Elite_system
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
             if (!Page.IsPostBack)
             {
-                Txt_FromDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                Txt_ToDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                Txt_FromDate.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Txt_ToDate.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
                 DDL_Medical_Name.DataSource = Cls_Main_Claims.Get_Medical_Types();
                 DDL_Medical_Name.DataBind();
                 DDL_Medical_Name.Items.Insert(0, new ListItem("--اختر--", "0"));
@@ -34,7 +39,15 @@ namespace Elite_system
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Result_DT();
+            if (DDL_Medical_Name.SelectedIndex!=0)
+            {
+                Result_DT();
+            }
+            else
+            {
+                MSG("يجب ادخال الجهة الطبية");
+            }
+           
         }
 
         public void Result_DT()
