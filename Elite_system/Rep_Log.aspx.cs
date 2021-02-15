@@ -82,7 +82,8 @@ namespace Elite_system
             }
             catch (Exception ex)
             {
-                string x = ex.Message.ToString();
+                throw ex;
+               // string x = ex.Message.ToString();
             }
         }
 

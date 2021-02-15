@@ -135,6 +135,21 @@
                     </div>
                 </div>
             </section>
+            <div class="COLR" style="margin-left: -68px">
+                    <div class="table-responsive" style="width: 100%; margin-left: -7px;">
+                        <div id="GV_Mainclaim" style="height: 344px;">
+                            <asp:GridView ID="GridView2" runat="server" CssClass="Grid" AllowPaging="false" >
+                                <Columns>
+                                    <asp:CommandField ShowSelectButton="True" SelectText="اختر" ControlStyle-ForeColor="Black" />                                   
+                                </Columns>
+                            </asp:GridView>
+                        </div>
+                        <br />
+
+                    </div>
+                    <br />
+                   
+                </div>
             <br />
             <br />
         </ContentTemplate>
@@ -147,7 +162,7 @@
                         <div class="COLR">
                             <div id="GV" class="table-responsive" style="overflow-x: initial !important; margin-right: 59px; height: 200px;">
                                 <table class="table-responsive" style="overflow-x: initial !important; margin-right: 59px;">
-                                    <asp:GridView ID="GV_ChecksAssigned" Width="225%" runat="server" CssClass="Grid" AllowPaging="false" OnSelectedIndexChanged="GV_ChecksAssigned_SelectedIndexChanged">
+                                    <asp:GridView ID="GV_ChecksAssigned" Width="225%" runat="server" CssClass="Grid" AllowPaging="false"  OnSelectedIndexChanged="GV_ChecksAssigned_SelectedIndexChanged" AllowSorting="True">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" SelectText="تراجع" />
                                         </Columns>
@@ -171,22 +186,22 @@
 
 
 
-      <script  type="text/javascript">
-          $(document).ready(function () {
-              $("#Txt_CheckNo").on("keypress", function (e) {
-                  if (e.keyCode == 13) {
-                      alert("asdasd");
-                  }
-              });
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Txt_CheckNo").on("keypress", function (e) {
+                if (e.keyCode == 13) {
+                    alert("asdasd");
+                }
+            });
 
 
-              $("#Txt_BarCode").on("keypress", function (e) {
-                  if (e.keyCode == 13) {
-                      alert("asdasd");
-                  }
-              });
-          });
-      </script> 
+            $("#Txt_BarCode").on("keypress", function (e) {
+                if (e.keyCode == 13) {
+                    alert("asdasd");
+                }
+            });
+        });
+    </script>
 
     <script language="javascript" type="text/javascript">
         window.onload = function load() {

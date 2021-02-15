@@ -437,185 +437,193 @@ namespace Elite_system
             //rami
             if (DDL_Company.SelectedIndex != 0)
             {
-                // BarCodeGenerate(Txt_Check_No.Text);
-                Cls_Main_Check Main_Check = new Cls_Main_Check();
-                if (DDL_Company.SelectedValue != "")
+                if (DDL_Sent_To.SelectedIndex != 0)
                 {
-                    Main_Check._Company = long.Parse(DDL_Company.SelectedValue);
-                }
-
-                if (Txt_Delivery_Date.Text != "")
-                {
-                    Main_Check._Delivery_Date = DateTime.Parse(Txt_Delivery_Date.Text);
-                }
-
-                if (Txt_Check_Date.Text != "")
-                {
-                    Main_Check._Check_Date = DateTime.Parse(Txt_Check_Date.Text);
-                }
-
-                Main_Check._Entry_Date = DateTime.Parse(DateTimeOffset.UtcNow.AddHours(2).ToString());
-
-                if (Txt_Received_Date.Text != "")
-                {
-                    Main_Check._Received_Date = DateTime.Parse(Txt_Received_Date.Text);
-                }
-
-                if (DDL_Bank.SelectedValue != "")
-                {
-                    Main_Check._Main_Bank = int.Parse(DDL_Bank.SelectedValue);
-                }
-
-                if (DDL_Bank_Branch.SelectedValue != "")
-                {
-                    Main_Check._Sub_Bank = int.Parse(DDL_Bank_Branch.SelectedValue);
-                }
-
-                if (DDL_Sent_To.SelectedValue != "")
-                {
-                    Main_Check._Sent_To = long.Parse(DDL_Sent_To.SelectedValue);
-                }
-
-                //if (Txt_Check_Date2.Text != "")
-                //{
-                //    Sub_Check._Check_Date = DateTime.Parse(Txt_Check_Date2.Text);
-                //}
-
-                Main_Check._Check_No = Txt_Check_No.Text;
-                Main_Check._Months = Txt_Months.Text;
-                Main_Check._Notes = Txt_Notes.Text;
-                Main_Check._Value = double.Parse(Txt_Value.Text);
-
-                Main_Check._BarCode = "*" + Txt_Check_No.Text + "*";
-
-                //if (RB_Delivered.SelectedValue == "1")
-                //{
-                //    Main_Check._Delivered = true;
-                //}
-                //else
-                //{
-                //    Main_Check._Delivered = false;
-                //}
 
 
-                // Main_Check._BarCode_Image = byteImage;
-                string Result;
-                Main_Check._Check_No = Txt_Check_No.Text;
-                Main_Check._Value = Double.Parse(Txt_Value.Text);
-
-                if (Main_Check.Check_Main_Checks() == "False")
-                {
-                    Result = Main_Check.Insert_Main_Check();
-
-
-                    ////////////////////////////////       Log        /////////////////////////////////////////////
-                    Cls_Log log = new Cls_Log();
-                    log._Log_Event = "إضافة شيك من الشركة: " + DDL_Company.SelectedItem.Text + " للجهة الطبية " + DDL_Sent_To.SelectedItem.Text + " رقم الشيك  " + Txt_Check_No.Text;
-                    log.Insert_Log();
-                    ////////////////////////////////   End Of Log        /////////////////////////////////////////////
-                    GV_Main_Check.DataBind();
-                    //rami
-                    int attach_type = 500;
-                    string attach_place_store;
-                    SqlDataAdapter da = new SqlDataAdapter();
-                    SqlCommand cmd = new SqlCommand();
-                    DataSet ds = new DataSet();
-                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CONN"].ConnectionString);
-                    conn.Open();
-                    cmd.Connection = conn;
-
-                    cmd.CommandText = "Select IDENT_CURRENT('Main_Check')";
-                    int strImageName = int.Parse(cmd.ExecuteScalar().ToString());
-
-                    DateTime datevalue = (DateTime.Parse(DateTimeOffset.UtcNow.AddHours(2).ToString()));
-                    string dd = datevalue.Day.ToString();
-                    string mm = datevalue.Month.ToString();
-                    string yy = datevalue.Year.ToString();
-
-                    try
+                    // BarCodeGenerate(Txt_Check_No.Text);
+                    Cls_Main_Check Main_Check = new Cls_Main_Check();
+                    if (DDL_Company.SelectedValue != "")
                     {
-                        HttpFileCollection flImages = Request.Files;
+                        Main_Check._Company = long.Parse(DDL_Company.SelectedValue);
+                    }
 
-                        for (int i = 0; i < flImages.Count; i++)
+                    if (Txt_Delivery_Date.Text != "")
+                    {
+                        Main_Check._Delivery_Date = DateTime.Parse(Txt_Delivery_Date.Text);
+                    }
+
+                    if (Txt_Check_Date.Text != "")
+                    {
+                        Main_Check._Check_Date = DateTime.Parse(Txt_Check_Date.Text);
+                    }
+
+                    Main_Check._Entry_Date = DateTime.Parse(DateTimeOffset.UtcNow.AddHours(2).ToString());
+
+                    if (Txt_Received_Date.Text != "")
+                    {
+                        Main_Check._Received_Date = DateTime.Parse(Txt_Received_Date.Text);
+                    }
+
+                    if (DDL_Bank.SelectedValue != "")
+                    {
+                        Main_Check._Main_Bank = int.Parse(DDL_Bank.SelectedValue);
+                    }
+
+                    if (DDL_Bank_Branch.SelectedValue != "")
+                    {
+                        Main_Check._Sub_Bank = int.Parse(DDL_Bank_Branch.SelectedValue);
+                    }
+
+                    if (DDL_Sent_To.SelectedValue != "")
+                    {
+                        Main_Check._Sent_To = long.Parse(DDL_Sent_To.SelectedValue);
+                    }
+
+                    //if (Txt_Check_Date2.Text != "")
+                    //{
+                    //    Sub_Check._Check_Date = DateTime.Parse(Txt_Check_Date2.Text);
+                    //}
+
+                    Main_Check._Check_No = Txt_Check_No.Text;
+                    Main_Check._Months = Txt_Months.Text;
+                    Main_Check._Notes = Txt_Notes.Text;
+                    Main_Check._Value = double.Parse(Txt_Value.Text);
+
+                    Main_Check._BarCode = "*" + Txt_Check_No.Text + "*";
+
+                    //if (RB_Delivered.SelectedValue == "1")
+                    //{
+                    //    Main_Check._Delivered = true;
+                    //}
+                    //else
+                    //{
+                    //    Main_Check._Delivered = false;
+                    //}
+
+
+                    // Main_Check._BarCode_Image = byteImage;
+                    string Result;
+                    Main_Check._Check_No = Txt_Check_No.Text;
+                    Main_Check._Value = Double.Parse(Txt_Value.Text);
+
+                    if (Main_Check.Check_Main_Checks() == "False")
+                    {
+                        Result = Main_Check.Insert_Main_Check();
+
+
+                        ////////////////////////////////       Log        /////////////////////////////////////////////
+                        Cls_Log log = new Cls_Log();
+                        log._Log_Event = "إضافة شيك من الشركة: " + DDL_Company.SelectedItem.Text + " للجهة الطبية " + DDL_Sent_To.SelectedItem.Text + " رقم الشيك  " + Txt_Check_No.Text;
+                        log.Insert_Log();
+                        ////////////////////////////////   End Of Log        /////////////////////////////////////////////
+                        GV_Main_Check.DataBind();
+                        //rami
+                        int attach_type = 500;
+                        string attach_place_store;
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        SqlCommand cmd = new SqlCommand();
+                        DataSet ds = new DataSet();
+                        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CONN"].ConnectionString);
+                        conn.Open();
+                        cmd.Connection = conn;
+
+                        cmd.CommandText = "Select IDENT_CURRENT('Main_Check')";
+                        int strImageName = int.Parse(cmd.ExecuteScalar().ToString());
+
+                        DateTime datevalue = (DateTime.Parse(DateTimeOffset.UtcNow.AddHours(2).ToString()));
+                        string dd = datevalue.Day.ToString();
+                        string mm = datevalue.Month.ToString();
+                        string yy = datevalue.Year.ToString();
+
+                        try
                         {
-                            HttpPostedFile userPostedFile = flImages[i];
+                            HttpFileCollection flImages = Request.Files;
 
-                            cmd.Parameters.Clear();
-                            cmd.CommandText = "Select IDENT_CURRENT('Attachments')";
-                            Attch_Id = int.Parse(cmd.ExecuteScalar().ToString()) + 1;
-                            cmd.Parameters.Clear();
-
-                            try
+                            for (int i = 0; i < flImages.Count; i++)
                             {
-                                if (userPostedFile.ContentLength > 0)
+                                HttpPostedFile userPostedFile = flImages[i];
+
+                                cmd.Parameters.Clear();
+                                cmd.CommandText = "Select IDENT_CURRENT('Attachments')";
+                                Attch_Id = int.Parse(cmd.ExecuteScalar().ToString()) + 1;
+                                cmd.Parameters.Clear();
+
+                                try
                                 {
-                                    if (System.IO.Path.GetExtension(userPostedFile.FileName).ToLower() == ".jpeg" || System.IO.Path.GetExtension(userPostedFile.FileName).ToLower() == ".jpg" || System.IO.Path.GetExtension(userPostedFile.FileName).ToLower() == ".png" || System.IO.Path.GetExtension(userPostedFile.FileName).ToLower() == ".bmp")
-
+                                    if (userPostedFile.ContentLength > 0)
                                     {
-                                        string strConnString = ConfigurationManager.ConnectionStrings["CONN"].ConnectionString;
+                                        if (System.IO.Path.GetExtension(userPostedFile.FileName).ToLower() == ".jpeg" || System.IO.Path.GetExtension(userPostedFile.FileName).ToLower() == ".jpg" || System.IO.Path.GetExtension(userPostedFile.FileName).ToLower() == ".png" || System.IO.Path.GetExtension(userPostedFile.FileName).ToLower() == ".bmp")
 
-                                        using (SqlConnection con = new SqlConnection(strConnString))
                                         {
-                                            //////////////////////////////////////////////////
-                                            attach_place_store = "\\\\Checks" + "\\\\" + yy + "\\\\" + mm + "\\\\" + dd + "\\\\" + Attch_Id + ".jpg";
-                                            using (SqlCommand cmd1 = new SqlCommand())
-                                            {
-                                                cmd1.CommandType = CommandType.StoredProcedure;
-                                                cmd1.CommandText = "SP_Attachments";
-                                                cmd1.Parameters.AddWithValue("@attach_type", attach_type);
-                                                cmd1.Parameters.AddWithValue("@attach_Path", attach_place_store);
-                                                cmd1.Parameters.AddWithValue("@attach_doc_id", strImageName);
-                                                cmd1.Parameters.AddWithValue("@check", "i");
-                                                cmd1.Connection = con;
-                                                con.Open();
-                                                cmd1.ExecuteNonQuery();
-                                                con.Close();
-                                            }
-                                        }
+                                            string strConnString = ConfigurationManager.ConnectionStrings["CONN"].ConnectionString;
 
-                                        System.IO.Directory.CreateDirectory(Server.MapPath("\\UploadedImages\\Checks\\" + yy + "\\" + mm + "\\" + dd + "\\"));
-                                        userPostedFile.SaveAs(Server.MapPath("\\UploadedImages\\" + attach_place_store));
+                                            using (SqlConnection con = new SqlConnection(strConnString))
+                                            {
+                                                //////////////////////////////////////////////////
+                                                attach_place_store = "\\\\Checks" + "\\\\" + yy + "\\\\" + mm + "\\\\" + dd + "\\\\" + Attch_Id + ".jpg";
+                                                using (SqlCommand cmd1 = new SqlCommand())
+                                                {
+                                                    cmd1.CommandType = CommandType.StoredProcedure;
+                                                    cmd1.CommandText = "SP_Attachments";
+                                                    cmd1.Parameters.AddWithValue("@attach_type", attach_type);
+                                                    cmd1.Parameters.AddWithValue("@attach_Path", attach_place_store);
+                                                    cmd1.Parameters.AddWithValue("@attach_doc_id", strImageName);
+                                                    cmd1.Parameters.AddWithValue("@check", "i");
+                                                    cmd1.Connection = con;
+                                                    con.Open();
+                                                    cmd1.ExecuteNonQuery();
+                                                    con.Close();
+                                                }
+                                            }
+
+                                            System.IO.Directory.CreateDirectory(Server.MapPath("\\UploadedImages\\Checks\\" + yy + "\\" + mm + "\\" + dd + "\\"));
+                                            userPostedFile.SaveAs(Server.MapPath("\\UploadedImages\\" + attach_place_store));
+                                        }
+                                        else
+                                        {
+                                            MSG("الملف الذي قمت بإدخاله غير صالح");
+                                        }
                                     }
-                                    else
-                                    {
-                                        MSG("الملف الذي قمت بإدخاله غير صالح");
-                                    }
+
+                                }
+                                catch (Exception)
+                                {
+                                    MSG("يوجد خطأ يرجى مراجعة مسؤول النظام");
                                 }
 
                             }
-                            catch (Exception)
-                            {
-                                MSG("يوجد خطأ يرجى مراجعة مسؤول النظام");
-                            }
+                        }
+                        catch (Exception)
+                        {
 
+                            MSG("يرجى مراجعة مسؤول النظام");
                         }
                     }
-                    catch (Exception)
+                    else
                     {
-
-                        MSG("يرجى مراجعة مسؤول النظام");
+                        Result = "هذا الشيك مدخل من قبل";
                     }
+                    MSG(Result);
+
+                    //ClearFields(Form.Controls);
+                    Txt_Check_No.Text = "";
+                    //Txt_Months.Text = "";
+                    Txt_Notes.Text = "";
+                    Txt_Value.Text = "";
+                    DDL_Sent_To.SelectedValue = "0";
+                    DDL_Sent_To.Focus();
+                    Cls_Sub_Banks Sub_Bank = new Cls_Sub_Banks();
+                    DDL_Bank_Branch.DataSource = Sub_Bank.Get_Sub_Banks(int.Parse(DDL_Bank.SelectedValue));
+                    DDL_Bank_Branch.DataBind();
+                    DDL_Bank_Branch.Items.Insert(0, new ListItem("--اختر--", "0"));
+                    DDL_Bank_Branch.SelectedValue = Main_Check._Sub_Bank.ToString();
                 }
                 else
                 {
-                    Result = "هذا الشيك مدخل من قبل";
+                    MSG("يرجى ادخال الجهة المرسل اليها ");
                 }
-                MSG(Result);
-
-                //ClearFields(Form.Controls);
-                Txt_Check_No.Text = "";
-                Txt_Months.Text = "";
-                Txt_Notes.Text = "";
-                Txt_Value.Text = "";
-                DDL_Sent_To.SelectedValue = "0";
-                DDL_Sent_To.Focus();
-                Cls_Sub_Banks Sub_Bank = new Cls_Sub_Banks();
-                DDL_Bank_Branch.DataSource = Sub_Bank.Get_Sub_Banks(int.Parse(DDL_Bank.SelectedValue));
-                DDL_Bank_Branch.DataBind();
-                DDL_Bank_Branch.Items.Insert(0, new ListItem("--اختر--", "0"));
-                DDL_Bank_Branch.SelectedValue = Main_Check._Sub_Bank.ToString();
             }
-
             else
             {
                 MSG("يرجى ادخال تفاصيل المعاملة");
@@ -681,7 +689,7 @@ namespace Elite_system
 
                 ClearFields(Form.Controls);
                 Txt_Check_No.Text = "";
-                Txt_Months.Text = "";
+                //Txt_Months.Text = "";
                 Txt_Notes.Text = "";
                 Txt_Value.Text = "";
                 DDL_Company.Focus();
@@ -857,7 +865,7 @@ namespace Elite_system
 
                 //ClearFields(Form.Controls);
                 Txt_Check_No.Text = "";
-                Txt_Months.Text = "";
+                //Txt_Months.Text = "";
                 Txt_Notes.Text = "";
                 Txt_Value.Text = "";
                 DDL_Sent_To.SelectedValue = "0";
@@ -922,7 +930,7 @@ namespace Elite_system
 
             ClearFields(Form.Controls);
             Txt_Check_No.Text = "";
-            Txt_Months.Text = "";
+            //Txt_Months.Text = "";
             Txt_Notes.Text = "";
             Txt_Value.Text = "";
             DDL_Company.Focus();
@@ -1452,7 +1460,7 @@ namespace Elite_system
 
                 //ClearFields(Form.Controls);
                 Txt_Check_No.Text = "";
-                Txt_Months.Text = "";
+                //Txt_Months.Text = "";
                 Txt_Notes.Text = "";
                 Txt_Value.Text = "";
                 DDL_Sent_To.SelectedValue = "0";

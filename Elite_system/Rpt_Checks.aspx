@@ -34,9 +34,9 @@
 
 
         .Report {
-            MARGIN-LEFT: 7%;
-            width: 74% !important;
-            height:500PX;
+    MARGIN-LEFT: -6%;
+    width: 83% !important;
+    height: 500PX !important;
         }
         
         @media only screen and (max-width: 1000px) {

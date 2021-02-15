@@ -679,7 +679,12 @@ namespace Elite_system
                         rblSource.SelectedIndex = -1;
                         break;
                     case "DropDownList":
+                       
                         DropDownList ddlSource = (DropDownList)contl;
+                        //if (ddlSource.i== "DDL_Mail_Type")
+                        //{
+                        //    break;
+                        //}
                         ddlSource.SelectedIndex = -1;
                         break;
                     case "ListBox":

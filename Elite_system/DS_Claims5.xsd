@@ -11,8 +11,13 @@
             <MainSource>
               <DbSource ConnectionRef="CONN (Web.config)" DbObjectName="DB_A5D8AE_EliteSystem.dbo.V_ClaimsRpt2" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, Medical_Name, Medical_TypeName, Month_Year, Received_Date, Receiver_Employee, Employee_Name, Entry_Date, Batch_No, Claim_ID, Sub_ClaimsID, Main_Company, Main_CompanyDesc, Sub_Company, Sub_CompanyDesc, Claims_Count, Value, Stamps, Main_Claims_ID, Delivered, Company_Address, Medical_TypeAddress, patient_name, Date_Subclaim, Approval_number, procedures_Subclaim, Checked, PatientRatio, Tax, Procedure1, ProcedureDesc1, Specialization1, Specialization1_Desc, Points1, Procedure2, Procedure2_Desc, Specialization2, Specialization2_Desc, Points2, Procedure3, Procedure3_Desc, Specialization3, Specialization3_Desc, Points3, Procedure4, Procedure4_Desc, Specialization4, Specialization4_Desc, Point4, Procedure5, Procedure5_Desc, Specialization5, Specialization5_Desc, Points5, TransactionPrice1, CheckPrice1, DiscountRatio1, TransactionPrice2, CheckPrice2, DiscountRatio2, TransactionPrice3, CheckPrice3, DiscountRatio3, TransactionPrice4, CheckPrice4, DiscountRatio4, TransactionPrice5, CheckPrice5, DiscountRatio5, Type, Card_Num, Sample_Num, CheckDiscountRatio1 FROM dbo.V_ClaimsRpt2</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ID, Medical_Name, Medical_TypeName, Month_Year, Received_Date, Receiver_Employee, Employee_Name, Entry_Date, Batch_No, Claim_ID, Sub_ClaimsID, Main_Company, Main_CompanyDesc, Sub_Company, Sub_CompanyDesc, 
+                  Claims_Count, Value, Stamps, Main_Claims_ID, Delivered, Company_Address, Medical_TypeAddress, patient_name, Date_Subclaim, Approval_number, procedures_Subclaim, Checked, PatientRatio, Tax, Procedure1, ProcedureDesc1, 
+                  Specialization1, Specialization1_Desc, Points1, Procedure2, Procedure2_Desc, Specialization2, Specialization2_Desc, Points2, Procedure3, Procedure3_Desc, Specialization3, Specialization3_Desc, Points3, Procedure4, Procedure4_Desc, 
+                  Specialization4, Specialization4_Desc, Point4, Procedure5, Procedure5_Desc, Specialization5, Specialization5_Desc, Points5, TransactionPrice1, CheckPrice1, DiscountRatio1, TransactionPrice2, CheckPrice2, DiscountRatio2, 
+                  TransactionPrice3, CheckPrice3, DiscountRatio3, TransactionPrice4, CheckPrice4, DiscountRatio4, TransactionPrice5, CheckPrice5, DiscountRatio5, Type, Card_Num, Sample_Num, CheckDiscountRatio1, PayValue
+FROM     V_ClaimsRpt2</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -92,6 +97,7 @@
               <Mapping SourceColumn="Card_Num" DataSetColumn="Card_Num" />
               <Mapping SourceColumn="Sample_Num" DataSetColumn="Sample_Num" />
               <Mapping SourceColumn="CheckDiscountRatio1" DataSetColumn="CheckDiscountRatio1" />
+              <Mapping SourceColumn="PayValue" DataSetColumn="PayValue" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -103,7 +109,7 @@
   <xs:element name="DS_Claims5" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DS_Claims5" msprop:Generator_UserDSName="DS_Claims5">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="V_ClaimsRpt2" msprop:Generator_TableClassName="V_ClaimsRpt2DataTable" msprop:Generator_TableVarName="tableV_ClaimsRpt2" msprop:Generator_TablePropName="V_ClaimsRpt2" msprop:Generator_RowDeletingName="V_ClaimsRpt2RowDeleting" msprop:Generator_RowChangingName="V_ClaimsRpt2RowChanging" msprop:Generator_RowEvHandlerName="V_ClaimsRpt2RowChangeEventHandler" msprop:Generator_RowDeletedName="V_ClaimsRpt2RowDeleted" msprop:Generator_UserTableName="V_ClaimsRpt2" msprop:Generator_RowChangedName="V_ClaimsRpt2RowChanged" msprop:Generator_RowEvArgName="V_ClaimsRpt2RowChangeEvent" msprop:Generator_RowClassName="V_ClaimsRpt2Row">
+        <xs:element name="V_ClaimsRpt2" msprop:Generator_TableClassName="V_ClaimsRpt2DataTable" msprop:Generator_TableVarName="tableV_ClaimsRpt2" msprop:Generator_RowChangedName="V_ClaimsRpt2RowChanged" msprop:Generator_TablePropName="V_ClaimsRpt2" msprop:Generator_RowDeletingName="V_ClaimsRpt2RowDeleting" msprop:Generator_RowChangingName="V_ClaimsRpt2RowChanging" msprop:Generator_RowEvHandlerName="V_ClaimsRpt2RowChangeEventHandler" msprop:Generator_RowDeletedName="V_ClaimsRpt2RowDeleted" msprop:Generator_RowClassName="V_ClaimsRpt2Row" msprop:Generator_UserTableName="V_ClaimsRpt2" msprop:Generator_RowEvArgName="V_ClaimsRpt2RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:decimal" />
@@ -311,6 +317,7 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="CheckDiscountRatio1" msprop:Generator_ColumnVarNameInTable="columnCheckDiscountRatio1" msprop:Generator_ColumnPropNameInRow="CheckDiscountRatio1" msprop:Generator_ColumnPropNameInTable="CheckDiscountRatio1Column" msprop:Generator_UserColumnName="CheckDiscountRatio1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PayValue" msprop:Generator_ColumnVarNameInTable="columnPayValue" msprop:Generator_ColumnPropNameInRow="PayValue" msprop:Generator_ColumnPropNameInTable="PayValueColumn" msprop:Generator_UserColumnName="PayValue" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

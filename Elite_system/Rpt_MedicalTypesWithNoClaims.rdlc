@@ -466,7 +466,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -616,13 +615,13 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>2.4375in</Height>
+    <Height>6.19125cm</Height>
     <Style />
   </Body>
-  <Width>7.36238in</Width>
+  <Width>18.70045cm</Width>
   <Page>
     <PageHeader>
-      <Height>0.29167in</Height>
+      <Height>0.74084cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -666,7 +665,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.29167in</Height>
+      <Height>0.74084cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -695,6 +694,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox38</rd:DefaultName>
+          <Top>0cm</Top>
           <Left>2.60991in</Left>
           <Height>0.25in</Height>
           <Width>1.28018in</Width>
@@ -715,10 +715,13 @@
         </Border>
       </Style>
     </PageFooter>
-    <LeftMargin>1in</LeftMargin>
-    <RightMargin>1in</RightMargin>
-    <TopMargin>1in</TopMargin>
-    <BottomMargin>1in</BottomMargin>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>24cm</PageWidth>
+    <LeftMargin>2.54cm</LeftMargin>
+    <RightMargin>2.54cm</RightMargin>
+    <TopMargin>2.54cm</TopMargin>
+    <BottomMargin>2.54cm</BottomMargin>
+    <ColumnSpacing>1.27cm</ColumnSpacing>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
@@ -1132,6 +1135,6 @@ yRrtzRay6VRpJjNXxBB0uLvMyvh82FbjOQYfOR6zLB2xsgpEMlNmTigCAAAAAAAulu9en+VPfn5ZN+5s
 ZGF0ZTpjcmVhdGUAMjAyMC0wNy0wNlQxOTo0NjowOCswMDowMIGBImEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMDctMDZUMTk6NDY6MDgrMDA6MDDw3JrdAAAAAElFTkSuQmCC</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0213e654-893e-4fa3-a2a3-17a0e5f976ba</rd:ReportID>
 </Report>

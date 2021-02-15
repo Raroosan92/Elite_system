@@ -69,7 +69,7 @@ namespace Elite_system
                 cmd.Parameters.AddWithValue("@Main_Company", long.Parse(DDL_Main_Company.SelectedValue));
                 
 
-                if (DDL_Sub_Company.SelectedValue == "0")
+                if (DDL_Sub_Company.SelectedValue == "")
                 {
                     cmd.Parameters.AddWithValue("@Sub_Company", 0);
                 }
@@ -108,7 +108,8 @@ namespace Elite_system
             }
             catch (Exception ex)
             {
-                string x = ex.Message.ToString();
+                throw ex;
+                //string x = ex.Message.ToString();
             }
         }
 

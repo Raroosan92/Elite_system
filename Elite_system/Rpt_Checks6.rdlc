@@ -644,7 +644,6 @@
                         <WritingMode>Horizontal</WritingMode>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -1374,7 +1373,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>9.63083cm</Height>
+    <Height>7.0485cm</Height>
     <Style />
   </Body>
   <Width>26.30162cm</Width>
@@ -1441,7 +1440,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>4.86833cm</Height>
+      <Height>0.74083cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <Style>

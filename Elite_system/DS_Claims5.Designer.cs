@@ -425,6 +425,8 @@ namespace Elite_system {
             
             private global::System.Data.DataColumn columnCheckDiscountRatio1;
             
+            private global::System.Data.DataColumn columnPayValue;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public V_ClaimsRpt2DataTable() {
@@ -1044,6 +1046,14 @@ namespace Elite_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PayValueColumn {
+                get {
+                    return this.columnPayValue;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1152,7 +1162,8 @@ namespace Elite_system {
                         int Type, 
                         string Card_Num, 
                         string Sample_Num, 
-                        decimal CheckDiscountRatio1) {
+                        decimal CheckDiscountRatio1, 
+                        decimal PayValue) {
                 V_ClaimsRpt2Row rowV_ClaimsRpt2Row = ((V_ClaimsRpt2Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -1227,7 +1238,8 @@ namespace Elite_system {
                         Type,
                         Card_Num,
                         Sample_Num,
-                        CheckDiscountRatio1};
+                        CheckDiscountRatio1,
+                        PayValue};
                 rowV_ClaimsRpt2Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowV_ClaimsRpt2Row);
                 return rowV_ClaimsRpt2Row;
@@ -1323,6 +1335,7 @@ namespace Elite_system {
                 this.columnCard_Num = base.Columns["Card_Num"];
                 this.columnSample_Num = base.Columns["Sample_Num"];
                 this.columnCheckDiscountRatio1 = base.Columns["CheckDiscountRatio1"];
+                this.columnPayValue = base.Columns["PayValue"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1474,6 +1487,8 @@ namespace Elite_system {
                 base.Columns.Add(this.columnSample_Num);
                 this.columnCheckDiscountRatio1 = new global::System.Data.DataColumn("CheckDiscountRatio1", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCheckDiscountRatio1);
+                this.columnPayValue = new global::System.Data.DataColumn("PayValue", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayValue);
                 this.columnID.AllowDBNull = false;
                 this.columnMedical_TypeName.MaxLength = 200;
                 this.columnMonth_Year.MaxLength = 50;
@@ -2798,6 +2813,22 @@ namespace Elite_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal PayValue {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_ClaimsRpt2.PayValueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PayValue\' in table \'V_ClaimsRpt2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ClaimsRpt2.PayValueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsMedical_NameNull() {
                 return this.IsNull(this.tableV_ClaimsRpt2.Medical_NameColumn);
             }
@@ -3647,6 +3678,18 @@ namespace Elite_system {
             public void SetCheckDiscountRatio1Null() {
                 this[this.tableV_ClaimsRpt2.CheckDiscountRatio1Column] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPayValueNull() {
+                return this.IsNull(this.tableV_ClaimsRpt2.PayValueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPayValueNull() {
+                this[this.tableV_ClaimsRpt2.PayValueColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -3881,6 +3924,7 @@ namespace Elite_system.DS_Claims5TableAdapters {
             tableMapping.ColumnMappings.Add("Card_Num", "Card_Num");
             tableMapping.ColumnMappings.Add("Sample_Num", "Sample_Num");
             tableMapping.ColumnMappings.Add("CheckDiscountRatio1", "CheckDiscountRatio1");
+            tableMapping.ColumnMappings.Add("PayValue", "PayValue");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3897,7 +3941,12 @@ namespace Elite_system.DS_Claims5TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ID, Medical_Name, Medical_TypeName, Month_Year, Received_Date, Receiver_Employee, Employee_Name, Entry_Date, Batch_No, Claim_ID, Sub_ClaimsID, Main_Company, Main_CompanyDesc, Sub_Company, Sub_CompanyDesc, Claims_Count, Value, Stamps, Main_Claims_ID, Delivered, Company_Address, Medical_TypeAddress, patient_name, Date_Subclaim, Approval_number, procedures_Subclaim, Checked, PatientRatio, Tax, Procedure1, ProcedureDesc1, Specialization1, Specialization1_Desc, Points1, Procedure2, Procedure2_Desc, Specialization2, Specialization2_Desc, Points2, Procedure3, Procedure3_Desc, Specialization3, Specialization3_Desc, Points3, Procedure4, Procedure4_Desc, Specialization4, Specialization4_Desc, Point4, Procedure5, Procedure5_Desc, Specialization5, Specialization5_Desc, Points5, TransactionPrice1, CheckPrice1, DiscountRatio1, TransactionPrice2, CheckPrice2, DiscountRatio2, TransactionPrice3, CheckPrice3, DiscountRatio3, TransactionPrice4, CheckPrice4, DiscountRatio4, TransactionPrice5, CheckPrice5, DiscountRatio5, Type, Card_Num, Sample_Num, CheckDiscountRatio1 FROM dbo.V_ClaimsRpt2";
+            this._commandCollection[0].CommandText = @"SELECT ID, Medical_Name, Medical_TypeName, Month_Year, Received_Date, Receiver_Employee, Employee_Name, Entry_Date, Batch_No, Claim_ID, Sub_ClaimsID, Main_Company, Main_CompanyDesc, Sub_Company, Sub_CompanyDesc, 
+                  Claims_Count, Value, Stamps, Main_Claims_ID, Delivered, Company_Address, Medical_TypeAddress, patient_name, Date_Subclaim, Approval_number, procedures_Subclaim, Checked, PatientRatio, Tax, Procedure1, ProcedureDesc1, 
+                  Specialization1, Specialization1_Desc, Points1, Procedure2, Procedure2_Desc, Specialization2, Specialization2_Desc, Points2, Procedure3, Procedure3_Desc, Specialization3, Specialization3_Desc, Points3, Procedure4, Procedure4_Desc, 
+                  Specialization4, Specialization4_Desc, Point4, Procedure5, Procedure5_Desc, Specialization5, Specialization5_Desc, Points5, TransactionPrice1, CheckPrice1, DiscountRatio1, TransactionPrice2, CheckPrice2, DiscountRatio2, 
+                  TransactionPrice3, CheckPrice3, DiscountRatio3, TransactionPrice4, CheckPrice4, DiscountRatio4, TransactionPrice5, CheckPrice5, DiscountRatio5, Type, Card_Num, Sample_Num, CheckDiscountRatio1, PayValue
+FROM     V_ClaimsRpt2";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

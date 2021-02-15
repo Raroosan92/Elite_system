@@ -1111,13 +1111,13 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>2.88542in</Height>
+    <Height>7.32897cm</Height>
     <Style />
   </Body>
-  <Width>7.42319in</Width>
+  <Width>18.38439cm</Width>
   <Page>
     <PageHeader>
-      <Height>1.24873in</Height>
+      <Height>3.17177cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1351,10 +1351,13 @@
         </Border>
       </Style>
     </PageHeader>
-    <LeftMargin>1in</LeftMargin>
-    <RightMargin>1in</RightMargin>
-    <TopMargin>1in</TopMargin>
-    <BottomMargin>1in</BottomMargin>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>24cm</PageWidth>
+    <LeftMargin>2.54cm</LeftMargin>
+    <RightMargin>2.54cm</RightMargin>
+    <TopMargin>2.54cm</TopMargin>
+    <BottomMargin>2.54cm</BottomMargin>
+    <ColumnSpacing>1.27cm</ColumnSpacing>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
@@ -1957,6 +1960,6 @@ yRrtzRay6VRpJjNXxBB0uLvMyvh82FbjOQYfOR6zLB2xsgpEMlNmTigCAAAAAAAulu9en+VPfn5ZN+5s
 ZGF0ZTpjcmVhdGUAMjAyMC0wNy0wNlQxOTo0NjowOCswMDowMIGBImEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMDctMDZUMTk6NDY6MDgrMDA6MDDw3JrdAAAAAElFTkSuQmCC</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>7f1800db-bcbf-44a5-ba61-b87abc72abbc</rd:ReportID>
 </Report>

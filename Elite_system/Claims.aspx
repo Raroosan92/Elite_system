@@ -688,23 +688,23 @@
 
 
                         <table class="table-responsive">
-                            <tr>                                
-                               
-                                 <td>
-                                    
-                                    <asp:DropDownList ID="DropDownList1" runat="server" DataTextField="Name" DataValueField="ID" Width="150px" style="visibility:hidden"></asp:DropDownList>
-                                    <asp:Label ID="Label9" runat="server" Text="الشركة2" style="visibility:hidden"></asp:Label>
-                                </td>
-                                 <td>
-                                <asp:Button ID="Btn_Search2" runat="server" CssClass="Btn_Search" Text="بحث" OnClick="Btn_Search2_Click" />
+                            <tr>
+
+                                <td>
+
+                                    <asp:DropDownList ID="DropDownList1" runat="server" DataTextField="Name" DataValueField="ID" Width="150px" Style="visibility: hidden"></asp:DropDownList>
+                                    <asp:Label ID="Label9" runat="server" Text="الشركة2" Style="visibility: hidden"></asp:Label>
                                 </td>
                                 <td>
-                                    
+                                    <asp:Button ID="Btn_Search2" runat="server" CssClass="Btn_Search" Text="بحث" OnClick="Btn_Search2_Click" />
+                                </td>
+                                <td>
+
                                     <asp:DropDownList ID="DDL_Main_Company2" runat="server" DataTextField="Name" DataValueField="ID" Width="300px"></asp:DropDownList>
                                     <asp:Label ID="Label11" runat="server" Text="الشركة"></asp:Label>
                                 </td>
-                              
-                                
+
+
                             </tr>
                         </table>
 
@@ -818,7 +818,7 @@
             $("#<%=DDL_Receiver_Employee.ClientID%>").select2();
             $("#<%=DDL_Medical_Name.ClientID%>").select2();
             $("#<%=DDL_Main_Company.ClientID%>").select2();
-             $("#<%=DDL_Main_Company2.ClientID%>").select2();
+            $("#<%=DDL_Main_Company2.ClientID%>").select2();
             $("#<%=DDL_Medical_Name_Search.ClientID%>").select2();
             $("#<%=DDL_Sub_Company.ClientID%>").select2();
             $("#<%=DDL_Specialization.ClientID%>").select2();
@@ -840,7 +840,7 @@
             $("#<%=DDL_Receiver_Employee.ClientID%>").select2();
             $("#<%=DDL_Medical_Name.ClientID%>").select2();
             $("#<%=DDL_Main_Company.ClientID%>").select2();
-             $("#<%=DDL_Main_Company2.ClientID%>").select2();
+            $("#<%=DDL_Main_Company2.ClientID%>").select2();
             $("#<%=DDL_Medical_Name_Search.ClientID%>").select2();
             $("#<%=DDL_Sub_Company.ClientID%>").select2();
             $("#<%=DDL_Specialization.ClientID%>").select2();

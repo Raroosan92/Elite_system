@@ -166,7 +166,7 @@ namespace Elite_system
         {
             //if (Txt_BarCode.Text!="")
             //{
-                Num = DDL_Employee.SelectedItem.Text;
+            Num = DDL_Employee.SelectedItem.Text;
             //}
             //else if (Txt_CheckNo.Text != "")
             //{
@@ -380,7 +380,8 @@ namespace Elite_system
                 if (Exist == 1)
                 {
                     //To Update Name in checkes
-                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= " + DateTime.UtcNow.AddHours(2) + " WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                    string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
                     Cls_Connection.open_connection();
                     cmd.ExecuteNonQuery();
                     Cls_Connection.close_connection();
@@ -394,7 +395,8 @@ namespace Elite_system
             }
             catch (Exception ex)
             {
-                ex.Message.ToString();
+
+                throw ex;
                 Cls_Connection.close_connection();
 
 
@@ -423,7 +425,8 @@ namespace Elite_system
                 if (Exist == 1)
                 {
                     //To Update Name in checkes
-                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= " + DateTime.UtcNow.AddHours(2) + " WHERE Check_No = '" + Txt_CheckNo.Text + "'";
+                    string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "'";
                     Cls_Connection.open_connection();
                     cmd.ExecuteNonQuery();
                     Check = true;
@@ -442,7 +445,8 @@ namespace Elite_system
                     else
                     {
                         //To Update Name in checkes
-                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= " + DateTime.UtcNow.AddHours(2) + " WHERE Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
+                        string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= " + dt1+ " WHERE Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
                         Cls_Connection.open_connection();
                         cmd.ExecuteNonQuery();
                         Check = true;
@@ -532,25 +536,35 @@ namespace Elite_system
             }
 
             string AssignedCheck = "";
-            AssignedCheck = CheckIfAssigned2();
-            if (AssignedCheck == "")
+            try
             {
-                SaveAssignNameToChecked();
-                ////////////////////////////////       Log        /////////////////////////////////////////////
-                Cls_Log log = new Cls_Log();
-                log._Log_Event = " إحالة الشيك رقم الباركود  : " + Txt_BarCode.Text + " إلى  " + DDL_Employee.SelectedItem.Text;
-                log.Insert_Log();
-                ////////////////////////////////   End Of Log        /////////////////////////////////////////////
+                AssignedCheck = CheckIfAssigned2();
+                if (AssignedCheck == "")
+                {
+                    SaveAssignNameToChecked();
+                    ////////////////////////////////       Log        /////////////////////////////////////////////
+                    Cls_Log log = new Cls_Log();
+                    log._Log_Event = " إحالة الشيك رقم الباركود  : " + Txt_BarCode.Text + " إلى  " + DDL_Employee.SelectedItem.Text;
+                    log.Insert_Log();
+                    ////////////////////////////////   End Of Log        /////////////////////////////////////////////
 
-                Get_MainChecks_ForGridView();
+                    Get_MainChecks_ForGridView();
+                }
+                else
+                {
+                    MSG(" هذا الشيك محال الى الموظف : " + AssignedCheck);
+                }
             }
-            else
+            catch (Exception EX)
             {
-                MSG(" هذا الشيك محال الى الموظف : " + AssignedCheck);
+                MSG(EX.Message.ToString());
+                //throw EX;
             }
+
             Txt_BarCode.Text = "";
             Txt_BarCode.Focus();
         }
+
 
         protected void Btn_Save2_Click(object sender, EventArgs e)
         {
@@ -634,7 +648,8 @@ namespace Elite_system
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
 
                 cmd.Connection = con;
-                cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = NULL ,Modified= " + DateTime.UtcNow.AddHours(2) + " WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
+                string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = NULL ,Modified= '" + dt1 + "' WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
                 Cls_Connection.open_connection();
                 cmd.ExecuteNonQuery();
 

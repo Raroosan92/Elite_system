@@ -39,14 +39,10 @@ namespace Elite_system
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (DDL_Medical_Name.SelectedIndex!=0)
-            {
+           
                 Result_DT();
-            }
-            else
-            {
-                MSG("يجب ادخال الجهة الطبية");
-            }
+            
+           
            
         }
 
@@ -148,8 +144,8 @@ namespace Elite_system
                 ////cmd.Parameters.AddWithValue("@Sent_To", long.Parse(DDL_Medical_Name.SelectedValue));
 
                 //rami
-                ReportParameterCollection Rpt = new ReportParameterCollection();
-                Rpt.Add(new ReportParameter("Uname", HttpContext.Current.User.Identity.Name));
+                //ReportParameterCollection Rpt = new ReportParameterCollection();
+                //Rpt.Add(new ReportParameter("Uname", HttpContext.Current.User.Identity.Name));
 
                 //rami
 
@@ -163,13 +159,14 @@ namespace Elite_system
                 ReportViewer1.LocalReport.DataSources.Clear();
                 ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_Checks", dt_Result));
                 //rami
-                this.ReportViewer1.LocalReport.SetParameters(Rpt);
+                //this.ReportViewer1.LocalReport.SetParameters(Rpt);
                 //rami
                 ReportViewer1.LocalReport.Refresh();
             }
             catch (Exception ex)
             {
-                string x = ex.Message.ToString();
+                throw ex;
+                //string x = ex.Message.ToString();
             }
         }
 

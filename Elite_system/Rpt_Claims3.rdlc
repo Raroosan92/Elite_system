@@ -247,7 +247,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>نسبة تحمل المريض</Value>
+                              <Value>نسبة تحمل المريض بالدينار</Value>
                               <Style>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -821,9 +821,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!PatientRatio.Value</Value>
+                              <Value>=(Fields!Value.Value)*(Fields!PatientRatio.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
+                                <Format>'$'#,0.000;('$'#,0.000)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -837,25 +838,15 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                        </RightBorder>
                         <BackgroundColor>= IIF(RowNumber("DS_Claims3") Mod 2 = 0, "LightGrey", "Transparent")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -2315,10 +2306,14 @@
           <DataField>CheckDiscountRatio1</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="PayValue">
+          <DataField>PayValue</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DS_Claims5</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\SHADI\Desktop\Elite_system 01-11-2020\Elite_system\DS_Claims5.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\Projects_Development\النخبة  Elite\Elite_system-08-12-2020\Elite_system-08-12-2020\Elite_system\DS_Claims5.xsd</rd:SchemaPath>
         <rd:TableName>V_ClaimsRpt2</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
