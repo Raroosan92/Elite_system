@@ -20,6 +20,7 @@ namespace Elite_system
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!Page.IsPostBack)
             {
                 Btn_Delete.Style.Add("Display", "None");
@@ -29,301 +30,301 @@ namespace Elite_system
                 DDL_Sent_To.Items.Insert(0, new ListItem("--اختر--", "0"));
             }
         }
-        public void Get_MainChecks_GridView()
-        {
-            try
-            {
+        //public void Get_MainChecks_GridView()
+        //{
+        //    try
+        //    {
 
 
-                //To Transmit Data To GridView
-                SqlConnection con = new SqlConnection();
+        //        //To Transmit Data To GridView
+        //        SqlConnection con = new SqlConnection();
 
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
-                con = Cls_Connection._con;
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "Get_MainChecks_AssignChecks";
-                cmd.Parameters.AddWithValue("@BarCode", Txt_BarCode.Text);
-                Cls_Connection.open_connection();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                GV_ChecksAssigned.DataSourceID = null;
-                GV_ChecksAssigned.DataSource = dt;
-                GV_ChecksAssigned.DataBind();
-                Btn_Delete.Style.Add("Display", "inline-block");
-                Cls_Connection.close_connection();
-
-
-
-            }
-            catch (Exception ex)
-            {
-                ex.Message.ToString();
-                Cls_Connection.close_connection();
-
-
-            }
-
-        }
-
-        public void Get_MainChecks_GridView2()
-        {
-            try
-            {
-
-
-                //To Transmit Data To GridView
-                SqlConnection con = new SqlConnection();
-
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
-                con = Cls_Connection._con;
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                if (CheckMore == true)
-                {
-                    cmd.CommandText = "Get_MainChecks_AssignChecks3";
-                    cmd.Parameters.AddWithValue("@Medical_Type", DDL_Sent_To.SelectedItem.Text);
-                }
-                else
-                {
-                    cmd.CommandText = "Get_MainChecks_AssignChecks2";
-                }
-                cmd.Parameters.AddWithValue("@Check_No", Txt_CheckNo.Text);
-                Cls_Connection.open_connection();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                GV_ChecksAssigned.DataSourceID = null;
-                GV_ChecksAssigned.DataSource = dt;
-                GV_ChecksAssigned.DataBind();
-                Btn_Delete.Style.Add("Display", "inline-block");
-                Cls_Connection.close_connection();
+        //        con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+        //        con = Cls_Connection._con;
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.Connection = con;
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cmd.CommandText = "Get_MainChecks_AssignChecks";
+        //        cmd.Parameters.AddWithValue("@BarCode", Txt_BarCode.Text);
+        //        Cls_Connection.open_connection();
+        //        DataTable dt = new DataTable();
+        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //        da.Fill(dt);
+        //        GV_ChecksAssigned.DataSourceID = null;
+        //        GV_ChecksAssigned.DataSource = dt;
+        //        GV_ChecksAssigned.DataBind();
+        //        Btn_Delete.Style.Add("Display", "inline-block");
+        //        Cls_Connection.close_connection();
 
 
 
-            }
-            catch (Exception ex)
-            {
-                ex.Message.ToString();
-                Cls_Connection.close_connection();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ex.Message.ToString();
+        //        Cls_Connection.close_connection();
 
 
-            }
+        //    }
 
-        }
+        //}
 
-        public void Get_MainChecks_GridViewTemp()
-        {
-            try
-            {
-
-
-                //To Transmit Data To GridView
-                SqlConnection con = new SqlConnection();
-
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
-                con = Cls_Connection._con;
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "Get_MainChecks_AssignChecksTemp";
-                Cls_Connection.open_connection();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                GV_ChecksAssigned.DataSourceID = null;
-                GV_ChecksAssigned.DataSource = dt;
-                GV_ChecksAssigned.DataBind();
-                Cls_Connection.close_connection();
+        //public void Get_MainChecks_GridView2()
+        //{
+        //    try
+        //    {
 
 
+        //        //To Transmit Data To GridView
+        //        SqlConnection con = new SqlConnection();
 
-            }
-            catch (Exception ex)
-            {
-                ex.Message.ToString();
-                Cls_Connection.close_connection();
+        //        con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+        //        con = Cls_Connection._con;
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.Connection = con;
+        //        cmd.CommandType = CommandType.StoredProcedure;
+
+        //        if (CheckMore == true)
+        //        {
+        //            cmd.CommandText = "Get_MainChecks_AssignChecks3";
+        //            cmd.Parameters.AddWithValue("@Medical_Type", DDL_Sent_To.SelectedItem.Text);
+        //        }
+        //        else
+        //        {
+        //            cmd.CommandText = "Get_MainChecks_AssignChecks2";
+        //        }
+        //        cmd.Parameters.AddWithValue("@Check_No", Txt_CheckNo.Text);
+        //        Cls_Connection.open_connection();
+        //        DataTable dt = new DataTable();
+        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //        da.Fill(dt);
+        //        GV_ChecksAssigned.DataSourceID = null;
+        //        GV_ChecksAssigned.DataSource = dt;
+        //        GV_ChecksAssigned.DataBind();
+        //        Btn_Delete.Style.Add("Display", "inline-block");
+        //        Cls_Connection.close_connection();
 
 
-            }
 
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ex.Message.ToString();
+        //        Cls_Connection.close_connection();
+
+
+        //    }
+
+        //}
+
+        //public void Get_MainChecks_GridViewTemp()
+        //{
+        //    try
+        //    {
+
+
+        //        //To Transmit Data To GridView
+        //        SqlConnection con = new SqlConnection();
+
+        //        con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+        //        con = Cls_Connection._con;
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.Connection = con;
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cmd.CommandText = "Get_MainChecks_AssignChecksTemp";
+        //        Cls_Connection.open_connection();
+        //        DataTable dt = new DataTable();
+        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //        da.Fill(dt);
+        //        GV_ChecksAssigned.DataSourceID = null;
+        //        GV_ChecksAssigned.DataSource = dt;
+        //        GV_ChecksAssigned.DataBind();
+        //        Cls_Connection.close_connection();
+
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ex.Message.ToString();
+        //        Cls_Connection.close_connection();
+
+
+        //    }
+
+        //}
         int Exist;
         bool Result;
-        public void SaveAssignCheckedToTempTable()
-        {
+        //public void SaveAssignCheckedToTempTable()
+        //{
 
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
-            con = Cls_Connection._con;
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "select count(id) from AssignChekesTemp where BarCode='" + Txt_BarCode.Text + "'";
-            Cls_Connection.open_connection();
-            Exist = int.Parse(cmd.ExecuteScalar().ToString());
-            Cls_Connection.close_connection();
+        //    SqlConnection con = new SqlConnection();
+        //    con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+        //    con = Cls_Connection._con;
+        //    SqlCommand cmd = new SqlCommand();
+        //    cmd.Connection = con;
+        //    cmd.CommandText = "select count(id) from AssignChekesTemp where BarCode='" + Txt_BarCode.Text + "'";
+        //    Cls_Connection.open_connection();
+        //    Exist = int.Parse(cmd.ExecuteScalar().ToString());
+        //    Cls_Connection.close_connection();
 
-            if (Exist == 0)
-            {
-                try
-                {
-                    if (GV_ChecksAssigned.Rows.Count != 0)
-                    {
-                        //To Save Data To Table Temporary
-                        //Get the GridView Row.
-                        GridViewRow row = GV_ChecksAssigned.Rows[0];
-                        cmd.Parameters.Clear();
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "[AssignChekes_Temp]";
-                        cmd.Parameters.AddWithValue("@id", GV_ChecksAssigned.Rows[0].Cells[1].Text);
-                        cmd.Parameters.AddWithValue("@CompanyName", GV_ChecksAssigned.Rows[0].Cells[2].Text);
-                        cmd.Parameters.AddWithValue("@CheckDate", GV_ChecksAssigned.Rows[0].Cells[3].Text);
-                        cmd.Parameters.AddWithValue("@BankName", GV_ChecksAssigned.Rows[0].Cells[4].Text);
-                        cmd.Parameters.AddWithValue("@SentTo", GV_ChecksAssigned.Rows[0].Cells[5].Text);
-                        cmd.Parameters.AddWithValue("@Value", GV_ChecksAssigned.Rows[0].Cells[6].Text);
-                        cmd.Parameters.AddWithValue("@CheckNum", GV_ChecksAssigned.Rows[0].Cells[7].Text);
-                        cmd.Parameters.AddWithValue("@Month", GV_ChecksAssigned.Rows[0].Cells[8].Text);
-                        cmd.Parameters.AddWithValue("@Notes", GV_ChecksAssigned.Rows[0].Cells[9].Text);
-                        cmd.Parameters.AddWithValue("@Address", GV_ChecksAssigned.Rows[0].Cells[10].Text);
-                        cmd.Parameters.AddWithValue("@PhoneNumber", GV_ChecksAssigned.Rows[0].Cells[11].Text);
-                        cmd.Parameters.AddWithValue("@BarCode", GV_ChecksAssigned.Rows[0].Cells[12].Text);
-                        cmd.Parameters.AddWithValue("@EmpName", GV_ChecksAssigned.Rows[0].Cells[13].Text);
-                        bool Delivered = (row.Cells[14].Controls[0] as CheckBox).Checked;
-                        bool Refunded = (row.Cells[15].Controls[0] as CheckBox).Checked;
-                        cmd.Parameters.AddWithValue("@Delivered", Delivered);
-                        cmd.Parameters.AddWithValue("@Refunded", Refunded);
-                        Cls_Connection.open_connection();
-                        cmd.ExecuteNonQuery();
-                        Cls_Connection.close_connection();
-                    }
+        //    if (Exist == 0)
+        //    {
+        //        try
+        //        {
+        //            if (GV_ChecksAssigned.Rows.Count != 0)
+        //            {
+        //                //To Save Data To Table Temporary
+        //                //Get the GridView Row.
+        //                GridViewRow row = GV_ChecksAssigned.Rows[0];
+        //                cmd.Parameters.Clear();
+        //                cmd.CommandType = CommandType.StoredProcedure;
+        //                cmd.CommandText = "[AssignChekes_Temp]";
+        //                cmd.Parameters.AddWithValue("@id", GV_ChecksAssigned.Rows[0].Cells[1].Text);
+        //                cmd.Parameters.AddWithValue("@CompanyName", GV_ChecksAssigned.Rows[0].Cells[2].Text);
+        //                cmd.Parameters.AddWithValue("@CheckDate", GV_ChecksAssigned.Rows[0].Cells[3].Text);
+        //                cmd.Parameters.AddWithValue("@BankName", GV_ChecksAssigned.Rows[0].Cells[4].Text);
+        //                cmd.Parameters.AddWithValue("@SentTo", GV_ChecksAssigned.Rows[0].Cells[5].Text);
+        //                cmd.Parameters.AddWithValue("@Value", GV_ChecksAssigned.Rows[0].Cells[6].Text);
+        //                cmd.Parameters.AddWithValue("@CheckNum", GV_ChecksAssigned.Rows[0].Cells[7].Text);
+        //                cmd.Parameters.AddWithValue("@Month", GV_ChecksAssigned.Rows[0].Cells[8].Text);
+        //                cmd.Parameters.AddWithValue("@Notes", GV_ChecksAssigned.Rows[0].Cells[9].Text);
+        //                cmd.Parameters.AddWithValue("@Address", GV_ChecksAssigned.Rows[0].Cells[10].Text);
+        //                cmd.Parameters.AddWithValue("@PhoneNumber", GV_ChecksAssigned.Rows[0].Cells[11].Text);
+        //                cmd.Parameters.AddWithValue("@BarCode", GV_ChecksAssigned.Rows[0].Cells[12].Text);
+        //                cmd.Parameters.AddWithValue("@EmpName", GV_ChecksAssigned.Rows[0].Cells[13].Text);
+        //                bool Delivered = (row.Cells[14].Controls[0] as CheckBox).Checked;
+        //                bool Refunded = (row.Cells[15].Controls[0] as CheckBox).Checked;
+        //                cmd.Parameters.AddWithValue("@Delivered", Delivered);
+        //                cmd.Parameters.AddWithValue("@Refunded", Refunded);
+        //                Cls_Connection.open_connection();
+        //                cmd.ExecuteNonQuery();
+        //                Cls_Connection.close_connection();
+        //            }
 
-                }
-                catch
-                {
-                    Cls_Connection.close_connection();
-                }
-            }
-            else
-            {
-                MSG("هذا الشيك تم تسليمه مسبقاً");
-            }
-        }
+        //        }
+        //        catch
+        //        {
+        //            Cls_Connection.close_connection();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MSG("هذا الشيك تم تسليمه مسبقاً");
+        //    }
+        //}
 
-        public void SaveAssignCheckedToTempTable2()
-        {
+        //public void SaveAssignCheckedToTempTable2()
+        //{
 
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
-            con = Cls_Connection._con;
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "select count(id) from AssignChekesTemp where CheckNum='" + Txt_CheckNo.Text + "'";
-            Cls_Connection.open_connection();
-            Exist = int.Parse(cmd.ExecuteScalar().ToString());
-            Cls_Connection.close_connection();
+        //    SqlConnection con = new SqlConnection();
+        //    con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+        //    con = Cls_Connection._con;
+        //    SqlCommand cmd = new SqlCommand();
+        //    cmd.Connection = con;
+        //    cmd.CommandText = "select count(id) from AssignChekesTemp where CheckNum='" + Txt_CheckNo.Text + "'";
+        //    Cls_Connection.open_connection();
+        //    Exist = int.Parse(cmd.ExecuteScalar().ToString());
+        //    Cls_Connection.close_connection();
 
-            if (Exist == 0)
-            {
-                try
-                {
-                    if (GV_ChecksAssigned.Rows.Count != 0)
-                    {
-                        //To Save Data To Table Temporary
-                        //Get the GridView Row.
-                        GridViewRow row = GV_ChecksAssigned.Rows[0];
-                        cmd.Parameters.Clear();
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "[AssignChekes_Temp]";
-                        cmd.Parameters.AddWithValue("@id", GV_ChecksAssigned.Rows[0].Cells[1].Text);
-                        cmd.Parameters.AddWithValue("@CompanyName", GV_ChecksAssigned.Rows[0].Cells[2].Text);
-                        cmd.Parameters.AddWithValue("@CheckDate", GV_ChecksAssigned.Rows[0].Cells[3].Text);
-                        cmd.Parameters.AddWithValue("@BankName", GV_ChecksAssigned.Rows[0].Cells[4].Text);
-                        cmd.Parameters.AddWithValue("@SentTo", GV_ChecksAssigned.Rows[0].Cells[5].Text);
-                        cmd.Parameters.AddWithValue("@Value", GV_ChecksAssigned.Rows[0].Cells[6].Text);
-                        cmd.Parameters.AddWithValue("@CheckNum", GV_ChecksAssigned.Rows[0].Cells[7].Text);
-                        cmd.Parameters.AddWithValue("@Month", GV_ChecksAssigned.Rows[0].Cells[8].Text);
-                        cmd.Parameters.AddWithValue("@Notes", GV_ChecksAssigned.Rows[0].Cells[9].Text);
-                        cmd.Parameters.AddWithValue("@Address", GV_ChecksAssigned.Rows[0].Cells[10].Text);
-                        cmd.Parameters.AddWithValue("@PhoneNumber", GV_ChecksAssigned.Rows[0].Cells[11].Text);
-                        cmd.Parameters.AddWithValue("@BarCode", GV_ChecksAssigned.Rows[0].Cells[12].Text);
-                        cmd.Parameters.AddWithValue("@EmpName", GV_ChecksAssigned.Rows[0].Cells[13].Text);
-                        bool Delivered = (row.Cells[14].Controls[0] as CheckBox).Checked;
-                        bool Refunded = (row.Cells[15].Controls[0] as CheckBox).Checked;
-                        cmd.Parameters.AddWithValue("@Delivered", Delivered);
-                        cmd.Parameters.AddWithValue("@Refunded", Refunded);
-                        Cls_Connection.open_connection();
-                        cmd.ExecuteNonQuery();
-                        Cls_Connection.close_connection();
-                    }
+        //    if (Exist == 0)
+        //    {
+        //        try
+        //        {
+        //            if (GV_ChecksAssigned.Rows.Count != 0)
+        //            {
+        //                //To Save Data To Table Temporary
+        //                //Get the GridView Row.
+        //                GridViewRow row = GV_ChecksAssigned.Rows[0];
+        //                cmd.Parameters.Clear();
+        //                cmd.CommandType = CommandType.StoredProcedure;
+        //                cmd.CommandText = "[AssignChekes_Temp]";
+        //                cmd.Parameters.AddWithValue("@id", GV_ChecksAssigned.Rows[0].Cells[1].Text);
+        //                cmd.Parameters.AddWithValue("@CompanyName", GV_ChecksAssigned.Rows[0].Cells[2].Text);
+        //                cmd.Parameters.AddWithValue("@CheckDate", GV_ChecksAssigned.Rows[0].Cells[3].Text);
+        //                cmd.Parameters.AddWithValue("@BankName", GV_ChecksAssigned.Rows[0].Cells[4].Text);
+        //                cmd.Parameters.AddWithValue("@SentTo", GV_ChecksAssigned.Rows[0].Cells[5].Text);
+        //                cmd.Parameters.AddWithValue("@Value", GV_ChecksAssigned.Rows[0].Cells[6].Text);
+        //                cmd.Parameters.AddWithValue("@CheckNum", GV_ChecksAssigned.Rows[0].Cells[7].Text);
+        //                cmd.Parameters.AddWithValue("@Month", GV_ChecksAssigned.Rows[0].Cells[8].Text);
+        //                cmd.Parameters.AddWithValue("@Notes", GV_ChecksAssigned.Rows[0].Cells[9].Text);
+        //                cmd.Parameters.AddWithValue("@Address", GV_ChecksAssigned.Rows[0].Cells[10].Text);
+        //                cmd.Parameters.AddWithValue("@PhoneNumber", GV_ChecksAssigned.Rows[0].Cells[11].Text);
+        //                cmd.Parameters.AddWithValue("@BarCode", GV_ChecksAssigned.Rows[0].Cells[12].Text);
+        //                cmd.Parameters.AddWithValue("@EmpName", GV_ChecksAssigned.Rows[0].Cells[13].Text);
+        //                bool Delivered = (row.Cells[14].Controls[0] as CheckBox).Checked;
+        //                bool Refunded = (row.Cells[15].Controls[0] as CheckBox).Checked;
+        //                cmd.Parameters.AddWithValue("@Delivered", Delivered);
+        //                cmd.Parameters.AddWithValue("@Refunded", Refunded);
+        //                Cls_Connection.open_connection();
+        //                cmd.ExecuteNonQuery();
+        //                Cls_Connection.close_connection();
+        //            }
 
-                }
-                catch
-                {
-                    Cls_Connection.close_connection();
-                }
-            }
+        //        }
+        //        catch
+        //        {
+        //            Cls_Connection.close_connection();
+        //        }
+        //    }
 
-            else
-            {
+        //    else
+        //    {
 
-                cmd.CommandText = "select count(id) from AssignChekesTemp where CheckNum='" + Txt_CheckNo.Text + "'" + " and SentTo='" + DDL_Sent_To.SelectedItem.Text + "'";
-                Cls_Connection.open_connection();
-                Exist = int.Parse(cmd.ExecuteScalar().ToString());
-                Cls_Connection.close_connection();
+        //        cmd.CommandText = "select count(id) from AssignChekesTemp where CheckNum='" + Txt_CheckNo.Text + "'" + " and SentTo='" + DDL_Sent_To.SelectedItem.Text + "'";
+        //        Cls_Connection.open_connection();
+        //        Exist = int.Parse(cmd.ExecuteScalar().ToString());
+        //        Cls_Connection.close_connection();
 
-                if (Exist == 0)
-                {
-                    try
-                    {
-                        if (GV_ChecksAssigned.Rows.Count != 0)
-                        {
-                            //To Save Data To Table Temporary
-                            //Get the GridView Row.
-                            GridViewRow row = GV_ChecksAssigned.Rows[0];
-                            cmd.Parameters.Clear();
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.CommandText = "[AssignChekes_Temp]";
-                            cmd.Parameters.AddWithValue("@id", GV_ChecksAssigned.Rows[0].Cells[1].Text);
-                            cmd.Parameters.AddWithValue("@CompanyName", GV_ChecksAssigned.Rows[0].Cells[2].Text);
-                            cmd.Parameters.AddWithValue("@CheckDate", GV_ChecksAssigned.Rows[0].Cells[3].Text);
-                            cmd.Parameters.AddWithValue("@BankName", GV_ChecksAssigned.Rows[0].Cells[4].Text);
-                            cmd.Parameters.AddWithValue("@SentTo", GV_ChecksAssigned.Rows[0].Cells[5].Text);
-                            cmd.Parameters.AddWithValue("@Value", GV_ChecksAssigned.Rows[0].Cells[6].Text);
-                            cmd.Parameters.AddWithValue("@CheckNum", GV_ChecksAssigned.Rows[0].Cells[7].Text);
-                            cmd.Parameters.AddWithValue("@Month", GV_ChecksAssigned.Rows[0].Cells[8].Text);
-                            cmd.Parameters.AddWithValue("@Notes", GV_ChecksAssigned.Rows[0].Cells[9].Text);
-                            cmd.Parameters.AddWithValue("@Address", GV_ChecksAssigned.Rows[0].Cells[10].Text);
-                            cmd.Parameters.AddWithValue("@PhoneNumber", GV_ChecksAssigned.Rows[0].Cells[11].Text);
-                            cmd.Parameters.AddWithValue("@BarCode", GV_ChecksAssigned.Rows[0].Cells[12].Text);
-                            cmd.Parameters.AddWithValue("@EmpName", GV_ChecksAssigned.Rows[0].Cells[13].Text);
-                            bool Delivered = (row.Cells[14].Controls[0] as CheckBox).Checked;
-                            bool Refunded = (row.Cells[15].Controls[0] as CheckBox).Checked;
-                            cmd.Parameters.AddWithValue("@Delivered", Delivered);
-                            cmd.Parameters.AddWithValue("@Refunded", Refunded);
-                            Cls_Connection.open_connection();
-                            cmd.ExecuteNonQuery();
-                            Cls_Connection.close_connection();
-                        }
+        //        if (Exist == 0)
+        //        {
+        //            try
+        //            {
+        //                if (GV_ChecksAssigned.Rows.Count != 0)
+        //                {
+        //                    //To Save Data To Table Temporary
+        //                    //Get the GridView Row.
+        //                    GridViewRow row = GV_ChecksAssigned.Rows[0];
+        //                    cmd.Parameters.Clear();
+        //                    cmd.CommandType = CommandType.StoredProcedure;
+        //                    cmd.CommandText = "[AssignChekes_Temp]";
+        //                    cmd.Parameters.AddWithValue("@id", GV_ChecksAssigned.Rows[0].Cells[1].Text);
+        //                    cmd.Parameters.AddWithValue("@CompanyName", GV_ChecksAssigned.Rows[0].Cells[2].Text);
+        //                    cmd.Parameters.AddWithValue("@CheckDate", GV_ChecksAssigned.Rows[0].Cells[3].Text);
+        //                    cmd.Parameters.AddWithValue("@BankName", GV_ChecksAssigned.Rows[0].Cells[4].Text);
+        //                    cmd.Parameters.AddWithValue("@SentTo", GV_ChecksAssigned.Rows[0].Cells[5].Text);
+        //                    cmd.Parameters.AddWithValue("@Value", GV_ChecksAssigned.Rows[0].Cells[6].Text);
+        //                    cmd.Parameters.AddWithValue("@CheckNum", GV_ChecksAssigned.Rows[0].Cells[7].Text);
+        //                    cmd.Parameters.AddWithValue("@Month", GV_ChecksAssigned.Rows[0].Cells[8].Text);
+        //                    cmd.Parameters.AddWithValue("@Notes", GV_ChecksAssigned.Rows[0].Cells[9].Text);
+        //                    cmd.Parameters.AddWithValue("@Address", GV_ChecksAssigned.Rows[0].Cells[10].Text);
+        //                    cmd.Parameters.AddWithValue("@PhoneNumber", GV_ChecksAssigned.Rows[0].Cells[11].Text);
+        //                    cmd.Parameters.AddWithValue("@BarCode", GV_ChecksAssigned.Rows[0].Cells[12].Text);
+        //                    cmd.Parameters.AddWithValue("@EmpName", GV_ChecksAssigned.Rows[0].Cells[13].Text);
+        //                    bool Delivered = (row.Cells[14].Controls[0] as CheckBox).Checked;
+        //                    bool Refunded = (row.Cells[15].Controls[0] as CheckBox).Checked;
+        //                    cmd.Parameters.AddWithValue("@Delivered", Delivered);
+        //                    cmd.Parameters.AddWithValue("@Refunded", Refunded);
+        //                    Cls_Connection.open_connection();
+        //                    cmd.ExecuteNonQuery();
+        //                    Cls_Connection.close_connection();
+        //                }
 
-                    }
-                    catch
-                    {
-                        Cls_Connection.close_connection();
-                    }
-                }
+        //            }
+        //            catch
+        //            {
+        //                Cls_Connection.close_connection();
+        //            }
+        //        }
 
-                else
-                {
-                    MSG("هذا الشيك تم تسليمه مسبقاً");
-                }
+        //        else
+        //        {
+        //            MSG("هذا الشيك تم تسليمه مسبقاً");
+        //        }
 
-            }
+        //    }
 
-        }
+        //}
         public void SaveAssignNameToChecked()
         {
             try
@@ -347,10 +348,12 @@ namespace Elite_system
                     if (empname != "")
                     {
                         //To Update Name in checkes
-                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 1 + ",Refunded=" + 0 + ",Modified= " + DateTime.UtcNow + " WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                        string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 1 + ",Refunded=" + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
                         Cls_Connection.open_connection();
                         cmd.ExecuteNonQuery();
                         Cls_Connection.close_connection();
+                        InsertLog();
                         Result = true;
                     }
                     else
@@ -400,10 +403,12 @@ namespace Elite_system
                     if (empname != "")
                     {
                         //To Update Name in checkes
-                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 1 + ",Refunded=" + 0 + ",Modified= " + DateTime.UtcNow + " WHERE Check_No = '" + Txt_CheckNo.Text + "'";
+                        string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 1 + ",Refunded=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "'";
                         Cls_Connection.open_connection();
                         cmd.ExecuteNonQuery();
                         Cls_Connection.close_connection();
+                        InsertLog();
                         Result = true;
                     }
 
@@ -432,11 +437,13 @@ namespace Elite_system
                         if (empname != "")
                         {
                             //To Update Name in checkes
-                            cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 1 + ",Refunded=" + 0 + ",Modified= " + DateTime.UtcNow + " WHERE Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
+                            string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                            cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 1 + ",Refunded=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
                             Cls_Connection.open_connection();
                             cmd.ExecuteNonQuery();
                             CheckMore = true;
                             Cls_Connection.close_connection();
+                            InsertLog();
                             Result = true;
                         }
 
@@ -487,6 +494,27 @@ namespace Elite_system
             }
 
         }
+        protected int CheckifRefunded()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+                con = Cls_Connection._con;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Refunded=" + 1 + " and Check_No = '" + Txt_CheckNo.Text + "'";
+                Cls_Connection.open_connection();
+                int Refunded = int.Parse(cmd.ExecuteScalar().ToString());
+                Cls_Connection.close_connection();
+                return Refunded;
+            }
+            catch
+            {
+                return 0;
+            }
+
+        }
 
         protected int CheckifDelivered2()
         {
@@ -502,6 +530,27 @@ namespace Elite_system
                 int Delivered = int.Parse(cmd.ExecuteScalar().ToString());
                 Cls_Connection.close_connection();
                 return Delivered;
+            }
+            catch
+            {
+                return 0;
+            }
+
+        }
+        protected int CheckifRefunded2()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+                con = Cls_Connection._con;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Refunded=" + 1 + " and BarCode = '*" + Txt_BarCode.Text + "*'";
+                Cls_Connection.open_connection();
+                int Refunded = int.Parse(cmd.ExecuteScalar().ToString());
+                Cls_Connection.close_connection();
+                return Refunded;
             }
             catch
             {
@@ -525,7 +574,13 @@ namespace Elite_system
                 MSG("لقد تم تسليم هذا الشيك مسبقا");
                 return;
             }
-
+            int Refunded = 0;
+            Refunded = CheckifRefunded();
+            if (Refunded > 0)
+            {
+                MSG("لقد تم ارجاع هذا الشيك مسبقا");
+                return;
+            }
             CheckMore = false;
             Result = false;
             SaveAssignNameToChecked2();
@@ -555,6 +610,13 @@ namespace Elite_system
             if (Delivered > 0)
             {
                 MSG("لقد تم تسليم هذا الشيك مسبقا");
+                return;
+            }
+            int Refunded = 0;
+            Refunded = CheckifRefunded2();
+            if (Refunded > 0)
+            {
+                MSG("لقد تم ارجاع هذا الشيك مسبقا");
                 return;
             }
 
@@ -615,12 +677,13 @@ namespace Elite_system
         {
             try
             {
+                string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 0 + ",Modified= " + DateTime.UtcNow + " WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
+                cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
                 Cls_Connection.open_connection();
                 cmd.ExecuteNonQuery();
 
@@ -647,6 +710,42 @@ namespace Elite_system
             ClearTempTable();
         }
 
+        public void InsertLog()
+        {
+            try
+            {
+                Cls_ChecksLog clog = new Cls_ChecksLog();
+                DataTable dt = new DataTable();
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+                con = Cls_Connection._con;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "select * from V_Main_Check where Check_No = '" + Txt_BarCode.Text + "'";
+                Cls_Connection.open_connection();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    clog._Check_Date = (DateTime)dr.GetValue(dr.GetOrdinal("Check_Date"));
+                    clog._Check_Barcode = dr.GetValue(dr.GetOrdinal("BarCode")).ToString();
+                    clog._Check_EmpName = dr.GetValue(dr.GetOrdinal("EmployeeName")).ToString();
+                    clog._Check_MedicalName = dr.GetValue(dr.GetOrdinal("SentTo")).ToString();
+                    clog._Check_Number = dr.GetValue(dr.GetOrdinal("Check_No")).ToString();
+                    clog._Check_Type = 1;
+                    clog._Check_Company = dr.GetValue(dr.GetOrdinal("Company")).ToString();
+                    Cls_Connection.close_connection();
+                    clog.Insert_Log();
+                }
+                Cls_Connection.close_connection();
+            }
+            catch (Exception ex)
+            {
+                Cls_Connection.close_connection();
+                return;
+            }
+
+        }
 
         public void Get_MainChecks_ForGridView()
         {

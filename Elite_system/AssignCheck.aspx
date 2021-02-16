@@ -59,9 +59,9 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
 
+    
 
-
-    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server" style="height: 350px;">
         <ContentTemplate>
             <%--<asp:Label ID="Label1" runat="server" Text="إحالة الشيكات" Font-Bold="True" Font-Size="Larger"></asp:Label>--%>
             <section class="print text-center " style="padding-top: 1%;">
@@ -126,22 +126,33 @@
                                         <td>
                                             <asp:Button ID="Btn_Save2" runat="server" Text="  احالة عن طريق رقم الشيك" Height="26px" OnClick="Btn_Save2_Click" />
                                             <asp:Button ID="Btn_Delete" runat="server" CssClass="print" Text="حفظ وإفراغ المحتوى" OnClick="Btn_Delete_Click" />
+                                            <%--<asp:Button ID="Button2" runat="server" Text="طباعة" Height="28px" Width="100px" OnClick="Button2_Click" />--%>
+
                                         </td>
 
                                     </tr>
                                 </table>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-            <div class="COLR" style="margin-left: -68px">
-                    <div class="table-responsive" style="width: 100%; margin-left: -7px;">
-                        <div id="GV_Mainclaim" style="height: 344px;">
-                            <asp:GridView ID="GridView2" runat="server" CssClass="Grid" AllowPaging="false" >
+
+                        <div class="COLR" style="margin-left: -39px;float:left">
+                    <div class="table-responsive" style=" margin-left: -205px;height: 257px;">
+                        <div id="GV_Mainclaim" style="height: 344px;" aria-sort="descending">
+                            <asp:GridView ID="GridView2" runat="server" CssClass="Grid" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" >
                                 <Columns>
-                                    <asp:CommandField ShowSelectButton="True" SelectText="اختر" ControlStyle-ForeColor="Black" />                                   
+                                    <asp:CommandField ShowSelectButton="True" SelectText="اختر" ControlStyle-ForeColor="Black" >                                   
+                                    <ControlStyle ForeColor="Black" />
+                                    </asp:CommandField>
                                 </Columns>
+                                <FooterStyle BackColor="White" ForeColor="#000066" />
+                                <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                                <RowStyle ForeColor="#000066" />
+                                <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                <SortedDescendingHeaderStyle BackColor="#00547E" />
                             </asp:GridView>
                         </div>
                         <br />
@@ -150,8 +161,11 @@
                     <br />
                    
                 </div>
-            <br />
-            <br />
+                    </div>
+                </div>
+            
+            
+                </section>
         </ContentTemplate>
     </asp:UpdatePanel>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -162,9 +176,9 @@
                         <div class="COLR">
                             <div id="GV" class="table-responsive" style="overflow-x: initial !important; margin-right: 59px; height: 200px;">
                                 <table class="table-responsive" style="overflow-x: initial !important; margin-right: 59px;">
-                                    <asp:GridView ID="GV_ChecksAssigned" Width="225%" runat="server" CssClass="Grid" AllowPaging="false"  OnSelectedIndexChanged="GV_ChecksAssigned_SelectedIndexChanged" AllowSorting="True">
+                                    <asp:GridView ID="GV_ChecksAssigned" Width="225%" runat="server" CssClass="Grid" AllowPaging="false"  OnSelectedIndexChanged="GV_ChecksAssigned_SelectedIndexChanged">
                                         <Columns>
-                                            <asp:CommandField ShowSelectButton="True" SelectText="تراجع" />
+                                            <asp:CommandField ShowSelectButton="True" SelectText="تراجع" SortExpression="asc" />
                                         </Columns>
                                     </asp:GridView>
                                 </table>

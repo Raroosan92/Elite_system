@@ -1,11 +1,120 @@
 -----------------------------------------------------------------------------------------------------------------------------------
+create proc [dbo].[Check_Logs]
+@Check_Number		 nvarchar(50) = null,
+@Check_Type			int =null,
+@Check_EmpName		nvarchar(80)=null,
+@Check_MedicalName	nvarchar(90)=null,
+@Check_Company	nvarchar(90)=null,
+@Check_Barcode		nvarchar(50)=null,
+@Check_Uname		nvarchar(50)=NULL,
+@Check_CurrentDate	date,
+@Check_Date			date,
+@From date =NULL,
+@To date =NULL,
+@check char =NULL
+as
+begin
 
+if @check='I'
+INSERT INTO [dbo].[Log_Checks]
+           ([Check_Number]
+           ,[Check_Type]
+           ,[Check_EmpName]
+           ,[Check_MedicalName]
+           ,[Check_Barcode]
+           ,[Check_CurrentDate]
+           ,[Check_Date]
+		   ,[Check_Company]
+		   ,[Check_Uname])
+     VALUES
+           (@Check_Number 
+           ,@Check_Type 
+           ,@Check_EmpName
+           ,@Check_MedicalName
+           ,@Check_Barcode
+           ,@Check_CurrentDate
+           ,@Check_Date
+		   ,@Check_Company
+		   ,@Check_Uname
+		   )
+			
+
+
+
+else if @check='S'
+SELECT *
+  FROM [dbo].[Log_Checks]
 -----------------------------------------------------------------------------------------------------------------------------------
 
+ALTER proc [dbo].[Get_MainChecks_AssignChecks4]
+@CheckNo nvarchar(200) = null,
+@EmployeeName nvarchar(200) = null
+as
+begin
+SELECT 
+		top 600	ROW_NUMBER() OVER (ORDER BY [id] ASC) as '«· ”·”·'
+           ,[Company] AS [«”„ «·‘—ﬂ…]
+           ,[Check_Date] AS [ «—ÌŒ «·‘Ìﬂ]
+           ,[MainBank] AS [«”„ «·»‰ﬂ «·—∆Ì”Ì]
+           ,[SentTo]AS [„—”· «·Ï]
+           ,[Value]AS [ﬁÌ„ Â]
+           ,[Check_No] AS [—ﬁ„ «·‘Ìﬂ]
+           ,[Months] AS [‘Â—]
+           ,[Notes]AS [„·«ÕŸ« ]
+           ,[Address] AS [«·⁄‰Ê«‰]
+           ,[Phone] AS [—ﬁ„ «·Â« ›]
+           ,[BarCode]
+           ,[EmployeeName] AS [√”„ «·„ÊŸ› «·„Õ«· ·Â «·‘Ìﬂ]
+		   ,[Delivered] AS [„”·¯„/€Ì— „”·¯„]
+		   , [Refunded] AS [„— Ã⁄/€Ì— „— Ã⁄]
+FROM      [dbo].[V_Main_Check] where ( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date))  order by ROW_NUMBER() OVER (ORDER BY [id] desc)
+end
 -----------------------------------------------------------------------------------------------------------------------------------
-
+ALTER proc [dbo].[Get_MainChecks_AssignChecks5]
+@CheckNo nvarchar(200) = null,
+@EmployeeName nvarchar(200) = null
+as
+begin
+SELECT 
+		top 600	 ROW_NUMBER() OVER (ORDER BY [id] ASC) as '«· ”·”·'
+           ,[Company] AS [«”„ «·‘—ﬂ…]
+           ,[Check_Date] AS [ «—ÌŒ «·‘Ìﬂ]
+           ,[MainBank] AS [«”„ «·»‰ﬂ «·—∆Ì”Ì]
+           ,[SentTo]AS [„—”· «·Ï]
+           ,[Value]AS [ﬁÌ„ Â]
+           ,[Check_No] AS [—ﬁ„ «·‘Ìﬂ]
+           ,[Months] AS [‘Â—]
+           ,[Notes]AS [„·«ÕŸ« ]
+           ,[Address] AS [«·⁄‰Ê«‰]
+           ,[Phone] AS [—ﬁ„ «·Â« ›]
+           ,[BarCode]
+           ,[EmployeeName] AS [√”„ «·„ÊŸ› «·„Õ«· ·Â «·‘Ìﬂ]
+		   ,[Delivered] AS [„”·¯„/€Ì— „”·¯„]
+		   , [Refunded] AS [„— Ã⁄/€Ì— „— Ã⁄]
+FROM      [dbo].[V_Main_Check] where( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date)) and Delivered=1  order by ROW_NUMBER() OVER (ORDER BY [id] desc)
+end
 -----------------------------------------------------------------------------------------------------------------------------------
-
+ALTER proc [dbo].[Get_MainChecks_AssignChecks6]
+@EmployeeName nvarchar(200) = null
+as
+begin
+SELECT 
+		top 600	ROW_NUMBER() OVER (ORDER BY [id] ASC) as '«· ”·”·'
+           ,[Company] AS [«”„ «·‘—ﬂ…]
+           ,[Check_Date] AS [ «—ÌŒ «·‘Ìﬂ]
+           ,[MainBank] AS [«”„ «·»‰ﬂ «·—∆Ì”Ì]
+           ,[SentTo]AS [„—”· «·Ï]
+           ,[Value]AS [ﬁÌ„ Â]
+           ,[Check_No] AS [—ﬁ„ «·‘Ìﬂ]
+           ,[Months] AS [‘Â—]
+           ,[Notes]AS [„·«ÕŸ« ]
+           ,[Address] AS [«·⁄‰Ê«‰]
+           ,[Phone] AS [—ﬁ„ «·Â« ›]
+           ,[BarCode]
+           ,[EmployeeName] AS [√”„ «·„ÊŸ› «·„Õ«· ·Â «·‘Ìﬂ]
+		   ,[Delivered] AS [„”·¯„/€Ì— „”·¯„]
+		   , [Refunded] AS [„— Ã⁄/€Ì— „— Ã⁄]
+FROM      [dbo].[V_Main_Check] where( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date)) and Refunded=1 order by ROW_NUMBER() OVER (ORDER BY [id] desc)
 -----------------------------------------------------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------------------------------------------------

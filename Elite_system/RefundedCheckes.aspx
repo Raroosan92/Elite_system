@@ -54,7 +54,7 @@
 
 
 
-    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server" style="height: 350px;">
         <ContentTemplate>
             <%--<asp:Label ID="Label1" runat="server" Text="إحالة الشيكات" Font-Bold="True" Font-Size="Larger"></asp:Label>--%>
             <section class="text-center " style="padding-top: 1%;">
