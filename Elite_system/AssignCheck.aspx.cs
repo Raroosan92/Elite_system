@@ -1,6 +1,6 @@
 ﻿using iTextSharp.text;
-using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,6 +11,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 
 
 namespace Elite_system
@@ -27,7 +28,7 @@ namespace Elite_system
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             if (!Page.IsPostBack)
             {
                 Get_MainChecks_GridView2();
@@ -611,49 +612,55 @@ namespace Elite_system
             ClearTempTable();
         }
 
-        
-        //private void PrintPDF()
-        //{
-        //    using (StringWriter sw = new StringWriter())
-        //    {
-        //        using (HtmlTextWriter hw = new HtmlTextWriter(sw))
-        //        {
 
-        //            StringReader sr = new StringReader(sw.ToString());
+
+        DataTable dt2 = new DataTable();
+        protected void Btn_Print_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GV_ChecksAssigned.Visible = false;
+                ReportViewer1.Visible = true;
+
+                Num = DDL_Employee.SelectedItem.Text;
+
+              
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+                    con = Cls_Connection._con;
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "Get_MainChecks_AssignChecks4";
+                    cmd.Parameters.AddWithValue("@EmployeeName", Num);
+                    Cls_Connection.open_connection();
                     
-                    
-        //            Document pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);
-        //            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
-        //            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
-        //            pdfDoc.Open();
-                    
-        //            htmlparser.Parse(sr);
-        //            pdfDoc.Close();
-        //             GridView2.RenderControl(hw);
-        //            Response.ContentType = "application/pdf";
-        //            Response.AddHeader("content-disposition", "attachment;filename=GridViewExport.pdf");
-        //            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-        //            Response.Write(pdfDoc);
-        //            Response.End();
-        //        }
-        //    }
-        //}
-    
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt2);
+                    Cls_Connection.close_connection();
 
-        //public override void VerifyRenderingInServerForm(Control control)
-        //{
-        //    return;
-        //}
-        //protected void OnPaging(object sender, GridViewPageEventArgs e)
-        //{
-        //    GV_ChecksAssigned.PageIndex = e.NewPageIndex;
-        //    GV_ChecksAssigned.DataBind();
-        //}
 
-        //protected void Button2_Click(object sender, EventArgs e)
-        //{
-        //    PrintPDF();
-        //}
 
+                    ReportViewer1.Reset();
+                    ReportViewer1.ProcessingMode = ProcessingMode.Local;
+                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("AssignedChecksView.rdlc");
+                    ReportViewer1.LocalReport.DataSources.Clear();
+                    ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_Checks4", dt2));
+                    ReportViewer1.LocalReport.Refresh();
+
+
+
+                   
+                }
+                catch (Exception ex)
+                {
+                    ex.Message.ToString();
+                    Cls_Connection.close_connection();
+
+
+                }
+
+            }
+            
     }
 }

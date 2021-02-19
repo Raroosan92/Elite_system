@@ -106,6 +106,9 @@
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportViewer.Runtime.WebForms.12.0.2402.15\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
     </Reference>
+    <Reference Include="NUglify, Version=1.13.2.0, Culture=neutral, PublicKeyToken=15bc7810aec21b5e, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUglify.1.13.2\lib\net40\NUglify.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="Spire.Barcode, Version=4.1.0.11040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -763,6 +766,7 @@
     <Content Include="TreeLineImages\tminus.gif" />
     <Content Include="TreeLineImages\tplus.gif" />
     <Content Include="Download.ashx" />
+    <Content Include="Web.config" />
     <Content Include="XMLTMP.xml" />
     <Content Include="DownloadFont.ashx" />
     <None Include="DS_Account.xsd">
@@ -1011,6 +1015,12 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accounting_Tree.aspx.cs">
@@ -1640,6 +1650,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AssignedChecksView.rdlc" />
     <EmbeddedResource Include="Rpt_Claims_Updated.rdlc" />
     <EmbeddedResource Include="Rpt_Medical_Name_Main_Company3.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
