@@ -681,10 +681,10 @@ namespace Elite_system
                     case "DropDownList":
                        
                         DropDownList ddlSource = (DropDownList)contl;
-                        //if (ddlSource.i== "DDL_Mail_Type")
-                        //{
-                        //    break;
-                        //}
+                        if (contl.ID == "DDL_Mail_Type")
+                        {
+                            break;
+                        }
                         ddlSource.SelectedIndex = -1;
                         break;
                     case "ListBox":

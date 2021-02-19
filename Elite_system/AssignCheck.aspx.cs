@@ -1,5 +1,4 @@
-﻿using iTextSharp.text;
-using iTextSharp.text.pdf;
+﻿
 using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
@@ -28,7 +27,7 @@ namespace Elite_system
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ReportViewer1.Visible = false;
             if (!Page.IsPostBack)
             {
                 Get_MainChecks_GridView2();
@@ -620,47 +619,57 @@ namespace Elite_system
             try
             {
                 GV_ChecksAssigned.Visible = false;
-                ReportViewer1.Visible = true;
-
-                Num = DDL_Employee.SelectedItem.Text;
-
-              
-                    SqlConnection con = new SqlConnection();
-                    con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
-                    con = Cls_Connection._con;
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = con;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "Get_MainChecks_AssignChecks4";
-                    cmd.Parameters.AddWithValue("@EmployeeName", Num);
-                    Cls_Connection.open_connection();
-                    
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt2);
-                    Cls_Connection.close_connection();
+                
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+                con = Cls_Connection._con;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT [Company],[Check_Date],[SentTo],[Value],[Check_No],[Address],[Phone],[EmployeeName] FROM[dbo].[V_Main_Check] where( [EmployeeName] = N'"+ DDL_Employee.SelectedItem.Text + "' and Modified = cast(GETDATE() as date))";
+                Cls_Connection.open_connection();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt2);
+                Cls_Connection.close_connection();
 
 
 
-                    ReportViewer1.Reset();
-                    ReportViewer1.ProcessingMode = ProcessingMode.Local;
-                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("AssignedChecksView.rdlc");
-                    ReportViewer1.LocalReport.DataSources.Clear();
-                    ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_Checks4", dt2));
-                    ReportViewer1.LocalReport.Refresh();
+                ReportViewer1.Reset();
+                ReportViewer1.ProcessingMode = ProcessingMode.Local;
+                ReportViewer1.LocalReport.ReportPath = Server.MapPath("AssignedChecksView.rdlc");
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_Checks4", dt2));
+                ReportViewer1.LocalReport.Refresh();
+
+                Warning[] warnings = null;
+                string[] streamids = null;
+                string mimeType = null;
+                string encoding = null;
+                string extension = null;
+                byte[] bytes;
 
 
-
-                   
-                }
-                catch (Exception ex)
-                {
-                    ex.Message.ToString();
-                    Cls_Connection.close_connection();
+                ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Ticket_GetTicket", ObjectDataSource1));
 
 
-                }
+                bytes = ReportViewer1.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamids, out warnings);
+
+
+                System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes);
+                Response.ContentType = "Application/pdf";
+                Response.BinaryWrite(ms.ToArray());
+                Response.End();
+                GV_ChecksAssigned.Visible = false;
 
             }
-            
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                Cls_Connection.close_connection();
+
+
+            }
+
+        }
+
     }
 }

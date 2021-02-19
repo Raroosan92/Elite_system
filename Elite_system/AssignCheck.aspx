@@ -63,8 +63,8 @@
 
 
 
-    <%--<asp:UpdatePanel ID="UpdatePanel2" runat="server" style="height: 350px;">
-        <ContentTemplate>--%>
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server" style="height: 350px;">
+        <ContentTemplate>
             <%--<asp:Label ID="Label1" runat="server" Text="إحالة الشيكات" Font-Bold="True" Font-Size="Larger"></asp:Label>--%>
             <section class="print text-center " style="padding-top: 1%;">
                 <div class="container">
@@ -168,13 +168,13 @@
 
 
             </section>
-       <%-- </ContentTemplate>
+        </ContentTemplate>
         <Triggers>
             <asp:PostBackTrigger ControlID="Btn_Print" />
         </Triggers>
-    </asp:UpdatePanel>--%>
-<%--    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>--%>
+    </asp:UpdatePanel>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
             <section class="text-center" style="padding-top: 1%; padding-bottom: 200px;">
                 <div class="container">
                     <div class="row">
@@ -186,7 +186,7 @@
                                             <asp:CommandField ShowSelectButton="True" SelectText="تراجع" SortExpression="asc" />
                                         </Columns>
                                     </asp:GridView>
-                                    <rsweb:ReportViewer CssClass="Report" ID="ReportViewer1"  runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="824px">
+                                    <rsweb:ReportViewer CssClass="Report" ID="ReportViewer1"  runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="824px" DocumentMapWidth="100%" ExportContentDisposition="AlwaysInline">
                                         <LocalReport ReportPath="AssignedChecksView.rdlc">
                                             <DataSources>
                                                 <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DS_Checks4" />
@@ -210,8 +210,8 @@
             </section>
 
 
-<%--        </ContentTemplate>
-    </asp:UpdatePanel>--%>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 
     <script src="scripts/jquery-1.7.min.js"></script>
     <script src="scripts/select2.min.js"></script>
