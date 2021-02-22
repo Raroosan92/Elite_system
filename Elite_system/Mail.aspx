@@ -134,7 +134,7 @@
                                                 ErrorMessage="*"
                                                 ValidationExpression="((\d+)((\.\d{1,2})?))$">
                                             </asp:RegularExpressionValidator>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Mails_Count" Width="300px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Mails_Count" Width="300px" AutoPostBack="True" OnTextChanged="Txt_Mails_Count_TextChanged"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="العدد"></asp:Label>
@@ -219,21 +219,23 @@
                                 <table class="table-responsive">
                                     <asp:DropDownList ID="DDL_Company_Search" runat="server" DataTextField="Name" DataValueField="ID" Width="300px"></asp:DropDownList>
                                     <asp:Button ID="Btn_Search" runat="server" Text="بحث" OnClick="Btn_Search_Click" />
-                                    <br />
-                                    <br />
-                                    <asp:SqlDataSource runat="server" ID="SqlDataSource_Mails" ConnectionString='<%$ ConnectionStrings:CONN %>' SelectCommand="SELECT [ID],[Company],[CompanyDesc],[Entry_Date],[Received_Date],[Delivery_Date],[Sent_To],[Sent_To_Desc],[Mail_Type],[Mail_Type_Desc],[Mails_Count],[Notes],[Delivered] FROM [dbo].[V_Mails] order by ID desc"></asp:SqlDataSource>
-                                    <asp:GridView ID="GridView_Mails" runat="server" CssClass="Grid" AllowPaging="false" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource_Mails" OnSelectedIndexChanged="GridView_Mails_SelectedIndexChanged" SelectedRowStyle-VerticalAlign="NotSet" SortedAscendingCellStyle-HorizontalAlign="NotSet">
-                                        <Columns>
-                                            <asp:CommandField ShowSelectButton="True" SelectText="اختر"></asp:CommandField>
-                                            <asp:BoundField DataField="ID" HeaderText="التسلسل" ReadOnly="True" SortExpression="ID"></asp:BoundField>
-                                            <asp:BoundField DataField="CompanyDesc" HeaderText="الشركة" SortExpression="Name"></asp:BoundField>
-                                            <asp:BoundField DataField="Entry_Date" HeaderText="تاريخ الادخال" HeaderStyle-Width="80px" SortExpression="Entry_Date" DataFormatString="{0:yyyy-MM-dd}"></asp:BoundField>
-                                            <asp:BoundField DataField="Sent_To_Desc" HeaderText="الجهة الطبية" SortExpression="Sent_To_Desc" DataFormatString="{0:yyyy-MM-dd}"></asp:BoundField>
-                                            <asp:BoundField DataField="Mail_Type_Desc" HeaderText="نوع البريد" SortExpression="Mail_Type_Desc"></asp:BoundField>
-                                            <asp:BoundField DataField="Mails_Count" HeaderText="العدد" SortExpression="Mails_Count"></asp:BoundField>
-                                            <%--<asp:BoundField DataField="Notes" HeaderText="الملاحظات" SortExpression="Notes"></asp:BoundField>--%>
-                                        </Columns>
-                                    </asp:GridView>
+                                    <caption>
+                                        <br />
+                                        <br />
+                                        <asp:SqlDataSource ID="SqlDataSource_Mails" runat="server" ConnectionString="<%$ ConnectionStrings:CONN %>" SelectCommand="SELECT [ID],[Company],[CompanyDesc],[Entry_Date],[Received_Date],[Delivery_Date],[Sent_To],[Sent_To_Desc],[Mail_Type],[Mail_Type_Desc],[Mails_Count],[Notes],[Delivered] FROM [dbo].[V_Mails] order by ID desc"></asp:SqlDataSource>
+                                        <asp:GridView ID="GridView_Mails" runat="server" AllowPaging="false" AutoGenerateColumns="False" CssClass="Grid" DataKeyNames="ID" DataSourceID="SqlDataSource_Mails" OnSelectedIndexChanged="GridView_Mails_SelectedIndexChanged" SelectedRowStyle-VerticalAlign="NotSet" SortedAscendingCellStyle-HorizontalAlign="NotSet">
+                                            <Columns>
+                                                <asp:CommandField SelectText="اختر" ShowSelectButton="True" />
+                                                <asp:BoundField DataField="ID" HeaderText="التسلسل" ReadOnly="True" SortExpression="ID" />
+                                                <asp:BoundField DataField="CompanyDesc" HeaderText="الشركة" SortExpression="Name" />
+                                                <asp:BoundField DataField="Entry_Date" DataFormatString="{0:yyyy-MM-dd}" HeaderStyle-Width="80px" HeaderText="تاريخ الادخال" SortExpression="Entry_Date" />
+                                                <asp:BoundField DataField="Sent_To_Desc" DataFormatString="{0:yyyy-MM-dd}" HeaderText="الجهة الطبية" SortExpression="Sent_To_Desc" />
+                                                <asp:BoundField DataField="Mail_Type_Desc" HeaderText="نوع البريد" SortExpression="Mail_Type_Desc" />
+                                                <asp:BoundField DataField="Mails_Count" HeaderText="العدد" SortExpression="Mails_Count" />
+                                                <%--<asp:BoundField DataField="Notes" HeaderText="الملاحظات" SortExpression="Notes"></asp:BoundField>--%>
+                                            </Columns>
+                                        </asp:GridView>
+                                    </caption>
 
 
                                 </table>

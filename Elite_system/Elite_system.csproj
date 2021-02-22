@@ -279,6 +279,7 @@
     <Content Include="css\waitMe.min.css" />
     <Content Include="DB_Updats.txt" />
     <Content Include="DeliveredChecks.aspx" />
+    <Content Include="DelivereMail.aspx" />
     <Content Include="google22e3f0ac626b01ab.html" />
     <Content Include="imgSideBar\header\accounting.png" />
     <Content Include="imgSideBar\header\bank-check.png" />
@@ -803,12 +804,12 @@
     <Content Include="TreeLineImages\tminus.gif" />
     <Content Include="TreeLineImages\tplus.gif" />
     <Content Include="Download.ashx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <!-- <Content Include="Web.config" /> -->
     <Content Include="XMLTMP.xml" />
     <Content Include="DownloadFont.ashx" />
-    <Content Include="..\.editorconfig">
-      <Link>.editorconfig</Link>
-    </Content>
     <None Include="DS_Account.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DS_Account.Designer.cs</LastGenOutput>
@@ -1055,7 +1056,6 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
-    <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1138,6 +1138,13 @@
     </Compile>
     <Compile Include="DeliveredChecks.aspx.designer.cs">
       <DependentUpon>DeliveredChecks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DelivereMail.aspx.cs">
+      <DependentUpon>DelivereMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DelivereMail.aspx.designer.cs">
+      <DependentUpon>DelivereMail.aspx</DependentUpon>
     </Compile>
     <Compile Include="DS_Account.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1246,6 +1253,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Elite_DBDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Load.aspx.cs">
       <DependentUpon>Load.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

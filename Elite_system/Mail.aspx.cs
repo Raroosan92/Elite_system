@@ -82,7 +82,7 @@ namespace Elite_system
 
             }
 
-            
+
         }
 
         public void Get_MainMail_ForUpdate()
@@ -368,7 +368,7 @@ namespace Elite_system
                 MSG(Result);
                 string CompanyValue = DDL_Company.SelectedValue;
                 ClearFields(Form.Controls);
-                Txt_Mails_Count.Text = "";
+                //Txt_Mails_Count.Text = "";
                 Txt_Notes.Text = "";
                 //Cls_Sub_Banks Sub_Bank = new Cls_Sub_Banks();
                 DDL_Company.SelectedValue = CompanyValue;
@@ -577,7 +577,7 @@ namespace Elite_system
                 Get_MainMail_ForUpdate();
                 MSG(Result);
                 ClearFields(Form.Controls);
-                Txt_Mails_Count.Text = "";
+                //Txt_Mails_Count.Text = "";
                 Txt_Notes.Text = "";
                 DDL_Company.Focus();
             }
@@ -649,7 +649,7 @@ namespace Elite_system
                 GridView_Mails.DataBind();
                 ClearFields(Form.Controls);
 
-                Txt_Mails_Count.Text = "";
+                //Txt_Mails_Count.Text = "";
                 Txt_Notes.Text = "";
                 DDL_Company.Focus();
 
@@ -679,7 +679,7 @@ namespace Elite_system
                         rblSource.SelectedIndex = -1;
                         break;
                     case "DropDownList":
-                       
+
                         DropDownList ddlSource = (DropDownList)contl;
                         if (contl.ID == "DDL_Mail_Type")
                         {
@@ -703,7 +703,7 @@ namespace Elite_system
         {
 
             ClearFields(Form.Controls);
-            Txt_Mails_Count.Text = "";
+            //Txt_Mails_Count.Text = "";
             Txt_Notes.Text = "";
             Txt_Entry_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
             Txt_Received_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
@@ -755,6 +755,11 @@ namespace Elite_system
 
 
             }
+        }
+
+        protected void Txt_Mails_Count_TextChanged(object sender, EventArgs e)
+        {
+            //Btn_Save.Focus();
         }
 
         //protected void Btn_Save_Submail_Click(object sender, EventArgs e)

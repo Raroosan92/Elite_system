@@ -155,6 +155,8 @@ namespace Elite_system
         //}
         int Exist;
         bool Result;
+
+
         //public void SaveAssignCheckedToTempTable()
         //{
 
@@ -325,6 +327,7 @@ namespace Elite_system
         //    }
 
         //}
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Security", "CA2100:Review SQL queries for security vulnerabilities", Justification = "<Pending>")]
         public void SaveAssignNameToChecked()
         {
             try
@@ -349,7 +352,7 @@ namespace Elite_system
                     {
                         //To Update Name in checkes
                         string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
-                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 1 + ",Refunded=" + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 1 + ",Refunded=" + 0 + ",Delivery_Date= '" + dt1 + "' WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
                         Cls_Connection.open_connection();
                         cmd.ExecuteNonQuery();
                         Cls_Connection.close_connection();
@@ -404,7 +407,7 @@ namespace Elite_system
                     {
                         //To Update Name in checkes
                         string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
-                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 1 + ",Refunded=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "'";
+                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 1 + ",Refunded=" + 0 + ",Delivery_Date= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "'";
                         Cls_Connection.open_connection();
                         cmd.ExecuteNonQuery();
                         Cls_Connection.close_connection();
@@ -438,7 +441,7 @@ namespace Elite_system
                         {
                             //To Update Name in checkes
                             string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
-                            cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 1 + ",Refunded=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
+                            cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 1 + ",Refunded=" + 0 + ",Delivery_Date= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
                             Cls_Connection.open_connection();
                             cmd.ExecuteNonQuery();
                             CheckMore = true;
@@ -683,7 +686,7 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
+                cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 0 + ",Delivery_Date= '" + dt1 + "' WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
                 Cls_Connection.open_connection();
                 cmd.ExecuteNonQuery();
 

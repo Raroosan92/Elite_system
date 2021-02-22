@@ -142,6 +142,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
             HtmlControl Claims_Report_Company = (HtmlControl)Page.Master.FindControl("Claims_Report_Company");
             PaymentOfClaim.Attributes.Add("style", "display:none");
+
+            HtmlControl DelivereMail = (HtmlControl)Page.Master.FindControl("DelivereMail");
+            DelivereMail.Attributes.Add("style", "display:none");
+
+            HtmlControl MainMail = (HtmlControl)Page.Master.FindControl("MainMail");
+            MainMail.Attributes.Add("style", "display:none");
             #endregion
 
             if (Request.Cookies["UserName"] != null)
@@ -175,7 +181,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
                 if (HttpContext.Current.User.IsInRole("Mail"))
                 {
+                    MainMail.Attributes.Add("style", "display:Block");
                     Mail.Attributes.Add("style", "display:Block");
+                }
+                if (HttpContext.Current.User.IsInRole("DelivereMail"))
+                {
+                    MainMail.Attributes.Add("style", "display:Block");
+                    DelivereMail.Attributes.Add("style", "display:Block");
                 }
 
                 if (HttpContext.Current.User.IsInRole("Employees"))
@@ -382,6 +394,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 Checks.Attributes.Add("style", "display:Block");
                 AssignCheck.Attributes.Add("style", "display:Block");
                 DeliveredChecks.Attributes.Add("style", "display:Block");
+                MainMail.Attributes.Add("style", "display:Block");
+                DelivereMail.Attributes.Add("style", "display:Block");
                 RefundedCheckes.Attributes.Add("style", "display:Block");
                 Accounting_Tree.Attributes.Add("style", "display:Block");
                 Accounting_Tree_Details.Attributes.Add("style", "display:Block");

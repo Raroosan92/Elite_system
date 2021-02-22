@@ -90,6 +90,11 @@
                         <span></span>
                     </div>
 
+
+                    
+
+
+
                     <header id="HeaderSideBar" class="fixed-menu" runat="server" style="direction: ltr;">
                         <span class="menu-close">
                             <img src="../imgSideBar/Close.png" style="width: 17%;" /></span>
@@ -112,7 +117,20 @@
 
                                     <li id="Companies" runat="server" class=""><a href="../Companies.aspx">الشركات<img src="../imgSideBar/header/company.png" /></a></li>
 
-                                    <li id="Mail" runat="server" class=""><a href="../Mail.aspx">البريد<img src="../imgSideBar/header/email.png" /></a></li>
+                                      <li class="">
+
+                                        <li class="" id="MainMail" runat="server">
+                                            <div class="dropup">
+                                                <a class="" style="margin-left: 50%;" data-toggle="dropdown">البريد<img src="../imgSideBar/header/email.png" /><span class="caret"></span></a>
+                                                <ul class="dropdown-menu nav-stacked" style="direction: rtl;">
+                                                    <li <li id="Mail" runat="server" class=""><a href="../Mail.aspx">البريد<img src="../imgSideBar/header/email.png" /></a></li>
+                                                        <li <li id="DelivereMail" runat="server" class=""><a href="../DelivereMail.aspx">تسليم البريد<img src="../imgSideBar/header/email.png" /></a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+
+
+                                    
 
                                     <li id="Employees" runat="server" class=""><a href="../Employees.aspx">الموظفين<img src="../imgSideBar/header/employee.png" /></a></li>
 
