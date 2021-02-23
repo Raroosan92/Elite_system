@@ -111,8 +111,8 @@ namespace Elite_system
                     //PatientRatio.Visible = true;
                     //Tax.Visible = true;
 
-                    Txt_Value.ReadOnly = true;
-                    Txt_Value.BackColor = System.Drawing.Color.Silver;
+                    //Txt_Value.ReadOnly = true;
+                    //Txt_Value.BackColor = System.Drawing.Color.Silver;
 
                     DoctorSpecializatio = Get_DoctorSpecialization();
 
