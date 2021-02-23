@@ -135,13 +135,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
             PaymentOfClaim.Attributes.Add("style", "display:none");
 
             HtmlControl Rpt_Medical_Name_Main_Company = (HtmlControl)Page.Master.FindControl("Rpt_Medical_Name_Main_Company");
-            PaymentOfClaim.Attributes.Add("style", "display:none");
+            Rpt_Medical_Name_Main_Company.Attributes.Add("style", "display:none");
 
             HtmlControl CompletionRate = (HtmlControl)Page.Master.FindControl("CompletionRate");
-            PaymentOfClaim.Attributes.Add("style", "display:none");
+            CompletionRate.Attributes.Add("style", "display:none");
 
             HtmlControl Claims_Report_Company = (HtmlControl)Page.Master.FindControl("Claims_Report_Company");
-            PaymentOfClaim.Attributes.Add("style", "display:none");
+            Claims_Report_Company.Attributes.Add("style", "display:none");
 
             HtmlControl DelivereMail = (HtmlControl)Page.Master.FindControl("DelivereMail");
             DelivereMail.Attributes.Add("style", "display:none");
