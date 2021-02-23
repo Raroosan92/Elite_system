@@ -497,7 +497,7 @@ public class Cls_Main_Claims
             cmd.CommandType = CommandType.StoredProcedure;
             if (HttpContext.Current.User.IsInRole("Doctor"))
             {
-                cmd.Parameters.AddWithValue("@UName", HttpContext.Current.User.Identity.Name);
+                cmd.Parameters.AddWithValue("@UName", HttpContext.Current.User.Identity.Name.Replace(' ','%'));
                 cmd.CommandText = "Get_Medical_TypesForClaimsByName";
             }
             else
