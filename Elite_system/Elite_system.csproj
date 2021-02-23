@@ -804,6 +804,7 @@
     <Content Include="TreeLineImages\tminus.gif" />
     <Content Include="TreeLineImages\tplus.gif" />
     <Content Include="Download.ashx" />
+    <Content Include="Update_Listing_Bonds.aspx" />
     <!-- <Content Include="Web.config" /> -->
     <Content Include="XMLTMP.xml" />
     <Content Include="DownloadFont.ashx" />
@@ -1685,6 +1686,13 @@
     </Compile>
     <Compile Include="Testbarcode.aspx.designer.cs">
       <DependentUpon>Testbarcode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Update_Listing_Bonds.aspx.cs">
+      <DependentUpon>Update_Listing_Bonds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Update_Listing_Bonds.aspx.designer.cs">
+      <DependentUpon>Update_Listing_Bonds.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

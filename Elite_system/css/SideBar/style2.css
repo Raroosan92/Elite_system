@@ -347,13 +347,13 @@ button:focus {
 
 .fixed-menu {
     position: fixed;
-    border-radius:10px;
+    border-radius: 10px;
     right: 0;
     top: 0;
     z-index: 99999;
-    margin-top: 3%;
-    width: 12%;
-    background: linear-gradient(59deg, #3A6073, #16222A);
+/*    margin-top: 3%;*/
+    width: 12.4%;
+    background: linear-gradient(-88deg, #3A6073, #16222A);
     height: 100%;
     overflow: auto;
     overflow-x: hidden;

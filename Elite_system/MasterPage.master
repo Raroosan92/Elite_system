@@ -136,6 +136,8 @@
 
                                     <li id="Receipt" runat="server" class=""><a href="../Receipt.aspx">سندات القبض<img src="../imgSideBar/header/bill.png" /></a></li>
 
+                                          <li id="Update_Listing_Bonds" runat="server" class=""><a href="../Update_Listing_Bonds.aspx">تعديل حساب<img src="../imgSideBar/header/EditeAccount.png" /></a></li>
+
                                     <%-- <li class=""><a href="../Listing_Bonds.aspx">سندات القيد<img src="../imgSideBar/header/nav-icon6.png" /></a></li>--%>
 
 

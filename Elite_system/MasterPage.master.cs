@@ -147,7 +147,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
             DelivereMail.Attributes.Add("style", "display:none");
 
             HtmlControl MainMail = (HtmlControl)Page.Master.FindControl("MainMail");
-            MainMail.Attributes.Add("style", "display:none");
+            MainMail.Attributes.Add("style", "display:none"); 
+            
+            HtmlControl Update_Listing_Bonds = (HtmlControl)Page.Master.FindControl("Update_Listing_Bonds");
+            Update_Listing_Bonds.Attributes.Add("style", "display:none");
             #endregion
 
             if (Request.Cookies["UserName"] != null)
@@ -377,6 +380,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 if (HttpContext.Current.User.IsInRole("Rpt_Medical_Name_Main_Company"))
                 {
                     Rpt_Medical_Name_Main_Company.Attributes.Add("style", "display:Block");
+                } 
+                
+                if (HttpContext.Current.User.IsInRole("Update_Listing_Bonds"))
+                {
+                    Update_Listing_Bonds.Attributes.Add("style", "display:Block");
                 }
             }
             else
@@ -423,6 +431,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 Rpt_GetContractingValue.Attributes.Add("style", "display:Block");
                 Rpt_Stamps.Attributes.Add("style", "display:Block");
                 Rpt_MedicalTypesWithNoClaims.Attributes.Add("style", "display:Block");
+                Update_Listing_Bonds.Attributes.Add("style", "display:Block");
             }
         }
 
