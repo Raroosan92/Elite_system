@@ -273,6 +273,7 @@
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Lockout.aspx" />
     <Content Include="AssignCheck.aspx" />
+    <Content Include="Rpt_CheckLogStatus.aspx" />
     <Content Include="CompletionRate.aspx" />
     <Content Include="css\thumbnail-slider.css" />
     <Content Include="css\waitMe.css" />
@@ -846,6 +847,17 @@
     <Content Include="DS_Checks4.xss">
       <DependentUpon>DS_Checks4.xsd</DependentUpon>
     </Content>
+    <Content Include="DS_ChecksLogStatus.xsc">
+      <DependentUpon>DS_ChecksLogStatus.xsd</DependentUpon>
+    </Content>
+    <None Include="DS_ChecksLogStatus.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_ChecksLogStatus.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DS_ChecksLogStatus.xss">
+      <DependentUpon>DS_ChecksLogStatus.xsd</DependentUpon>
+    </Content>
     <None Include="DS_Claims.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DS_Claims.Designer.cs</LastGenOutput>
@@ -1124,6 +1136,13 @@
     <Compile Include="App_Code\Cls_Procedures.cs" />
     <Compile Include="App_Code\Cls_Medical_Types_Check.cs" />
     <Compile Include="App_Code\Cls_ChecksLog.cs" />
+    <Compile Include="Rpt_CheckLogStatus.aspx.cs">
+      <DependentUpon>Rpt_CheckLogStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt_CheckLogStatus.aspx.designer.cs">
+      <DependentUpon>Rpt_CheckLogStatus.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CompletionRate.aspx.cs">
       <DependentUpon>CompletionRate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1167,6 +1186,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_Checks4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_ChecksLogStatus.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_ChecksLogStatus.xsd</DependentUpon>
     </Compile>
     <Compile Include="DS_Claims.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1712,6 +1736,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AssignedChecksView.rdlc" />
+    <EmbeddedResource Include="Rpt_CheckLogStatus.rdlc" />
     <EmbeddedResource Include="Rpt_Claims_Updated.rdlc" />
     <EmbeddedResource Include="Rpt_Medical_Name_Main_Company3.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
