@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Elite_system {
-    
-    
-    public partial class CheckLogStatus {
-        
+namespace Elite_system
+{
+
+
+    public partial class CheckLogStatus
+    {
+
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// Label3 control.
         /// </summary>
@@ -29,16 +31,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-        
-        /// <summary>
-        /// DDL_Main_Company control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDL_Main_Company;
-        
+
         /// <summary>
         /// DDL_Medical_Name control.
         /// </summary>
@@ -47,7 +40,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name;
-        
+
         /// <summary>
         /// Button2 control.
         /// </summary>
@@ -56,7 +49,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button2;
-        
+
         /// <summary>
         /// Button1 control.
         /// </summary>
@@ -65,7 +58,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
-        
+
         /// <summary>
         /// ReportViewer1 control.
         /// </summary>
@@ -74,7 +67,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
-        
+
         /// <summary>
         /// ObjectDataSource1 control.
         /// </summary>

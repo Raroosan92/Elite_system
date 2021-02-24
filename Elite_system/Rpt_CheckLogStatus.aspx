@@ -70,16 +70,6 @@
                                     <asp:Label ID="Label3" runat="server" Text=" كشف الشيكات المحالة والمسلمة والمرتجعة" ForeColor="#f2f2f2" Font-Bold="True" Font-Size="Larger"></asp:Label>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-
-                                    <asp:DropDownList ID="DDL_Main_Company" runat="server" DataTextField="Name" DataValueField="ID" Width="300px">
-                                    </asp:DropDownList>
-                                </td>
-                                <td>
-                                    <asp:Label runat="server" Text="الشركة الرئيسية"></asp:Label>
-                                </td>
-                            </tr>
 
                             <tr>
                                 <td class="auto-style1">
@@ -114,13 +104,40 @@
     <section class="text-center Report" style="padding-top: 1%; direction: ltr;">
 
         <rsweb:ReportViewer ID="ReportViewer1" CssClass="Report" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="750px">
-            <LocalReport ReportPath="Rpt_Log.rdlc">
+            <LocalReport ReportPath="Rpt_CheckLogStatus.rdlc">
                 <DataSources>
-                    <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DS_Log" />
+                    <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DataSet1" />
                 </DataSources>
             </LocalReport>
         </rsweb:ReportViewer>
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetData" TypeName="Elite_system.DS_LogTableAdapters.LogTableAdapter"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetData" TypeName="Elite_system.DS_ChecksLogStatusTableAdapters.Log_ChecksTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" UpdateMethod="Update">
+            <DeleteParameters>
+                <asp:Parameter Name="Original_ID" Type="Int32"></asp:Parameter>
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="Check_Number" Type="String"></asp:Parameter>
+                <asp:Parameter Name="Check_Type" Type="Int32"></asp:Parameter>
+                <asp:Parameter Name="Check_EmpName" Type="String"></asp:Parameter>
+                <asp:Parameter Name="Check_MedicalName" Type="String"></asp:Parameter>
+                <asp:Parameter Name="Check_Barcode" Type="String"></asp:Parameter>
+                <asp:Parameter Name="Check_CurrentDate" Type="DateTime"></asp:Parameter>
+                <asp:Parameter Name="Check_Date" Type="DateTime"></asp:Parameter>
+                <asp:Parameter Name="Check_Uname" Type="String"></asp:Parameter>
+                <asp:Parameter Name="Check_Company" Type="String"></asp:Parameter>
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="Check_Number" Type="String"></asp:Parameter>
+                <asp:Parameter Name="Check_Type" Type="Int32"></asp:Parameter>
+                <asp:Parameter Name="Check_EmpName" Type="String"></asp:Parameter>
+                <asp:Parameter Name="Check_MedicalName" Type="String"></asp:Parameter>
+                <asp:Parameter Name="Check_Barcode" Type="String"></asp:Parameter>
+                <asp:Parameter Name="Check_CurrentDate" Type="DateTime"></asp:Parameter>
+                <asp:Parameter Name="Check_Date" Type="DateTime"></asp:Parameter>
+                <asp:Parameter Name="Check_Uname" Type="String"></asp:Parameter>
+                <asp:Parameter Name="Check_Company" Type="String"></asp:Parameter>
+                <asp:Parameter Name="Original_ID" Type="Int32"></asp:Parameter>
+            </UpdateParameters>
+        </asp:ObjectDataSource>
     </section>
     <script src="scripts/select2.min.js"></script>
 
@@ -132,7 +149,7 @@
         }
         function jsFunctions() {
             $("#<%=DDL_Medical_Name.ClientID%>").select2();
-            $("#<%=DDL_Main_Company.ClientID%>").select2();
+            
 
         }
     </script>
@@ -141,7 +158,7 @@
         $(function () {
 
             $("#<%=DDL_Medical_Name.ClientID%>").select2();
-            $("#<%=DDL_Main_Company.ClientID%>").select2();
+            
         })
 
 

@@ -20,9 +20,9 @@ namespace Elite_system
             //{
             //    Txt_FromDate.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
             //    Txt_ToDate.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
-            //    DDL_Medical_Name.DataSource = Cls_Main_Claims.Get_Medical_Types3();
-            //    DDL_Medical_Name.DataBind();
-            //    DDL_Medical_Name.Items.Insert(0, new ListItem("--اختر--", "0"));
+            DDL_Medical_Name.DataSource = Cls_Employees.Get_Employee();
+            DDL_Medical_Name.DataBind();
+           //DDL_Medical_Name.Items.Insert(0, new ListItem("--اختر--", "0"));
 
 
             //    DDL_Main_Company.DataSource = Cls_Main_Claims.Get_Companies();
@@ -85,23 +85,23 @@ namespace Elite_system
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                DateTime dt1 = DateTime.ParseExact(Txt_FromDate.Text, "yyyy-MM-dd", null);
-                dt1 = dt1.Date;
-                DateTime dt2 = DateTime.ParseExact(Txt_ToDate.Text, "yyyy-MM-dd", null);
-                dt2 = dt2.Date;
+                //DateTime dt1 = DateTime.ParseExact(Txt_FromDate.Text, "yyyy-MM-dd", null);
+                //dt1 = dt1.Date;
+                //DateTime dt2 = DateTime.ParseExact(Txt_ToDate.Text, "yyyy-MM-dd", null);
+                //dt2 = dt2.Date;
 
 
-                cmd.CommandText = "Get_Medical_Name_Main_Company";
-                cmd.Parameters.AddWithValue("@From", dt1);
-                cmd.Parameters.AddWithValue("@To", dt2);
+                cmd.CommandText = "Rpt_CheckLogStatus";
+                //cmd.Parameters.AddWithValue("@From", dt1);
+                //cmd.Parameters.AddWithValue("@To", dt2);
 
 
-                cmd.Parameters.AddWithValue("@Medical_Name", long.Parse(DDL_Medical_Name.SelectedValue));
-                cmd.Parameters.AddWithValue("@Main_Company", long.Parse(DDL_Main_Company.SelectedValue));
+                cmd.Parameters.AddWithValue("@Medical_Name", DDL_Medical_Name.SelectedItem.Text.Replace(' ','%'));
+                
 
 
-                ReportParameter rp1 = new ReportParameter("From", Txt_FromDate.Text);
-                ReportParameter rp2 = new ReportParameter("To", Txt_ToDate.Text);
+                //ReportParameter rp1 = new ReportParameter("From", Txt_FromDate.Text);
+                //ReportParameter rp2 = new ReportParameter("To", Txt_ToDate.Text);
 
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 Cls_Connection.open_connection();
@@ -110,21 +110,13 @@ namespace Elite_system
                 ReportViewer1.Reset();
                 ReportViewer1.ProcessingMode = ProcessingMode.Local;
                 ReportViewer1.LocalReport.DataSources.Clear();
-                ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_Medical_Name_Main_Company", dt_Result));
-                if (long.Parse(DDL_Main_Company.SelectedValue) != 0 && long.Parse(DDL_Medical_Name.SelectedValue) == 0)
-                {
-                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("Rpt_Medical_Name_Main_Company.rdlc");
-                }
-                else if (long.Parse(DDL_Medical_Name.SelectedValue) != 0 && long.Parse(DDL_Main_Company.SelectedValue) == 0)
-                {
-                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("Rpt_Medical_Name_Main_Company2.rdlc");
-                }
-                else
-                {
-                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("Rpt_Medical_Name_Main_Company3.rdlc");
-                }
-                ReportViewer1.LocalReport.SetParameters(rp1);
-                ReportViewer1.LocalReport.SetParameters(rp2);
+                ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_ChecksLogStatus", dt_Result));
+              
+             
+                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("Rpt_CheckLogStatus.rdlc");
+               
+                //ReportViewer1.LocalReport.SetParameters(rp1);
+                //ReportViewer1.LocalReport.SetParameters(rp2);
 
 
 
