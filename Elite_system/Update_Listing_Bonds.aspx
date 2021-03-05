@@ -57,13 +57,21 @@
                                         </td>
                                     </tr>
                                     
+                                      <tr>
+                                        <td>
+                                            <asp:DropDownList ID="DDL_Medical_Name" runat="server" DataTextField="Name" DataValueField="ID" Width="270px" AutoPostBack="True" OnSelectedIndexChanged="DDL_Medical_Name_SelectedIndexChanged" ></asp:DropDownList>
+                                        </td>
+                                        <td>
+                                            <asp:Label runat="server" Text="الجهة الطبية"></asp:Label>
+                                        </td>
+                                    </tr>
 
                                     <tr>
                                         <td>
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Acounting_NO" Width="300px" AutoPostBack="True" OnTextChanged="Txt_Acounting_NO_TextChanged"></asp:TextBox>
                                         </td>
                                         <td>
-                                            <asp:Label runat="server" Text="رقم الحساب"></asp:Label>
+                                            <asp:Label runat="server" Text="رقم المطالبة"></asp:Label>
                                         </td>
                                     </tr>
 
@@ -152,6 +160,21 @@
         }
        
 
+    </script>
+     <script language="javascript" type="text/javascript">
+         window.onload = function load() {
+             Sys.WebForms.PageRequestManager.getInstance().add_endRequest(jsFunctions);
+         }
+         function jsFunctions() {
+             $("#<%=DDL_Medical_Name.ClientID%>").select2();
+            
+         }
+
+     </script>
+    <script>
+        $(function () {
+            $("#<%=DDL_Medical_Name.ClientID%>").select2();
+        })
     </script>
 
 </asp:Content>

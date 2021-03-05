@@ -10,19 +10,27 @@ using System.Web.UI.WebControls;
 
 namespace Elite_system
 {
-   
+
     public partial class Update_Listing_Bonds : System.Web.UI.Page
     {
         public string AcountingNO = "";
+        public string MedicalName = "";
         public void MSG(string Text)
         {
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>alert('" + Text + "')</script>", false);
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                DDL_Medical_Name.DataSource = Cls_Main_Claims.Get_Medical_Types3();
+                DDL_Medical_Name.DataBind();
+                DDL_Medical_Name.Items.Insert(0, new ListItem("--اختر--", "0"));
+            }
+           
+
         }
-       
+
         protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -31,7 +39,7 @@ namespace Elite_system
                 Medical_Name.Text = GridView.SelectedRow.Cells[1].Text;
                 Acounting_NO.Text = GridView.SelectedRow.Cells[6].Text;
                 Claim_ID.Text = GridView.SelectedRow.Cells[7].Text;
-                
+
             }
             catch (Exception ex)
             {
@@ -44,7 +52,7 @@ namespace Elite_system
         {
             try
             {
-                if (Medical_Name.Text != "" & Txt_Value.Text!=null)
+                if (DDL_Medical_Name.SelectedIndex!= 0 )
                 {
 
                     SqlConnection con = new SqlConnection();
@@ -52,8 +60,8 @@ namespace Elite_system
                     con = Cls_Connection._con;
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandType = CommandType.Text; 
-                    cmd.CommandText = "UPDATE [dbo].[Main_Listing_Bonds] SET [Debtor] = '"+Txt_Value.Text+"'    WHERE   [Acounting_NO] = '"+Txt_Acounting_NO.Text+"'";
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "UPDATE [dbo].[Main_Listing_Bonds] SET [Debtor] = '" + Txt_Value.Text + "'    WHERE   [Acounting_NO] = '" + Txt_Acounting_NO.Text + "'";
                     Cls_Connection.open_connection();
                     cmd.ExecuteNonQuery();
                     Cls_Connection.close_connection();
@@ -89,12 +97,17 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "Get_V_Listing_Bonds_Updates";
-                 AcountingNO = Txt_Acounting_NO.Text;
-              
-                cmd.Parameters.AddWithValue("@Acounting_NO", AcountingNO);
-               
+                AcountingNO = Txt_Acounting_NO.Text;
+                MedicalName = DDL_Medical_Name.SelectedItem.Text;
+
+                if (AcountingNO=="")
+                {
+                    cmd.CommandText = "SELECT [Medical_TypeName] 'الجهة الطبية',[Description] 'البيان' ,CONVERT (VARCHAR,[Bond_Date],101) 'تاريخ القيد',[Debtor]'المدين',[Creditor]'الدائن',[Acounting_NO]'رقم الحساب' ,[Claim_ID] 'تسلسل المطالبة' FROM [dbo].[V_Listing_Bonds] WHERE [Medical_TypeName] like N'%" + MedicalName + "%'";
+                }
+                else
+                {
+                    cmd.CommandText = "SELECT [Medical_TypeName] 'الجهة الطبية',[Description] 'البيان' ,CONVERT (VARCHAR,[Bond_Date],101) 'تاريخ القيد',[Debtor]'المدين',[Creditor]'الدائن',[Acounting_NO]'رقم الحساب' ,[Claim_ID] 'تسلسل المطالبة' FROM [dbo].[V_Listing_Bonds] WHERE [Medical_TypeName] like N'%" + MedicalName + "%' and Claim_ID = '" + AcountingNO + "'";
+                }
 
                 Cls_Connection.open_connection();
                 DataTable dt = new DataTable();
@@ -114,7 +127,21 @@ namespace Elite_system
             }
         }
 
+
         protected void Txt_Acounting_NO_TextChanged(object sender, EventArgs e)
+        {
+            if (DDL_Medical_Name.SelectedIndex==0)
+            {
+                MSG("يرجى اختيار جهة طبية اولا ");
+            }
+            else
+            {
+                GetBonds();
+            }
+            
+        }
+
+        protected void DDL_Medical_Name_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetBonds();
         }

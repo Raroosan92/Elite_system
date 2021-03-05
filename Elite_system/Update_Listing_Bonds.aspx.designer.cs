@@ -33,6 +33,15 @@ namespace Elite_system
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
+        /// DDL_Medical_Name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name;
+
+        /// <summary>
         /// Txt_Acounting_NO control.
         /// </summary>
         /// <remarks>
