@@ -68,7 +68,7 @@
 
                                     <tr>
                                         <td>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Acounting_NO" Width="300px" AutoPostBack="True" OnTextChanged="Txt_Acounting_NO_TextChanged"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Acounting_NO" placeholder="اختياري" Width="300px" AutoPostBack="True" OnTextChanged="Txt_Acounting_NO_TextChanged"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="رقم المطالبة"></asp:Label>

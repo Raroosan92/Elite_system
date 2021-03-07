@@ -54,7 +54,7 @@ namespace Elite_system
                 patient_name.Visible = false;
                 Date.Visible = false;
                 procedures.Visible = false;
-                BTN_RAMI.Visible = false;
+                //BTN_RAMI.Visible = false;
                 Specializatio.Visible = false;
                 ProcedureDesc1.Visible = false;
                 ProcedureDesc2.Visible = false;
@@ -78,7 +78,7 @@ namespace Elite_system
                     Btn_Save.Visible = true;
                     Btn_Update.Visible = true;
                     Btn_Delete.Visible = true;
-                    BTN_RAMI.Visible = true;
+                    //BTN_RAMI.Visible = true;
                     Btn_Save_SubClaims.Visible = true;
                     Btn_Update_SubClaims.Visible = true;
                     Btn_Delete_SubClaims.Visible = true;
@@ -89,7 +89,7 @@ namespace Elite_system
 
                     Txt_Stamps.ReadOnly = false;
                     Txt_Stamps.BackColor = System.Drawing.Color.White;
-                    Btn_ListingBonds.Visible = true;
+                    //Btn_ListingBonds.Visible = true;
                 }
 
 

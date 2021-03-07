@@ -657,18 +657,18 @@
                                         </td>
                                         <td></td>
                                     </tr>
-                                    <tr>
+                                   <%-- <tr>
                                         <td>
                                             <asp:Button ID="Btn_ListingBonds" Visible="false" runat="server" CssClass="btn_listingbonds" Text="إدخال حركة قيد لمجموع الطوابع" OnClick="Btn_ListingBonds_Click" />
                                         </td>
 
-                                    </tr>
-                                    <tr>
+                                    </tr>--%>
+                                  <%--  <tr>
                                         <td>
                                             <asp:Button ID="BTN_RAMI" runat="server" Text="حفظ جميع " Width="301px" OnClick="BTN_RAMI_Click" />
                                         </td>
                                         <td></td>
-                                    </tr>
+                                    </tr>--%>
                                 </table>
                             </ContentTemplate>
                             <Triggers>

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Elite_system {
-    
-    
-    public partial class Claims {
-        
+namespace Elite_system
+{
+
+
+    public partial class Claims
+    {
+
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
+
         /// <summary>
         /// Label3 control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-        
+
         /// <summary>
         /// Label5 control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label5;
-        
+
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// Txt_Batch_No control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Batch_No;
-        
+
         /// <summary>
         /// DDL_Medical_Name control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name;
-        
+
         /// <summary>
         /// Txt_Month_Year control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Month_Year;
-        
+
         /// <summary>
         /// Txt_Received_Date control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Received_Date;
-        
+
         /// <summary>
         /// CalendarExtender2 control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
-        
+
         /// <summary>
         /// Txt_ID control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_ID;
-        
+
         /// <summary>
         /// Txt_Entry_Date control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Entry_Date;
-        
+
         /// <summary>
         /// CalendarExtender3 control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender3;
-        
+
         /// <summary>
         /// DDL_Receiver_Employee control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Receiver_Employee;
-        
+
         /// <summary>
         /// Btn_Save control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Save;
-        
+
         /// <summary>
         /// Btn_Update control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Update;
-        
+
         /// <summary>
         /// Btn_Delete control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Delete;
-        
+
         /// <summary>
         /// Label7 control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label7;
-        
+
         /// <summary>
         /// DDL_Year control.
         /// </summary>
@@ -182,7 +184,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Year;
-        
+
         /// <summary>
         /// Label8 control.
         /// </summary>
@@ -191,7 +193,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label8;
-        
+
         /// <summary>
         /// DDL_Month control.
         /// </summary>
@@ -200,7 +202,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Month;
-        
+
         /// <summary>
         /// Label6 control.
         /// </summary>
@@ -209,7 +211,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label6;
-        
+
         /// <summary>
         /// DDL_Medical_Name_Search control.
         /// </summary>
@@ -218,7 +220,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name_Search;
-        
+
         /// <summary>
         /// Btn_Search control.
         /// </summary>
@@ -227,7 +229,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Search;
-        
+
         /// <summary>
         /// SqlDataSource_Claims control.
         /// </summary>
@@ -236,7 +238,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource_Claims;
-        
+
         /// <summary>
         /// GridView2 control.
         /// </summary>
@@ -245,7 +247,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView2;
-        
+
         /// <summary>
         /// UpdatePanel2 control.
         /// </summary>
@@ -254,7 +256,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
-        
+
         /// <summary>
         /// SubClaimTable control.
         /// </summary>
@@ -263,7 +265,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTable SubClaimTable;
-        
+
         /// <summary>
         /// Label4 control.
         /// </summary>
@@ -272,7 +274,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label4;
-        
+
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -281,7 +283,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-        
+
         /// <summary>
         /// Btn_IN control.
         /// </summary>
@@ -290,7 +292,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_IN;
-        
+
         /// <summary>
         /// Btn_Out control.
         /// </summary>
@@ -299,7 +301,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Out;
-        
+
         /// <summary>
         /// DDL_Main_Company control.
         /// </summary>
@@ -308,7 +310,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Main_Company;
-        
+
         /// <summary>
         /// DDL_Sub_Company control.
         /// </summary>
@@ -317,7 +319,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Sub_Company;
-        
+
         /// <summary>
         /// Specializatio control.
         /// </summary>
@@ -326,7 +328,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow Specializatio;
-        
+
         /// <summary>
         /// DDL_Specialization control.
         /// </summary>
@@ -335,7 +337,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Specialization;
-        
+
         /// <summary>
         /// Txt_Claims_Count control.
         /// </summary>
@@ -344,7 +346,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Claims_Count;
-        
+
         /// <summary>
         /// Txt_Value control.
         /// </summary>
@@ -353,7 +355,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Value;
-        
+
         /// <summary>
         /// patient_name control.
         /// </summary>
@@ -362,7 +364,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow patient_name;
-        
+
         /// <summary>
         /// Txt_patient_name control.
         /// </summary>
@@ -371,7 +373,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_patient_name;
-        
+
         /// <summary>
         /// ProcedureDesc1 control.
         /// </summary>
@@ -380,7 +382,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow ProcedureDesc1;
-        
+
         /// <summary>
         /// DDL_ProcedureDesc1 control.
         /// </summary>
@@ -389,7 +391,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_ProcedureDesc1;
-        
+
         /// <summary>
         /// ProcedureDesc2 control.
         /// </summary>
@@ -398,7 +400,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow ProcedureDesc2;
-        
+
         /// <summary>
         /// DDL_ProcedureDesc2 control.
         /// </summary>
@@ -407,7 +409,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_ProcedureDesc2;
-        
+
         /// <summary>
         /// ProcedureDesc3 control.
         /// </summary>
@@ -416,7 +418,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow ProcedureDesc3;
-        
+
         /// <summary>
         /// DDL_ProcedureDesc3 control.
         /// </summary>
@@ -425,7 +427,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_ProcedureDesc3;
-        
+
         /// <summary>
         /// ProcedureDesc4 control.
         /// </summary>
@@ -434,7 +436,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow ProcedureDesc4;
-        
+
         /// <summary>
         /// DDL_ProcedureDesc4 control.
         /// </summary>
@@ -443,7 +445,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_ProcedureDesc4;
-        
+
         /// <summary>
         /// ProcedureDesc5 control.
         /// </summary>
@@ -452,7 +454,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow ProcedureDesc5;
-        
+
         /// <summary>
         /// DDL_ProcedureDesc5 control.
         /// </summary>
@@ -461,7 +463,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_ProcedureDesc5;
-        
+
         /// <summary>
         /// PatientRatio control.
         /// </summary>
@@ -470,7 +472,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow PatientRatio;
-        
+
         /// <summary>
         /// Txt_PatientRatio control.
         /// </summary>
@@ -479,7 +481,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_PatientRatio;
-        
+
         /// <summary>
         /// Calculate control.
         /// </summary>
@@ -488,7 +490,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow Calculate;
-        
+
         /// <summary>
         /// Btn_Calculate control.
         /// </summary>
@@ -497,7 +499,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Calculate;
-        
+
         /// <summary>
         /// Tax control.
         /// </summary>
@@ -506,7 +508,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow Tax;
-        
+
         /// <summary>
         /// Txt_Tax control.
         /// </summary>
@@ -515,7 +517,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Tax;
-        
+
         /// <summary>
         /// Txt_Sample_Num control.
         /// </summary>
@@ -524,7 +526,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Sample_Num;
-        
+
         /// <summary>
         /// Txt_Card_Num control.
         /// </summary>
@@ -533,7 +535,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Card_Num;
-        
+
         /// <summary>
         /// Approval_number control.
         /// </summary>
@@ -542,7 +544,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow Approval_number;
-        
+
         /// <summary>
         /// Txt_Approval_number control.
         /// </summary>
@@ -551,7 +553,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Approval_number;
-        
+
         /// <summary>
         /// Txt_Stamps control.
         /// </summary>
@@ -560,7 +562,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Stamps;
-        
+
         /// <summary>
         /// Txt_Stamps_Total control.
         /// </summary>
@@ -569,7 +571,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Stamps_Total;
-        
+
         /// <summary>
         /// Date control.
         /// </summary>
@@ -578,7 +580,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow Date;
-        
+
         /// <summary>
         /// TxtDate_SubClaim control.
         /// </summary>
@@ -587,7 +589,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtDate_SubClaim;
-        
+
         /// <summary>
         /// CalendarExtender1 control.
         /// </summary>
@@ -596,7 +598,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
-        
+
         /// <summary>
         /// procedures control.
         /// </summary>
@@ -605,7 +607,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableRow procedures;
-        
+
         /// <summary>
         /// Txt_procedures control.
         /// </summary>
@@ -614,7 +616,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_procedures;
-        
+
         /// <summary>
         /// fileImages control.
         /// </summary>
@@ -623,7 +625,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fileImages;
-        
+
         /// <summary>
         /// Rpt_Download control.
         /// </summary>
@@ -632,7 +634,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater Rpt_Download;
-        
+
         /// <summary>
         /// Btn_Save_SubClaims control.
         /// </summary>
@@ -641,7 +643,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Save_SubClaims;
-        
+
         /// <summary>
         /// Btn_Update_SubClaims control.
         /// </summary>
@@ -650,7 +652,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Update_SubClaims;
-        
+
         /// <summary>
         /// Btn_Delete_SubClaims control.
         /// </summary>
@@ -659,7 +661,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Delete_SubClaims;
-        
+
         /// <summary>
         /// Btn_InsertAll control.
         /// </summary>
@@ -668,25 +670,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_InsertAll;
-        
-        /// <summary>
-        /// Btn_ListingBonds control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_ListingBonds;
-        
-        /// <summary>
-        /// BTN_RAMI control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BTN_RAMI;
-        
+
         /// <summary>
         /// DropDownList1 control.
         /// </summary>
@@ -695,7 +679,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-        
+
         /// <summary>
         /// Label9 control.
         /// </summary>
@@ -704,7 +688,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label9;
-        
+
         /// <summary>
         /// Btn_Search2 control.
         /// </summary>
@@ -713,7 +697,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Search2;
-        
+
         /// <summary>
         /// DDL_Main_Company2 control.
         /// </summary>
@@ -722,7 +706,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Main_Company2;
-        
+
         /// <summary>
         /// Label11 control.
         /// </summary>
@@ -731,7 +715,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label11;
-        
+
         /// <summary>
         /// GridView_SubClaims control.
         /// </summary>
@@ -740,7 +724,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView_SubClaims;
-        
+
         /// <summary>
         /// slider control.
         /// </summary>
@@ -749,7 +733,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl slider;
-        
+
         /// <summary>
         /// RP_ImagesLi control.
         /// </summary>
@@ -758,7 +742,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater RP_ImagesLi;
-        
+
         /// <summary>
         /// RP_Image control.
         /// </summary>
@@ -767,7 +751,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater RP_Image;
-        
+
         /// <summary>
         /// UpdateProgress1 control.
         /// </summary>

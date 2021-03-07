@@ -38,7 +38,7 @@ namespace Elite_system
 
                 Medical_Name.Text = GridView.SelectedRow.Cells[1].Text;
                 Acounting_NO.Text = GridView.SelectedRow.Cells[6].Text;
-                Claim_ID.Text = GridView.SelectedRow.Cells[7].Text;
+                Claim_ID.Text = GridView.SelectedRow.Cells[8].Text;
 
             }
             catch (Exception ex)
@@ -61,7 +61,7 @@ namespace Elite_system
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "UPDATE [dbo].[Main_Listing_Bonds] SET [Debtor] = '" + Txt_Value.Text + "'    WHERE   [Acounting_NO] = '" + Txt_Acounting_NO.Text + "'";
+                    cmd.CommandText = "UPDATE [dbo].[Main_Listing_Bonds] SET [Debtor] = '" + Txt_Value.Text + "'    WHERE   [id] = '" + Claim_ID.Text + "'";
                     Cls_Connection.open_connection();
                     cmd.ExecuteNonQuery();
                     Cls_Connection.close_connection();
@@ -102,11 +102,11 @@ namespace Elite_system
 
                 if (AcountingNO=="")
                 {
-                    cmd.CommandText = "SELECT [Medical_TypeName] 'الجهة الطبية',[Description] 'البيان' ,CONVERT (VARCHAR,[Bond_Date],101) 'تاريخ القيد',[Debtor]'المدين',[Creditor]'الدائن',[Acounting_NO]'رقم الحساب' ,[Claim_ID] 'تسلسل المطالبة' FROM [dbo].[V_Listing_Bonds] WHERE [Medical_TypeName] like N'%" + MedicalName + "%'";
+                    cmd.CommandText = "SELECT [Medical_TypeName] 'الجهة الطبية',[Description] 'البيان' ,CONVERT (VARCHAR,[Bond_Date],101) 'تاريخ القيد',[Debtor]'المدين',[Creditor]'الدائن',[Acounting_NO]'رقم الحساب' ,[Claim_ID] 'تسلسل المطالبة',id FROM [dbo].[V_Listing_Bonds] WHERE [Medical_TypeName] like N'%" + MedicalName + "%'";
                 }
                 else
                 {
-                    cmd.CommandText = "SELECT [Medical_TypeName] 'الجهة الطبية',[Description] 'البيان' ,CONVERT (VARCHAR,[Bond_Date],101) 'تاريخ القيد',[Debtor]'المدين',[Creditor]'الدائن',[Acounting_NO]'رقم الحساب' ,[Claim_ID] 'تسلسل المطالبة' FROM [dbo].[V_Listing_Bonds] WHERE [Medical_TypeName] like N'%" + MedicalName + "%' and Claim_ID = '" + AcountingNO + "'";
+                    cmd.CommandText = "SELECT [Medical_TypeName] 'الجهة الطبية',[Description] 'البيان' ,CONVERT (VARCHAR,[Bond_Date],101) 'تاريخ القيد',[Debtor]'المدين',[Creditor]'الدائن',[Acounting_NO]'رقم الحساب' ,[Claim_ID] 'تسلسل المطالبة',id FROM [dbo].[V_Listing_Bonds] WHERE [Medical_TypeName] like N'%" + MedicalName + "%' and Claim_ID = '" + AcountingNO + "'";
                 }
 
                 Cls_Connection.open_connection();
