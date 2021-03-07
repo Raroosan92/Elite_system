@@ -1730,6 +1730,7 @@
   <ItemGroup>
     <EmbeddedResource Include="AssignedChecksView.rdlc" />
     <EmbeddedResource Include="Rpt_CheckLogStatus.rdlc" />
+    <EmbeddedResource Include="Rpt_Claims.rdlc" />
     <EmbeddedResource Include="Rpt_Claims_Updated.rdlc" />
     <EmbeddedResource Include="Rpt_Medical_Name_Main_Company3.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1756,7 +1757,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Rpt_Checks6.rdlc" />
-    <EmbeddedResource Include="Rpt_Claims.rdlc" />
+    <EmbeddedResource Include="Rpt_Claims_old.rdlc" />
     <EmbeddedResource Include="Rpt_Claims2.rdlc" />
     <EmbeddedResource Include="Rpt_Claims3.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
