@@ -37,7 +37,7 @@ namespace Elite_system
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             //--rami لتغيير التاريخ من لوحة المفاتيح--
             Txt_Received_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender2.ClientID + "');return (event.keyCode!=13);");
             Txt_Entry_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender3.ClientID + "');return (event.keyCode!=13);");
@@ -348,7 +348,7 @@ namespace Elite_system
             {
                 string Result;
 
-              
+
                 int Month = int.Parse(DateTime.UtcNow.AddHours(2).Month.ToString());
                 int Year = int.Parse(DateTime.UtcNow.AddHours(2).Year.ToString());
                 if (Month > 1)
@@ -358,9 +358,9 @@ namespace Elite_system
                 else
                 {
                     Year = Year - 1;
-                    
+
                 }
-               
+
                 //string Month = Txt_Month_Year.Text.Substring(0, 1);
                 //string Year = Txt_Month_Year.Text.Substring(2, 4);
                 string Medical_ID = int.Parse(DDL_Medical_Name.SelectedValue).ToString();
@@ -749,7 +749,7 @@ namespace Elite_system
                 {
                     try
                     {
-                        Sub_Claims._PatientRatio = (decimal.Parse(Txt_PatientRatio.Text)/100);
+                        Sub_Claims._PatientRatio = (decimal.Parse(Txt_PatientRatio.Text) / 100);
                     }
                     catch (Exception)
                     {
@@ -763,7 +763,7 @@ namespace Elite_system
                 {
                     try
                     {
-                        Sub_Claims._Tax = (decimal.Parse(Txt_Tax.Text)/100);
+                        Sub_Claims._Tax = (decimal.Parse(Txt_Tax.Text) / 100);
                     }
                     catch (Exception)
                     {
@@ -1254,7 +1254,7 @@ namespace Elite_system
             {
                 try
                 {
-                    Sub_Claims._PatientRatio = (decimal.Parse(Txt_PatientRatio.Text)/100);
+                    Sub_Claims._PatientRatio = (decimal.Parse(Txt_PatientRatio.Text) / 100);
                 }
                 catch (Exception)
                 {
@@ -1268,7 +1268,7 @@ namespace Elite_system
             {
                 try
                 {
-                    Sub_Claims._Tax = (decimal.Parse(Txt_Tax.Text)/100);
+                    Sub_Claims._Tax = (decimal.Parse(Txt_Tax.Text) / 100);
                 }
                 catch (Exception)
                 {
@@ -1684,7 +1684,7 @@ namespace Elite_system
             }
 
         }
-       
+
         object result;
         public void Get_SubClaims_ForUpdate()
         {
@@ -1799,7 +1799,7 @@ namespace Elite_system
                     Txt_PatientRatio.Text = (PatientRatio * 100).ToString();
 
                     double tax = double.Parse(dr.GetValue(dr.GetOrdinal("Tax")).ToString());
-                    
+
                     Txt_Tax.Text = (tax * 100).ToString();
 
                 }
@@ -2201,6 +2201,8 @@ namespace Elite_system
 
             string Contracting_Value = Cls_Medical_Types_And_Companies.Get_Contracting_Value(long.Parse(DDL_Medical_Name.SelectedValue.ToString()));
             Label5.Text = " قيمة الإشتراك : " + Contracting_Value.ToString();
+            Label10.Text = " قيمة الإشتراك : " + Contracting_Value.ToString();
+
 
             //Fill_Claims_GV1(GridView2.SelectedRow.Cells[1].Text, GridView2.SelectedRow.Cells[3].Text);
         }
@@ -2219,7 +2221,7 @@ namespace Elite_system
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "Search_Claims_GV2";
-                
+
                 cmd.Parameters.AddWithValue("@Medical_Name", Medical_Name);
                 cmd.Parameters.AddWithValue("@Month_Year", Month_Year);
                 cmd.Parameters.AddWithValue("@year", year);

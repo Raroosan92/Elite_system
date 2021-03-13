@@ -342,6 +342,8 @@
                                     <tr style="background-color: #2f323a;">
                                         <td class="auto-style1">
                                             <asp:Label ID="Label4" runat="server" Text=" العدد " ForeColor="#f2f2f2" Font-Bold="True" Font-Size="Larger"></asp:Label>
+                                            &nbsp;&nbsp; &nbsp;&nbsp;
+                                            <asp:Label ID="Label10" runat="server" Text="" ForeColor="#f2f2f2" Font-Bold="True" Font-Size="Larger"></asp:Label>
                                         </td>
                                         <td style="width: 98px">
 

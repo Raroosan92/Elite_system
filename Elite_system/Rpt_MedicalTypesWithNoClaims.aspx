@@ -60,7 +60,7 @@
         <div class="container">
             <div class="row">
                 <div class="COLR" style="float: right">
-                    <div class="table-responsive">
+                    <div class="">
                         <table class="table table-striped">
                             <tr style="background-color: #2f323a;">
                                 <td class="auto-style1"></td>
