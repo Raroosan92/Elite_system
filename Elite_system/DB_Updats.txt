@@ -1,120 +1,195 @@
 -----------------------------------------------------------------------------------------------------------------------------------
-create proc [dbo].[Check_Logs]
-@Check_Number		 nvarchar(50) = null,
-@Check_Type			int =null,
-@Check_EmpName		nvarchar(80)=null,
-@Check_MedicalName	nvarchar(90)=null,
-@Check_Company	nvarchar(90)=null,
-@Check_Barcode		nvarchar(50)=null,
-@Check_Uname		nvarchar(50)=NULL,
-@Check_CurrentDate	date,
-@Check_Date			date,
-@From date =NULL,
-@To date =NULL,
-@check char =NULL
-as
-begin
-
-if @check='I'
-INSERT INTO [dbo].[Log_Checks]
-           ([Check_Number]
-           ,[Check_Type]
-           ,[Check_EmpName]
-           ,[Check_MedicalName]
-           ,[Check_Barcode]
-           ,[Check_CurrentDate]
-           ,[Check_Date]
-		   ,[Check_Company]
-		   ,[Check_Uname])
-     VALUES
-           (@Check_Number 
-           ,@Check_Type 
-           ,@Check_EmpName
-           ,@Check_MedicalName
-           ,@Check_Barcode
-           ,@Check_CurrentDate
-           ,@Check_Date
-		   ,@Check_Company
-		   ,@Check_Uname
-		   )
-			
+ALTER TABLE [dbo].[Medical_Types_And_Companies]
+ADD Notes varchar(500);
 
 
+	ALTER TABLE [dbo].[Medical_Types_And_Companies]
+	ADD Freez bit 
+DEFAULT 'false' WITH VALUES
 
-else if @check='S'
-SELECT *
-  FROM [dbo].[Log_Checks]
+ALTER TABLE [dbo].[Medical_Types_And_Companies]
+	ADD FreezTo Date
+
+	ALTER TABLE [dbo].[Medical_Types_And_Companies]
+	ADD FreezFrom Date
 -----------------------------------------------------------------------------------------------------------------------------------
+USE [DB_A5D8AE_EliteSystem]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_Medical_Types_And_Companies]    Script Date: 16/03/2021 10:06:31 ’ ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[SP_Medical_Types_And_Companies]
 
-ALTER proc [dbo].[Get_MainChecks_AssignChecks4]
-@CheckNo nvarchar(200) = null,
-@EmployeeName nvarchar(200) = null
+@ID numeric(18,0)=null,
+@Name nvarchar(200)=null,
+@Type int =null,
+@Specialization int=null,
+@Place int=null,
+@Region int=null,
+@Address nvarchar(500)=null,
+@Building nvarchar(500)=null,
+@Email nvarchar(100)=null,
+@Phone nvarchar(50) =null,
+@Mobile nvarchar(50)=null,
+@Fax  nvarchar(50)=null,
+@P_O_Box nvarchar(50)=null,
+@Medical_Status int=null,
+@Reason nvarchar(200)=null,
+@Contracting_Status int=null,
+@Contract_NO numeric(18,0) =null,
+@Contract_Date date=null,
+@ContractExpiryDate date=null,
+@Accounting_Date date=null,
+@Contracting_Value nvarchar(50)=null,
+@Contracting_NO nvarchar(50)=null,
+@Stamps int=null,
+@Acounting_NO nvarchar(50) =null,
+@Employee int=null,
+@Bank  int=null,
+@Bank_Branch int=null,
+@P_O_Box2 nvarchar(50)=null,
+@Tax_NO nvarchar(50)=null,
+@Authorization_NO nvarchar(50)=null,
+@Notes nvarchar(50)=null,
+@Contracting_Type1 int=null,
+@Contracting_Type2 int=null,
+@Contracting_Type3 int=null,
+@Entry_Type tinyint=null,
+@User_ID int=null,
+@Freez bit=null,
+@check char(1)
+
+
 as
 begin
-SELECT 
-		top 600	ROW_NUMBER() OVER (ORDER BY [id] ASC) as '«· ”·”·'
-           ,[Company] AS [«”„ «·‘—ﬂ…]
-           ,[Check_Date] AS [ «—ÌŒ «·‘Ìﬂ]
-           ,[MainBank] AS [«”„ «·»‰ﬂ «·—∆Ì”Ì]
-           ,[SentTo]AS [„—”· «·Ï]
-           ,[Value]AS [ﬁÌ„ Â]
-           ,[Check_No] AS [—ﬁ„ «·‘Ìﬂ]
-           ,[Months] AS [‘Â—]
-           ,[Notes]AS [„·«ÕŸ« ]
-           ,[Address] AS [«·⁄‰Ê«‰]
-           ,[Phone] AS [—ﬁ„ «·Â« ›]
-           ,[BarCode]
-           ,[EmployeeName] AS [√”„ «·„ÊŸ› «·„Õ«· ·Â «·‘Ìﬂ]
-		   ,[Delivered] AS [„”·¯„/€Ì— „”·¯„]
-		   , [Refunded] AS [„— Ã⁄/€Ì— „— Ã⁄]
-FROM      [dbo].[V_Main_Check] where ( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date))  order by ROW_NUMBER() OVER (ORDER BY [id] desc)
+
+
+if @Check='i'
+INSERT INTO [dbo].[Medical_Types_And_Companies]
+           ([Name]
+		   ,[Type]
+           ,[Specialization]
+           ,[Place]
+           ,[Region]
+           ,[Address]
+           ,[Building]
+           ,[Email]
+           ,[Phone]
+           ,[Mobile]
+           ,[Fax]
+           ,[P_O_Box]
+           ,[Medical_Status]
+           ,[Reason]
+           ,[Contracting_Status]
+           ,[Contract_NO]
+           ,[Contract_Date]
+           ,[ContractExpiryDate]
+           ,[Accounting_Date]
+           ,[Contracting_Value]
+           ,[Contracting_NO]
+           ,[Stamps]
+           ,[Acounting_NO]
+           ,[Employee]
+           ,[Bank]
+           ,[Bank_Branch]
+           ,[P_O_Box2]
+           ,[Tax_NO]
+           ,[Authorization_NO]
+           ,[Contracting_Type1]
+		   ,[Contracting_Type2]
+		   ,[Contracting_Type3]
+           ,[Entry_Type]
+		   ,[User_ID]
+		   ,[Freez])
+		    values(@Name
+		   ,@Type
+           ,@Specialization
+           ,@Place
+           ,@Region
+           ,@Address
+           ,@Building
+           ,@Email
+           ,@Phone
+           ,@Mobile
+           ,@Fax
+           ,@P_O_Box
+           ,@Medical_Status
+           ,@Reason
+           ,@Contracting_Status
+           ,@Contract_NO
+           ,@Contract_Date
+           ,@ContractExpiryDate
+           ,@Accounting_Date
+           ,@Contracting_Value
+           ,@Contracting_NO
+           ,@Stamps
+           ,@Acounting_NO
+           ,@Employee
+           ,@Bank
+           ,@Bank_Branch
+           ,@P_O_Box2
+           ,@Tax_NO
+		   ,@Authorization_NO
+           ,@Contracting_Type1
+		   ,@Contracting_Type2
+		   ,@Contracting_Type3
+           ,@Entry_Type
+		   ,@User_ID
+		   ,@Freez)
+
+else if @Check='u'
+UPDATE [dbo].[Medical_Types_And_Companies]
+   SET [Name]=@Name
+      ,[Type] = @Type
+      ,[Specialization] = @Specialization
+      ,[Place] = @Place
+      ,[Region] = @Region
+      ,[Address] = @Address
+      ,[Building] = @Building
+      ,[Email] = @Email
+      ,[Phone] = @Phone
+      ,[Mobile] = @Mobile
+      ,[Fax] = @Fax
+      ,[P_O_Box] = @P_O_Box
+      ,[Medical_Status] = @Medical_Status
+      ,[Reason] = @Reason
+      ,[Contracting_Status] = @Contracting_Status
+      ,[Contract_NO] = @Contract_NO
+      ,[Contract_Date] = @Contract_Date
+      ,[ContractExpiryDate] = @ContractExpiryDate
+      ,[Accounting_Date] = @Accounting_Date
+      ,[Contracting_Value] = @Contracting_Value
+      ,[Contracting_NO] = @Contracting_NO
+      ,[Stamps] = @Stamps
+      ,[Acounting_NO] = @Acounting_NO
+	  ,[Notes]=@Notes
+      ,[Employee] =@Employee
+      ,[Bank] = @Bank
+      ,[Bank_Branch] = @Bank_Branch
+      ,[P_O_Box2] =@P_O_Box2
+      ,[Tax_NO] = @Tax_NO
+      ,[Authorization_NO] =@Authorization_NO
+      ,[Contracting_Type1] = @Contracting_Type1
+	  ,[Contracting_Type2] = @Contracting_Type2
+	  ,[Contracting_Type3] = @Contracting_Type3
+      ,[Entry_Type] = @Entry_Type
+	  ,[User_ID] = @User_ID
+	  ,[Freez]=@Freez
+where ID=@ID 
+
+else
+delete from [dbo].[Medical_Types_And_Companies]
+where  ID=@ID 
+
 end
+
+
 -----------------------------------------------------------------------------------------------------------------------------------
-ALTER proc [dbo].[Get_MainChecks_AssignChecks5]
-@CheckNo nvarchar(200) = null,
-@EmployeeName nvarchar(200) = null
-as
-begin
-SELECT 
-		top 600	 ROW_NUMBER() OVER (ORDER BY [id] ASC) as '«· ”·”·'
-           ,[Company] AS [«”„ «·‘—ﬂ…]
-           ,[Check_Date] AS [ «—ÌŒ «·‘Ìﬂ]
-           ,[MainBank] AS [«”„ «·»‰ﬂ «·—∆Ì”Ì]
-           ,[SentTo]AS [„—”· «·Ï]
-           ,[Value]AS [ﬁÌ„ Â]
-           ,[Check_No] AS [—ﬁ„ «·‘Ìﬂ]
-           ,[Months] AS [‘Â—]
-           ,[Notes]AS [„·«ÕŸ« ]
-           ,[Address] AS [«·⁄‰Ê«‰]
-           ,[Phone] AS [—ﬁ„ «·Â« ›]
-           ,[BarCode]
-           ,[EmployeeName] AS [√”„ «·„ÊŸ› «·„Õ«· ·Â «·‘Ìﬂ]
-		   ,[Delivered] AS [„”·¯„/€Ì— „”·¯„]
-		   , [Refunded] AS [„— Ã⁄/€Ì— „— Ã⁄]
-FROM      [dbo].[V_Main_Check] where( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date)) and Delivered=1  order by ROW_NUMBER() OVER (ORDER BY [id] desc)
-end
+
 -----------------------------------------------------------------------------------------------------------------------------------
-ALTER proc [dbo].[Get_MainChecks_AssignChecks6]
-@EmployeeName nvarchar(200) = null
-as
-begin
-SELECT 
-		top 600	ROW_NUMBER() OVER (ORDER BY [id] ASC) as '«· ”·”·'
-           ,[Company] AS [«”„ «·‘—ﬂ…]
-           ,[Check_Date] AS [ «—ÌŒ «·‘Ìﬂ]
-           ,[MainBank] AS [«”„ «·»‰ﬂ «·—∆Ì”Ì]
-           ,[SentTo]AS [„—”· «·Ï]
-           ,[Value]AS [ﬁÌ„ Â]
-           ,[Check_No] AS [—ﬁ„ «·‘Ìﬂ]
-           ,[Months] AS [‘Â—]
-           ,[Notes]AS [„·«ÕŸ« ]
-           ,[Address] AS [«·⁄‰Ê«‰]
-           ,[Phone] AS [—ﬁ„ «·Â« ›]
-           ,[BarCode]
-           ,[EmployeeName] AS [√”„ «·„ÊŸ› «·„Õ«· ·Â «·‘Ìﬂ]
-		   ,[Delivered] AS [„”·¯„/€Ì— „”·¯„]
-		   , [Refunded] AS [„— Ã⁄/€Ì— „— Ã⁄]
-FROM      [dbo].[V_Main_Check] where( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date)) and Refunded=1 order by ROW_NUMBER() OVER (ORDER BY [id] desc)
+
 -----------------------------------------------------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------------------------------------------------

@@ -24,12 +24,16 @@ namespace Elite_system
             Txt_Contract_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender1.ClientID + "')");
             Txt_ContractExpiryDate.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender2.ClientID + "')");
             Txt_Accounting_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender3.ClientID + "')");
+            Txt_FreezFrom.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender4.ClientID + "')");
+            Txt_FreezTo.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender5.ClientID + "')");
             Txt_Contract_Date2.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender11.ClientID + "')");
             Txt_ContractExpiryDate2.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender22.ClientID + "')");
             Txt_Accounting_Date2.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender33.ClientID + "')");
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
             if (!Page.IsPostBack)
             {
+                Txt_FreezFrom.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Txt_FreezTo.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
                 //rami
                 slider.Visible = false;
 
@@ -39,7 +43,7 @@ namespace Elite_system
 
                 Btn_Save2.Visible = HttpContext.Current.User.IsInRole("Add");
                 Btn_Update2.Visible = HttpContext.Current.User.IsInRole("Update");
-                
+
                 if (HttpContext.Current.User.IsInRole("Admin"))
                 {
                     Btn_Update1.Visible = true;
@@ -221,6 +225,7 @@ namespace Elite_system
                 Medical_Type._Mobile = Txt_Mobile.Text;
                 Medical_Type._Name = Txt_Name.Text;
                 Medical_Type._Phone = Txt_Phone.Text;
+
 
                 if (DDL_Place.SelectedValue != "")
                 {
@@ -426,6 +431,10 @@ namespace Elite_system
                 DateTime Accounting_Date2;
                 string Contract_Date;
                 DateTime Contract_Date2;
+                string FreezFrom;
+                DateTime FreezFrom2;
+                string FreezTo;
+                DateTime FreezTo2;
 
                 while (dr.Read())
                 {
@@ -455,6 +464,24 @@ namespace Elite_system
                     }
 
 
+
+                    Ch_Freez2.Checked = bool.Parse(dr.GetValue(dr.GetOrdinal("Freez")).ToString());
+                    FreezFrom = dr.GetValue(dr.GetOrdinal("FreezFrom")).ToString();
+                    Result = DateTime.TryParse(FreezFrom, out FreezFrom2);
+                    if (Result)
+                    {
+                        Txt_FreezFrom.Text = FreezFrom2.ToString("yyyy-MM-dd");
+                    }
+                    FreezTo = dr.GetValue(dr.GetOrdinal("FreezTo")).ToString();
+                    Result = DateTime.TryParse(FreezTo, out FreezTo2);
+                    if (Result)
+                    {
+                        Txt_FreezTo.Text = FreezTo2.ToString("yyyy-MM-dd");
+                    }
+
+
+
+                    Txt_Note.InnerText = dr.GetValue(dr.GetOrdinal("Notes")).ToString();
                     Txt_Contract_NO2.Text = dr.GetValue(dr.GetOrdinal("Contract_NO")).ToString();
                     Txt_Email2.Text = dr.GetValue(dr.GetOrdinal("Email")).ToString();
                     Txt_Fax2.Text = dr.GetValue(dr.GetOrdinal("Fax")).ToString();
@@ -771,6 +798,22 @@ namespace Elite_system
             Medical_Type._Mobile = Txt_Mobile2.Text;
             Medical_Type._Name = Txt_Name2.Text;
             Medical_Type._Phone = Txt_Phone2.Text;
+            Medical_Type._Notes = Txt_Note.InnerText;
+            Medical_Type._Freez = Ch_Freez2.Checked;
+
+
+            if (Txt_FreezFrom.Text != "")
+            {
+                Medical_Type._FreezFrom = DateTime.Parse(Txt_FreezFrom.Text);
+            }
+            if (Txt_FreezTo.Text != "")
+            {
+                Medical_Type._FreezTo = DateTime.Parse(Txt_FreezTo.Text);
+            }
+            
+            
+
+
             if (DDL_Place2.SelectedValue != "")
             {
                 Medical_Type._Place = int.Parse(DDL_Place2.SelectedValue);

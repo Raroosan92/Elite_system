@@ -43,6 +43,10 @@ public class Cls_Medical_Types_And_Companies
     private int Contracting_Type3;
     private bool Entry_Type;
     private int User_ID;
+    private string Notes;
+    private bool Freez;
+    private DateTime FreezFrom;
+    private DateTime FreezTo;
     //private decimal TransactionPrice;
     //private decimal CheckPrice;
     //private decimal DiscountRatio;
@@ -440,6 +444,50 @@ public class Cls_Medical_Types_And_Companies
         }
     }
 
+    public string _Notes
+    {
+        get
+        {
+            return Notes;
+        }
+        set
+        {
+            Notes = value;
+        }
+    }
+    public bool _Freez
+    {
+        get
+        {
+            return Freez;
+        }
+        set
+        {
+            Freez = value;
+        }
+    }
+    public DateTime _FreezTo
+    {
+        get
+        {
+            return FreezTo;
+        }
+        set
+        {
+            FreezTo = value;
+        }
+    }
+    public DateTime _FreezFrom
+    {
+        get
+        {
+            return FreezFrom;
+        }
+        set
+        {
+            FreezFrom = value;
+        }
+    }
     //public decimal _TransactionPrice
     //{
     //    get
@@ -519,6 +567,7 @@ public class Cls_Medical_Types_And_Companies
             }
 
             cmd.Parameters.AddWithValue("@Address", Address);
+        
             cmd.Parameters.AddWithValue("@Building", Building);
             cmd.Parameters.AddWithValue("@Email", Email);
             cmd.Parameters.AddWithValue("@Phone", Phone);
@@ -634,6 +683,9 @@ public class Cls_Medical_Types_And_Companies
             cmd.CommandText = "SP_Medical_Types_And_Companies";
             cmd.Parameters.AddWithValue("@ID", ID);
             cmd.Parameters.AddWithValue("@Name", Name);
+            cmd.Parameters.AddWithValue("@Freez", Freez);
+            cmd.Parameters.AddWithValue("@FreezFrom", FreezFrom);
+            cmd.Parameters.AddWithValue("@FreezTo", FreezTo);
             if (Type != 0)
             {
                 cmd.Parameters.AddWithValue("@Type", Type);
@@ -653,6 +705,7 @@ public class Cls_Medical_Types_And_Companies
             {
                 cmd.Parameters.AddWithValue("@Region", Region);
             }
+            
             cmd.Parameters.AddWithValue("@Address", Address);
             cmd.Parameters.AddWithValue("@Building", Building);
             cmd.Parameters.AddWithValue("@Email", Email);
@@ -722,6 +775,7 @@ public class Cls_Medical_Types_And_Companies
             cmd.Parameters.AddWithValue("@P_O_Box2", P_O_Box2);
             cmd.Parameters.AddWithValue("@Tax_NO", Tax_NO);
             cmd.Parameters.AddWithValue("@Authorization_NO", Authorization_NO);
+            cmd.Parameters.AddWithValue("@Notes", Notes);
             cmd.Parameters.AddWithValue("@Entry_Type", 1);
             cmd.Parameters.AddWithValue("@User_ID", 1);
             //cmd.Parameters.AddWithValue("@TransactionPrice", TransactionPrice);

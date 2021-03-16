@@ -483,29 +483,33 @@ namespace Elite_system
                     {
                         //Rami Roosan
 
-                        // To Get Contracting_Value 
+                        // To Get Contracting_Value&Freez 
 
                         SqlCommand cmd1 = new SqlCommand();
                         cmd1.Connection = con;
-                        string sql = "SELECT [Contracting_Value],[Acounting_NO] FROM [dbo].[Medical_Types_And_Companies] where id= '" + DDL_Medical_Name.SelectedValue + "'";
+                        string sql = "SELECT [Freez],[Contracting_Value],[Acounting_NO] FROM [dbo].[Medical_Types_And_Companies] where id= '" + DDL_Medical_Name.SelectedValue + "'";
                         SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
                         DataTable table = new DataTable();
                         Cls_Connection.open_connection();
                         adapter.Fill(table);
                         string ContractingValue;
                         string Acounting_NO;
+                        bool Freez = true;
                         try
                         {
                             ContractingValue = table.Rows[0]["Contracting_Value"].ToString();
                             Acounting_NO = table.Rows[0]["Acounting_NO"].ToString();
+                            Freez = bool.Parse(table.Rows[0]["Freez"].ToString());
                         }
                         catch (Exception)
                         {
                             ContractingValue = "0";
                             Acounting_NO = "0";
+                            Freez = false;
                         }
 
                         Cls_Connection.close_connection();
+
 
 
                         Cls_Main_Listing_Bonds Main_Listing_Bonds = new Cls_Main_Listing_Bonds();
@@ -530,8 +534,18 @@ namespace Elite_system
                         }
                         Main_Listing_Bonds._Acounting_NO = Acounting_NO;
                         Main_Listing_Bonds._Claim_ID = Claim_ID;
-                        Main_Listing_Bonds._Debtor = decimal.Parse(ContractingValue);
-                        Main_Listing_Bonds._Description = " أتعاب مطالبات " + Txt_Month_Year.Text;
+                        
+                        if (Freez == true)
+                        {
+                            Main_Listing_Bonds._Debtor = 0;
+                            Main_Listing_Bonds._Description = " أتعاب مطالبات **تجميد اشتراك" + Txt_Month_Year.Text;
+                        }
+                        else
+                        {
+                            Main_Listing_Bonds._Debtor = decimal.Parse(ContractingValue);
+                            Main_Listing_Bonds._Description = " أتعاب مطالبات " + Txt_Month_Year.Text;
+                        }
+                        
                         Main_Listing_Bonds._Creditor = 0;
                         Main_Listing_Bonds.Insert_Main_Listing_Bonds();
 

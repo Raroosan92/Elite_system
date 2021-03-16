@@ -57,7 +57,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
         <ContentTemplate>
-            <section class="text-center my-5" style="padding-top: 1%; direction: ltr;">
+            <section class="text-center my-5" style="padding-top: 1%; direction: ltr;    height: auto;">
                 <div class="container">
                     <div class="row">
 
@@ -322,7 +322,7 @@
                                             <asp:Label ID="lblTxt_Tax_NO" runat="server" Text="الرقم الضريبي"></asp:Label>
                                         </td>
                                     </tr>
-
+                                    
                                       <%-- <tr>
                                         <td>
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_TransactionPrice"></asp:TextBox>
@@ -529,7 +529,16 @@
                                             <asp:Label runat="server" Text="حالة التعاقد"></asp:Label>
                                         </td>
                                     </tr>
+                                     <tr>
+                                        <td>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="TextBox1"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:Label runat="server" Text="الهاتف"></asp:Label>
+                                        </td>
+                                    </tr>
 
+                                    
 
                                     <tr>
                                         <td>
@@ -649,7 +658,42 @@
                                             <asp:Label ID="lblTxt_Tax_NO2" runat="server" Text="الرقم الضريبي"></asp:Label>
                                         </td>
                                     </tr>
+                                     <tr>
+                                        <td>
+                                            <textarea id="Txt_Note" runat="server" cols="20" rows="2"></textarea>
+                                        </td>
+                                        <td>
+                                            <asp:Label runat="server" Text="ملاحظات"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:CheckBox ID="Ch_Freez2" runat="server" />
+                                        </td>
+                                        <td>
+                                            <asp:Label runat="server" Text="تجميد الاشتراك"></asp:Label>
+                                        </td>
+                                    </tr>
 
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_FreezFrom"></asp:TextBox>
+                                            <ajaxToolkit:CalendarExtender ID="CalendarExtender4" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_FreezFrom" />
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="Label2" runat="server" Text="تاريخ التجميد من"></asp:Label>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_FreezTo"></asp:TextBox>
+                                            <ajaxToolkit:CalendarExtender ID="CalendarExtender5" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_FreezTo" />
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="Label3" runat="server" Text="تاريخ التجميد الى"></asp:Label>
+                                        </td>
+                                    </tr>
                                     <%-- <tr>
                                         <td>
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_TransactionPrice2"></asp:TextBox>
