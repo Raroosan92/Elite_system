@@ -15,7 +15,7 @@ ALTER TABLE [dbo].[Medical_Types_And_Companies]
 -----------------------------------------------------------------------------------------------------------------------------------
 USE [DB_A5D8AE_EliteSystem]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Medical_Types_And_Companies]    Script Date: 16/03/2021 10:06:31 Õ ******/
+/****** Object:  StoredProcedure [dbo].[SP_Medical_Types_And_Companies]    Script Date: 17/03/2021 09:41:39 Õ ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -59,6 +59,8 @@ ALTER proc [dbo].[SP_Medical_Types_And_Companies]
 @Entry_Type tinyint=null,
 @User_ID int=null,
 @Freez bit=null,
+@FreezFrom date=null,
+@FreezTo date=null,
 @check char(1)
 
 
@@ -177,6 +179,8 @@ UPDATE [dbo].[Medical_Types_And_Companies]
       ,[Entry_Type] = @Entry_Type
 	  ,[User_ID] = @User_ID
 	  ,[Freez]=@Freez
+	  ,[FreezFrom]=@FreezFrom
+	  ,[FreezTo]=@FreezTo
 where ID=@ID 
 
 else
@@ -184,7 +188,6 @@ delete from [dbo].[Medical_Types_And_Companies]
 where  ID=@ID 
 
 end
-
 
 -----------------------------------------------------------------------------------------------------------------------------------
 

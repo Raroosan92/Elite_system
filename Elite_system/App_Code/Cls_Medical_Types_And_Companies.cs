@@ -684,8 +684,13 @@ public class Cls_Medical_Types_And_Companies
             cmd.Parameters.AddWithValue("@ID", ID);
             cmd.Parameters.AddWithValue("@Name", Name);
             cmd.Parameters.AddWithValue("@Freez", Freez);
-            cmd.Parameters.AddWithValue("@FreezFrom", FreezFrom);
-            cmd.Parameters.AddWithValue("@FreezTo", FreezTo);
+            if (Freez)
+            {
+                cmd.Parameters.AddWithValue("@FreezFrom", FreezFrom);
+                cmd.Parameters.AddWithValue("@FreezTo", FreezTo);
+            }
+            
+            
             if (Type != 0)
             {
                 cmd.Parameters.AddWithValue("@Type", Type);

@@ -32,8 +32,13 @@ namespace Elite_system
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
             if (!Page.IsPostBack)
             {
+                int year = DateTimeOffset.UtcNow.AddHours(2).Year;
+                int month = DateTimeOffset.UtcNow.AddHours(2).Month;
+                DateTime dt = new DateTime(year, month, System.DateTime.DaysInMonth(System.DateTime.Now.Year, month));
+
                 Txt_FreezFrom.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
-                Txt_FreezTo.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Txt_FreezTo.Text = dt.ToString("yyyy-MM-dd");
+                //DateTime.(DateTimeOffset.UtcNow.AddHours(2).Year, DateTimeOffset.UtcNow.AddHours(2).Month).ToString(); /*DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");*/
                 //rami
                 slider.Visible = false;
 
@@ -801,15 +806,26 @@ namespace Elite_system
             Medical_Type._Notes = Txt_Note.InnerText;
             Medical_Type._Freez = Ch_Freez2.Checked;
 
-
-            if (Txt_FreezFrom.Text != "")
+            if (Ch_Freez2.Checked)
             {
-                Medical_Type._FreezFrom = DateTime.Parse(Txt_FreezFrom.Text);
+                if (Txt_FreezFrom.Text != "")
+                {
+                    Medical_Type._FreezFrom = DateTime.Parse(Txt_FreezFrom.Text);
+                }
+                else
+                {
+                    Medical_Type._FreezFrom = DateTime.Parse(DBNull.Value.ToString());
+                }
+                if (Txt_FreezTo.Text != "")
+                {
+                    Medical_Type._FreezTo = DateTime.Parse(Txt_FreezTo.Text);
+                }
+                else
+                {
+                    Medical_Type._FreezTo = DateTime.Parse(DBNull.Value.ToString());
+                }
             }
-            if (Txt_FreezTo.Text != "")
-            {
-                Medical_Type._FreezTo = DateTime.Parse(Txt_FreezTo.Text);
-            }
+          
             
             
 
@@ -976,6 +992,11 @@ namespace Elite_system
                 {
                     case "TextBox":
                         TextBox tbSource = (TextBox)contl;
+                       
+                        if (contl.ID == "Txt_FreezFrom" || contl.ID == "Txt_FreezTo")
+                        {
+                            break;
+                        }
                         tbSource.Text = "";
                         break;
                     case "RadioButtonList":
