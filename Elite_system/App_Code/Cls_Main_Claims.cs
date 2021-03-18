@@ -12,6 +12,7 @@ public class Cls_Main_Claims
 
     private Int64 ID;
     private Int64 Medical_Name;
+    private Int64 Total_Claims;
     private string Month_Year;
     private DateTime Received_Date;
     private int Receiver_Employee;
@@ -60,6 +61,18 @@ public class Cls_Main_Claims
         set
         {
             Medical_Name = value;
+        }
+    }
+
+    public Int64 _Total_Claims
+    {
+        get
+        {
+            return Total_Claims;
+        }
+        set
+        {
+            Total_Claims = value;
         }
     }
     public string _Month_Year
@@ -250,6 +263,10 @@ public class Cls_Main_Claims
                 cmd.Parameters.AddWithValue("@Batch_No", Batch_No);
             }
 
+            if (Total_Claims != 0)
+            {
+                cmd.Parameters.AddWithValue("@Total_Claims", Total_Claims);
+            }
             //if (Main_Company != 0)
             //{
             //    cmd.Parameters.AddWithValue("@Main_Company", Main_Company);

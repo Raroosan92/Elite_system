@@ -171,7 +171,7 @@
                                     <asp:SqlDataSource runat="server" ID="SqlDataSource_Receipt" ConnectionString='<%$ ConnectionStrings:CONN %>' SelectCommand="SELECT [ID],[Medical_TypeName],[TypeDescription],[Bond_Date],[Debtor],[Creditor],[Description],[Claim_ID] FROM [dbo].[V_Listing_Bonds] Where TypeDescription=N'قبض' order by ID desc"></asp:SqlDataSource>
                                     <asp:GridView ID="GridView_receipt" runat="server" CssClass="Grid" AllowPaging="false" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource_Receipt" OnSelectedIndexChanged="GridView_receipt_SelectedIndexChanged" >
                                         <Columns>
-                                            <asp:CommandField ShowSelectButton="True" SelectText="اختر" />
+                                            <asp:CommandField ShowSelectButton="True" SelectText="اختر" ControlStyle-ForeColor="Black" />
                                             <asp:BoundField DataField="Medical_TypeName" HeaderText="الجهة الطبية" SortExpression="Medical_TypeName" HeaderStyle-Width="430px"></asp:BoundField>
                                              <%--<asp:BoundField DataField="Claim_ID" HeaderText=" السند الفرعي" ReadOnly="True" SortExpression="Claim_ID" HeaderStyle-Width="150px"></asp:BoundField>--%>
                                             <%--<asp:BoundField DataField="Debtor" HeaderText="المدين" ReadOnly="True" SortExpression="Debtor"></asp:BoundField>--%>

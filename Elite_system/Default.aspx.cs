@@ -23,7 +23,7 @@ namespace Elite_system
 
 
         public void ResetFreez()
-        {
+            {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
             con = Cls_Connection._con;

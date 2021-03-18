@@ -63,7 +63,7 @@ namespace Elite_system
 
             Btn_UpdateBonds.Visible = HttpContext.Current.User.IsInRole("Update");
             Btn_SaveBonds.Visible = HttpContext.Current.User.IsInRole("Add");
-            
+
             Btn_UpdateSubBonds.Visible = HttpContext.Current.User.IsInRole("Update");
             Btn_SaveSubBonds.Visible = HttpContext.Current.User.IsInRole("Add");
 
@@ -73,7 +73,7 @@ namespace Elite_system
                 Btn_SaveBonds.Visible = true;
                 Btn_UpdateSubBonds.Visible = true;
                 Btn_SaveSubBonds.Visible = true;
-              
+
             }
 
             if (!Page.IsPostBack)

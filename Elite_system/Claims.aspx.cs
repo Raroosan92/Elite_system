@@ -438,8 +438,11 @@ namespace Elite_system
                     {
                         Main_Claims._Receiver_Employee = int.Parse(DDL_Receiver_Employee.SelectedValue);
                     }
-
-
+                    var Max= GetMax_TotalClaim();
+                    if (Max > 0)
+                    {
+                        Main_Claims._Total_Claims = Max;
+                    }
 
                     Result = Main_Claims.Insert_Main_Claims();
 
@@ -534,7 +537,7 @@ namespace Elite_system
                         }
                         Main_Listing_Bonds._Acounting_NO = Acounting_NO;
                         Main_Listing_Bonds._Claim_ID = Claim_ID;
-                        
+
                         if (Freez == true)
                         {
                             Main_Listing_Bonds._Debtor = 0;
@@ -545,7 +548,7 @@ namespace Elite_system
                             Main_Listing_Bonds._Debtor = decimal.Parse(ContractingValue);
                             Main_Listing_Bonds._Description = " أتعاب مطالبات " + Txt_Month_Year.Text;
                         }
-                        
+
                         Main_Listing_Bonds._Creditor = 0;
                         Main_Listing_Bonds.Insert_Main_Listing_Bonds();
 
@@ -611,6 +614,39 @@ namespace Elite_system
             {
                 MSG("لم تتم عملية الاضافة يوجد حقول فارغة");
             }
+        }
+
+        private int GetMax_TotalClaim()
+        {
+            var Month = DateTimeOffset.UtcNow.AddHours(2).Month;
+            var Year = DateTimeOffset.UtcNow.AddHours(2).Year;
+            if (Month > 1)
+            {
+                Month = Month - 1;
+            }
+
+            else
+            {
+                Year = Year - 1;
+            }
+
+            if (Month == 1)
+            {
+                Month = 12;
+            }
+
+            string MonthYear = Month.ToString() + "/" + Year.ToString();
+            SqlConnection con = new SqlConnection();
+
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+            con = Cls_Connection._con;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "select ISNULL(max(Total_Claims),0) from Main_Claims where Month_Year like N'%" + MonthYear + "%'";  
+            Cls_Connection.open_connection();
+            int Total = (int)cmd.ExecuteScalar();
+            Cls_Connection.close_connection();
+            return Total+1;
         }
         protected void Btn_Save_SubClaims_Click(object sender, EventArgs e)
         {

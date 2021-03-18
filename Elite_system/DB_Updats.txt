@@ -12,6 +12,11 @@ ALTER TABLE [dbo].[Medical_Types_And_Companies]
 
 	ALTER TABLE [dbo].[Medical_Types_And_Companies]
 	ADD FreezFrom Date
+
+
+		ALTER TABLE [dbo].[Main_Claims]
+	ADD Total_Claims int 
+DEFAULT 0 WITH VALUES
 -----------------------------------------------------------------------------------------------------------------------------------
 USE [DB_A5D8AE_EliteSystem]
 GO
@@ -190,12 +195,149 @@ where  ID=@ID
 end
 
 -----------------------------------------------------------------------------------------------------------------------------------
+SELECT        TOP (100) PERCENT dbo.Main_Claims.ID, dbo.Main_Claims.Month_Year, dbo.Medical_Types_And_Companies.Name, dbo.Main_Claims.Received_Date, dbo.Employees.Employee_Name, dbo.Main_Claims.Entry_Date, 
+                         dbo.Main_Claims.Batch_No, dbo.Main_Claims.Claim_ID, dbo.Medical_Types_And_Companies.UName, dbo.Medical_Types_And_Companies.ID AS Medicalnameid, dbo.Main_Claims.Total_Claims
+FROM            dbo.Main_Claims INNER JOIN
+                         dbo.Employees ON dbo.Main_Claims.Receiver_Employee = dbo.Employees.ID INNER JOIN
+                         dbo.Medical_Types_And_Companies ON dbo.Main_Claims.Medical_Name = dbo.Medical_Types_And_Companies.ID
+ORDER BY dbo.Main_Claims.ID DESC, Medicalnameid DESC
+-----------------------------------------------------------------------------------------------------------------------------------
+USE [DB_A5D8AE_EliteSystem]
+GO
+/****** Object:  StoredProcedure [dbo].[Get_MainClaims_ForGridView]    Script Date: 18/03/2021 08:53:43 ’ ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[Get_MainClaims_ForGridView]
+@MonthYear nvarchar(50) = null,
+@Year nvarchar(50) = null,
+@Month nvarchar(50) = null
+as
+begin
+set @Month=CONVERT(nvarchar(50) , MONTH(GETDATE()))
+set @Year=CONVERT(nvarchar(50) , YEAR(GETDATE()))
+ if (@Month > 1)  
+  set @Month = @Month - 1             
+  else 
+  set @Year = @Year - 1
+    
+	IF (MONTH(GETDATE()) = 1)
+	 set @Month =12   
+                
+set @MonthYear=@Month+'/'+@Year
+
+SELECT ID as '«·—ﬁ„_«·—∆Ì”Ì',Claim_ID as '«· ”·”·', Name as '«”„ «·ÃÂ… «·ÿ»Ì…', Employee_Name as '«”„_«·„ÊŸ›', Month_Year as '«·”‰… / «·‘Â—', 
+CONVERT(varchar(20), Received_Date,1) as ' «—ÌŒ_«·«” ·«„' ,Batch_No as '«·œ›⁄…' ,Total_Claims as '«·⁄œœ'
+FROM Claims_GridView 
+where Month_Year like '%'+@MonthYear+'%' ORDER BY [ID] DESC
+
+
+end
 
 -----------------------------------------------------------------------------------------------------------------------------------
+USE [DB_A5D8AE_EliteSystem]
+GO
+/****** Object:  StoredProcedure [dbo].[Get_MainClaims_ForGridViewByUName]    Script Date: 18/03/2021 09:06:58 ’ ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[Get_MainClaims_ForGridViewByUName]
+@UName nvarchar(50) null
+as
+begin
+
+SELECT ID as '«·—ﬁ„_«·—∆Ì”Ì',Claim_ID as '«· ”·”·', Name as '«”„ «·ÃÂ… «·ÿ»Ì…', Employee_Name as '«”„_«·„ÊŸ›', Month_Year as '«·”‰… / «·‘Â—', CONVERT(varchar(20), Received_Date,1) as ' «—ÌŒ_«·«” ·«„' ,Batch_No as '«·œ›⁄…' ,Total_Claims as '«·—ﬁ„' FROM Claims_GridView where UName=@UName ORDER BY [ID] DESC
+
+end
 
 -----------------------------------------------------------------------------------------------------------------------------------
+USE [DB_A5D8AE_EliteSystem]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_Main_Claims]    Script Date: 18/03/2021 09:26:01 ’ ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[SP_Main_Claims]
 
------------------------------------------------------------------------------------------------------------------------------------
+@ID numeric(18,0)=null,
+@Medical_Name numeric(18,0) =null,
+@Month_Year nvarchar(50)=null,
+@Received_Date date=null,
+@Receiver_Employee int=null,
+@Entry_Date date=null,
+@Batch_No int=null,
+@Main_Company numeric(18,0) =null,
+@Sub_Company numeric(18,2)=null,
+@Claims_Count int=null,
+@Value numeric(18,2) =null,
+@Stamps numeric(18,2)=null,
+@Delivered tinyint=null,
+@check char(1),
+@Claim_ID numeric(18,0) =null,
+@Total_Claims int=null
+
+
+as
+begin
+
+
+if @Check='i'
+INSERT INTO [dbo].[Main_Claims]
+           ([Medical_Name]
+           ,[Month_Year]
+           ,[Received_Date]
+           ,[Receiver_Employee]
+           ,[Entry_Date]
+           ,[Batch_No]
+		   ,[Main_Company]
+           ,[Sub_Company]
+           ,[Claims_Count]
+           ,[Value]
+           ,[Stamps]
+		   ,Delivered
+		   ,Claim_ID
+		   ,Total_Claims)
+     VALUES
+           (@Medical_Name
+           ,@Month_Year
+           ,@Received_Date
+           ,@Receiver_Employee
+           ,@Entry_Date
+           ,@Batch_No
+		   ,@Main_Company
+           ,@Sub_Company
+           ,@Claims_Count
+           ,@Value
+           ,@Stamps
+		   ,@Delivered
+		   ,@Claim_ID
+		   ,@Total_Claims)
+
+else if @Check='u'
+UPDATE [dbo].[Main_Claims]
+   SET [Medical_Name] = @Medical_Name
+      ,[Month_Year] = @Month_Year
+      ,[Received_Date] = @Received_Date
+      ,[Receiver_Employee] = @Receiver_Employee
+      ,[Entry_Date] = @Entry_Date
+      ,[Batch_No] = @Batch_No
+	  ,[Main_Company] = @Main_Company
+      ,[Sub_Company] = @Sub_Company
+      ,[Claims_Count] = @Claims_Count
+      ,[Value] = @Value
+      ,[Stamps] = @Stamps
+	  ,Delivered=@Delivered
+	  ,Claim_ID=@Claim_ID
+where ID=@ID 
+
+else
+delete from [dbo].[Main_Claims]
+where  Claim_ID=@ID 
+
+end
 
 -----------------------------------------------------------------------------------------------------------------------------------
 
