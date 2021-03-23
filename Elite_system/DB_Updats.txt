@@ -201,6 +201,32 @@ FROM            dbo.Main_Claims INNER JOIN
                          dbo.Employees ON dbo.Main_Claims.Receiver_Employee = dbo.Employees.ID INNER JOIN
                          dbo.Medical_Types_And_Companies ON dbo.Main_Claims.Medical_Name = dbo.Medical_Types_And_Companies.ID
 ORDER BY dbo.Main_Claims.ID DESC, Medicalnameid DESC
+
+
+
+
+
+USE [DB_A5D8AE_EliteSystem]
+GO
+
+/****** Object:  View [dbo].[Claims_GridView]    Script Date: 20/03/2021 09:38:58 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER VIEW [dbo].[Claims_GridView]
+AS
+SELECT TOP (100) PERCENT dbo.Main_Claims.ID, dbo.Main_Claims.Month_Year, dbo.Medical_Types_And_Companies.Name, dbo.Main_Claims.Received_Date, dbo.Employees.Employee_Name, dbo.Main_Claims.Entry_Date, 
+                  dbo.Main_Claims.Batch_No, dbo.Main_Claims.Claim_ID, dbo.Medical_Types_And_Companies.UName, dbo.Medical_Types_And_Companies.ID AS Medicalnameid, dbo.Main_Claims.Total_Claims
+FROM     dbo.Main_Claims INNER JOIN
+                  dbo.Employees ON dbo.Main_Claims.Receiver_Employee = dbo.Employees.ID INNER JOIN
+                  dbo.Medical_Types_And_Companies ON dbo.Main_Claims.Medical_Name = dbo.Medical_Types_And_Companies.ID
+ORDER BY dbo.Main_Claims.ID DESC, Medicalnameid DESC
+GO
+
+
 -----------------------------------------------------------------------------------------------------------------------------------
 USE [DB_A5D8AE_EliteSystem]
 GO
@@ -340,6 +366,24 @@ where  Claim_ID=@ID
 end
 
 -----------------------------------------------------------------------------------------------------------------------------------
+
+create proc [dbo].[SP_Medical_Types_And_CompaniesFreezing]
+
+@ID numeric(18,0)=null,
+@Freez bit=null,
+@FreezFrom date=null,
+@FreezTo date=null
+
+as
+begin
+
+UPDATE [dbo].[Medical_Types_And_Companies]
+   SET 
+	  [Freez]=@Freez
+	  ,[FreezFrom]=@FreezFrom
+	  ,[FreezTo]=@FreezTo
+where ID=@ID 
+end
 
 -----------------------------------------------------------------------------------------------------------------------------------
 

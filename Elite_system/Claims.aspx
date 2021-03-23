@@ -218,6 +218,35 @@
                                         </td>
                                     </tr>
 
+                                       <tr>
+                                        <td>
+                                            <asp:CheckBox ID="Ch_Freez2" runat="server" />
+                                        </td>
+                                        <td>
+                                            <asp:Label runat="server" Text="تجميد الاشتراك"></asp:Label>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_FreezFrom"></asp:TextBox>
+                                            <ajaxToolkit:CalendarExtender ID="CalendarExtender4" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_FreezFrom" />
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="Label12" runat="server" Text="تاريخ التجميد من"></asp:Label>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_FreezTo"></asp:TextBox>
+                                            <ajaxToolkit:CalendarExtender ID="CalendarExtender5" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_FreezTo" />
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="Label13" runat="server" Text="تاريخ التجميد الى"></asp:Label>
+                                        </td>
+                                    </tr>
+
                                     <tr style="display: flex; direction: rtl;">
                                         <td class="auto-style1">
                                             <asp:Button ID="Btn_Save" runat="server" Text="إدخال" OnClick="Btn_Save_Click" Width="60px" />
@@ -539,7 +568,7 @@
 
 
 
-                                    <tr>
+                                    <tr id="Module_No" runat="server">
 
                                         <td>
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Sample_Num" Width="300px"></asp:TextBox>
@@ -551,7 +580,7 @@
                                     </tr>
 
 
-                                    <tr>
+                                    <tr id="Card_No" runat="server">
                                         <td>
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Card_Num" Width="300px"></asp:TextBox>
                                         </td>

@@ -806,6 +806,41 @@ public class Cls_Medical_Types_And_Companies
 
     }
 
+
+    public string Update_Medical_TypesFreezing()
+    {
+        try
+        {
+
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+            con = Cls_Connection._con;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "SP_Medical_Types_And_CompaniesFreezing";
+            cmd.Parameters.AddWithValue("@ID", ID);
+            cmd.Parameters.AddWithValue("@Freez", Freez);
+            if (Freez)
+            {
+                cmd.Parameters.AddWithValue("@FreezFrom", FreezFrom);
+                cmd.Parameters.AddWithValue("@FreezTo", FreezTo);
+            }
+            Cls_Connection.open_connection();
+            cmd.ExecuteNonQuery();
+            result = "تم التعديل بنجاح";
+            Cls_Connection.close_connection();
+            return result;
+
+        }
+        catch (Exception ex)
+        {
+            result = ex.Message.ToString();
+            Cls_Connection.close_connection();
+            result = "حدث خطأ في التعديل";
+            return result;
+        }
+    }
+
     public string Delete_Medical_Types()
     {
         try

@@ -39,6 +39,8 @@ namespace Elite_system
         {
 
             //--rami لتغيير التاريخ من لوحة المفاتيح--
+            Txt_FreezFrom.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender4.ClientID + "')");
+            Txt_FreezTo.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender5.ClientID + "')");
             Txt_Received_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender2.ClientID + "');return (event.keyCode!=13);");
             Txt_Entry_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender3.ClientID + "');return (event.keyCode!=13);");
             TxtDate_SubClaim.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender1.ClientID + "');return (event.keyCode!=13);");
@@ -48,6 +50,13 @@ namespace Elite_system
 
             if (!Page.IsPostBack)
             {
+                int year = DateTimeOffset.UtcNow.AddHours(2).Year;
+                int month = DateTimeOffset.UtcNow.AddHours(2).Month;
+                DateTime dt1 = new DateTime(year, month, System.DateTime.DaysInMonth(System.DateTime.Now.Year, month));
+
+                Txt_FreezFrom.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Txt_FreezTo.Text = dt1.ToString("yyyy-MM-dd");
+
                 //rami
                 slider.Visible = false;
                 Approval_number.Visible = false;
@@ -178,8 +187,8 @@ namespace Elite_system
                 DDL_Medical_Name_Search.Items.Insert(0, new ListItem("--اختر--", "0"));
 
 
-                int year = DateTime.UtcNow.AddHours(2).Year;
-                for (int i = year - 5; i <= year + 5; i++)
+                int year1 = DateTime.UtcNow.AddHours(2).Year;
+                for (int i = year1 - 5; i <= year1 + 5; i++)
                 {
                     ListItem li = new ListItem(i.ToString());
                     DDL_Year.Items.Add(li);
@@ -438,7 +447,7 @@ namespace Elite_system
                     {
                         Main_Claims._Receiver_Employee = int.Parse(DDL_Receiver_Employee.SelectedValue);
                     }
-                    var Max= GetMax_TotalClaim();
+                    var Max = GetMax_TotalClaim();
                     if (Max > 0)
                     {
                         Main_Claims._Total_Claims = Max;
@@ -502,7 +511,7 @@ namespace Elite_system
                         {
                             ContractingValue = table.Rows[0]["Contracting_Value"].ToString();
                             Acounting_NO = table.Rows[0]["Acounting_NO"].ToString();
-                            Freez = bool.Parse(table.Rows[0]["Freez"].ToString());
+                            Freez = Ch_Freez2.Checked;
                         }
                         catch (Exception)
                         {
@@ -541,7 +550,7 @@ namespace Elite_system
                         if (Freez == true)
                         {
                             Main_Listing_Bonds._Debtor = 0;
-                            Main_Listing_Bonds._Description = " أتعاب مطالبات **تجميد اشتراك" + Txt_Month_Year.Text;
+                            Main_Listing_Bonds._Description = " أتعاب مطالبات *ملاحظة* تجميد اشتراك" + Txt_Month_Year.Text;
                         }
                         else
                         {
@@ -594,6 +603,42 @@ namespace Elite_system
                 {
                     Get_MainClaims_ForGridView();
                 }
+
+
+
+
+
+                Cls_Medical_Types_And_Companies Medical_Type = new Cls_Medical_Types_And_Companies();
+
+
+                Medical_Type._Freez = Ch_Freez2.Checked;
+
+                if (Ch_Freez2.Checked)
+                {
+                    if (Txt_FreezFrom.Text != "")
+                    {
+                        Medical_Type._FreezFrom = DateTime.Parse(Txt_FreezFrom.Text);
+                    }
+                    else
+                    {
+                        Medical_Type._FreezFrom = DateTime.Parse(DBNull.Value.ToString());
+                    }
+                    if (Txt_FreezTo.Text != "")
+                    {
+                        Medical_Type._FreezTo = DateTime.Parse(Txt_FreezTo.Text);
+                    }
+                    else
+                    {
+                        Medical_Type._FreezTo = DateTime.Parse(DBNull.Value.ToString());
+                    }
+                    //Medical_Type._ID = Int64.Parse(DDL_Medical_Name.SelectedValue.ToString());
+                    Medical_Type._ID = long.Parse(Medical_ID);
+                    Medical_Type.Update_Medical_TypesFreezing();
+                }
+                
+
+
+
                 //rami
                 //foreach (Control c in Page.Controls)
                 //{
@@ -642,11 +687,11 @@ namespace Elite_system
             con = Cls_Connection._con;
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "select ISNULL(max(Total_Claims),0) from Main_Claims where Month_Year like N'%" + MonthYear + "%'";  
+            cmd.CommandText = "select ISNULL(max(Total_Claims),0) from Main_Claims where Month_Year like N'%" + MonthYear + "%'";
             Cls_Connection.open_connection();
             int Total = (int)cmd.ExecuteScalar();
             Cls_Connection.close_connection();
-            return Total+1;
+            return Total + 1;
         }
         protected void Btn_Save_SubClaims_Click(object sender, EventArgs e)
         {
@@ -2474,6 +2519,56 @@ namespace Elite_system
 
 
 
+
+
+
+
+                /////////////To Get Freezing ////////////////////////
+                try
+                {
+                    con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+                    con = Cls_Connection._con;
+                    SqlCommand cmd2 = new SqlCommand();
+                    cmd2.Connection = con;
+                    cmd2.CommandType = CommandType.StoredProcedure;
+                    cmd2.CommandText = "Get_Medical_Types_ForUpdate";
+                    cmd2.Parameters.AddWithValue("@ID", Int64.Parse(DDL_Medical_Name.SelectedValue.ToString()));
+                    Cls_Connection.open_connection();
+                    SqlDataReader dr2 = cmd2.ExecuteReader();
+
+                    string FreezFrom;
+                    DateTime FreezFrom2;
+                    string FreezTo;
+                    DateTime FreezTo2;
+
+                    while (dr2.Read())
+                    {
+
+                        Ch_Freez2.Checked = bool.Parse(dr2.GetValue(dr2.GetOrdinal("Freez")).ToString());
+                        FreezFrom = dr2.GetValue(dr2.GetOrdinal("FreezFrom")).ToString();
+                        Result = DateTime.TryParse(FreezFrom, out FreezFrom2);
+                        if (Result)
+                        {
+                            Txt_FreezFrom.Text = FreezFrom2.ToString("yyyy-MM-dd");
+                        }
+                        FreezTo = dr2.GetValue(dr2.GetOrdinal("FreezTo")).ToString();
+                        Result = DateTime.TryParse(FreezTo, out FreezTo2);
+                        if (Result)
+                        {
+                            Txt_FreezTo.Text = FreezTo2.ToString("yyyy-MM-dd");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.Message.ToString();
+                    Cls_Connection.close_connection();
+
+
+                }
+
+
+
             }
             catch (Exception ex)
             {
@@ -3426,6 +3521,8 @@ namespace Elite_system
             Calculate.Visible = true;
             PatientRatio.Visible = true;
             Tax.Visible = true;
+            Card_No.Visible = true;
+            Module_No.Visible = true;
         }
 
         protected void Btn_Out_Click(object sender, EventArgs e)
@@ -3443,6 +3540,8 @@ namespace Elite_system
             Calculate.Visible = false;
             PatientRatio.Visible = false;
             Tax.Visible = false;
+            Card_No.Visible = false;
+            Module_No.Visible = false;
         }
 
         protected void Btn_Search2_Click(object sender, EventArgs e)

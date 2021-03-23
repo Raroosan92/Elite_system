@@ -1013,6 +1013,7 @@
         <Source>Embedded</Source>
         <Value>EliteSystem</Value>
         <Sizing>FitProportional</Sizing>
+        <Left>1.27cm</Left>
         <Height>1.24873in</Height>
         <Width>2.45056in</Width>
         <ZIndex>10</ZIndex>

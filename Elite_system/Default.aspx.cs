@@ -76,7 +76,7 @@ namespace Elite_system
                     {
                         cmd.Parameters.Clear();
                         cmd.Connection = con;
-                        cmd.CommandText = "update [dbo].[Medical_Types_And_Companies] set FreezTo = Null , FreezFrom = Null , Freez = 0 where id = '" + _ID+ "'  ";
+                        cmd.CommandText = "update [dbo].[Medical_Types_And_Companies] set FreezTo = Null , FreezFrom = Null , Freez = 0 where id = '" + _ID + "'  ";
                         Cls_Connection.open_connection();
                         cmd.ExecuteNonQuery();
                         Cls_Connection.close_connection();

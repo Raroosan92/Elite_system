@@ -24,20 +24,14 @@ namespace Elite_system
             Txt_Contract_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender1.ClientID + "')");
             Txt_ContractExpiryDate.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender2.ClientID + "')");
             Txt_Accounting_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender3.ClientID + "')");
-            Txt_FreezFrom.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender4.ClientID + "')");
-            Txt_FreezTo.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender5.ClientID + "')");
+            
             Txt_Contract_Date2.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender11.ClientID + "')");
             Txt_ContractExpiryDate2.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender22.ClientID + "')");
             Txt_Accounting_Date2.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender33.ClientID + "')");
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
             if (!Page.IsPostBack)
             {
-                int year = DateTimeOffset.UtcNow.AddHours(2).Year;
-                int month = DateTimeOffset.UtcNow.AddHours(2).Month;
-                DateTime dt = new DateTime(year, month, System.DateTime.DaysInMonth(System.DateTime.Now.Year, month));
-
-                Txt_FreezFrom.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
-                Txt_FreezTo.Text = dt.ToString("yyyy-MM-dd");
+              
                 //DateTime.(DateTimeOffset.UtcNow.AddHours(2).Year, DateTimeOffset.UtcNow.AddHours(2).Month).ToString(); /*DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");*/
                 //rami
                 slider.Visible = false;
@@ -436,10 +430,6 @@ namespace Elite_system
                 DateTime Accounting_Date2;
                 string Contract_Date;
                 DateTime Contract_Date2;
-                string FreezFrom;
-                DateTime FreezFrom2;
-                string FreezTo;
-                DateTime FreezTo2;
 
                 while (dr.Read())
                 {
@@ -470,20 +460,7 @@ namespace Elite_system
 
 
 
-                    Ch_Freez2.Checked = bool.Parse(dr.GetValue(dr.GetOrdinal("Freez")).ToString());
-                    FreezFrom = dr.GetValue(dr.GetOrdinal("FreezFrom")).ToString();
-                    Result = DateTime.TryParse(FreezFrom, out FreezFrom2);
-                    if (Result)
-                    {
-                        Txt_FreezFrom.Text = FreezFrom2.ToString("yyyy-MM-dd");
-                    }
-                    FreezTo = dr.GetValue(dr.GetOrdinal("FreezTo")).ToString();
-                    Result = DateTime.TryParse(FreezTo, out FreezTo2);
-                    if (Result)
-                    {
-                        Txt_FreezTo.Text = FreezTo2.ToString("yyyy-MM-dd");
-                    }
-
+                    
 
 
                     Txt_Note.InnerText = dr.GetValue(dr.GetOrdinal("Notes")).ToString();
@@ -804,31 +781,7 @@ namespace Elite_system
             Medical_Type._Name = Txt_Name2.Text;
             Medical_Type._Phone = Txt_Phone2.Text;
             Medical_Type._Notes = Txt_Note.InnerText;
-            Medical_Type._Freez = Ch_Freez2.Checked;
-
-            if (Ch_Freez2.Checked)
-            {
-                if (Txt_FreezFrom.Text != "")
-                {
-                    Medical_Type._FreezFrom = DateTime.Parse(Txt_FreezFrom.Text);
-                }
-                else
-                {
-                    Medical_Type._FreezFrom = DateTime.Parse(DBNull.Value.ToString());
-                }
-                if (Txt_FreezTo.Text != "")
-                {
-                    Medical_Type._FreezTo = DateTime.Parse(Txt_FreezTo.Text);
-                }
-                else
-                {
-                    Medical_Type._FreezTo = DateTime.Parse(DBNull.Value.ToString());
-                }
-            }
-          
-            
-            
-
+           
 
             if (DDL_Place2.SelectedValue != "")
             {

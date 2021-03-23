@@ -806,9 +806,13 @@
     <Content Include="TreeLineImages\tplus.gif" />
     <Content Include="Download.ashx" />
     <Content Include="Update_Listing_Bonds.aspx" />
+    <Content Include="Web.config" />
     <!-- <Content Include="Web.config" /> -->
     <Content Include="XMLTMP.xml" />
     <Content Include="DownloadFont.ashx" />
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
     <None Include="DS_Account.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DS_Account.Designer.cs</LastGenOutput>
@@ -1066,7 +1070,6 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
-    <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
