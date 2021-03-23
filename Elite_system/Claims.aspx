@@ -218,7 +218,7 @@
                                         </td>
                                     </tr>
 
-                                       <tr>
+                                    <tr>
                                         <td>
                                             <asp:CheckBox ID="Ch_Freez2" runat="server" />
                                         </td>
@@ -653,6 +653,57 @@
                                         </td>
                                     </tr>
 
+                                    <%--Receipt--%>
+                                     <tr>
+                                        <td class="auto-style1">
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_SubID" Width="300px"></asp:TextBox>
+                                        </td>
+                                        <td style="width: 98px">
+                                            <asp:Label runat="server" Text="رقم السند الفرعي"></asp:Label>
+                                        </td>
+                                    </tr>
+
+                                    
+                                    <tr>
+                                        <td class="auto-style1">
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Receipt_Date" Width="300px"></asp:TextBox>
+                                            <ajaxToolkit:CalendarExtender ID="CalendarExtender6" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_Receipt_Date" />
+                                        </td>
+                                        <td style="width: 98px">
+                                            <asp:Label runat="server" Text="تاريخ السند"></asp:Label>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="auto-style1">
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="TextBox1" Width="300px"></asp:TextBox>
+                                        </td>
+                                        <td style="width: 98px">
+                                            <asp:Label runat="server" Text="المبلغ"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    
+                                     <tr>
+                                        <td class="auto-style1">
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Acounting_No" Width="300px"></asp:TextBox>
+                                        </td>
+                                        <td style="width: 98px">
+                                            <asp:Label runat="server" Text="رقم الحساب"></asp:Label>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td class="auto-style1">
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Statement" TextMode="MultiLine" Width="300px"> </asp:TextBox>
+                                        </td>
+                                        <td style="width: 98px">
+                                            <asp:Label runat="server" Text="البيان"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <%--Receipt--%>
+
+
                                     <tr>
                                         <td class="nav-justified" style="direction: rtl;">
                                             <asp:FileUpload ID="fileImages" Multiple="Multiple" runat="server" Width="300px" />
@@ -688,13 +739,13 @@
                                         </td>
                                         <td></td>
                                     </tr>
-                                   <%-- <tr>
+                                    <%-- <tr>
                                         <td>
                                             <asp:Button ID="Btn_ListingBonds" Visible="false" runat="server" CssClass="btn_listingbonds" Text="إدخال حركة قيد لمجموع الطوابع" OnClick="Btn_ListingBonds_Click" />
                                         </td>
 
                                     </tr>--%>
-                                  <%--  <tr>
+                                    <%--  <tr>
                                         <td>
                                             <asp:Button ID="BTN_RAMI" runat="server" Text="حفظ جميع " Width="301px" OnClick="BTN_RAMI_Click" />
                                         </td>

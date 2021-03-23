@@ -73,6 +73,7 @@ namespace Elite_system
                 Calculate.Visible = false;
                 PatientRatio.Visible = false;
                 Tax.Visible = false;
+                Ch_Freez2.Checked = false;
 
 
                 Btn_Update.Visible = HttpContext.Current.User.IsInRole("Update");
@@ -580,6 +581,13 @@ namespace Elite_system
                     DDL_Medical_Name.SelectedValue = "0";
                     Txt_Received_Date.Text = "";
                     DDL_Receiver_Employee.SelectedValue = "0";
+                    Ch_Freez2.Checked = false;
+
+                    int year = DateTimeOffset.UtcNow.AddHours(2).Year;
+                    int month1 = DateTimeOffset.UtcNow.AddHours(2).Month;
+                    DateTime dt3 = new DateTime(year, month1, System.DateTime.DaysInMonth(System.DateTime.Now.Year, month1));
+                    Txt_FreezFrom.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                    Txt_FreezTo.Text = dt3.ToString("yyyy-MM-dd");
 
                     GridView_SubClaims.DataSource = null;
                     GridView_SubClaims.DataBind();
@@ -635,7 +643,7 @@ namespace Elite_system
                     Medical_Type._ID = long.Parse(Medical_ID);
                     Medical_Type.Update_Medical_TypesFreezing();
                 }
-                
+
 
 
 
