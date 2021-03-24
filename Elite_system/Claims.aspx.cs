@@ -2018,6 +2018,8 @@ namespace Elite_system
                 GridView_SubClaims.DataBind();
                 GridView_SubClaims.Visible = true;
 
+
+
                 SqlCommand cmd1 = new SqlCommand("select sum(Stamps) Total from Sub_Claims where Main_Claims_ID ='" + Int64.Parse(Txt_ID.Text) + "'", con);
 
                 string Total = cmd1.ExecuteScalar().ToString();
@@ -2524,7 +2526,7 @@ namespace Elite_system
                 }
 
                 Cls_Connection.close_connection();
-
+                dr.Close();
 
 
 
@@ -2566,14 +2568,16 @@ namespace Elite_system
                             Txt_FreezTo.Text = FreezTo2.ToString("yyyy-MM-dd");
                         }
                     }
+                    dr2.Close();
+
+
                 }
                 catch (Exception ex)
                 {
                     ex.Message.ToString();
                     Cls_Connection.close_connection();
-
-
                 }
+             
 
 
 
@@ -2584,6 +2588,11 @@ namespace Elite_system
                 Cls_Connection.close_connection();
 
 
+            }
+            finally
+            {
+
+                Cls_Connection.close_connection();
             }
 
         }
