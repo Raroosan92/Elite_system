@@ -69,6 +69,15 @@ namespace Elite_system
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
 
         /// <summary>
+        /// Ammount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow Ammount;
+
+        /// <summary>
         /// Txt_Value control.
         /// </summary>
         /// <remarks>
@@ -87,6 +96,15 @@ namespace Elite_system
         protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name;
 
         /// <summary>
+        /// Acounting_No control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow Acounting_No;
+
+        /// <summary>
         /// Txt_Acounting_No control.
         /// </summary>
         /// <remarks>
@@ -94,6 +112,15 @@ namespace Elite_system
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Acounting_No;
+
+        /// <summary>
+        /// Statement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow Statement;
 
         /// <summary>
         /// Txt_Statement control.

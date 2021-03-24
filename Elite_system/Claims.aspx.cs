@@ -73,7 +73,8 @@ namespace Elite_system
                 Calculate.Visible = false;
                 PatientRatio.Visible = false;
                 Tax.Visible = false;
-                Ch_Freez2.Checked = false;
+                Module_No.Visible = false;
+                Card_No.Visible = false;
 
 
                 Btn_Update.Visible = HttpContext.Current.User.IsInRole("Update");
@@ -228,6 +229,17 @@ namespace Elite_system
                 //////Fill_Claims_GV2();
                 //Get_MainClaims_ForUpdate();
 
+
+
+                //Recipt
+                Statement.Visible = false;
+                SubID.Visible = false;
+                Acounting_No.Visible = false;
+                Receipt_Date.Visible = false;
+                Ammount.Visible = false;
+                Txt_Receipt_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Fill_Statment();
+                //Recipt
 
             }
 
@@ -2577,7 +2589,7 @@ namespace Elite_system
                     ex.Message.ToString();
                     Cls_Connection.close_connection();
                 }
-             
+
 
 
 
@@ -2598,6 +2610,8 @@ namespace Elite_system
         }
         protected void DDL_Medical_Name_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+            
 
             string Contracting_Value = Cls_Medical_Types_And_Companies.Get_Contracting_Value(long.Parse(DDL_Medical_Name.SelectedValue.ToString()));
 
@@ -2605,7 +2619,7 @@ namespace Elite_system
 
             DoctorSpecializatio = Get_DoctorSpecializationByID();
             DDL_Specialization.SelectedValue = DoctorSpecializatio.ToString();
-
+            
             //if (HttpContext.Current.User.IsInRole("Doctor"))
             //{
 
@@ -2618,6 +2632,7 @@ namespace Elite_system
             //Fill_DDL();
 
             Txt_Received_Date.Focus();
+          
         }
 
 
@@ -3540,6 +3555,7 @@ namespace Elite_system
             Tax.Visible = true;
             Card_No.Visible = true;
             Module_No.Visible = true;
+            DDL_Recipt.Visible = true;
         }
 
         protected void Btn_Out_Click(object sender, EventArgs e)
@@ -3559,6 +3575,7 @@ namespace Elite_system
             Tax.Visible = false;
             Card_No.Visible = false;
             Module_No.Visible = false;
+            DDL_Recipt.Visible = false; 
         }
 
         protected void Btn_Search2_Click(object sender, EventArgs e)
@@ -3574,7 +3591,43 @@ namespace Elite_system
 
 
         }
+
+        public void Fill_Statment()
+        {
+            string MonthYear;
+            int Month = int.Parse(DateTime.UtcNow.AddHours(2).Month.ToString());
+            int Year = int.Parse(DateTime.UtcNow.AddHours(2).Year.ToString());
+            if (Month > 1)
+            {
+                MonthYear = (Month - 1).ToString() + "/" + Year.ToString();
+            }
+            else
+            {
+                Year = Year - 1;
+                MonthYear = "12/" + (Year).ToString();
+            }
+            Txt_Statement.Text = "اتعاب مطالبات وطوابع" + MonthYear;
+        }
+
+        protected void DDL_Recipt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DDL_Recipt.SelectedIndex ==1)
+            {
+                Statement.Visible = true;
+                SubID.Visible = true;
+                Acounting_No.Visible = true;
+                Txt_Acounting_No.Text = DDL_Medical_Name.SelectedValue.ToString();
+                Receipt_Date.Visible = true;
+                Ammount.Visible = true;
+            }
+            else
+            {
+                Statement.Visible = false;
+                SubID.Visible = false;
+                Acounting_No.Visible = false;
+                Receipt_Date.Visible = false;
+                Ammount.Visible = false;
+            }
+        }
     }
-
-
 }

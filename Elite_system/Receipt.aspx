@@ -90,7 +90,7 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
+                                    <tr id="Ammount" runat="server">
                                         <td class="auto-style1">
                                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" Display="Dynamic" ForeColor="Red" Font-Bold="true" ControlToValidate="Txt_Value"></asp:RequiredFieldValidator>--%>
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Value" Width="300px"></asp:TextBox>
@@ -112,7 +112,7 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
+                                    <tr id="Acounting_No" runat="server">
                                         <td class="auto-style1">
                                              <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" Display="Dynamic" ForeColor="Red" Font-Bold="true" ControlToValidate="Txt_Acounting_No"></asp:RequiredFieldValidator>--%>
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Acounting_No" Width="300px"></asp:TextBox>
@@ -122,7 +122,7 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
+                                    <tr id="Statement" runat="server">
                                         <td class="auto-style1">
                                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" Display="Dynamic" ForeColor="Red" Font-Bold="true" ControlToValidate="Txt_Statement"></asp:RequiredFieldValidator>--%>
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Statement" TextMode="MultiLine" Width="300px"> </asp:TextBox>

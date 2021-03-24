@@ -708,6 +708,33 @@ namespace Elite_system
         protected global::System.Web.UI.WebControls.TextBox Txt_procedures;
 
         /// <summary>
+        /// Recipt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow Recipt;
+
+        /// <summary>
+        /// DDL_Recipt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Recipt;
+
+        /// <summary>
+        /// SubID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow SubID;
+
+        /// <summary>
         /// Txt_SubID control.
         /// </summary>
         /// <remarks>
@@ -715,6 +742,15 @@ namespace Elite_system
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_SubID;
+
+        /// <summary>
+        /// Receipt_Date control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow Receipt_Date;
 
         /// <summary>
         /// Txt_Receipt_Date control.
@@ -735,13 +771,31 @@ namespace Elite_system
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender6;
 
         /// <summary>
-        /// TextBox1 control.
+        /// Ammount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow Ammount;
+
+        /// <summary>
+        /// Txt_ReceiptAmmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Txt_ReceiptAmmount;
+
+        /// <summary>
+        /// Acounting_No control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow Acounting_No;
 
         /// <summary>
         /// Txt_Acounting_No control.
@@ -751,6 +805,15 @@ namespace Elite_system
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Acounting_No;
+
+        /// <summary>
+        /// Statement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow Statement;
 
         /// <summary>
         /// Txt_Statement control.

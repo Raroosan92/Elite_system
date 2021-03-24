@@ -653,8 +653,21 @@
                                         </td>
                                     </tr>
 
-                                    <%--Receipt--%>
-                                     <tr>
+                                    <%--Recipt--%>
+                                     <tr id="Recipt" runat="server" style="visibility:collapse">
+                                        <td class="auto-style2" style="direction: rtl;">
+                                            <asp:DropDownList ID="DDL_Recipt" runat="server"  DataValueField="ID" Width="214px" OnSelectedIndexChanged="DDL_Recipt_SelectedIndexChanged" AutoPostBack="True">
+                                                <asp:ListItem>--أختر--</asp:ListItem>
+                                                <asp:ListItem>نعم</asp:ListItem>
+                                                <asp:ListItem>لا</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td style="height: 26px; width: 98px;">
+                                            <asp:Label runat="server" Text="سند قبض"></asp:Label>
+                                        </td>
+                                    </tr>
+
+                                     <tr id="SubID" runat="server">
                                         <td class="auto-style1">
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_SubID" Width="300px"></asp:TextBox>
                                         </td>
@@ -664,7 +677,7 @@
                                     </tr>
 
                                     
-                                    <tr>
+                                    <tr id="Receipt_Date" runat="server">
                                         <td class="auto-style1">
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Receipt_Date" Width="300px"></asp:TextBox>
                                             <ajaxToolkit:CalendarExtender ID="CalendarExtender6" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_Receipt_Date" />
@@ -674,16 +687,16 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
+                                    <tr id="Ammount" runat="server">
                                         <td class="auto-style1">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="TextBox1" Width="300px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_ReceiptAmmount" Width="300px"></asp:TextBox>
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="المبلغ"></asp:Label>
                                         </td>
                                     </tr>
                                     
-                                     <tr>
+                                     <tr id="Acounting_No" runat="server">
                                         <td class="auto-style1">
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Acounting_No" Width="300px"></asp:TextBox>
                                         </td>
@@ -693,7 +706,7 @@
                                     </tr>
 
 
-                                    <tr>
+                                    <tr id="Statement" runat="server">
                                         <td class="auto-style1">
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Statement" TextMode="MultiLine" Width="300px"> </asp:TextBox>
                                         </td>
@@ -701,7 +714,7 @@
                                             <asp:Label runat="server" Text="البيان"></asp:Label>
                                         </td>
                                     </tr>
-                                    <%--Receipt--%>
+                                    <%--Recipt--%>
 
 
                                     <tr>
