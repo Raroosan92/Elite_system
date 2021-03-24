@@ -726,6 +726,24 @@ namespace Elite_system
         protected global::System.Web.UI.WebControls.DropDownList DDL_Recipt;
 
         /// <summary>
+        /// Sent_To control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow Sent_To;
+
+        /// <summary>
+        /// RB_Sent_To control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList RB_Sent_To;
+
+        /// <summary>
         /// SubID control.
         /// </summary>
         /// <remarks>
@@ -868,6 +886,15 @@ namespace Elite_system
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Delete_SubClaims;
+
+        /// <summary>
+        /// Btn_SaveReceipt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_SaveReceipt;
 
         /// <summary>
         /// Btn_InsertAll control.

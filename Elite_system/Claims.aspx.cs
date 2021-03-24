@@ -238,6 +238,8 @@ namespace Elite_system
                 Receipt_Date.Visible = false;
                 Ammount.Visible = false;
                 Txt_Receipt_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Sent_To.Visible = false;
+                Btn_SaveReceipt.Visible = false;
                 Fill_Statment();
                 //Recipt
 
@@ -2610,8 +2612,8 @@ namespace Elite_system
         }
         protected void DDL_Medical_Name_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            
+
+            Txt_Acounting_No.Text = DDL_Medical_Name.SelectedValue.ToString() ;
 
             string Contracting_Value = Cls_Medical_Types_And_Companies.Get_Contracting_Value(long.Parse(DDL_Medical_Name.SelectedValue.ToString()));
 
@@ -3592,6 +3594,8 @@ namespace Elite_system
 
         }
 
+
+        //Receipt
         public void Fill_Statment()
         {
             string MonthYear;
@@ -3619,6 +3623,8 @@ namespace Elite_system
                 Txt_Acounting_No.Text = DDL_Medical_Name.SelectedValue.ToString();
                 Receipt_Date.Visible = true;
                 Ammount.Visible = true;
+                Sent_To.Visible = true;
+                Btn_SaveReceipt.Visible = true;
             }
             else
             {
@@ -3627,7 +3633,107 @@ namespace Elite_system
                 Acounting_No.Visible = false;
                 Receipt_Date.Visible = false;
                 Ammount.Visible = false;
+                Sent_To.Visible = false;
+                Btn_SaveReceipt.Visible = false;
             }
         }
+
+        protected void Btn_SaveReceipt_Click(object sender, EventArgs e)
+        {
+            decimal Contracting_Value = decimal.Parse(Cls_Medical_Types_And_Companies.Get_Contracting_Value(long.Parse(DDL_Medical_Name.SelectedValue.ToString())));
+            decimal Stamps = decimal.Parse(Txt_Stamps_Total.Text);
+
+            if (Txt_SubID.Text == "" || Txt_Receipt_Date.Text == "" || Txt_ReceiptAmmount.Text == "" || Txt_Acounting_No.Text == "" || Txt_Statement.Text == "" || DDL_Medical_Name.SelectedValue == "0")
+            {
+                MSG(" * يرجى إدخال الحقول المطلوبة * ");
+                return;
+            }
+            Cls_Main_Listing_Bonds Main_Listing_Bonds = new Cls_Main_Listing_Bonds();
+
+            if (DDL_Medical_Name.SelectedIndex != 0)
+            {
+                Main_Listing_Bonds._Company = long.Parse(DDL_Medical_Name.SelectedValue);
+            }
+            else
+            {
+                MSG("يرجى اختيار الجهة الطبية");
+                return;
+            }
+            Main_Listing_Bonds._Type = 297;
+
+            try
+            {
+                if (Txt_Receipt_Date.Text != "")
+                {
+                    Main_Listing_Bonds._Bond_Date = DateTime.Parse(Txt_Receipt_Date.Text);
+                }
+            }
+            catch (Exception)
+            {
+
+                MSG("خطأ في تاريخ السند");
+                return;
+            }
+
+
+            //if (Acounting_NO == null || Acounting_NO == "")
+            //{
+            //    Acounting_NO = "0";
+            //}
+
+            if (Txt_Acounting_No.Text != "")
+            {
+                Main_Listing_Bonds._Acounting_NO = Txt_Acounting_No.Text;
+            }
+            else
+            {
+                MSG("يرجى اختيار جهة طبية مرة اخرى لجلب رقم الحساب");
+                return;
+            }
+            
+            Main_Listing_Bonds._Debtor = 0;
+            Main_Listing_Bonds._Description = Txt_Statement.Text;
+            if (Contracting_Value+ Stamps> decimal.Parse(Txt_ReceiptAmmount.Text))
+            {
+                MSG("القيمة المدخلة اقل من قيمة السند");
+                return;
+            }
+            else if (Contracting_Value + Stamps < decimal.Parse(Txt_ReceiptAmmount.Text))
+            {
+                MSG("القيمة المدخلة اكبر من قيمة السند");
+                return;
+            }
+            else if (Contracting_Value + Stamps == decimal.Parse(Txt_ReceiptAmmount.Text))
+            {
+                Main_Listing_Bonds._Creditor = decimal.Parse(Txt_ReceiptAmmount.Text);
+            }
+            Main_Listing_Bonds._Sent_To = RB_Sent_To.SelectedValue.ToString();
+            Main_Listing_Bonds._Claim_ID = long.Parse(Txt_SubID.Text);
+            
+            string Result =  Main_Listing_Bonds.Insert_Main_Listing_Bonds();
+
+            ////////////////////////////////       Log        /////////////////////////////////////////////
+            Cls_Log log = new Cls_Log();
+            log._Log_Event = " إدخال سند قبض للجهة الطبية : " + DDL_Medical_Name.SelectedItem.Text + " بقيمة : " + Txt_ReceiptAmmount.Text + " ورقم السند : " + Txt_SubID.Text;
+            log.Insert_Log();
+            ////////////////////////////////   End Of Log        /////////////////////////////////////////////
+            string D = Txt_Receipt_Date.Text;
+            string ST = Txt_Statement.Text;
+            Txt_Receipt_Date.Text = D;
+            Txt_Statement.Text = ST;
+            Txt_SubID.Text = "";
+            Txt_ReceiptAmmount.Text = "";
+            Statement.Visible = false;
+            SubID.Visible = false;
+            Acounting_No.Visible = false;
+            Receipt_Date.Visible = false;
+            Ammount.Visible = false;
+            Sent_To.Visible = false;
+            Btn_SaveReceipt.Visible = false;
+            DDL_Recipt.SelectedIndex = 0;
+            MSG(Result);
+        }
+
+        //Receipt
     }
 }

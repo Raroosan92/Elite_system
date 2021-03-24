@@ -1018,7 +1018,8 @@
       <DependentUpon>Elite_DBDataSet2.xsd</DependentUpon>
     </Content>
     <Content Include="fonts\IDAutomationC128XS.ttf" />
-    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
+    <None Include="Properties\PublishProfiles\Demo.pubxml" />
+    <None Include="Properties\PublishProfiles\Main.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="js\select2.js" />
     <Content Include="js\SideBar\bootstrap.min.js" />
