@@ -806,7 +806,6 @@
     <Content Include="TreeLineImages\tplus.gif" />
     <Content Include="Download.ashx" />
     <Content Include="Update_Listing_Bonds.aspx" />
-    <Content Include="Web.config" />
     <!-- <Content Include="Web.config" /> -->
     <Content Include="XMLTMP.xml" />
     <Content Include="DownloadFont.ashx" />
@@ -1070,12 +1069,6 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
     <!-- <None Include="Web.Debug.config"> -->
     <!-- <DependentUpon>Web.config</DependentUpon> -->
     <!-- </None> -->
