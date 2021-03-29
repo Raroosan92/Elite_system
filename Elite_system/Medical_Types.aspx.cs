@@ -24,14 +24,14 @@ namespace Elite_system
             Txt_Contract_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender1.ClientID + "')");
             Txt_ContractExpiryDate.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender2.ClientID + "')");
             Txt_Accounting_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender3.ClientID + "')");
-            
+
             Txt_Contract_Date2.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender11.ClientID + "')");
             Txt_ContractExpiryDate2.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender22.ClientID + "')");
             Txt_Accounting_Date2.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender33.ClientID + "')");
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
             if (!Page.IsPostBack)
             {
-              
+
                 //DateTime.(DateTimeOffset.UtcNow.AddHours(2).Year, DateTimeOffset.UtcNow.AddHours(2).Month).ToString(); /*DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");*/
                 //rami
                 slider.Visible = false;
@@ -460,7 +460,7 @@ namespace Elite_system
 
 
 
-                    
+
 
 
                     Txt_Note.InnerText = dr.GetValue(dr.GetOrdinal("Notes")).ToString();
@@ -781,7 +781,7 @@ namespace Elite_system
             Medical_Type._Name = Txt_Name2.Text;
             Medical_Type._Phone = Txt_Phone2.Text;
             Medical_Type._Notes = Txt_Note.InnerText;
-           
+
 
             if (DDL_Place2.SelectedValue != "")
             {
@@ -945,7 +945,7 @@ namespace Elite_system
                 {
                     case "TextBox":
                         TextBox tbSource = (TextBox)contl;
-                       
+
                         if (contl.ID == "Txt_FreezFrom" || contl.ID == "Txt_FreezTo")
                         {
                             break;

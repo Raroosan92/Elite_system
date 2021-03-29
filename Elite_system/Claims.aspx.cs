@@ -368,6 +368,7 @@ namespace Elite_system
         }
         protected void Btn_Save_Click(object sender, EventArgs e)
         {
+            bool ChFreez = Ch_Freez2.Checked;
             if (DDL_Receiver_Employee.SelectedIndex != 0 && Txt_Received_Date.Text != "")
             {
                 string Result;
@@ -633,9 +634,9 @@ namespace Elite_system
                 Cls_Medical_Types_And_Companies Medical_Type = new Cls_Medical_Types_And_Companies();
 
 
-                Medical_Type._Freez = Ch_Freez2.Checked;
+                Medical_Type._Freez = ChFreez;
 
-                if (Ch_Freez2.Checked)
+                if (ChFreez)
                 {
                     if (Txt_FreezFrom.Text != "")
                     {
@@ -2564,11 +2565,20 @@ namespace Elite_system
                     DateTime FreezFrom2;
                     string FreezTo;
                     DateTime FreezTo2;
+                    
 
                     while (dr2.Read())
                     {
-
-                        Ch_Freez2.Checked = bool.Parse(dr2.GetValue(dr2.GetOrdinal("Freez")).ToString());
+                        var Freezing = (dr2.GetValue(dr2.GetOrdinal("Freez")).ToString());
+                        //MSG(Freezing);
+                        if (Freezing == "True")
+                        {
+                            Ch_Freez2.Checked = true;
+                        }
+                        else
+                        {
+                            Ch_Freez2.Checked = false;
+                        }
                         FreezFrom = dr2.GetValue(dr2.GetOrdinal("FreezFrom")).ToString();
                         Result = DateTime.TryParse(FreezFrom, out FreezFrom2);
                         if (Result)
@@ -3610,7 +3620,8 @@ namespace Elite_system
                 Year = Year - 1;
                 MonthYear = "12/" + (Year).ToString();
             }
-            Txt_Statement.Text = "اتعاب مطالبات وطوابع" + MonthYear;
+            Txt_Statement.Text = "بدل نقل مطالبات + طوابع " + MonthYear;
+
         }
 
         protected void DDL_Recipt_SelectedIndexChanged(object sender, EventArgs e)

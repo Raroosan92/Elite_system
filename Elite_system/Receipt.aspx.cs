@@ -54,7 +54,7 @@ namespace Elite_system
                     Year = Year - 1;
                     MonthYear = "12/" + (Year).ToString();
                 }
-                Txt_Statement.Text = "اتعاب مطالبات وطوابع" + MonthYear;
+                Txt_Statement.Text = "بدل نقل مطالبات + طوابع " + MonthYear;
 
                 //Txt_SubID.Focus();
                 RB_Sent_To.Focus();
