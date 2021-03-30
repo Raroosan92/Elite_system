@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" ViewStateMode="Enabled" CodeBehind="AssignCheck.aspx.cs" EnableEventValidation="false" Inherits="Elite_system.AssignCheck" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeBehind="AssignMail.aspx.cs" Inherits="Elite_system.AssignMail" %>
 
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 
@@ -65,7 +65,7 @@
 
     <asp:UpdatePanel ID="UpdatePanel2" runat="server" style="height: 350px;">
         <ContentTemplate>
-            <%--<asp:Label ID="Label1" runat="server" Text="إحالة الشيكات" Font-Bold="True" Font-Size="Larger"></asp:Label>--%>
+            <%--<asp:Label ID="Label1" runat="server" Text="إحالة البريد" Font-Bold="True" Font-Size="Larger"></asp:Label>--%>
             <section class="print text-center " style="padding-top: 1%;">
                 <div class="container">
                     <div class="row">
@@ -74,7 +74,7 @@
                                 <table class="table table-striped" cellpadding="3" border="0" style="width: 97%; float: right; margin-right: 3%; max-width: 100%; margin-bottom: 20px;">
                                     <tr style="background-color: #2f323a;">
                                         <td style="width: 98px">
-                                            <asp:Label ID="Label2" runat="server" Text="إحالة الشيكات" ForeColor="#f2f2f2" Font-Bold="True" Font-Size="Larger"></asp:Label>
+                                            <asp:Label ID="Label2" runat="server" Text="إحالة البريد" ForeColor="#f2f2f2" Font-Bold="True" Font-Size="Larger"></asp:Label>
                                         </td>
                                         <td class="auto-style1"></td>
                                     </tr>
@@ -90,12 +90,12 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Label runat="server" Text="الجهة المرسل لها الشيك" Font-Bold="True" Font-Size="Medium"></asp:Label><br />
+                                            <asp:Label runat="server" Text="الجهة المرسل لها البريد" Font-Bold="True" Font-Size="Medium"></asp:Label><br />
 
                                         </td>
                                         <td>
                                             <asp:DropDownList ID="DDL_Sent_To" Width="180px" runat="server" DataTextField="Name" DataValueField="ID" Font-Bold="True" Font-Size="Medium"></asp:DropDownList>
-                                            في حالة تكرار رقم الشيك
+                                            في حالة تكرار رقم البريد
                                         </td>
 
                                     </tr>
@@ -110,15 +110,15 @@
 
                                     </tr>
 
-                                    <tr>
+                                    <%--<tr>
                                         <td style="width: 98px">
-                                            <asp:Label runat="server" Text="رقم الشيك"></asp:Label>
+                                            <asp:Label runat="server" Text="رقم البريد"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="Txt_CheckNo" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="Txt_MailNo" runat="server"></asp:TextBox>
                                         </td>
 
-                                    </tr>
+                                    </tr>--%>
                                     <tr>
                                         <td>
                                             <asp:Button ID="Btn_Save1" runat="server" Text="  احالة عن طريق الباركود" Height="26px" OnClick="Btn_Save1_Click" />
@@ -126,7 +126,7 @@
                                         </td>
 
                                         <td>
-                                            <asp:Button ID="Btn_Save2" runat="server" Text="  احالة عن طريق رقم الشيك" Height="26px" OnClick="Btn_Save2_Click" />
+                                            <%--<asp:Button ID="Btn_Save2" runat="server" Text="  احالة عن طريق رقم البريد" Height="26px" OnClick="Btn_Save2_Click" />--%>
                                             <asp:Button ID="Btn_Delete" runat="server" CssClass="print" Text="حفظ وإفراغ المحتوى" OnClick="Btn_Delete_Click" />
                                             <asp:Button ID="Btn_Print" runat="server" Text="طباعة" Height="28px" Width="100px" OnClick="Btn_Print_Click" />
 
@@ -196,7 +196,7 @@
                                     <%--<asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="Elite_system.DS_Checks4TableAdapters.V_Main_CheckTableAdapter"></asp:ObjectDataSource>--%>
 
                                     <asp:ObjectDataSource runat="server" SelectMethod="GetData" TypeName="Elite_system.DS_Checks4TableAdapters.V_Main_CheckTableAdapter" ID="ObjectDataSource1"></asp:ObjectDataSource>
-                                    <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:CONN %>' SelectCommand="SELECT * FROM [V_Main_Check]"></asp:SqlDataSource>
+                                    <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:CONN %>' SelectCommand="SELECT * FROM [V_Mails]"></asp:SqlDataSource>
                                 </table>
 
 
@@ -220,11 +220,11 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#Txt_CheckNo").on("keypress", function (e) {
-                if (e.keyCode == 13) {
-                    alert("asdasd");
-                }
-            });
+            //$("#Txt_MailNo").on("keypress", function (e) {
+            //    if (e.keyCode == 13) {
+            //        alert("asdasd");
+            //    }
+            //});
 
 
             $("#Txt_BarCode").on("keypress", function (e) {

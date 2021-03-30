@@ -19,6 +19,11 @@ public class Cls_Main_Mail
     private int Mails_Count;
     private string Notes;
     private Boolean Delivered;
+    private string BarCode;
+    private Boolean Refunded;
+    private DateTime modified;
+
+
     #endregion
 
 
@@ -45,7 +50,7 @@ public class Cls_Main_Mail
         {
             Company = value;
         }
-    }  
+    }
     public DateTime _Entry_Date
     {
         get
@@ -92,7 +97,7 @@ public class Cls_Main_Mail
             Sent_To = value;
         }
     }
-    
+
     public int _Mail_Type
     {
         get
@@ -126,7 +131,7 @@ public class Cls_Main_Mail
             Notes = value;
         }
     }
-    
+
     public Boolean _Delivered
     {
         get
@@ -138,6 +143,46 @@ public class Cls_Main_Mail
             Delivered = value;
         }
     }
+
+    public string _Barcode
+    {
+        get
+        {
+            return BarCode;
+        }
+        set
+        {
+            BarCode = value;
+        }
+    }
+
+    public Boolean _Refunded
+    {
+        get
+        {
+            return Refunded;
+        }
+        set
+        {
+            Refunded = value;
+        }
+    }
+
+
+
+    public DateTime _modified
+    {
+        get
+        {
+            return modified;
+        }
+        set
+        {
+            modified = value;
+        }
+    }
+
+
     #endregion
 
 
@@ -198,7 +243,7 @@ public class Cls_Main_Mail
                 cmd.Parameters.AddWithValue("@Sent_To", Sent_To);
             }
 
-           
+
 
             if (Mail_Type != 0)
             {
@@ -208,6 +253,11 @@ public class Cls_Main_Mail
             cmd.Parameters.AddWithValue("@Mails_Count", Mails_Count);
             cmd.Parameters.AddWithValue("@Notes", Notes);
             cmd.Parameters.AddWithValue("@Delivered", Delivered);
+
+            cmd.Parameters.AddWithValue("@Refunded", Refunded);
+            cmd.Parameters.AddWithValue("@BarCode", BarCode);
+
+
 
             cmd.Parameters.AddWithValue("@check", "i");
 
@@ -249,6 +299,8 @@ public class Cls_Main_Mail
             cmd.Parameters.AddWithValue("@Mails_Count", Mails_Count);
             cmd.Parameters.AddWithValue("@Notes", Notes);
             cmd.Parameters.AddWithValue("@Delivered", Delivered);
+            cmd.Parameters.AddWithValue("@Refunded", Refunded);
+            cmd.Parameters.AddWithValue("@BarCode", BarCode);
             cmd.Parameters.AddWithValue("@check", "u");
 
             Cls_Connection.open_connection();

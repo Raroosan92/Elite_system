@@ -17,6 +17,7 @@ ALTER TABLE [dbo].[Medical_Types_And_Companies]
 		ALTER TABLE [dbo].[Main_Claims]
 	ADD Total_Claims int 
 DEFAULT 0 WITH VALUES
+
 -----------------------------------------------------------------------------------------------------------------------------------
 USE [DB_A5D8AE_EliteSystem]
 GO
@@ -193,6 +194,9 @@ delete from [dbo].[Medical_Types_And_Companies]
 where  ID=@ID 
 
 end
+
+
+
 
 -----------------------------------------------------------------------------------------------------------------------------------
 SELECT        TOP (100) PERCENT dbo.Main_Claims.ID, dbo.Main_Claims.Month_Year, dbo.Medical_Types_And_Companies.Name, dbo.Main_Claims.Received_Date, dbo.Employees.Employee_Name, dbo.Main_Claims.Entry_Date, 
@@ -386,6 +390,223 @@ where ID=@ID
 end
 
 -----------------------------------------------------------------------------------------------------------------------------------
+
+
+******************Mails***************************
+
+ALTER TABLE [dbo].[Main_Mail]
+ADD EmployeeName	nvarchar(200);
+
+
+ALTER TABLE [dbo].[Main_Mail]
+ADD Refunded bit DEFAULT 'false' WITH VALUES;
+
+
+ALTER TABLE [dbo].[Main_Mail]
+ADD BarCode	nvarchar(200);
+
+ALTER TABLE [dbo].[Main_Mail]
+ADD modified	date;
+
+ALTER TABLE [dbo].[Main_Mail]
+ALTER COLUMN Delivered bit 
+
+
+
+
+
+
+USE [DB_A5D8AE_EliteSystem]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_Main_Mail]    Script Date: 29/03/2021 06:38:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[SP_Main_Mail]
+
+@ID numeric(18,0)=null,
+@Company numeric(18,0) =null,
+@Entry_Date date=null,
+@Received_Date date=null,
+@Delivery_Date date=null,
+@Sent_To numeric(18,0) =null,
+@Mail_Type int=null,
+@Mails_Count int =null,
+@Notes nvarchar(200)=null,
+@Delivered tinyint=null,
+@Refunded	bit	=null,
+@BarCode	nvarchar(200)	=null,
+@modified	date	=null,
+@check char(1)
+
+
+as
+begin
+
+
+if @Check='i'
+INSERT INTO [dbo].[Main_Mail]
+           ([Company]
+           ,[Entry_Date]
+           ,[Received_Date]
+           ,[Delivery_Date]
+		   ,[Sent_To]
+           ,[Mail_Type]
+           ,[Mails_Count]
+           ,[Notes]
+		   ,Delivered
+		   ,[Refunded]
+		   ,[BarCode]
+		   ,[modified])
+     VALUES
+           (@Company
+           ,@Entry_Date
+           ,@Received_Date
+           ,@Delivery_Date
+		   ,@Sent_To
+           ,@Mail_Type
+           ,@Mails_Count
+           ,@Notes
+		   ,@Delivered
+		   ,@Refunded
+		   ,@BarCode
+		   ,@modified
+		   )
+
+else if @Check='u'
+UPDATE [dbo].[Main_Mail]
+   SET [Company] = @Company
+      ,[Entry_Date] = @Entry_Date
+      ,[Received_Date] = @Received_Date
+      ,[Delivery_Date] = @Delivery_Date
+	  ,[Sent_To] = @Sent_To
+      ,[Mail_Type] = @Mail_Type
+      ,[Mails_Count] = @Mails_Count
+      ,[Notes] = @Notes
+	  ,Delivered=@Delivered
+	  ,[Refunded]=@Refunded
+	  , [BarCode] =@BarCode
+	   ,[modified]=@modified
+where ID=@ID 
+
+else
+delete from [dbo].[Main_Mail]
+where  ID=@ID 
+
+end
+
+
+
+
+
+USE [DB_A5D8AE_EliteSystem]
+GO
+
+/****** Object:  View [dbo].[V_Mails]    Script Date: 29/03/2021 10:35:09 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER VIEW [dbo].[V_Mails]
+AS
+SELECT TOP (100) PERCENT dbo.Main_Mail.ID, dbo.Main_Mail.Company, dbo.Medical_Types_And_Companies.Name AS CompanyDesc, dbo.Main_Mail.Entry_Date, dbo.Main_Mail.Received_Date, dbo.Main_Mail.Delivery_Date, 
+                  dbo.Main_Mail.Sent_To, Medical_Types_And_Companies_1.Name AS Sent_To_Desc, dbo.Main_Mail.Mail_Type, dbo.Codes.Description AS Mail_Type_Desc, dbo.Main_Mail.Mails_Count, dbo.Main_Mail.Notes, dbo.Main_Mail.Delivered, 
+                  Medical_Types_And_Companies_1.Address, Medical_Types_And_Companies_1.Phone, dbo.Main_Mail.modified, dbo.Main_Mail.BarCode, dbo.Main_Mail.Refunded, dbo.Main_Mail.EmployeeName
+FROM     dbo.Main_Mail LEFT OUTER JOIN
+                  dbo.Codes ON dbo.Main_Mail.Mail_Type = dbo.Codes.ID LEFT OUTER JOIN
+                  dbo.Medical_Types_And_Companies AS Medical_Types_And_Companies_1 ON dbo.Main_Mail.Sent_To = Medical_Types_And_Companies_1.ID LEFT OUTER JOIN
+                  dbo.Medical_Types_And_Companies ON dbo.Main_Mail.Company = dbo.Medical_Types_And_Companies.ID
+GROUP BY dbo.Main_Mail.ID, dbo.Main_Mail.Company, dbo.Medical_Types_And_Companies.Name, dbo.Main_Mail.Entry_Date, dbo.Main_Mail.Received_Date, dbo.Main_Mail.Delivery_Date, dbo.Main_Mail.Sent_To, 
+                  Medical_Types_And_Companies_1.Name, dbo.Main_Mail.Mail_Type, dbo.Codes.Description, dbo.Main_Mail.Mails_Count, dbo.Main_Mail.Notes, dbo.Main_Mail.Delivered, Medical_Types_And_Companies_1.Address, 
+                  Medical_Types_And_Companies_1.Phone, dbo.Main_Mail.modified, dbo.Main_Mail.BarCode, dbo.Main_Mail.Refunded, dbo.Main_Mail.EmployeeName
+GO
+
+
+
+
+
+create proc [dbo].[Get_MainMails_AssignMails4]
+@MailNo nvarchar(200) = null,
+@EmployeeName nvarchar(200) = null
+as
+begin
+SELECT 
+		top 600	ROW_NUMBER() OVER (ORDER BY [id] ASC) as '«· ”·”·'
+           ,[CompanyDesc] AS [«”„ «·‘—ﬂ…]
+           ,CONVERT (VARCHAR,Entry_Date,101)AS [ «—ÌŒ «·»—Ìœ]
+           ,Sent_To_Desc AS [„—”· «·Ï]
+           ,[Mails_Count]AS [«·⁄œœ]
+           ,[ID] AS [—ﬁ„ «·»—Ìœ]
+           ,[Mail_Type_Desc] AS [‰Ê⁄ «·»—Ìœ]
+           ,[Notes]AS [„·«ÕŸ« ]
+           ,[Address] AS [«·⁄‰Ê«‰]
+           ,[Phone] AS [—ﬁ„ «·Â« ›]
+           ,[BarCode]
+		   ,[Delivered] AS [„”·¯„/€Ì— „”·¯„]
+		   , [Refunded] AS [„— Ã⁄/€Ì— „— Ã⁄]
+FROM      [dbo].[V_Mails] where ( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date))  order by ROW_NUMBER() OVER (ORDER BY [id] desc)
+end
+
+
+
+
+
+
+
+create proc [dbo].[Get_MainMail_AssignMail5]
+@CheckNo nvarchar(200) = null,
+@EmployeeName nvarchar(200) = null
+as
+begin
+SELECT 
+		top 600	 ROW_NUMBER() OVER (ORDER BY [id] ASC) as '«· ”·”·'
+            ,[CompanyDesc] AS [«”„ «·‘—ﬂ…]
+           ,CONVERT (VARCHAR,Entry_Date,101)AS [ «—ÌŒ «·»—Ìœ]
+           ,Sent_To_Desc AS [„—”· «·Ï]
+           ,[Mails_Count]AS [«·⁄œœ]
+           ,[ID] AS [—ﬁ„ «·»—Ìœ]
+           ,[Mail_Type_Desc] AS [‰Ê⁄ «·»—Ìœ]
+           ,[Notes]AS [„·«ÕŸ« ]
+           ,[Address] AS [«·⁄‰Ê«‰]
+           ,[Phone] AS [—ﬁ„ «·Â« ›]
+           ,[BarCode]
+		   ,[Delivered] AS [„”·¯„/€Ì— „”·¯„]
+		   , [Refunded] AS [„— Ã⁄/€Ì— „— Ã⁄]
+FROM      [dbo].[V_Mails] where( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date)) and Delivered=1  order by ROW_NUMBER() OVER (ORDER BY [id] desc)
+end
+
+
+
+create proc [dbo].[Get_MainMail_AssignMail6]
+@EmployeeName nvarchar(200) = null
+as
+begin
+SELECT 
+		top 600	ROW_NUMBER() OVER (ORDER BY [id] ASC) as '«· ”·”·'
+               ,[CompanyDesc] AS [«”„ «·‘—ﬂ…]
+           ,CONVERT (VARCHAR,Entry_Date,101)AS [ «—ÌŒ «·»—Ìœ]
+           ,Sent_To_Desc AS [„—”· «·Ï]
+           ,[Mails_Count]AS [«·⁄œœ]
+           ,[ID] AS [—ﬁ„ «·»—Ìœ]
+           ,[Mail_Type_Desc] AS [‰Ê⁄ «·»—Ìœ]
+           ,[Notes]AS [„·«ÕŸ« ]
+           ,[Address] AS [«·⁄‰Ê«‰]
+           ,[Phone] AS [—ﬁ„ «·Â« ›]
+           ,[BarCode]
+		   ,[Delivered] AS [„”·¯„/€Ì— „”·¯„]
+		   , [Refunded] AS [„— Ã⁄/€Ì— „— Ã⁄]
+FROM      [dbo].[V_Mails] where( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date)) and Refunded=1 order by ROW_NUMBER() OVER (ORDER BY [id] desc)
+end
+
+
+
+
+
+
+******************Mails***************************
 
 -----------------------------------------------------------------------------------------------------------------------------------
 

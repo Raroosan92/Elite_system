@@ -273,6 +273,9 @@
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Lockout.aspx" />
     <Content Include="AssignCheck.aspx" />
+    <Content Include="AssignMail.aspx" />
+    <Content Include="DeliveredMail.aspx" />
+    <Content Include="RefundedMail.aspx" />
     <Content Include="Rpt_CheckLogStatus.aspx" />
     <Content Include="CompletionRate.aspx" />
     <Content Include="css\thumbnail-slider.css" />
@@ -280,7 +283,6 @@
     <Content Include="css\waitMe.min.css" />
     <Content Include="DB_Updats.txt" />
     <Content Include="DeliveredChecks.aspx" />
-    <Content Include="DelivereMail.aspx" />
     <Content Include="google22e3f0ac626b01ab.html" />
     <Content Include="imgSideBar\header\accounting.png" />
     <Content Include="imgSideBar\header\bank-check.png" />
@@ -1140,6 +1142,27 @@
     <Compile Include="App_Code\Cls_Procedures.cs" />
     <Compile Include="App_Code\Cls_Medical_Types_Check.cs" />
     <Compile Include="App_Code\Cls_ChecksLog.cs" />
+    <Compile Include="AssignMail.aspx.cs">
+      <DependentUpon>AssignMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AssignMail.aspx.designer.cs">
+      <DependentUpon>AssignMail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveredMail.aspx.cs">
+      <DependentUpon>DeliveredMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeliveredMail.aspx.designer.cs">
+      <DependentUpon>DeliveredMail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RefundedMail.aspx.cs">
+      <DependentUpon>RefundedMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RefundedMail.aspx.designer.cs">
+      <DependentUpon>RefundedMail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Rpt_CheckLogStatus.aspx.cs">
       <DependentUpon>Rpt_CheckLogStatus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1160,13 +1183,6 @@
     </Compile>
     <Compile Include="DeliveredChecks.aspx.designer.cs">
       <DependentUpon>DeliveredChecks.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DelivereMail.aspx.cs">
-      <DependentUpon>DelivereMail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DelivereMail.aspx.designer.cs">
-      <DependentUpon>DelivereMail.aspx</DependentUpon>
     </Compile>
     <Compile Include="DS_Account.Designer.cs">
       <AutoGen>True</AutoGen>

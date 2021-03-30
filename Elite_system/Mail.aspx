@@ -29,6 +29,12 @@
             width: 540px;
             text-align: center;
             direction: rtl;
+                color: black;
+        }
+         .Barcode {
+            font-family: IDAutomationHC39M;
+            background-color: white;
+            margin-right: 73px;
         }
     </style>
 
@@ -134,7 +140,7 @@
                                                 ErrorMessage="*"
                                                 ValidationExpression="((\d+)((\.\d{1,2})?))$">
                                             </asp:RegularExpressionValidator>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Mails_Count" Width="300px" AutoPostBack="True" OnTextChanged="Txt_Mails_Count_TextChanged"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Mails_Count" Width="300px" AutoPostBack="false" OnTextChanged="Txt_Mails_Count_TextChanged"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="العدد"></asp:Label>
@@ -169,7 +175,7 @@
                                         </td>
                                     </tr>--%>
 
-                                    <tr>
+                                  <%--  <tr>
                                         <td>
                                             <asp:RadioButtonList runat="server" ID="RB_Delivered">
                                                 <asp:ListItem Value="1">تم التسليم</asp:ListItem>
@@ -179,7 +185,7 @@
                                         <td>
                                             <asp:Label runat="server" Text="التسليم"></asp:Label>
                                         </td>
-                                    </tr>
+                                    </tr>--%>
 
 
                                     <%--Rami--%>
@@ -192,6 +198,30 @@
                                         </td>
                                     </tr>
                                     <%--Rami--%>
+
+
+                                    <tr style="direction: rtl;">
+                                <td></td>
+                                <td>
+                                    <asp:Label runat="server" Text="BarCode" Font-Bold="True" Font-Size="Medium"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr style="direction: rtl;">
+
+                                <td>
+
+                                    <%--<asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>--%>
+                                    <br />
+                                    <br />
+                                    <asp:Label runat="server" Text="" ID="LblBarcode" CssClass="Barcode" Font-Size="xx-large"></asp:Label>
+                                    <br />
+                                    <br />
+
+                                </td>
+                            </tr>
+
+
+
                                     <tr style="direction: rtl;">
                                         <td>
                                             <asp:Button ID="Btn_Save" runat="server" Text="إدخال" OnClick="Btn_Save_Click" />
@@ -225,7 +255,7 @@
                                         <asp:SqlDataSource ID="SqlDataSource_Mails" runat="server" ConnectionString="<%$ ConnectionStrings:CONN %>" SelectCommand="SELECT [ID],[Company],[CompanyDesc],[Entry_Date],[Received_Date],[Delivery_Date],[Sent_To],[Sent_To_Desc],[Mail_Type],[Mail_Type_Desc],[Mails_Count],[Notes],[Delivered] FROM [dbo].[V_Mails] order by ID desc"></asp:SqlDataSource>
                                         <asp:GridView ID="GridView_Mails" runat="server" AllowPaging="false" AutoGenerateColumns="False" CssClass="Grid" DataKeyNames="ID" DataSourceID="SqlDataSource_Mails" OnSelectedIndexChanged="GridView_Mails_SelectedIndexChanged" SelectedRowStyle-VerticalAlign="NotSet" SortedAscendingCellStyle-HorizontalAlign="NotSet">
                                             <Columns>
-                                                <asp:CommandField SelectText="اختر" ShowSelectButton="True" />
+                                                <asp:CommandField SelectText="اختر" ShowSelectButton="True" ItemStyle-ForeColor="Black"/>
                                                 <asp:BoundField DataField="ID" HeaderText="التسلسل" ReadOnly="True" SortExpression="ID" />
                                                 <asp:BoundField DataField="CompanyDesc" HeaderText="الشركة" SortExpression="Name" />
                                                 <asp:BoundField DataField="Entry_Date" DataFormatString="{0:yyyy-MM-dd}" HeaderStyle-Width="80px" HeaderText="تاريخ الادخال" SortExpression="Entry_Date" />

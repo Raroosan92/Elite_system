@@ -123,8 +123,10 @@
                                             <div class="dropup">
                                                 <a class="" style="margin-left: 50%;" data-toggle="dropdown">البريد<img src="../imgSideBar/header/email.png" /><span class="caret"></span></a>
                                                 <ul class="dropdown-menu nav-stacked" style="direction: rtl;">
-                                                    <li <li id="Mail" runat="server" class=""><a href="../Mail.aspx">البريد<img src="../imgSideBar/header/email.png" /></a></li>
-                                                        <li <li id="DelivereMail" runat="server" class=""><a href="../DelivereMail.aspx">تسليم البريد<img src="../imgSideBar/header/email.png" /></a></li>
+                                                    <li></li> <li id="Mail" runat="server" class=""><a href="../Mail.aspx">البريد<img src="../imgSideBar/header/email.png" /></a></li>
+                                                        <li <li id="AssignMail" runat="server" class=""><a href="../AssignMail.aspx">احالة البريد<img src="../imgSideBar/header/email.png" /></a></li>
+                                                        <li <li id="DeliveredMail" runat="server" class=""><a href="../DeliveredMail.aspx">تسليم البريد<img src="../imgSideBar/header/email.png" /></a></li>
+                                                        <li <li id="RefundedMail" runat="server" class=""><a href="../RefundedMail.aspx">ارجاع البريد<img src="../imgSideBar/header/email.png" /></a></li>
                                                 </ul>
                                             </div>
                                         </li>

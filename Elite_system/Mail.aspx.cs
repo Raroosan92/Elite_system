@@ -14,6 +14,7 @@ namespace Elite_system
     public partial class Mail : System.Web.UI.Page
     {
         int Attch_Id;
+        string barCode;
         public void MSG(string Text)
         {
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>alert('" + Text + "')</script>", false);
@@ -25,8 +26,8 @@ namespace Elite_system
             Txt_Entry_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender3.ClientID + "')");
             Txt_Delivery_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender1.ClientID + "')");
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
-
-
+          
+            Txt_MainMailID.Text = Get_MaxID().ToString();
 
             if (!Page.IsPostBack)
             {
@@ -85,6 +86,27 @@ namespace Elite_system
 
         }
 
+       public int  Get_MaxID()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CONN"].ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            try
+            {                
+                conn.Open();
+                cmd.Connection = conn;
+                cmd.CommandText = "Select IDENT_CURRENT('Main_Mail')";
+                return  int.Parse((cmd.ExecuteScalar().ToString()));
+            }
+            catch(Exception ex)
+            {
+                conn.Close();
+                return 0;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public void Get_MainMail_ForUpdate()
         {
             try
@@ -159,9 +181,10 @@ namespace Elite_system
                     Txt_Mails_Count.Text = dr.GetValue(dr.GetOrdinal("Mails_Count")).ToString();
                     Txt_Notes.Text = dr.GetValue(dr.GetOrdinal("Notes")).ToString();
 
-                    RB_Delivered.SelectedValue = dr.GetValue(dr.GetOrdinal("Delivered")).ToString();
+                    //RB_Delivered.SelectedValue = dr.GetValue(dr.GetOrdinal("Delivered")).ToString();
 
-
+                    
+                    LblBarcode.Text = (dr.GetValue(dr.GetOrdinal("BarCode")).ToString());
                 }
 
                 dr.Close();
@@ -263,15 +286,15 @@ namespace Elite_system
 
                 Main_Mail._Sent_To = long.Parse(DDL_Sent_To.SelectedValue);
 
-                if (RB_Delivered.SelectedValue == "1")
-                {
-                    Main_Mail._Delivered = true;
-                }
-                else
-                {
-                    Main_Mail._Delivered = false;
-                }
-
+                //if (RB_Delivered.SelectedValue == "1")
+                //{
+                //    Main_Mail._Delivered = true;
+                //}
+                //else
+                //{
+                //    Main_Mail._Delivered = false;
+                //}
+                Main_Mail._Barcode = "*" + (Get_MaxID()+1) + "*";
 
                 Result = Main_Mail.Insert_Main_Mail();
                 ////////////////////////////////       Log        /////////////////////////////////////////////
@@ -478,31 +501,29 @@ namespace Elite_system
                 Main_Mail._Notes = Txt_Notes.Text;
                 Main_Mail._Sent_To = long.Parse(DDL_Sent_To.SelectedValue);
 
-                if (RB_Delivered.SelectedValue == "1")
-                {
-                    Main_Mail._Delivered = true;
-                }
-                else
-                {
-                    Main_Mail._Delivered = false;
-                }
-                Result = Main_Mail.Update_Main_Mail();
+                //if (RB_Delivered.SelectedValue == "1")
+                //{
+                //    Main_Mail._Delivered = true;
+                //}
+                //else
+                //{
+                //    Main_Mail._Delivered = false;
+                //}
 
+                Main_Mail._Barcode = "*" + Get_MaxID() + "*";
+                Result = Main_Mail.Update_Main_Mail();
+                
                 ////////////////////////////////       Log        /////////////////////////////////////////////
                 Cls_Log log = new Cls_Log();
                 log._Log_Event = "تعديل البريد  للشركة: " + DDL_Company.SelectedItem.Text + " للجهة الطبية: " + DDL_Sent_To.SelectedItem.Text;
                 log.Insert_Log();
                 ////////////////////////////////   End Of Log        /////////////////////////////////////////////
-                GridView_Mails.DataBind();
-
-
+                //GridView_Mails.DataBind();
 
                 //rami
                 int attach_type = 700;
                 string attach_place_store;
                 int strImageName = int.Parse(GridView_Mails.SelectedRow.Cells[1].Text);
-
-
                 SqlDataAdapter da = new SqlDataAdapter();
                 SqlCommand cmd = new SqlCommand();
                 DataSet ds = new DataSet();

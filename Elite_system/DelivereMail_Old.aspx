@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeBehind="DelivereMail.aspx.cs" Inherits="Elite_system.DelivereMail" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeBehind="DelivereMail_Old.aspx.cs" Inherits="Elite_system.DelivereMail" %>
 
 
 

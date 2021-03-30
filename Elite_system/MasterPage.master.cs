@@ -143,12 +143,18 @@ public partial class MasterPage : System.Web.UI.MasterPage
             HtmlControl Claims_Report_Company = (HtmlControl)Page.Master.FindControl("Claims_Report_Company");
             Claims_Report_Company.Attributes.Add("style", "display:none");
 
-            HtmlControl DelivereMail = (HtmlControl)Page.Master.FindControl("DelivereMail");
-            DelivereMail.Attributes.Add("style", "display:none");
+            HtmlControl DeliveredMail = (HtmlControl)Page.Master.FindControl("DeliveredMail");
+            DeliveredMail.Attributes.Add("style", "display:none");
+
+            HtmlControl AssignMail = (HtmlControl)Page.Master.FindControl("AssignMail");
+            AssignMail.Attributes.Add("style", "display:none");
+
+            HtmlControl RefundedMail = (HtmlControl)Page.Master.FindControl("RefundedMail");
+            RefundedMail.Attributes.Add("style", "display:none");
 
             HtmlControl MainMail = (HtmlControl)Page.Master.FindControl("MainMail");
-            MainMail.Attributes.Add("style", "display:none"); 
-            
+            MainMail.Attributes.Add("style", "display:none");
+
             HtmlControl Update_Listing_Bonds = (HtmlControl)Page.Master.FindControl("Update_Listing_Bonds");
             Update_Listing_Bonds.Attributes.Add("style", "display:none");
             #endregion
@@ -187,12 +193,21 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     MainMail.Attributes.Add("style", "display:Block");
                     Mail.Attributes.Add("style", "display:Block");
                 }
-                if (HttpContext.Current.User.IsInRole("DelivereMail"))
+                if (HttpContext.Current.User.IsInRole("DeliveredMail"))
                 {
                     MainMail.Attributes.Add("style", "display:Block");
-                    DelivereMail.Attributes.Add("style", "display:Block");
+                    DeliveredMail.Attributes.Add("style", "display:Block");
                 }
-
+                if (HttpContext.Current.User.IsInRole("RefundedMail"))
+                {
+                    MainMail.Attributes.Add("style", "display:Block");
+                    RefundedMail.Attributes.Add("style", "display:Block");
+                }
+                if (HttpContext.Current.User.IsInRole("AssignMail"))
+                {
+                    MainMail.Attributes.Add("style", "display:Block");
+                    AssignMail.Attributes.Add("style", "display:Block");
+                }
                 if (HttpContext.Current.User.IsInRole("Employees"))
                 {
                     Employees.Attributes.Add("style", "display:Block");
@@ -380,8 +395,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 if (HttpContext.Current.User.IsInRole("Rpt_Medical_Name_Main_Company"))
                 {
                     Rpt_Medical_Name_Main_Company.Attributes.Add("style", "display:Block");
-                } 
-                
+                }
+
                 if (HttpContext.Current.User.IsInRole("Update_Listing_Bonds"))
                 {
                     Update_Listing_Bonds.Attributes.Add("style", "display:Block");
@@ -403,7 +418,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 AssignCheck.Attributes.Add("style", "display:Block");
                 DeliveredChecks.Attributes.Add("style", "display:Block");
                 MainMail.Attributes.Add("style", "display:Block");
-                DelivereMail.Attributes.Add("style", "display:Block");
+                DeliveredMail.Attributes.Add("style", "display:Block");
+                AssignMail.Attributes.Add("style", "display:Block");
+                RefundedMail.Attributes.Add("style", "display:Block");
                 RefundedCheckes.Attributes.Add("style", "display:Block");
                 Accounting_Tree.Attributes.Add("style", "display:Block");
                 Accounting_Tree_Details.Attributes.Add("style", "display:Block");

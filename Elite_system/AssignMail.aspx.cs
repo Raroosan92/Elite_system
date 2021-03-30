@@ -1,22 +1,19 @@
-﻿
-using Microsoft.Reporting.WebForms;
+﻿using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-
-
 namespace Elite_system
 {
-    public partial class AssignCheck : System.Web.UI.Page
+    public partial class AssignMail : System.Web.UI.Page
     {
+
         Boolean Check;
         Boolean CheckMore;
         string Num;
@@ -30,7 +27,7 @@ namespace Elite_system
             ReportViewer1.Visible = false;
             if (!Page.IsPostBack)
             {
-                Get_MainChecks_GridView2();
+                Get_MainMail_GridView2();
                 Btn_Delete.Style.Add("Display", "None");
                 //btnPrint.Style.Add("Display", "None");
                 DDL_Employee.DataSource = Cls_Employees.Get_Employee();
@@ -82,7 +79,7 @@ namespace Elite_system
 
         //}
 
-        public void Get_MainChecks_GridView2()
+        public void Get_MainMail_GridView2()
         {
             try
             {
@@ -94,7 +91,8 @@ namespace Elite_system
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
-                cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY [id] ASC) as 'التسلسل', SentTo 'الجهة الطبية',Company 'الشركة',[Value] 'القيمة',Check_No 'رقم الشيك',EmployeeName 'اسم الموظف المحال له' from V_Main_Check where Modified = '" + dt1 + "' order by ROW_NUMBER() OVER (ORDER BY [id] desc)";
+                string x = "select ROW_NUMBER() OVER (ORDER BY [id] ASC) as 'التسلسل', Sent_To_Desc 'الجهة الطبية',Company 'الشركة',[Mails_Count] 'العدد',ID 'رقم البريد',EmployeeName 'اسم الموظف المحال له' from V_Mails where Modified = '" + dt1 + "' order by ROW_NUMBER() OVER (ORDER BY [id] desc)";
+                cmd.CommandText = x;
                 Cls_Connection.open_connection();
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -151,15 +149,15 @@ namespace Elite_system
 
         //}
 
-        public void Get_MainChecks_ForGridView()
+        public void Get_MainMail_ForGridView()
         {
             //if (Txt_BarCode.Text!="")
             //{
             Num = DDL_Employee.SelectedItem.Text;
             //}
-            //else if (Txt_CheckNo.Text != "")
+            //else if (Txt_MailNo.Text != "")
             //{
-            //    Num = Txt_CheckNo.Text;
+            //    Num = Txt_MailNo.Text;
             //}
             try
             {
@@ -171,7 +169,7 @@ namespace Elite_system
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "Get_MainChecks_AssignChecks4";
+                cmd.CommandText = "Get_MainMails_AssignMails4";
                 cmd.Parameters.AddWithValue("@EmployeeName", Num);
                 Cls_Connection.open_connection();
                 DataTable dt = new DataTable();
@@ -189,7 +187,7 @@ namespace Elite_system
                 Cls_Connection.close_connection();
 
             }
-            Get_MainChecks_GridView2();
+            Get_MainMail_GridView2();
         }
 
         //public void SaveAssignCheckedToTempTable()
@@ -249,50 +247,50 @@ namespace Elite_system
         //    }
         //    else
         //    {
-        //        MSG("هذا الشيك تمت إحالته مسبقاً");
+        //        MSG("هذا البريد تمت إحالته مسبقاً");
         //    }
         //}
 
-        public void InsertLog()
-        {
-            try
-            {
+        //public void InsertLog()
+        //{
+        //    try
+        //    {
 
 
-                Cls_ChecksLog clog = new Cls_ChecksLog();
+        //        Cls_ChecksLog clog = new Cls_ChecksLog();
 
-                DataTable dt = new DataTable();
+        //        DataTable dt = new DataTable();
 
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
-                con = Cls_Connection._con;
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = "select * from V_Main_Check where Check_No = '" + Txt_BarCode.Text + "'";
-                Cls_Connection.open_connection();
-                SqlDataReader dr = cmd.ExecuteReader();
+        //        SqlConnection con = new SqlConnection();
+        //        con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+        //        con = Cls_Connection._con;
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.Connection = con;
+        //        cmd.CommandText = "select * from V_Mails where Check_No = '" + Txt_BarCode.Text + "'";
+        //        Cls_Connection.open_connection();
+        //        SqlDataReader dr = cmd.ExecuteReader();
 
-                while (dr.Read())
-                {
-                    clog._Check_Date = (DateTime)dr.GetValue(dr.GetOrdinal("Check_Date"));
-                    clog._Check_Barcode = dr.GetValue(dr.GetOrdinal("BarCode")).ToString();
-                    clog._Check_EmpName = DDL_Employee.SelectedItem.Text;
-                    clog._Check_MedicalName = dr.GetValue(dr.GetOrdinal("SentTo")).ToString();
-                    clog._Check_Number = dr.GetValue(dr.GetOrdinal("Check_No")).ToString();
-                    clog._Check_Type = 0;
-                    clog._Check_Company = dr.GetValue(dr.GetOrdinal("Company")).ToString();
-                    Cls_Connection.close_connection();
-                    clog.Insert_Log();
-                }
-                Cls_Connection.close_connection();
-            }
-            catch (Exception ex)
-            {
-                Cls_Connection.close_connection();
-                return;
-            }
+        //        while (dr.Read())
+        //        {
+        //            clog._Check_Date = (DateTime)dr.GetValue(dr.GetOrdinal("Entry_Date"));
+        //            clog._Check_Barcode = dr.GetValue(dr.GetOrdinal("BarCode")).ToString();
+        //            clog._Check_EmpName = DDL_Employee.SelectedItem.Text;
+        //            clog._Check_MedicalName = dr.GetValue(dr.GetOrdinal("Sent_To_Desc")).ToString();
+        //            clog._Check_Number = dr.GetValue(dr.GetOrdinal("ID")).ToString();
+        //            clog._Check_Type = 0;
+        //            clog._Check_Company = dr.GetValue(dr.GetOrdinal("CompanyDesc")).ToString();
+        //            Cls_Connection.close_connection();
+        //            clog.Insert_Log();
+        //        }
+        //        Cls_Connection.close_connection();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Cls_Connection.close_connection();
+        //        return;
+        //    }
 
-        }
+        //}
         public void SaveAssignNameToChecked()
         {
             try
@@ -303,7 +301,7 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                cmd.CommandText = "select count(id) from  [dbo].[Main_Mail]  WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
                 Cls_Connection.open_connection();
                 int Exist = int.Parse(cmd.ExecuteScalar().ToString());
                 Cls_Connection.close_connection();
@@ -311,15 +309,15 @@ namespace Elite_system
                 {
                     //To Update Name in checkes
                     string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
-                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                    cmd.CommandText = "UPDATE [dbo].[Main_Mail] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
                     Cls_Connection.open_connection();
                     cmd.ExecuteNonQuery();
                     Cls_Connection.close_connection();
-                    InsertLog();
+                    //InsertLog();
                 }
                 else
                 {
-                    MSG("هذا الشيك غير مدخل من قبل");
+                    MSG("هذا البريد غير مدخل من قبل");
                 }
 
 
@@ -334,104 +332,104 @@ namespace Elite_system
             }
         }
 
-        public void SaveAssignNameToChecked2()
-        {
+        //public void SaveAssignNameToChecked2()
+        //{
 
-            try
-            {
-                //Check If Exist
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
-                con = Cls_Connection._con;
-                SqlCommand cmd = new SqlCommand();
+        //    try
+        //    {
+        //        //Check If Exist
+        //        SqlConnection con = new SqlConnection();
+        //        con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+        //        con = Cls_Connection._con;
+        //        SqlCommand cmd = new SqlCommand();
 
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //        DataTable dt = new DataTable();
+        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-                cmd.Connection = con;
-                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Check_No = '" + Txt_CheckNo.Text + "'";
-                Cls_Connection.open_connection();
-                int Exist = int.Parse(cmd.ExecuteScalar().ToString());
-                Cls_Connection.close_connection();
-                if (Exist == 1)
-                {
-                    //To Update Name in checkes
-                    string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
-                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "'";
-                    Cls_Connection.open_connection();
-                    cmd.ExecuteNonQuery();
-                    Check = true;
-                    InsertLog();
-                    Cls_Connection.close_connection();
-                }
-                else if (Exist > 1)
-                {
-                    if (DDL_Sent_To.SelectedValue == "0")
-                    {
-                        Check = false;
-                        MSG("يرجى اختيار الجهة المرسل لها الشيك");
-                        return;
+        //        cmd.Connection = con;
+        //        cmd.CommandText = "select count(id) from  [dbo].[Main_Mail]  WHERE Check_No = '" + Txt_MailNo.Text + "'";
+        //        Cls_Connection.open_connection();
+        //        int Exist = int.Parse(cmd.ExecuteScalar().ToString());
+        //        Cls_Connection.close_connection();
+        //        if (Exist == 1)
+        //        {
+        //            //To Update Name in checkes
+        //            string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+        //            cmd.CommandText = "UPDATE [dbo].[Main_Mail] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_MailNo.Text + "'";
+        //            Cls_Connection.open_connection();
+        //            cmd.ExecuteNonQuery();
+        //            Check = true;
+        //            InsertLog();
+        //            Cls_Connection.close_connection();
+        //        }
+        //        else if (Exist > 1)
+        //        {
+        //            if (DDL_Sent_To.SelectedValue == "0")
+        //            {
+        //                Check = false;
+        //                MSG("يرجى اختيار الجهة المرسل لها البريد");
+        //                return;
 
-                    }
-                    else
-                    {
-                        //To Update Name in checkes
-                        string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
-                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= " + dt1 + " WHERE Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
-                        Cls_Connection.open_connection();
-                        cmd.ExecuteNonQuery();
-                        Check = true;
-                        CheckMore = true;
+        //            }
+        //            else
+        //            {
+        //                //To Update Name in checkes
+        //                string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+        //                cmd.CommandText = "UPDATE [dbo].[Main_Mail] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= " + dt1 + " WHERE Check_No = '" + Txt_MailNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
+        //                Cls_Connection.open_connection();
+        //                cmd.ExecuteNonQuery();
+        //                Check = true;
+        //                CheckMore = true;
 
-                        Cls_Connection.close_connection();
-                        InsertLog();
-                    }
-                }
-                else
-                {
-                    Check = false;
-                    MSG("هذا الشيك غير مدخل من قبل");
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                ex.Message.ToString();
-                Cls_Connection.close_connection();
+        //                Cls_Connection.close_connection();
+        //                InsertLog();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            Check = false;
+        //            MSG("هذا البريد غير مدخل من قبل");
+        //        }
 
 
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ex.Message.ToString();
+        //        Cls_Connection.close_connection();
 
-        public string CheckIfAssigned()
-        {
-            try
-            {
-                //Check If Exist
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
-                con = Cls_Connection._con;
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                if (DDL_Sent_To.SelectedValue == "0")
-                {
-                    cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE Refunded=" + 0 + " and Check_No = '" + Txt_CheckNo.Text + "'";
-                }
-                else
-                {
-                    cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE Refunded=" + 0 + " and Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
-                }
-                Cls_Connection.open_connection();
-                string EmployeeName = cmd.ExecuteScalar().ToString();
-                Cls_Connection.close_connection();
-                return EmployeeName;
-            }
-            catch
-            {
-                return "";
-            }
-        }
+
+        //    }
+        //}
+
+        //public string CheckIfAssigned()
+        //{
+        //    try
+        //    {
+        //        //Check If Exist
+        //        SqlConnection con = new SqlConnection();
+        //        con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+        //        con = Cls_Connection._con;
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.Connection = con;
+        //        if (DDL_Sent_To.SelectedValue == "0")
+        //        {
+        //            cmd.CommandText = "select EmployeeName from  [dbo].[Main_Mail]  WHERE Refunded=" + 0 + " and Check_No = '" + Txt_MailNo.Text + "'";
+        //        }
+        //        else
+        //        {
+        //            cmd.CommandText = "select EmployeeName from  [dbo].[Main_Mail]  WHERE Refunded=" + 0 + " and Check_No = '" + Txt_MailNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
+        //        }
+        //        Cls_Connection.open_connection();
+        //        string EmployeeName = cmd.ExecuteScalar().ToString();
+        //        Cls_Connection.close_connection();
+        //        return EmployeeName;
+        //    }
+        //    catch
+        //    {
+        //        return "";
+        //    }
+        //}
 
         public string CheckIfAssigned2()
         {
@@ -445,7 +443,7 @@ namespace Elite_system
                 cmd.Connection = con;
 
 
-                cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE Refunded=" + 0 + " and BarCode = '*" + Txt_BarCode.Text + "*'";
+                cmd.CommandText = "select EmployeeName from  [dbo].[Main_Mail]  WHERE Refunded=" + 0 + " and BarCode = '*" + Txt_BarCode.Text + "*'";
 
 
                 Cls_Connection.open_connection();
@@ -476,15 +474,15 @@ namespace Elite_system
                     ////////////////////////////////       Log        /////////////////////////////////////////////
                     Cls_Log log = new Cls_Log();
 
-                    log._Log_Event = " إحالة الشيك رقم الباركود  : " + Txt_BarCode.Text + " إلى  " + DDL_Employee.SelectedItem.Text;
+                    log._Log_Event = " إحالة البريد رقم الباركود  : " + Txt_BarCode.Text + " إلى  " + DDL_Employee.SelectedItem.Text;
                     log.Insert_Log();
                     ////////////////////////////////   End Of Log        /////////////////////////////////////////////
 
-                    Get_MainChecks_ForGridView();
+                    Get_MainMail_ForGridView();
                 }
                 else
                 {
-                    MSG(" هذا الشيك محال الى الموظف : " + AssignedCheck);
+                    MSG(" هذا البريد محال الى الموظف : " + AssignedCheck);
                 }
             }
             catch (Exception EX)
@@ -498,38 +496,38 @@ namespace Elite_system
         }
 
 
-        protected void Btn_Save2_Click(object sender, EventArgs e)
-        {
-            if (Txt_CheckNo.Text == "")
-            {
-                MSG("يرجى إدخال رقم الشيك");
-                return;
-            }
-            Check = false;
-            CheckMore = false;
-            string AssignedCheck = "";
-            AssignedCheck = CheckIfAssigned();
-            if (AssignedCheck == "")
-            {
-                SaveAssignNameToChecked2();
-                if (Check == true)
-                {
-                    ////////////////////////////////       Log        /////////////////////////////////////////////
-                    Cls_Log log = new Cls_Log();
-                    log._Log_Event = " إحالة الشيك رقم   : " + Txt_CheckNo.Text + " إلى  " + DDL_Employee.SelectedItem.Text;
-                    log.Insert_Log();
-                    ////////////////////////////////   End Of Log        /////////////////////////////////////////////
+        //protected void Btn_Save2_Click(object sender, EventArgs e)
+        //{
+        //    if (Txt_MailNo.Text == "")
+        //    {
+        //        MSG("يرجى إدخال رقم البريد");
+        //        return;
+        //    }
+        //    Check = false;
+        //    CheckMore = false;
+        //    string AssignedCheck = "";
+        //    AssignedCheck = CheckIfAssigned();
+        //    if (AssignedCheck == "")
+        //    {
+        //        SaveAssignNameToChecked2();
+        //        if (Check == true)
+        //        {
+        //            ////////////////////////////////       Log        /////////////////////////////////////////////
+        //            Cls_Log log = new Cls_Log();
+        //            log._Log_Event = " إحالة البريد رقم   : " + Txt_MailNo.Text + " إلى  " + DDL_Employee.SelectedItem.Text;
+        //            log.Insert_Log();
+        //            ////////////////////////////////   End Of Log        /////////////////////////////////////////////
 
-                    Get_MainChecks_ForGridView();
-                }
-            }
-            else
-            {
-                MSG(" هذا الشيك محال الى الموظف : " + AssignedCheck);
-            }
-            Txt_CheckNo.Text = "";
-            Txt_CheckNo.Focus();
-        }
+        //            Get_MainMail_ForGridView();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MSG(" هذا البريد محال الى الموظف : " + AssignedCheck);
+        //    }
+        //    Txt_MailNo.Text = "";
+        //    Txt_MailNo.Focus();
+        //}
 
         protected void ClearTempTable()
         {
@@ -581,7 +579,8 @@ namespace Elite_system
 
                 cmd.Connection = con;
                 string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
-                cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = NULL ,Modified= '" + dt1 + "' WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
+                string aa= "UPDATE [dbo].[Main_Mail] SET [EmployeeName] = NULL ,Modified= NULL WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[11].Text + "'";
+                cmd.CommandText = aa;
                 Cls_Connection.open_connection();
                 cmd.ExecuteNonQuery();
 
@@ -600,10 +599,10 @@ namespace Elite_system
             }
             ////////////////////////////////       Log        /////////////////////////////////////////////
             Cls_Log log = new Cls_Log();
-            log._Log_Event = ": تراجع عن إحالة الشيك رقم الباركود" + GV_ChecksAssigned.Rows[0].Cells[12].Text + " إلى  " + DDL_Employee.SelectedItem.Text;
+            log._Log_Event = ": تراجع عن إحالة البريد رقم الباركود" + GV_ChecksAssigned.Rows[0].Cells[12].Text + " إلى  " + DDL_Employee.SelectedItem.Text;
             log.Insert_Log();
             ////////////////////////////////   End Of Log        /////////////////////////////////////////////
-            Get_MainChecks_ForGridView();
+            Get_MainMail_ForGridView();
         }
 
         protected void Btn_Delete_Click(object sender, EventArgs e)
@@ -625,7 +624,7 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "SELECT [Company],[Check_Date],[SentTo],[Value],[Check_No],[Address],[Phone],[EmployeeName] FROM[dbo].[V_Main_Check] where( [EmployeeName] = N'" + DDL_Employee.SelectedItem.Text + "' and Modified = cast(GETDATE() as date))";
+                cmd.CommandText = "SELECT [Company],[Check_Date],[SentTo],[Value],[Check_No],[Address],[Phone],[EmployeeName] FROM[dbo].[V_Mails] where( [EmployeeName] = N'" + DDL_Employee.SelectedItem.Text + "' and Modified = cast(GETDATE() as date))";
                 Cls_Connection.open_connection();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt2);

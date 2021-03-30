@@ -686,7 +686,7 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 0 + ",Delivery_Date= '" + dt1 + "' WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
+                cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 0 + ",Delivery_Date= NULL WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
                 Cls_Connection.open_connection();
                 cmd.ExecuteNonQuery();
 
