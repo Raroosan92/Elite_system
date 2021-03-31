@@ -537,7 +537,7 @@
                             <TextRun>
                               <Value>=Fields!BarCode.Value</Value>
                               <Style>
-                                <FontFamily>IDAutomationHC39M</FontFamily>
+                                <FontFamily>IDAutomationHC39M Free Version</FontFamily>
                                 <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
