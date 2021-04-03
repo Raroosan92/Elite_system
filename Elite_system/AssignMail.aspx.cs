@@ -90,7 +90,7 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                 string x = "select ROW_NUMBER() OVER (ORDER BY [id] ASC) as 'التسلسل', Sent_To_Desc 'الجهة الطبية',Company 'الشركة',[Mails_Count] 'العدد',ID 'رقم البريد',EmployeeName 'اسم الموظف المحال له' from V_Mails where Modified = '" + dt1 + "' order by ROW_NUMBER() OVER (ORDER BY [id] desc)";
                 cmd.CommandText = x;
                 Cls_Connection.open_connection();
@@ -308,7 +308,7 @@ namespace Elite_system
                 if (Exist == 1)
                 {
                     //To Update Name in checkes
-                    string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                    string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                     cmd.CommandText = "UPDATE [dbo].[Main_Mail] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
                     Cls_Connection.open_connection();
                     cmd.ExecuteNonQuery();
@@ -354,7 +354,7 @@ namespace Elite_system
         //        if (Exist == 1)
         //        {
         //            //To Update Name in checkes
-        //            string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+        //            string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
         //            cmd.CommandText = "UPDATE [dbo].[Main_Mail] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_MailNo.Text + "'";
         //            Cls_Connection.open_connection();
         //            cmd.ExecuteNonQuery();
@@ -374,7 +374,7 @@ namespace Elite_system
         //            else
         //            {
         //                //To Update Name in checkes
-        //                string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+        //                string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
         //                cmd.CommandText = "UPDATE [dbo].[Main_Mail] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= " + dt1 + " WHERE Check_No = '" + Txt_MailNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
         //                Cls_Connection.open_connection();
         //                cmd.ExecuteNonQuery();
@@ -578,7 +578,7 @@ namespace Elite_system
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
 
                 cmd.Connection = con;
-                string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                 string aa= "UPDATE [dbo].[Main_Mail] SET [EmployeeName] = NULL ,Modified= NULL WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[11].Text + "'";
                 cmd.CommandText = aa;
                 Cls_Connection.open_connection();

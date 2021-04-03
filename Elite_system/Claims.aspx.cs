@@ -50,11 +50,11 @@ namespace Elite_system
 
             if (!Page.IsPostBack)
             {
-                int year = DateTimeOffset.UtcNow.AddHours(2).Year;
-                int month = DateTimeOffset.UtcNow.AddHours(2).Month;
+                int year = DateTimeOffset.UtcNow.AddHours(3).Year;
+                int month = DateTimeOffset.UtcNow.AddHours(3).Month;
                 DateTime dt1 = new DateTime(year, month, System.DateTime.DaysInMonth(System.DateTime.Now.Year, month));
 
-                Txt_FreezFrom.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Txt_FreezFrom.Text = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                 Txt_FreezTo.Text = dt1.ToString("yyyy-MM-dd");
 
                 //rami
@@ -153,8 +153,8 @@ namespace Elite_system
                 //rami 
                 // ------------- Get MonthYear ----------------------
                 string MonthYear;
-                int Month = int.Parse(DateTime.UtcNow.AddHours(2).Month.ToString());
-                int Year = int.Parse(DateTime.UtcNow.AddHours(2).Year.ToString());
+                int Month = int.Parse(DateTime.UtcNow.AddHours(3).Month.ToString());
+                int Year = int.Parse(DateTime.UtcNow.AddHours(3).Year.ToString());
                 if (Month > 1)
                 {
                     MonthYear = (Month - 1).ToString() + "/" + Year.ToString();
@@ -189,7 +189,7 @@ namespace Elite_system
                 DDL_Medical_Name_Search.Items.Insert(0, new ListItem("--اختر--", "0"));
 
 
-                int year1 = DateTime.UtcNow.AddHours(2).Year;
+                int year1 = DateTime.UtcNow.AddHours(3).Year;
                 for (int i = year1 - 5; i <= year1 + 5; i++)
                 {
                     ListItem li = new ListItem(i.ToString());
@@ -220,8 +220,8 @@ namespace Elite_system
 
 
 
-                Txt_Entry_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
-                Txt_Received_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Txt_Entry_Date.Text = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
+                Txt_Received_Date.Text = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
 
                 GetClaimsCount();
 
@@ -237,7 +237,7 @@ namespace Elite_system
                 Acounting_No.Visible = false;
                 Receipt_Date.Visible = false;
                 Ammount.Visible = false;
-                Txt_Receipt_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Txt_Receipt_Date.Text = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                 Sent_To.Visible = false;
                 Btn_SaveReceipt.Visible = false;
                 Fill_Statment();
@@ -317,7 +317,7 @@ namespace Elite_system
 
                 Main_Listing_Bonds._Company = long.Parse(ID_Medical_Name[i]);
                 Main_Listing_Bonds._Type = 296;
-                Main_Listing_Bonds._Bond_Date = DateTime.UtcNow.AddHours(2).Date;
+                Main_Listing_Bonds._Bond_Date = DateTime.UtcNow.AddHours(3).Date;
                 string Contracting_Value = Cls_Medical_Types_And_Companies.Get_Contracting_Value(long.Parse(ID_Medical_Name[i]));
                 Main_Listing_Bonds._Debtor = decimal.Parse(Contracting_Value);
                 Main_Listing_Bonds._Description = " أتعاب مطالبات " + Txt_Month_Year.Text;
@@ -374,8 +374,8 @@ namespace Elite_system
                 string Result;
 
 
-                int Month = int.Parse(DateTime.UtcNow.AddHours(2).Month.ToString());
-                int Year = int.Parse(DateTime.UtcNow.AddHours(2).Year.ToString());
+                int Month = int.Parse(DateTime.UtcNow.AddHours(3).Month.ToString());
+                int Year = int.Parse(DateTime.UtcNow.AddHours(3).Year.ToString());
                 if (Month > 1)
                 {
                     Month = Month - 1;
@@ -598,10 +598,10 @@ namespace Elite_system
                     DDL_Receiver_Employee.SelectedValue = "0";
                     Ch_Freez2.Checked = false;
 
-                    int year = DateTimeOffset.UtcNow.AddHours(2).Year;
-                    int month1 = DateTimeOffset.UtcNow.AddHours(2).Month;
+                    int year = DateTimeOffset.UtcNow.AddHours(3).Year;
+                    int month1 = DateTimeOffset.UtcNow.AddHours(3).Month;
                     DateTime dt3 = new DateTime(year, month1, System.DateTime.DaysInMonth(System.DateTime.Now.Year, month1));
-                    Txt_FreezFrom.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                    Txt_FreezFrom.Text = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                     Txt_FreezTo.Text = dt3.ToString("yyyy-MM-dd");
 
                     GridView_SubClaims.DataSource = null;
@@ -686,8 +686,8 @@ namespace Elite_system
 
         private int GetMax_TotalClaim()
         {
-            var Month = DateTimeOffset.UtcNow.AddHours(2).Month;
-            var Year = DateTimeOffset.UtcNow.AddHours(2).Year;
+            var Month = DateTimeOffset.UtcNow.AddHours(3).Month;
+            var Year = DateTimeOffset.UtcNow.AddHours(3).Year;
             if (Month > 1)
             {
                 Month = Month - 1;
@@ -917,7 +917,7 @@ namespace Elite_system
                 cmd.CommandText = "Select IDENT_CURRENT('Sub_Claims')";
                 int strImageName = int.Parse(cmd.ExecuteScalar().ToString());
 
-                DateTime datevalue = (DateTime.UtcNow.AddHours(2));
+                DateTime datevalue = (DateTime.UtcNow.AddHours(3));
                 string dd = datevalue.Day.ToString();
                 string mm = datevalue.Month.ToString();
                 string yy = datevalue.Year.ToString();
@@ -1287,7 +1287,7 @@ namespace Elite_system
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CONN"].ConnectionString);
             cmd.Connection = conn;
             conn.Open();
-            DateTime datevalue = (DateTime.UtcNow.AddHours(2));
+            DateTime datevalue = (DateTime.UtcNow.AddHours(3));
             string dd = datevalue.Day.ToString();
             string mm = datevalue.Month.ToString();
             string yy = datevalue.Year.ToString();
@@ -2686,8 +2686,8 @@ namespace Elite_system
             else
             {
 
-                string Month = DateTime.UtcNow.AddHours(2).Month.ToString();
-                string Year = DateTime.UtcNow.AddHours(2).Year.ToString();
+                string Month = DateTime.UtcNow.AddHours(3).Month.ToString();
+                string Year = DateTime.UtcNow.AddHours(3).Year.ToString();
                 string Medical_ID = int.Parse(DDL_Medical_Name.SelectedValue).ToString();
                 string Batch_No = Txt_Batch_No.Text;
                 Int64 Claim_ID;
@@ -2808,8 +2808,8 @@ namespace Elite_system
             else
             {
 
-                string Month = DateTime.UtcNow.AddHours(2).Month.ToString();
-                string Year = DateTime.UtcNow.AddHours(2).Year.ToString();
+                string Month = DateTime.UtcNow.AddHours(3).Month.ToString();
+                string Year = DateTime.UtcNow.AddHours(3).Year.ToString();
                 string Medical_ID = int.Parse(DDL_Medical_Name.SelectedValue).ToString();
                 string Batch_No = Txt_Batch_No.Text;
                 Int64 Claim_ID;
@@ -3609,8 +3609,8 @@ namespace Elite_system
         public void Fill_Statment()
         {
             string MonthYear;
-            int Month = int.Parse(DateTime.UtcNow.AddHours(2).Month.ToString());
-            int Year = int.Parse(DateTime.UtcNow.AddHours(2).Year.ToString());
+            int Month = int.Parse(DateTime.UtcNow.AddHours(3).Month.ToString());
+            int Year = int.Parse(DateTime.UtcNow.AddHours(3).Year.ToString());
             if (Month > 1)
             {
                 MonthYear = (Month - 1).ToString() + "/" + Year.ToString();
@@ -3706,13 +3706,15 @@ namespace Elite_system
             Main_Listing_Bonds._Description = Txt_Statement.Text;
             if (Contracting_Value+ Stamps> decimal.Parse(Txt_ReceiptAmmount.Text))
             {
-                MSG("القيمة المدخلة اقل من قيمة السند");
-                return;
+                MSG("القيمة المدخلة اقل من قيمة السند ب + "+ Math.Abs((Contracting_Value + Stamps)- decimal.Parse(Txt_ReceiptAmmount.Text)) + "");
+                Main_Listing_Bonds._Creditor = decimal.Parse(Txt_ReceiptAmmount.Text);
+                //return;
             }
             else if (Contracting_Value + Stamps < decimal.Parse(Txt_ReceiptAmmount.Text))
             {
-                MSG("القيمة المدخلة اكبر من قيمة السند");
-                return;
+                MSG("القيمة المدخلة اكبر من قيمة السند ب "+ Math.Abs((Contracting_Value + Stamps) - decimal.Parse(Txt_ReceiptAmmount.Text)) + "");
+                Main_Listing_Bonds._Creditor = decimal.Parse(Txt_ReceiptAmmount.Text);
+                //return;
             }
             else if (Contracting_Value + Stamps == decimal.Parse(Txt_ReceiptAmmount.Text))
             {

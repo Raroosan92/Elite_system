@@ -93,7 +93,7 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                 cmd.CommandText = "select ROW_NUMBER() OVER (ORDER BY [id] ASC) as 'التسلسل', SentTo 'الجهة الطبية',Company 'الشركة',[Value] 'القيمة',Check_No 'رقم الشيك',EmployeeName 'اسم الموظف المحال له' from V_Main_Check where Modified = '" + dt1 + "' order by ROW_NUMBER() OVER (ORDER BY [id] desc)";
                 Cls_Connection.open_connection();
                 DataTable dt = new DataTable();
@@ -310,7 +310,7 @@ namespace Elite_system
                 if (Exist == 1)
                 {
                     //To Update Name in checkes
-                    string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                    string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                     cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
                     Cls_Connection.open_connection();
                     cmd.ExecuteNonQuery();
@@ -356,7 +356,7 @@ namespace Elite_system
                 if (Exist == 1)
                 {
                     //To Update Name in checkes
-                    string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                    string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                     cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "'";
                     Cls_Connection.open_connection();
                     cmd.ExecuteNonQuery();
@@ -376,7 +376,7 @@ namespace Elite_system
                     else
                     {
                         //To Update Name in checkes
-                        string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                        string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                         cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= " + dt1 + " WHERE Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
                         Cls_Connection.open_connection();
                         cmd.ExecuteNonQuery();
@@ -580,7 +580,7 @@ namespace Elite_system
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
 
                 cmd.Connection = con;
-                string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                 cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = NULL ,Modified= '" + dt1 + "' WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
                 Cls_Connection.open_connection();
                 cmd.ExecuteNonQuery();

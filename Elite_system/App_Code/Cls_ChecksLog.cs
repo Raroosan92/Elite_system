@@ -154,7 +154,7 @@ namespace Elite_system
                 cmd.Parameters.AddWithValue("@Check_MedicalName", Check_MedicalName);
                 cmd.Parameters.AddWithValue("@Check_Company", Check_Company);
                 cmd.Parameters.AddWithValue("@Check_Barcode", Check_Barcode);
-                cmd.Parameters.AddWithValue("@Check_CurrentDate", DateTime.UtcNow.AddHours(2).ToString("yyyy-MM-dd  h:mm tt"));
+                cmd.Parameters.AddWithValue("@Check_CurrentDate", DateTime.UtcNow.AddHours(3).ToString("yyyy-MM-dd  h:mm tt"));
                 cmd.Parameters.AddWithValue("@Check_Date", Check_Date);
                 cmd.Parameters.AddWithValue("@Check", 'I');
 

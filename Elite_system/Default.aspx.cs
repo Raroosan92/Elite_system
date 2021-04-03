@@ -14,7 +14,7 @@ namespace Elite_system
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ServerTime.Text = DateTimeOffset.UtcNow.AddHours(2).ToString();
+            ServerTime.Text = DateTimeOffset.UtcNow.AddHours(3).ToString();
             if (!IsPostBack)
             {
                 ResetFreez();
@@ -71,7 +71,7 @@ namespace Elite_system
                     var _FreezTo = FreezTo[i].ToString();
                     
                     var x = _FreezTo.ToString().Substring(0, 10);
-                    var y = DateTime.UtcNow.AddHours(2).ToString().Substring(0, 10);
+                    var y = DateTime.UtcNow.AddHours(3).ToString().Substring(0, 10);
                     if (x == y)
                     {
                         cmd.Parameters.Clear();

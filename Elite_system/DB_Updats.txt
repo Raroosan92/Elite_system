@@ -1,612 +1,107 @@
 -----------------------------------------------------------------------------------------------------------------------------------
-ALTER TABLE [dbo].[Medical_Types_And_Companies]
-ADD Notes varchar(500);
+https://docs.microsoft.com/en-us/dotnet/api/system.device.location.geocoordinatewatcher?view=netframework-4.8
 
+https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
 
-	ALTER TABLE [dbo].[Medical_Types_And_Companies]
-	ADD Freez bit 
-DEFAULT 'false' WITH VALUES
-
-ALTER TABLE [dbo].[Medical_Types_And_Companies]
-	ADD FreezTo Date
-
-	ALTER TABLE [dbo].[Medical_Types_And_Companies]
-	ADD FreezFrom Date
-
-
-		ALTER TABLE [dbo].[Main_Claims]
-	ADD Total_Claims int 
-DEFAULT 0 WITH VALUES
-
+https://stackoverflow.com/questions/20368348/how-to-get-the-current-location-of-device-in-c-sharp
 -----------------------------------------------------------------------------------------------------------------------------------
 USE [DB_A5D8AE_EliteSystem]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Medical_Types_And_Companies]    Script Date: 17/03/2021 09:41:39 ’ ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-ALTER proc [dbo].[SP_Medical_Types_And_Companies]
 
-@ID numeric(18,0)=null,
-@Name nvarchar(200)=null,
-@Type int =null,
-@Specialization int=null,
-@Place int=null,
-@Region int=null,
-@Address nvarchar(500)=null,
-@Building nvarchar(500)=null,
-@Email nvarchar(100)=null,
-@Phone nvarchar(50) =null,
-@Mobile nvarchar(50)=null,
-@Fax  nvarchar(50)=null,
-@P_O_Box nvarchar(50)=null,
-@Medical_Status int=null,
-@Reason nvarchar(200)=null,
-@Contracting_Status int=null,
-@Contract_NO numeric(18,0) =null,
-@Contract_Date date=null,
-@ContractExpiryDate date=null,
-@Accounting_Date date=null,
-@Contracting_Value nvarchar(50)=null,
-@Contracting_NO nvarchar(50)=null,
-@Stamps int=null,
-@Acounting_NO nvarchar(50) =null,
-@Employee int=null,
-@Bank  int=null,
-@Bank_Branch int=null,
-@P_O_Box2 nvarchar(50)=null,
-@Tax_NO nvarchar(50)=null,
-@Authorization_NO nvarchar(50)=null,
-@Notes nvarchar(50)=null,
-@Contracting_Type1 int=null,
-@Contracting_Type2 int=null,
-@Contracting_Type3 int=null,
-@Entry_Type tinyint=null,
-@User_ID int=null,
-@Freez bit=null,
-@FreezFrom date=null,
-@FreezTo date=null,
-@check char(1)
-
-
-as
-begin
-
-
-if @Check='i'
-INSERT INTO [dbo].[Medical_Types_And_Companies]
-           ([Name]
-		   ,[Type]
-           ,[Specialization]
-           ,[Place]
-           ,[Region]
-           ,[Address]
-           ,[Building]
-           ,[Email]
-           ,[Phone]
-           ,[Mobile]
-           ,[Fax]
-           ,[P_O_Box]
-           ,[Medical_Status]
-           ,[Reason]
-           ,[Contracting_Status]
-           ,[Contract_NO]
-           ,[Contract_Date]
-           ,[ContractExpiryDate]
-           ,[Accounting_Date]
-           ,[Contracting_Value]
-           ,[Contracting_NO]
-           ,[Stamps]
-           ,[Acounting_NO]
-           ,[Employee]
-           ,[Bank]
-           ,[Bank_Branch]
-           ,[P_O_Box2]
-           ,[Tax_NO]
-           ,[Authorization_NO]
-           ,[Contracting_Type1]
-		   ,[Contracting_Type2]
-		   ,[Contracting_Type3]
-           ,[Entry_Type]
-		   ,[User_ID]
-		   ,[Freez])
-		    values(@Name
-		   ,@Type
-           ,@Specialization
-           ,@Place
-           ,@Region
-           ,@Address
-           ,@Building
-           ,@Email
-           ,@Phone
-           ,@Mobile
-           ,@Fax
-           ,@P_O_Box
-           ,@Medical_Status
-           ,@Reason
-           ,@Contracting_Status
-           ,@Contract_NO
-           ,@Contract_Date
-           ,@ContractExpiryDate
-           ,@Accounting_Date
-           ,@Contracting_Value
-           ,@Contracting_NO
-           ,@Stamps
-           ,@Acounting_NO
-           ,@Employee
-           ,@Bank
-           ,@Bank_Branch
-           ,@P_O_Box2
-           ,@Tax_NO
-		   ,@Authorization_NO
-           ,@Contracting_Type1
-		   ,@Contracting_Type2
-		   ,@Contracting_Type3
-           ,@Entry_Type
-		   ,@User_ID
-		   ,@Freez)
-
-else if @Check='u'
-UPDATE [dbo].[Medical_Types_And_Companies]
-   SET [Name]=@Name
-      ,[Type] = @Type
-      ,[Specialization] = @Specialization
-      ,[Place] = @Place
-      ,[Region] = @Region
-      ,[Address] = @Address
-      ,[Building] = @Building
-      ,[Email] = @Email
-      ,[Phone] = @Phone
-      ,[Mobile] = @Mobile
-      ,[Fax] = @Fax
-      ,[P_O_Box] = @P_O_Box
-      ,[Medical_Status] = @Medical_Status
-      ,[Reason] = @Reason
-      ,[Contracting_Status] = @Contracting_Status
-      ,[Contract_NO] = @Contract_NO
-      ,[Contract_Date] = @Contract_Date
-      ,[ContractExpiryDate] = @ContractExpiryDate
-      ,[Accounting_Date] = @Accounting_Date
-      ,[Contracting_Value] = @Contracting_Value
-      ,[Contracting_NO] = @Contracting_NO
-      ,[Stamps] = @Stamps
-      ,[Acounting_NO] = @Acounting_NO
-	  ,[Notes]=@Notes
-      ,[Employee] =@Employee
-      ,[Bank] = @Bank
-      ,[Bank_Branch] = @Bank_Branch
-      ,[P_O_Box2] =@P_O_Box2
-      ,[Tax_NO] = @Tax_NO
-      ,[Authorization_NO] =@Authorization_NO
-      ,[Contracting_Type1] = @Contracting_Type1
-	  ,[Contracting_Type2] = @Contracting_Type2
-	  ,[Contracting_Type3] = @Contracting_Type3
-      ,[Entry_Type] = @Entry_Type
-	  ,[User_ID] = @User_ID
-	  ,[Freez]=@Freez
-	  ,[FreezFrom]=@FreezFrom
-	  ,[FreezTo]=@FreezTo
-where ID=@ID 
-
-else
-delete from [dbo].[Medical_Types_And_Companies]
-where  ID=@ID 
-
-end
-
-
-
-
------------------------------------------------------------------------------------------------------------------------------------
-SELECT        TOP (100) PERCENT dbo.Main_Claims.ID, dbo.Main_Claims.Month_Year, dbo.Medical_Types_And_Companies.Name, dbo.Main_Claims.Received_Date, dbo.Employees.Employee_Name, dbo.Main_Claims.Entry_Date, 
-                         dbo.Main_Claims.Batch_No, dbo.Main_Claims.Claim_ID, dbo.Medical_Types_And_Companies.UName, dbo.Medical_Types_And_Companies.ID AS Medicalnameid, dbo.Main_Claims.Total_Claims
-FROM            dbo.Main_Claims INNER JOIN
-                         dbo.Employees ON dbo.Main_Claims.Receiver_Employee = dbo.Employees.ID INNER JOIN
-                         dbo.Medical_Types_And_Companies ON dbo.Main_Claims.Medical_Name = dbo.Medical_Types_And_Companies.ID
-ORDER BY dbo.Main_Claims.ID DESC, Medicalnameid DESC
-
-
-
-
-
-USE [DB_A5D8AE_EliteSystem]
-GO
-
-/****** Object:  View [dbo].[Claims_GridView]    Script Date: 20/03/2021 09:38:58 AM ******/
+/****** Object:  View [dbo].[V_TotalFin2]    Script Date: 03/04/2021 03:21:34 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-ALTER VIEW [dbo].[Claims_GridView]
+ALTER VIEW [dbo].[V_TotalFin2]
 AS
-SELECT TOP (100) PERCENT dbo.Main_Claims.ID, dbo.Main_Claims.Month_Year, dbo.Medical_Types_And_Companies.Name, dbo.Main_Claims.Received_Date, dbo.Employees.Employee_Name, dbo.Main_Claims.Entry_Date, 
-                  dbo.Main_Claims.Batch_No, dbo.Main_Claims.Claim_ID, dbo.Medical_Types_And_Companies.UName, dbo.Medical_Types_And_Companies.ID AS Medicalnameid, dbo.Main_Claims.Total_Claims
-FROM     dbo.Main_Claims INNER JOIN
-                  dbo.Employees ON dbo.Main_Claims.Receiver_Employee = dbo.Employees.ID INNER JOIN
-                  dbo.Medical_Types_And_Companies ON dbo.Main_Claims.Medical_Name = dbo.Medical_Types_And_Companies.ID
-ORDER BY dbo.Main_Claims.ID DESC, Medicalnameid DESC
+SELECT TOP (100) PERCENT dbo.Main_Listing_Bonds.Company, SUM(dbo.Main_Listing_Bonds.Debtor) AS SumOfDebtor, SUM(dbo.Main_Listing_Bonds.Creditor) AS SumOfCreditor, SUM(dbo.Main_Listing_Bonds.Debtor) 
+                  - SUM(dbo.Main_Listing_Bonds.Creditor) AS Total_Fin, dbo.Medical_Types_And_Companies.Name, MAX(DISTINCT dbo.Main_Listing_Bonds.Bond_Date) AS Bond_Date
+FROM     dbo.Main_Listing_Bonds INNER JOIN
+                  dbo.Medical_Types_And_Companies ON dbo.Main_Listing_Bonds.Company = dbo.Medical_Types_And_Companies.ID
+GROUP BY dbo.Main_Listing_Bonds.Company, dbo.Medical_Types_And_Companies.Name
 GO
 
 
 -----------------------------------------------------------------------------------------------------------------------------------
 USE [DB_A5D8AE_EliteSystem]
 GO
-/****** Object:  StoredProcedure [dbo].[Get_MainClaims_ForGridView]    Script Date: 18/03/2021 08:53:43 ’ ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-ALTER proc [dbo].[Get_MainClaims_ForGridView]
-@MonthYear nvarchar(50) = null,
-@Year nvarchar(50) = null,
-@Month nvarchar(50) = null
-as
-begin
-set @Month=CONVERT(nvarchar(50) , MONTH(GETDATE()))
-set @Year=CONVERT(nvarchar(50) , YEAR(GETDATE()))
- if (@Month > 1)  
-  set @Month = @Month - 1             
-  else 
-  set @Year = @Year - 1
-    
-	IF (MONTH(GETDATE()) = 1)
-	 set @Month =12   
-                
-set @MonthYear=@Month+'/'+@Year
 
-SELECT ID as '«·—ﬁ„_«·—∆Ì”Ì',Claim_ID as '«· ”·”·', Name as '«”„ «·ÃÂ… «·ÿ»Ì…', Employee_Name as '«”„_«·„ÊŸ›', Month_Year as '«·”‰… / «·‘Â—', 
-CONVERT(varchar(20), Received_Date,1) as ' «—ÌŒ_«·«” ·«„' ,Batch_No as '«·œ›⁄…' ,Total_Claims as '«·⁄œœ'
-FROM Claims_GridView 
-where Month_Year like '%'+@MonthYear+'%' ORDER BY [ID] DESC
-
-
-end
-
------------------------------------------------------------------------------------------------------------------------------------
-USE [DB_A5D8AE_EliteSystem]
-GO
-/****** Object:  StoredProcedure [dbo].[Get_MainClaims_ForGridViewByUName]    Script Date: 18/03/2021 09:06:58 ’ ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-ALTER proc [dbo].[Get_MainClaims_ForGridViewByUName]
-@UName nvarchar(50) null
-as
-begin
-
-SELECT ID as '«·—ﬁ„_«·—∆Ì”Ì',Claim_ID as '«· ”·”·', Name as '«”„ «·ÃÂ… «·ÿ»Ì…', Employee_Name as '«”„_«·„ÊŸ›', Month_Year as '«·”‰… / «·‘Â—', CONVERT(varchar(20), Received_Date,1) as ' «—ÌŒ_«·«” ·«„' ,Batch_No as '«·œ›⁄…' ,Total_Claims as '«·—ﬁ„' FROM Claims_GridView where UName=@UName ORDER BY [ID] DESC
-
-end
-
------------------------------------------------------------------------------------------------------------------------------------
-USE [DB_A5D8AE_EliteSystem]
-GO
-/****** Object:  StoredProcedure [dbo].[SP_Main_Claims]    Script Date: 18/03/2021 09:26:01 ’ ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-ALTER proc [dbo].[SP_Main_Claims]
-
-@ID numeric(18,0)=null,
-@Medical_Name numeric(18,0) =null,
-@Month_Year nvarchar(50)=null,
-@Received_Date date=null,
-@Receiver_Employee int=null,
-@Entry_Date date=null,
-@Batch_No int=null,
-@Main_Company numeric(18,0) =null,
-@Sub_Company numeric(18,2)=null,
-@Claims_Count int=null,
-@Value numeric(18,2) =null,
-@Stamps numeric(18,2)=null,
-@Delivered tinyint=null,
-@check char(1),
-@Claim_ID numeric(18,0) =null,
-@Total_Claims int=null
-
-
-as
-begin
-
-
-if @Check='i'
-INSERT INTO [dbo].[Main_Claims]
-           ([Medical_Name]
-           ,[Month_Year]
-           ,[Received_Date]
-           ,[Receiver_Employee]
-           ,[Entry_Date]
-           ,[Batch_No]
-		   ,[Main_Company]
-           ,[Sub_Company]
-           ,[Claims_Count]
-           ,[Value]
-           ,[Stamps]
-		   ,Delivered
-		   ,Claim_ID
-		   ,Total_Claims)
-     VALUES
-           (@Medical_Name
-           ,@Month_Year
-           ,@Received_Date
-           ,@Receiver_Employee
-           ,@Entry_Date
-           ,@Batch_No
-		   ,@Main_Company
-           ,@Sub_Company
-           ,@Claims_Count
-           ,@Value
-           ,@Stamps
-		   ,@Delivered
-		   ,@Claim_ID
-		   ,@Total_Claims)
-
-else if @Check='u'
-UPDATE [dbo].[Main_Claims]
-   SET [Medical_Name] = @Medical_Name
-      ,[Month_Year] = @Month_Year
-      ,[Received_Date] = @Received_Date
-      ,[Receiver_Employee] = @Receiver_Employee
-      ,[Entry_Date] = @Entry_Date
-      ,[Batch_No] = @Batch_No
-	  ,[Main_Company] = @Main_Company
-      ,[Sub_Company] = @Sub_Company
-      ,[Claims_Count] = @Claims_Count
-      ,[Value] = @Value
-      ,[Stamps] = @Stamps
-	  ,Delivered=@Delivered
-	  ,Claim_ID=@Claim_ID
-where ID=@ID 
-
-else
-delete from [dbo].[Main_Claims]
-where  Claim_ID=@ID 
-
-end
-
------------------------------------------------------------------------------------------------------------------------------------
-
-create proc [dbo].[SP_Medical_Types_And_CompaniesFreezing]
-
-@ID numeric(18,0)=null,
-@Freez bit=null,
-@FreezFrom date=null,
-@FreezTo date=null
-
-as
-begin
-
-UPDATE [dbo].[Medical_Types_And_Companies]
-   SET 
-	  [Freez]=@Freez
-	  ,[FreezFrom]=@FreezFrom
-	  ,[FreezTo]=@FreezTo
-where ID=@ID 
-end
-
------------------------------------------------------------------------------------------------------------------------------------
-
-
-******************Mails***************************
-
-ALTER TABLE [dbo].[Main_Mail]
-ADD EmployeeName	nvarchar(200);
-
-
-ALTER TABLE [dbo].[Main_Mail]
-ADD Refunded bit DEFAULT 'false' WITH VALUES;
-
-
-ALTER TABLE [dbo].[Main_Mail]
-ADD BarCode	nvarchar(200);
-
-ALTER TABLE [dbo].[Main_Mail]
-ADD modified	date;
-
-ALTER TABLE [dbo].[Main_Mail]
-ALTER COLUMN Delivered bit 
-
-
-
-
-
-
-USE [DB_A5D8AE_EliteSystem]
-GO
-/****** Object:  StoredProcedure [dbo].[SP_Main_Mail]    Script Date: 29/03/2021 06:38:27 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-ALTER proc [dbo].[SP_Main_Mail]
-
-@ID numeric(18,0)=null,
-@Company numeric(18,0) =null,
-@Entry_Date date=null,
-@Received_Date date=null,
-@Delivery_Date date=null,
-@Sent_To numeric(18,0) =null,
-@Mail_Type int=null,
-@Mails_Count int =null,
-@Notes nvarchar(200)=null,
-@Delivered tinyint=null,
-@Refunded	bit	=null,
-@BarCode	nvarchar(200)	=null,
-@modified	date	=null,
-@check char(1)
-
-
-as
-begin
-
-
-if @Check='i'
-INSERT INTO [dbo].[Main_Mail]
-           ([Company]
-           ,[Entry_Date]
-           ,[Received_Date]
-           ,[Delivery_Date]
-		   ,[Sent_To]
-           ,[Mail_Type]
-           ,[Mails_Count]
-           ,[Notes]
-		   ,Delivered
-		   ,[Refunded]
-		   ,[BarCode]
-		   ,[modified])
-     VALUES
-           (@Company
-           ,@Entry_Date
-           ,@Received_Date
-           ,@Delivery_Date
-		   ,@Sent_To
-           ,@Mail_Type
-           ,@Mails_Count
-           ,@Notes
-		   ,@Delivered
-		   ,@Refunded
-		   ,@BarCode
-		   ,@modified
-		   )
-
-else if @Check='u'
-UPDATE [dbo].[Main_Mail]
-   SET [Company] = @Company
-      ,[Entry_Date] = @Entry_Date
-      ,[Received_Date] = @Received_Date
-      ,[Delivery_Date] = @Delivery_Date
-	  ,[Sent_To] = @Sent_To
-      ,[Mail_Type] = @Mail_Type
-      ,[Mails_Count] = @Mails_Count
-      ,[Notes] = @Notes
-	  ,Delivered=@Delivered
-	  ,[Refunded]=@Refunded
-	  , [BarCode] =@BarCode
-	   ,[modified]=@modified
-where ID=@ID 
-
-else
-delete from [dbo].[Main_Mail]
-where  ID=@ID 
-
-end
-
-
-
-
-
-USE [DB_A5D8AE_EliteSystem]
-GO
-
-/****** Object:  View [dbo].[V_Mails]    Script Date: 29/03/2021 10:35:09 PM ******/
+/****** Object:  View [dbo].[V_Financial_Receivables]    Script Date: 03/04/2021 03:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-ALTER VIEW [dbo].[V_Mails]
+ALTER VIEW [dbo].[V_Financial_Receivables]
 AS
-SELECT TOP (100) PERCENT dbo.Main_Mail.ID, dbo.Main_Mail.Company, dbo.Medical_Types_And_Companies.Name AS CompanyDesc, dbo.Main_Mail.Entry_Date, dbo.Main_Mail.Received_Date, dbo.Main_Mail.Delivery_Date, 
-                  dbo.Main_Mail.Sent_To, Medical_Types_And_Companies_1.Name AS Sent_To_Desc, dbo.Main_Mail.Mail_Type, dbo.Codes.Description AS Mail_Type_Desc, dbo.Main_Mail.Mails_Count, dbo.Main_Mail.Notes, dbo.Main_Mail.Delivered, 
-                  Medical_Types_And_Companies_1.Address, Medical_Types_And_Companies_1.Phone, dbo.Main_Mail.modified, dbo.Main_Mail.BarCode, dbo.Main_Mail.Refunded, dbo.Main_Mail.EmployeeName
-FROM     dbo.Main_Mail LEFT OUTER JOIN
-                  dbo.Codes ON dbo.Main_Mail.Mail_Type = dbo.Codes.ID LEFT OUTER JOIN
-                  dbo.Medical_Types_And_Companies AS Medical_Types_And_Companies_1 ON dbo.Main_Mail.Sent_To = Medical_Types_And_Companies_1.ID LEFT OUTER JOIN
-                  dbo.Medical_Types_And_Companies ON dbo.Main_Mail.Company = dbo.Medical_Types_And_Companies.ID
-GROUP BY dbo.Main_Mail.ID, dbo.Main_Mail.Company, dbo.Medical_Types_And_Companies.Name, dbo.Main_Mail.Entry_Date, dbo.Main_Mail.Received_Date, dbo.Main_Mail.Delivery_Date, dbo.Main_Mail.Sent_To, 
-                  Medical_Types_And_Companies_1.Name, dbo.Main_Mail.Mail_Type, dbo.Codes.Description, dbo.Main_Mail.Mails_Count, dbo.Main_Mail.Notes, dbo.Main_Mail.Delivered, Medical_Types_And_Companies_1.Address, 
-                  Medical_Types_And_Companies_1.Phone, dbo.Main_Mail.modified, dbo.Main_Mail.BarCode, dbo.Main_Mail.Refunded, dbo.Main_Mail.EmployeeName
+SELECT dbo.Medical_Types_And_Companies.ID, dbo.Medical_Types_And_Companies.Name, dbo.Medical_Types_And_Companies.Phone, dbo.Medical_Types_And_Companies.Address, dbo.Medical_Types_And_Companies.Contracting_Value, 
+                  dbo.Codes.Description AS Stamps, ISNULL(dbo.V_NonDelivered.Count_NonDelivered, 0) AS Count_NonDelivered, dbo.Medical_Types_And_Companies.Contracting_Status, dbo.V_TotalFin2.Total_Fin, dbo.Employees.Employee_Name, 
+                  dbo.Employees.ID AS EmployeeNum, dbo.Medical_Types_And_Companies.Contract_Date, dbo.Medical_Types_And_Companies.Region, dbo.Medical_Types_And_Companies.Mobile, dbo.V_TotalFin2.Bond_Date
+FROM     dbo.Medical_Types_And_Companies INNER JOIN
+                  dbo.Codes ON dbo.Medical_Types_And_Companies.Stamps = dbo.Codes.ID LEFT OUTER JOIN
+                  dbo.Employees ON dbo.Medical_Types_And_Companies.Employee = dbo.Employees.ID LEFT OUTER JOIN
+                  dbo.V_TotalFin2 ON dbo.Medical_Types_And_Companies.ID = dbo.V_TotalFin2.Company LEFT OUTER JOIN
+                  dbo.V_NonDelivered ON dbo.Medical_Types_And_Companies.ID = dbo.V_NonDelivered.ID
 GO
 
 
-
-
-
-create proc [dbo].[Get_MainMails_AssignMails4]
-@MailNo nvarchar(200) = null,
-@EmployeeName nvarchar(200) = null
+-----------------------------------------------------------------------------------------------------------------------------------
+USE [DB_A5D8AE_EliteSystem]
+GO
+/****** Object:  StoredProcedure [dbo].[Get_V_Financial_Receivables_Report]    Script Date: 03/04/2021 03:22:46 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[Get_V_Financial_Receivables_Report]
+@EmployeeNum int null,
+@Region int null,
+@Date_From date null,
+@Date_To date null
 as
 begin
-SELECT 
-		top 600	ROW_NUMBER() OVER (ORDER BY [id] ASC) as '«· ”·”·'
-           ,[CompanyDesc] AS [«”„ «·‘—ﬂ…]
-           ,CONVERT (VARCHAR,Entry_Date,101)AS [ «—ÌŒ «·»—Ìœ]
-           ,Sent_To_Desc AS [„—”· «·Ï]
-           ,[Mails_Count]AS [«·⁄œœ]
-           ,[ID] AS [—ﬁ„ «·»—Ìœ]
-           ,[Mail_Type_Desc] AS [‰Ê⁄ «·»—Ìœ]
-           ,[Notes]AS [„·«ÕŸ« ]
-           ,[Address] AS [«·⁄‰Ê«‰]
-           ,[Phone] AS [—ﬁ„ «·Â« ›]
-           ,[BarCode]
-		   ,[Delivered] AS [„”·¯„/€Ì— „”·¯„]
-		   , [Refunded] AS [„— Ã⁄/€Ì— „— Ã⁄]
-FROM      [dbo].[V_Mails] where ( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date))  order by ROW_NUMBER() OVER (ORDER BY [id] desc)
+if @EmployeeNum=0 and @Region=0
+SELECT        *
+FROM           [dbo].[V_Financial_Receivables] 
+WHERE        [Contracting_Status]=267 and (Bond_Date between @Date_From and @Date_To) order by Name asc
+else  if @EmployeeNum!=0 and @Region=0
+SELECT        *
+FROM           [dbo].[V_Financial_Receivables]
+WHERE        [Contracting_Status]=267 and EmployeeNum=@EmployeeNum and (Bond_Date between @Date_From and @Date_To) order by Name asc
+
+else if @EmployeeNum!=0 and @Region!=0
+SELECT        *
+FROM           [dbo].[V_Financial_Receivables]
+WHERE        [Contracting_Status]=267 and EmployeeNum=@EmployeeNum and Region=@Region and (Bond_Date between @Date_From and @Date_To) order by Name asc
+
+else if @EmployeeNum =0 and @Region!=0
+SELECT        *
+FROM           [dbo].[V_Financial_Receivables]
+WHERE        [Contracting_Status]=267 and Region=@Region and (Bond_Date between @Date_From and @Date_To) order by Name asc
 end
+-----------------------------------------------------------------------------------------------------------------------------------
 
+-----------------------------------------------------------------------------------------------------------------------------------
 
+-----------------------------------------------------------------------------------------------------------------------------------
 
+-----------------------------------------------------------------------------------------------------------------------------------
 
+-----------------------------------------------------------------------------------------------------------------------------------
 
+-----------------------------------------------------------------------------------------------------------------------------------
 
+-----------------------------------------------------------------------------------------------------------------------------------
 
-create proc [dbo].[Get_MainMail_AssignMail5]
-@CheckNo nvarchar(200) = null,
-@EmployeeName nvarchar(200) = null
-as
-begin
-SELECT 
-		top 600	 ROW_NUMBER() OVER (ORDER BY [id] ASC) as '«· ”·”·'
-            ,[CompanyDesc] AS [«”„ «·‘—ﬂ…]
-           ,CONVERT (VARCHAR,Entry_Date,101)AS [ «—ÌŒ «·»—Ìœ]
-           ,Sent_To_Desc AS [„—”· «·Ï]
-           ,[Mails_Count]AS [«·⁄œœ]
-           ,[ID] AS [—ﬁ„ «·»—Ìœ]
-           ,[Mail_Type_Desc] AS [‰Ê⁄ «·»—Ìœ]
-           ,[Notes]AS [„·«ÕŸ« ]
-           ,[Address] AS [«·⁄‰Ê«‰]
-           ,[Phone] AS [—ﬁ„ «·Â« ›]
-           ,[BarCode]
-		   ,[Delivered] AS [„”·¯„/€Ì— „”·¯„]
-		   , [Refunded] AS [„— Ã⁄/€Ì— „— Ã⁄]
-FROM      [dbo].[V_Mails] where( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date)) and Delivered=1  order by ROW_NUMBER() OVER (ORDER BY [id] desc)
-end
+-----------------------------------------------------------------------------------------------------------------------------------
 
+-----------------------------------------------------------------------------------------------------------------------------------
 
-
-create proc [dbo].[Get_MainMail_AssignMail6]
-@EmployeeName nvarchar(200) = null
-as
-begin
-SELECT 
-		top 600	ROW_NUMBER() OVER (ORDER BY [id] ASC) as '«· ”·”·'
-               ,[CompanyDesc] AS [«”„ «·‘—ﬂ…]
-           ,CONVERT (VARCHAR,Entry_Date,101)AS [ «—ÌŒ «·»—Ìœ]
-           ,Sent_To_Desc AS [„—”· «·Ï]
-           ,[Mails_Count]AS [«·⁄œœ]
-           ,[ID] AS [—ﬁ„ «·»—Ìœ]
-           ,[Mail_Type_Desc] AS [‰Ê⁄ «·»—Ìœ]
-           ,[Notes]AS [„·«ÕŸ« ]
-           ,[Address] AS [«·⁄‰Ê«‰]
-           ,[Phone] AS [—ﬁ„ «·Â« ›]
-           ,[BarCode]
-		   ,[Delivered] AS [„”·¯„/€Ì— „”·¯„]
-		   , [Refunded] AS [„— Ã⁄/€Ì— „— Ã⁄]
-FROM      [dbo].[V_Mails] where( [EmployeeName] = @EmployeeName and Modified=cast(GETDATE()as date)) and Refunded=1 order by ROW_NUMBER() OVER (ORDER BY [id] desc)
-end
-
-
-
-
-
-
-******************Mails***************************
+-----------------------------------------------------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------------------------------------------------
 

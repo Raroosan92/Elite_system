@@ -80,7 +80,7 @@
                                 </td>
                             </tr>
 
-                            <%--  <tr>
+                              <tr>
 
                                 <td class="auto-style1">
                                     <asp:TextBox  AutoCompleteType="Disabled" ID="Txt_FromDate" CssClass="form-control" runat="server" Width="166px" Height="21px"></asp:TextBox>
@@ -100,7 +100,7 @@
 
                                     <asp:Label ID="Label2" runat="server" Text="إلى:"></asp:Label></td>
 
-                            </tr>--%>
+                            </tr>
                             <tr>
 
                                 <td class="auto-style2">

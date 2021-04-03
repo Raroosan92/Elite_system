@@ -90,7 +90,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p style="text-align: -webkit-right;">&copy; <%: DateTime.UtcNow.AddHours(2).Year %> - شركة النخبة</p>
+                <p style="text-align: -webkit-right;">&copy; <%: DateTime.UtcNow.AddHours(3).Year %> - شركة النخبة</p>
             </footer>
         </div>
     </form>

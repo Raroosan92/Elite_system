@@ -57,7 +57,7 @@ namespace Elite_system
                     if (empname != "")
                     {
                         //To Update Name in checkes
-                        string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                        string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                         cmd.CommandText = "UPDATE [dbo].[Main_Mail] SET [Refunded] = " + 1 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
                         Cls_Connection.open_connection();
                         cmd.ExecuteNonQuery();
@@ -111,7 +111,7 @@ namespace Elite_system
         //            if (empname != "")
         //            {
         //                //To Update Name in checkes
-        //                string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+        //                string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
         //                cmd.CommandText = "UPDATE [dbo].[Main_Mail] SET  Refunded= " + 1 + ",[Delivered] =" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "'";
         //                Cls_Connection.open_connection();
         //                cmd.ExecuteNonQuery();
@@ -145,7 +145,7 @@ namespace Elite_system
         //                if (empname != "")
         //                {
         //                    //To Update Name in checkes
-        //                    string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+        //                    string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
         //                    cmd.CommandText = "UPDATE [dbo].[Main_Mail] SET [Delivered] = " + 0 + ",Refunded=" + 1 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
         //                    Cls_Connection.open_connection();
         //                    cmd.ExecuteNonQuery();
@@ -296,7 +296,7 @@ namespace Elite_system
         {
             try
             {
-                string dt1 = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
                 con = Cls_Connection._con;

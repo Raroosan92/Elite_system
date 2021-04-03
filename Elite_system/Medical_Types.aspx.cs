@@ -32,7 +32,7 @@ namespace Elite_system
             if (!Page.IsPostBack)
             {
 
-                //DateTime.(DateTimeOffset.UtcNow.AddHours(2).Year, DateTimeOffset.UtcNow.AddHours(2).Month).ToString(); /*DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");*/
+                //DateTime.(DateTimeOffset.UtcNow.AddHours(3).Year, DateTimeOffset.UtcNow.AddHours(3).Month).ToString(); /*DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");*/
                 //rami
                 slider.Visible = false;
 
@@ -316,7 +316,7 @@ namespace Elite_system
                 cmd11.CommandText = "Select IDENT_CURRENT('Medical_Types_And_Companies')";
                 int strImageName = int.Parse(cmd11.ExecuteScalar().ToString());
 
-                DateTime datevalue = (DateTime.UtcNow.AddHours(2));
+                DateTime datevalue = (DateTime.UtcNow.AddHours(3));
                 string dd = datevalue.Day.ToString();
                 string mm = datevalue.Month.ToString();
                 string yy = datevalue.Year.ToString();
@@ -854,7 +854,7 @@ namespace Elite_system
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CONN"].ConnectionString);
             cmd.Connection = conn;
             conn.Open();
-            DateTime datevalue = (DateTime.UtcNow.AddHours(2));
+            DateTime datevalue = (DateTime.UtcNow.AddHours(3));
             string dd = datevalue.Day.ToString();
             string mm = datevalue.Month.ToString();
             string yy = datevalue.Year.ToString();
@@ -1209,7 +1209,7 @@ namespace Elite_system
                 cmd11.CommandText = "Select IDENT_CURRENT('Medical_Types_And_Companies')";
                 int strImageName = int.Parse(cmd11.ExecuteScalar().ToString());
 
-                DateTime datevalue = (DateTime.UtcNow.AddHours(2));
+                DateTime datevalue = (DateTime.UtcNow.AddHours(3));
                 string dd = datevalue.Day.ToString();
                 string mm = datevalue.Month.ToString();
                 string yy = datevalue.Year.ToString();

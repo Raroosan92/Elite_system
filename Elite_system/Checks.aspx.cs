@@ -124,10 +124,10 @@ namespace Elite_system
 
                 //Get_MainChecks_ForUpdate();
                 //Get_SubChecks_ForGridView();
-                Txt_Entry_Date.Text = DateTime.Parse(DateTimeOffset.UtcNow.AddHours(2).ToString()).ToString("yyyy-MM-dd");
-                Txt_Check_Date.Text = DateTime.Parse(DateTimeOffset.UtcNow.AddHours(2).ToString()).ToString("yyyy-MM-dd");
-                //Txt_Delivery_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
-                Txt_Received_Date.Text = DateTime.Parse(DateTimeOffset.UtcNow.AddHours(2).ToString()).ToString("yyyy-MM-dd");
+                Txt_Entry_Date.Text = DateTime.Parse(DateTimeOffset.UtcNow.AddHours(3).ToString()).ToString("yyyy-MM-dd");
+                Txt_Check_Date.Text = DateTime.Parse(DateTimeOffset.UtcNow.AddHours(3).ToString()).ToString("yyyy-MM-dd");
+                //Txt_Delivery_Date.Text = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
+                Txt_Received_Date.Text = DateTime.Parse(DateTimeOffset.UtcNow.AddHours(3).ToString()).ToString("yyyy-MM-dd");
                 DDL_Company.Focus();
 
 
@@ -459,7 +459,7 @@ namespace Elite_system
                         Main_Check._Check_Date = DateTime.Parse(Txt_Check_Date.Text);
                     }
 
-                    Main_Check._Entry_Date = DateTime.Parse(DateTimeOffset.UtcNow.AddHours(2).ToString());
+                    Main_Check._Entry_Date = DateTime.Parse(DateTimeOffset.UtcNow.AddHours(3).ToString());
 
                     if (Txt_Received_Date.Text != "")
                     {
@@ -532,7 +532,7 @@ namespace Elite_system
                         cmd.CommandText = "Select IDENT_CURRENT('Main_Check')";
                         int strImageName = int.Parse(cmd.ExecuteScalar().ToString());
 
-                        DateTime datevalue = (DateTime.Parse(DateTimeOffset.UtcNow.AddHours(2).ToString()));
+                        DateTime datevalue = (DateTime.Parse(DateTimeOffset.UtcNow.AddHours(3).ToString()));
                         string dd = datevalue.Day.ToString();
                         string mm = datevalue.Month.ToString();
                         string yy = datevalue.Year.ToString();
@@ -796,7 +796,7 @@ namespace Elite_system
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CONN"].ConnectionString);
                 cmd.Connection = conn;
                 conn.Open();
-                DateTime datevalue = (DateTime.Parse(DateTimeOffset.UtcNow.AddHours(2).ToString()));
+                DateTime datevalue = (DateTime.Parse(DateTimeOffset.UtcNow.AddHours(3).ToString()));
                 string dd = datevalue.Day.ToString();
                 string mm = datevalue.Month.ToString();
                 string yy = datevalue.Year.ToString();

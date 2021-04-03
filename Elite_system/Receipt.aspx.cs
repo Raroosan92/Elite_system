@@ -36,15 +36,15 @@ namespace Elite_system
                 DDL_Medical_Name.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
                 DDL_Medical_Name.DataBind();
                 DDL_Medical_Name.Items.Insert(0, new ListItem("--اختر--", "0"));
-                Txt_Receipt_Date.Text = DateTimeOffset.UtcNow.AddHours(2).ToString("yyyy-MM-dd");
+                Txt_Receipt_Date.Text = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
 
                 DDL_Medical_Name_Search.DataSource = Cls_Main_Claims.Get_Medical_TypesForClaims();
                 DDL_Medical_Name_Search.DataBind();
                 DDL_Medical_Name_Search.Items.Insert(0, new ListItem("--اختر--", "0"));
 
                 string MonthYear;
-                int Month = int.Parse(DateTime.UtcNow.AddHours(2).Month.ToString());
-                int Year = int.Parse(DateTime.UtcNow.AddHours(2).Year.ToString());
+                int Month = int.Parse(DateTime.UtcNow.AddHours(3).Month.ToString());
+                int Year = int.Parse(DateTime.UtcNow.AddHours(3).Year.ToString());
                 if (Month > 1)
                 {
                     MonthYear = (Month - 1).ToString() + "/" + Year.ToString();

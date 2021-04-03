@@ -26,7 +26,7 @@ public partial class Controls_Header : System.Web.UI.UserControl
     protected void Unnamed_LoggingOut(object sender, EventArgs e)
     {
         Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-        Response.Cookies["UserName"].Expires = DateTime.UtcNow.AddHours(2).AddSeconds(-1);
+        Response.Cookies["UserName"].Expires = DateTime.UtcNow.AddHours(3).AddSeconds(-1);
         FormsAuthentication.SignOut();
         Response.Redirect("~/Login.aspx");
     }

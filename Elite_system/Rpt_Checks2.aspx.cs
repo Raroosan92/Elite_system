@@ -62,10 +62,10 @@ namespace Elite_system
                 }
                 cmd.Parameters.AddWithValue("@EmployeeNum", Int64.Parse(DDL_Employee.SelectedValue));
                 cmd.Parameters.AddWithValue("@Region", Int64.Parse(DDL_Region1.SelectedValue));
-                //DateTime dt1 = DateTime.ParseExact(Txt_FromDate.Text, "yyyy-MM-dd", null);
-                //DateTime dt2 = DateTime.ParseExact(Txt_ToDate.Text, "yyyy-MM-dd", null);
-
-                //cmd.Parameters.AddWithValue("@To", dt2);
+                DateTime dt1 = DateTime.ParseExact(Txt_FromDate.Text, "yyyy-MM-dd", null);
+                DateTime dt2 = DateTime.ParseExact(Txt_ToDate.Text, "yyyy-MM-dd", null);
+                cmd.Parameters.AddWithValue("@Date_From", dt1);
+                cmd.Parameters.AddWithValue("@Date_To", dt2);
                 ReportParameter rp1;
                 float Commission;
                 if (Txt_Commission.Text == "")
