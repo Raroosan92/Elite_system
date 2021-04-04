@@ -15,13 +15,13 @@
               <Width>0.95833in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.60208in</Width>
+              <Width>1.06041in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.75557in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.70208in</Width>
+              <Width>1.06875in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.53125in</Width>
@@ -33,7 +33,7 @@
               <Width>0.94167in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.28746in</Width>
+              <Width>2.66246in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.36459in</Width>
@@ -1569,10 +1569,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DS_Financial_Receivables</DataSetName>
-        <Top>3.41513in</Top>
+        <Top>1.54013in</Top>
         <Left>0.50929in</Left>
         <Height>1.44583in</Height>
-        <Width>10.68053in</Width>
+        <Width>11.88053in</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1621,8 +1621,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>3.05402in</Top>
-        <Left>2.75858in</Left>
+        <Top>0.05402in</Top>
+        <Left>3.75858in</Left>
         <Height>0.29167in</Height>
         <Width>5.66041in</Width>
         <ZIndex>1</ZIndex>
@@ -1640,10 +1640,10 @@
         <Source>Embedded</Source>
         <Value>EliteSystem2</Value>
         <Sizing>FitProportional</Sizing>
-        <Top>0.12069in</Top>
-        <Left>2.92682in</Left>
-        <Height>2.93333in</Height>
-        <Width>6.79704in</Width>
+        <Top>0.06944in</Top>
+        <Left>0.63239in</Left>
+        <Height>1.20677in</Height>
+        <Width>2.13871in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -1651,11 +1651,155 @@
           </Border>
         </Style>
       </Image>
+      <Textbox Name="Textbox5">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>:من تاريخ</Value>
+                <Style>
+                  <FontSize>16pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.44966in</Top>
+        <Left>11.26277in</Left>
+        <Height>0.36145in</Height>
+        <Width>0.98771in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox8">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>:الى تاريخ</Value>
+                <Style>
+                  <FontSize>16pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.91477in</Top>
+        <Left>11.25975in</Left>
+        <Height>0.36145in</Height>
+        <Width>0.98771in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox10">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=FormatDateTime(Parameters!DateFrom.Value, DateFormat.ShortDate)</Value>
+                <Style>
+                  <FontSize>16pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.44966in</Top>
+        <Left>9.26126in</Left>
+        <Height>0.36145in</Height>
+        <Width>1.61271in</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox12">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=FormatDateTime(Parameters!DateTo.Value, DateFormat.ShortDate)</Value>
+                <Style>
+                  <FontSize>16pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.91477in</Top>
+        <Left>9.26126in</Left>
+        <Height>0.36145in</Height>
+        <Width>1.61271in</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>17.63011cm</Height>
+    <Height>8.74011cm</Height>
     <Style />
   </Body>
-  <Width>29.22829cm</Width>
+  <Width>32.21279cm</Width>
   <Page>
     <PageHeader>
       <Height>0.77927cm</Height>
@@ -1732,7 +1876,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox38</rd:DefaultName>
           <Top>0.08333in</Top>
-          <Left>4.39439in</Left>
+          <Left>6.14439in</Left>
           <Height>0.25in</Height>
           <Width>1.28018in</Width>
           <Style>
@@ -1847,6 +1991,16 @@
   <ReportParameters>
     <ReportParameter Name="commission">
       <DataType>Float</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DateFrom">
+      <DataType>DateTime</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DateTo">
+      <DataType>DateTime</DataType>
       <Nullable>true</Nullable>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>

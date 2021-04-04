@@ -44,7 +44,9 @@ namespace Elite_system
         {
             try
             {
-
+                ReportParameter rp1;
+                ReportParameter rp2;
+                ReportParameter rp3;
                 SqlConnection con = new SqlConnection();
 
                 con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
@@ -62,11 +64,36 @@ namespace Elite_system
                 }
                 cmd.Parameters.AddWithValue("@EmployeeNum", Int64.Parse(DDL_Employee.SelectedValue));
                 cmd.Parameters.AddWithValue("@Region", Int64.Parse(DDL_Region1.SelectedValue));
-                DateTime dt1 = DateTime.ParseExact(Txt_FromDate.Text, "yyyy-MM-dd", null);
-                DateTime dt2 = DateTime.ParseExact(Txt_ToDate.Text, "yyyy-MM-dd", null);
-                cmd.Parameters.AddWithValue("@Date_From", dt1);
-                cmd.Parameters.AddWithValue("@Date_To", dt2);
-                ReportParameter rp1;
+                if (Txt_FromDate.Text=="")
+                {
+                    cmd.Parameters.AddWithValue("@Date_From", null);
+                    rp2 = new ReportParameter("DateFrom", "");
+
+                }
+                else
+                {
+                    DateTime dt1 = DateTime.ParseExact(Txt_FromDate.Text, "yyyy-MM-dd", null);
+                    cmd.Parameters.AddWithValue("@Date_From", dt1);
+                    rp2 = new ReportParameter("DateFrom", dt1.ToString("yyyy-MM-dd"));
+
+
+                }
+                if (Txt_ToDate.Text == "")
+                {
+                    cmd.Parameters.AddWithValue("@Date_To", null);
+                    rp3 = new ReportParameter("DateTo", "");
+
+                }
+                else
+                {
+                    DateTime dt2 = DateTime.ParseExact(Txt_ToDate.Text, "yyyy-MM-dd", null);
+                    cmd.Parameters.AddWithValue("@Date_To", dt2);
+                    rp3 = new ReportParameter("DateTo", dt2.ToString("yyyy-MM-dd"));
+
+                }
+
+                
+              
                 float Commission;
                 if (Txt_Commission.Text == "")
                 {
@@ -78,6 +105,7 @@ namespace Elite_system
 
                 }
                 rp1 = new ReportParameter("commission", Commission.ToString());
+              
 
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 Cls_Connection.open_connection();
@@ -87,6 +115,8 @@ namespace Elite_system
                 ReportViewer1.ProcessingMode = ProcessingMode.Local;
                 ReportViewer1.LocalReport.ReportPath = Server.MapPath("Rpt_Check2.rdlc");
                 ReportViewer1.LocalReport.SetParameters(rp1);
+                ReportViewer1.LocalReport.SetParameters(rp2);
+                ReportViewer1.LocalReport.SetParameters(rp3);
                 ReportViewer1.LocalReport.DataSources.Clear();
                 ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_Financial_Receivables", dt_Result));
                 ReportViewer1.LocalReport.Refresh();

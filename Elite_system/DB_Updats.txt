@@ -60,29 +60,31 @@ GO
 ALTER proc [dbo].[Get_V_Financial_Receivables_Report]
 @EmployeeNum int null,
 @Region int null,
-@Date_From date null,
-@Date_To date null
+@Date_From date = NULL,
+@Date_To date = NULL
 as
+
 begin
 if @EmployeeNum=0 and @Region=0
 SELECT        *
 FROM           [dbo].[V_Financial_Receivables] 
-WHERE        [Contracting_Status]=267 and (Bond_Date between @Date_From and @Date_To) order by Name asc
+WHERE        [Contracting_Status]=267 and (Bond_Date between @Date_From and @Date_To) or @Date_From IS null  or @Date_To IS Null order by Name asc
 else  if @EmployeeNum!=0 and @Region=0
 SELECT        *
 FROM           [dbo].[V_Financial_Receivables]
-WHERE        [Contracting_Status]=267 and EmployeeNum=@EmployeeNum and (Bond_Date between @Date_From and @Date_To) order by Name asc
+WHERE        [Contracting_Status]=267 and EmployeeNum=@EmployeeNum and (Bond_Date between @Date_From and @Date_To) or @Date_From IS null  or @Date_To IS Null order by Name asc
 
 else if @EmployeeNum!=0 and @Region!=0
 SELECT        *
 FROM           [dbo].[V_Financial_Receivables]
-WHERE        [Contracting_Status]=267 and EmployeeNum=@EmployeeNum and Region=@Region and (Bond_Date between @Date_From and @Date_To) order by Name asc
+WHERE        [Contracting_Status]=267 and EmployeeNum=@EmployeeNum and Region=@Region and (Bond_Date between @Date_From and @Date_To) or @Date_From IS null  or @Date_To IS Null order by Name asc
 
 else if @EmployeeNum =0 and @Region!=0
 SELECT        *
 FROM           [dbo].[V_Financial_Receivables]
-WHERE        [Contracting_Status]=267 and Region=@Region and (Bond_Date between @Date_From and @Date_To) order by Name asc
+WHERE        [Contracting_Status]=267 and Region=@Region and (Bond_Date between @Date_From and @Date_To) or @Date_From IS null  or @Date_To IS Null order by Name asc
 end
+
 -----------------------------------------------------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------------------------------------------------
