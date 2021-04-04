@@ -82,23 +82,24 @@
 
                               <tr>
 
-                                <td class="auto-style1">
-                                    <asp:TextBox  AutoCompleteType="Disabled" ID="Txt_FromDate" CssClass="form-control" runat="server" Width="166px" Height="21px"></asp:TextBox>
+                                <td class="auto-style2">
+                                    <asp:TextBox AutoCompleteType="Disabled" ID="Txt_FromDate" runat="server" Width="150px"></asp:TextBox>
                                     <ajaxToolkit:CalendarExtender ID="CalendarExtender1" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_FromDate" />
                                 </td>
-                                <td style="width: 98px">
-                                    <asp:Label ID="Label1" runat="server" Text="التاريخ من :"></asp:Label></td>
+                                <td>
+                                    <asp:Label ID="Label1" runat="server" Text=" : التاريخ من"></asp:Label></td>
 
                             </tr>
+
                             <tr>
 
-                                <td class="auto-style1">
-                                    <asp:TextBox AutoCompleteType="Disabled" ID="Txt_ToDate" CssClass="form-control" runat="server" Width="166px" Height="21px"></asp:TextBox>
+                                <td class="auto-style2">
+                                    <asp:TextBox AutoCompleteType="Disabled" ID="Txt_ToDate" runat="server" Width="150px"></asp:TextBox>
                                     <ajaxToolkit:CalendarExtender ID="CalendarExtender2" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_ToDate" />
                                 </td>
                                 <td style="width: 98px">
 
-                                    <asp:Label ID="Label2" runat="server" Text="إلى:"></asp:Label></td>
+                                    <asp:Label ID="Label4" runat="server" Text=": إلى"></asp:Label></td>
 
                             </tr>
                             <tr>
