@@ -77,6 +77,7 @@ namespace Elite_system
                     rp2 = new ReportParameter("DateFrom", dt1.ToString("yyyy-MM-dd"));
 
 
+
                 }
                 if (Txt_ToDate.Text == "")
                 {
@@ -115,8 +116,29 @@ namespace Elite_system
                 ReportViewer1.ProcessingMode = ProcessingMode.Local;
                 ReportViewer1.LocalReport.ReportPath = Server.MapPath("Rpt_Check2.rdlc");
                 ReportViewer1.LocalReport.SetParameters(rp1);
-                ReportViewer1.LocalReport.SetParameters(rp2);
-                ReportViewer1.LocalReport.SetParameters(rp3);
+                if (Txt_FromDate.Text == "")
+                {
+                   
+                }
+                else
+                {
+                    
+                    ReportViewer1.LocalReport.SetParameters(rp2);
+
+
+
+                }
+                if (Txt_ToDate.Text == "")
+                {
+                   
+
+                }
+                else
+                {
+                    ReportViewer1.LocalReport.SetParameters(rp3);
+                }
+
+
                 ReportViewer1.LocalReport.DataSources.Clear();
                 ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_Financial_Receivables", dt_Result));
                 ReportViewer1.LocalReport.Refresh();
