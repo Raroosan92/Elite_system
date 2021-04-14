@@ -789,6 +789,7 @@
       <DependentUpon>DS_Account.xsd</DependentUpon>
     </Content>
     <Content Include="Test.aspx" />
+    <Content Include="Test2.aspx" />
     <Content Include="Testbarcode.aspx" />
     <Content Include="TreeLineImages\dash.gif" />
     <Content Include="TreeLineImages\dashminus.gif" />
@@ -1723,6 +1724,13 @@
     </Compile>
     <Compile Include="Test.aspx.designer.cs">
       <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test2.aspx.cs">
+      <DependentUpon>Test2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test2.aspx.designer.cs">
+      <DependentUpon>Test2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Testbarcode.aspx.cs">
       <DependentUpon>Testbarcode.aspx</DependentUpon>

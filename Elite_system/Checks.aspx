@@ -112,7 +112,7 @@
                                 </td>
                             </tr>
 
-                            <tr>
+                            <tr style="display:none">
                                 <td class="auto-style1">
                                     <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Received_Date" Font-Bold="True" Font-Size="Medium" Width="300px">
 

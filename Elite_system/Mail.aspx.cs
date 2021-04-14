@@ -51,7 +51,7 @@ namespace Elite_system
                 DDL_Company.Items.Insert(0, new ListItem("--اختر--", "0"));
                 //DDL_Company.SelectedValue = "6822";
 
-                DDL_Sent_To.DataSource = Cls_Main_Claims.Get_Medical_Types2();
+                DDL_Sent_To.DataSource = Cls_Main_Claims.Get_Medical_Company_Types();
                 DDL_Sent_To.DataBind();
                 DDL_Sent_To.Items.Insert(0, new ListItem("--اختر--", "0"));
                 //DDL_Sent_To.SelectedValue = "6819";

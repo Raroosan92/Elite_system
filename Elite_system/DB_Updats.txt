@@ -86,11 +86,20 @@ WHERE        [Contracting_Status]=267 and Region=@Region and (Bond_Date between 
 end
 
 -----------------------------------------------------------------------------------------------------------------------------------
-
+update dbo.Medical_Types_And_Companies set Contract_NO = CAST(ID AS nvarchar(50)) where Contract_NO=0
 -----------------------------------------------------------------------------------------------------------------------------------
-
+create proc [dbo].[GET_MaxContractNo]
+as
+begin
+select max(dbo.Medical_Types_And_Companies.Contract_NO) from dbo.Medical_Types_And_Companies where Type=269
+end
 -----------------------------------------------------------------------------------------------------------------------------------
+Create proc [dbo].[Get_Medical_Types_Company]
 
+as
+begin
+select [ID],[Name] from [dbo].[Medical_Types_And_Companies]
+end 
 -----------------------------------------------------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------------------------------------------------

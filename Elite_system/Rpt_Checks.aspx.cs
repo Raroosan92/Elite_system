@@ -124,7 +124,6 @@ namespace Elite_system
                 
                 ReportViewer1.Reset();
                 ReportViewer1.ProcessingMode = ProcessingMode.Local;
-           
                 ReportViewer1.LocalReport.ReportPath = Server.MapPath("Rpt_Checks1.rdlc");
                 ReportViewer1.LocalReport.SetParameters(Comp);
                 ReportViewer1.LocalReport.DataSources.Clear();

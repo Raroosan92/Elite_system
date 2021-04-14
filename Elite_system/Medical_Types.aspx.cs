@@ -29,6 +29,7 @@ namespace Elite_system
             Txt_ContractExpiryDate2.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender22.ClientID + "')");
             Txt_Accounting_Date2.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender33.ClientID + "')");
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
+            Get_ContractNO();
             if (!Page.IsPostBack)
             {
 
@@ -139,7 +140,29 @@ namespace Elite_system
             }
 
         }
-
+        string MAXContractNo;
+        public void Get_ContractNO()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+                con = Cls_Connection._con;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "GET_MaxContractNo";
+                Cls_Connection.open_connection();
+                MAXContractNo = cmd.ExecuteScalar().ToString();
+                Cls_Connection.close_connection();
+                Txt_Contract_NO.Text = MAXContractNo+1;
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                Cls_Connection.close_connection();
+            }
+        }
         protected void DDL_Bank_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cls_Sub_Banks Sub_Bank = new Cls_Sub_Banks();

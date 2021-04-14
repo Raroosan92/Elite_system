@@ -541,6 +541,38 @@ public class Cls_Main_Claims
     }
 
 
+    // جلب جميع الجهات الطبيةوالشركات
+    static public DataTable Get_Medical_Company_Types()
+    {
+        DataTable dt = new DataTable();
+        try
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+            con = Cls_Connection._con;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "Get_Medical_Types_Company";
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            Cls_Connection.open_connection();
+            adp.Fill(dt);
+            Cls_Connection.close_connection();
+
+            return dt;
+
+        }
+        catch (Exception)
+        {
+            Cls_Connection.close_connection();
+            return dt;
+
+
+        }
+
+    }
+
+
     // جلب جميع الجهات الطبية
     static public DataTable Get_Medical_Types2()
     {
