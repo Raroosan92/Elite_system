@@ -703,6 +703,7 @@
     <Content Include="Rpt_Mails.aspx" />
     <Content Include="Rpt_MedicalTypesWithNoClaims.aspx" />
     <Content Include="Rpt_Medical_Name_Main_Company.aspx" />
+    <Content Include="Rpt_PaidOrNot.aspx" />
     <Content Include="Rpt_Stamps.aspx" />
     <Content Include="Scripts\i18n\af.js" />
     <Content Include="Scripts\i18n\ar.js" />
@@ -1682,6 +1683,13 @@
     <Compile Include="Rpt_Medical_Name_Main_Company.aspx.designer.cs">
       <DependentUpon>Rpt_Medical_Name_Main_Company.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Rpt_PaidOrNot.aspx.cs">
+      <DependentUpon>Rpt_PaidOrNot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt_PaidOrNot.aspx.designer.cs">
+      <DependentUpon>Rpt_PaidOrNot.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Rpt_Stamps.aspx.cs">
       <DependentUpon>Rpt_Stamps.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1804,6 +1812,7 @@
     <EmbeddedResource Include="Rpt_Mails.rdlc" />
     <EmbeddedResource Include="Rpt_Mails2.rdlc" />
     <EmbeddedResource Include="Rpt_MedicalTypesWithNoClaims.rdlc" />
+    <EmbeddedResource Include="Rpt_PaidOrNot.rdlc" />
     <EmbeddedResource Include="Rpt_Stamps.rdlc" />
   </ItemGroup>
   <ItemGroup>

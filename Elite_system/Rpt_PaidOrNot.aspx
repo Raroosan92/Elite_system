@@ -1,7 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeBehind="Rpt_Account.aspx.cs" Inherits="Elite_system.Rpt_Account" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeBehind="Rpt_PaidOrNot.aspx.cs" Inherits="Elite_system.Rpt_PaidOrNot" %>
+
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -35,8 +37,7 @@
 
         .Report {
             MARGIN-LEFT: 8%;
-            width: 72% !important;
-            height: 500PX;
+            margin-right: 79px;
         }
 
         @media only screen and (max-width: 1000px) {
@@ -50,8 +51,8 @@
     <link href="Content/css/select2.min.css" rel="stylesheet" />
     <link href="css/thumbnail-slider.css" rel="stylesheet" />
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <section class="text-center " style="padding-top: 1%; direction: ltr;">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="container">
@@ -62,7 +63,7 @@
                             <tr style="background-color: #2f323a;">
                                 <td class="auto-style1"></td>
                                 <td style="width: 98px">
-                                    <asp:Label ID="Label3" runat="server" Text=" كشف حساب" ForeColor="#f2f2f2" Font-Bold="True" Font-Size="Larger"></asp:Label>
+                                    <asp:Label ID="Label3" runat="server" Text=" كشف التسديد" ForeColor="#f2f2f2" Font-Bold="True" Font-Size="Larger"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
@@ -74,6 +75,19 @@
                                 </td>
                                 <td style="width: 98px">
                                     <asp:Label runat="server" Text="الجهة الطبية"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style1">
+
+                                    <asp:DropDownList ID="DropDownList1" runat="server" DataTextField="Name" DataValueField="ID" Width="270px">
+                                        <asp:ListItem>--أختر--</asp:ListItem>
+                                        <asp:ListItem>المسدد</asp:ListItem>
+                                        <asp:ListItem>الغير مسدد</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                                <td style="width: 98px">
+                                    <asp:Label runat="server" Text="الحالة"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
@@ -116,14 +130,20 @@
 
     <section class="text-center Report" style="padding-top: 1%; direction: ltr;">
 
-        <rsweb:ReportViewer ID="ReportViewer1" CssClass="Report" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="750px">
-            <LocalReport ReportPath="Rpt_Log.rdlc">
+        <rsweb:ReportViewer ID="ReportViewer1" CssClass="Report" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="974px">
+            <LocalReport ReportPath="Rpt_PaidOrNot.rdlc">
                 <DataSources>
-                    <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DS_Log" />
+                    <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DS_Account2" />
                 </DataSources>
             </LocalReport>
         </rsweb:ReportViewer>
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetData" TypeName="Elite_system.DS_LogTableAdapters.LogTableAdapter"></asp:ObjectDataSource>
+
+            
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="Elite_system.DS_AccountTableAdapters.V_Listing_BondsTableAdapter"></asp:ObjectDataSource>
+
+            
+        </asp:SqlDataSource>
+
     </section>
     <script src="scripts/select2.min.js"></script>
 
@@ -224,4 +244,3 @@
     </script>
     <%--rami لتغيير التاريخ من لوحة المفاتيح--%>
 </asp:Content>
-

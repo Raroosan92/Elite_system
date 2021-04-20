@@ -210,10 +210,10 @@
                                                     <li id="Rpt_GetContractingValue" runat="server" class=""><a href="../Rpt_GetContractingValue.aspx">كشف االإشتراك الشهري<img src="../imgSideBar/header/nav-icon7.png" /></a></li>
                                                     <li id="Rpt_Stamps" runat="server" class=""><a href="../Rpt_Stamps.aspx">كشف الطوابع<img src="../imgSideBar/header/nav-icon7.png" /></a></li>
                                                     <li id="Rpt_MedicalTypesWithNoClaims" runat="server" class=""><a href="../Rpt_MedicalTypesWithNoClaims.aspx">كشف ليس لها مطالبات<img src="../imgSideBar/header/nav-icon7.png" /></a></li>
-
                                                      <li id="CompletionRate" runat="server" class=""><a href="../CompletionRate.aspx">كشف نسبة الإنجاز<img src="../imgSideBar/header/nav-icon7.png" /></a></li>
-
                                                     <li id="Rpt_Medical_Name_Main_Company" runat="server" class=""><a href="../Rpt_Medical_Name_Main_Company.aspx">الشركات والجهات الطبية<img src="../imgSideBar/header/nav-icon7.png" /></a></li>                                                  
+                                                     <li id="Rpt_PaidOrNot" runat="server" class=""><a href="../Rpt_PaidOrNot.aspx">كشف المسدد والغير مسدد<img src="../imgSideBar/header/nav-icon7.png" /></a></li>
+
 
                                                 </ul>
                                             </div>

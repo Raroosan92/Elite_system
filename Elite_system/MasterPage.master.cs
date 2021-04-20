@@ -157,6 +157,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
             HtmlControl Update_Listing_Bonds = (HtmlControl)Page.Master.FindControl("Update_Listing_Bonds");
             Update_Listing_Bonds.Attributes.Add("style", "display:none");
+
+            HtmlControl Rpt_PaidOrNot = (HtmlControl)Page.Master.FindControl("Rpt_PaidOrNot");
+            Rpt_PaidOrNot.Attributes.Add("style", "display:none");
             #endregion
 
             if (Request.Cookies["UserName"] != null)
@@ -401,6 +404,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 {
                     Update_Listing_Bonds.Attributes.Add("style", "display:Block");
                 }
+
+                if (HttpContext.Current.User.IsInRole("Rpt_PaidOrNot"))
+                {
+                    AllReports.Attributes.Add("style", "display:Block");
+                    Rpt_PaidOrNot.Attributes.Add("style", "display:Block");
+                }
             }
             else
             {
@@ -449,6 +458,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 Rpt_Stamps.Attributes.Add("style", "display:Block");
                 Rpt_MedicalTypesWithNoClaims.Attributes.Add("style", "display:Block");
                 Update_Listing_Bonds.Attributes.Add("style", "display:Block");
+                Rpt_PaidOrNot.Attributes.Add("style", "display:Block");
             }
         }
 

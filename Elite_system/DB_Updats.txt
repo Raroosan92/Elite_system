@@ -5,101 +5,29 @@ https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
 
 https://stackoverflow.com/questions/20368348/how-to-get-the-current-location-of-device-in-c-sharp
 -----------------------------------------------------------------------------------------------------------------------------------
-USE [DB_A5D8AE_EliteSystem]
-GO
-
-/****** Object:  View [dbo].[V_TotalFin2]    Script Date: 03/04/2021 03:21:34 PM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-ALTER VIEW [dbo].[V_TotalFin2]
-AS
-SELECT TOP (100) PERCENT dbo.Main_Listing_Bonds.Company, SUM(dbo.Main_Listing_Bonds.Debtor) AS SumOfDebtor, SUM(dbo.Main_Listing_Bonds.Creditor) AS SumOfCreditor, SUM(dbo.Main_Listing_Bonds.Debtor) 
-                  - SUM(dbo.Main_Listing_Bonds.Creditor) AS Total_Fin, dbo.Medical_Types_And_Companies.Name, MAX(DISTINCT dbo.Main_Listing_Bonds.Bond_Date) AS Bond_Date
-FROM     dbo.Main_Listing_Bonds INNER JOIN
-                  dbo.Medical_Types_And_Companies ON dbo.Main_Listing_Bonds.Company = dbo.Medical_Types_And_Companies.ID
-GROUP BY dbo.Main_Listing_Bonds.Company, dbo.Medical_Types_And_Companies.Name
-GO
-
-
------------------------------------------------------------------------------------------------------------------------------------
-USE [DB_A5D8AE_EliteSystem]
-GO
-
-/****** Object:  View [dbo].[V_Financial_Receivables]    Script Date: 03/04/2021 03:24:01 PM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-ALTER VIEW [dbo].[V_Financial_Receivables]
-AS
-SELECT dbo.Medical_Types_And_Companies.ID, dbo.Medical_Types_And_Companies.Name, dbo.Medical_Types_And_Companies.Phone, dbo.Medical_Types_And_Companies.Address, dbo.Medical_Types_And_Companies.Contracting_Value, 
-                  dbo.Codes.Description AS Stamps, ISNULL(dbo.V_NonDelivered.Count_NonDelivered, 0) AS Count_NonDelivered, dbo.Medical_Types_And_Companies.Contracting_Status, dbo.V_TotalFin2.Total_Fin, dbo.Employees.Employee_Name, 
-                  dbo.Employees.ID AS EmployeeNum, dbo.Medical_Types_And_Companies.Contract_Date, dbo.Medical_Types_And_Companies.Region, dbo.Medical_Types_And_Companies.Mobile, dbo.V_TotalFin2.Bond_Date
-FROM     dbo.Medical_Types_And_Companies INNER JOIN
-                  dbo.Codes ON dbo.Medical_Types_And_Companies.Stamps = dbo.Codes.ID LEFT OUTER JOIN
-                  dbo.Employees ON dbo.Medical_Types_And_Companies.Employee = dbo.Employees.ID LEFT OUTER JOIN
-                  dbo.V_TotalFin2 ON dbo.Medical_Types_And_Companies.ID = dbo.V_TotalFin2.Company LEFT OUTER JOIN
-                  dbo.V_NonDelivered ON dbo.Medical_Types_And_Companies.ID = dbo.V_NonDelivered.ID
-GO
-
-
------------------------------------------------------------------------------------------------------------------------------------
-USE [DB_A5D8AE_EliteSystem]
-GO
-/****** Object:  StoredProcedure [dbo].[Get_V_Financial_Receivables_Report]    Script Date: 03/04/2021 03:22:46 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-ALTER proc [dbo].[Get_V_Financial_Receivables_Report]
-@EmployeeNum int null,
-@Region int null,
-@Date_From date = NULL,
-@Date_To date = NULL
-as
-
-begin
-if @EmployeeNum=0 and @Region=0
-SELECT        *
-FROM           [dbo].[V_Financial_Receivables] 
-WHERE        [Contracting_Status]=267 and (Bond_Date between @Date_From and @Date_To) or @Date_From IS null  or @Date_To IS Null order by Name asc
-else  if @EmployeeNum!=0 and @Region=0
-SELECT        *
-FROM           [dbo].[V_Financial_Receivables]
-WHERE        [Contracting_Status]=267 and EmployeeNum=@EmployeeNum and (Bond_Date between @Date_From and @Date_To) or @Date_From IS null  or @Date_To IS Null order by Name asc
-
-else if @EmployeeNum!=0 and @Region!=0
-SELECT        *
-FROM           [dbo].[V_Financial_Receivables]
-WHERE        [Contracting_Status]=267 and EmployeeNum=@EmployeeNum and Region=@Region and (Bond_Date between @Date_From and @Date_To) or @Date_From IS null  or @Date_To IS Null order by Name asc
-
-else if @EmployeeNum =0 and @Region!=0
-SELECT        *
-FROM           [dbo].[V_Financial_Receivables]
-WHERE        [Contracting_Status]=267 and Region=@Region and (Bond_Date between @Date_From and @Date_To) or @Date_From IS null  or @Date_To IS Null order by Name asc
-end
-
------------------------------------------------------------------------------------------------------------------------------------
-update dbo.Medical_Types_And_Companies set Contract_NO = CAST(ID AS nvarchar(50)) where Contract_NO=0
------------------------------------------------------------------------------------------------------------------------------------
-create proc [dbo].[GET_MaxContractNo]
+CREATE proc [dbo].[Get_Paid]
+@From date,
+@To date,
+@Medical_Type numeric(18,0),
+@Paid int null
 as
 begin
-select max(dbo.Medical_Types_And_Companies.Contract_NO) from dbo.Medical_Types_And_Companies where Type=269
+
+if @Paid=1
+SELECT * FROM [dbo].[V_Listing_Bonds] where ([Medical_Type]=@Medical_Type) and ([Bond_Date] between @From and @To) and( Debtor!=0 or Creditor!=0) order by Bond_Date
+else if @Paid=2
+SELECT * FROM [dbo].[V_Listing_Bonds] where ([Medical_Type]=@Medical_Type) and ([Bond_Date] between @From and @To) and( Debtor=0 and Creditor=0) order by Bond_Date
 end
 -----------------------------------------------------------------------------------------------------------------------------------
-Create proc [dbo].[Get_Medical_Types_Company]
 
-as
-begin
-select [ID],[Name] from [dbo].[Medical_Types_And_Companies]
-end 
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+ 
 -----------------------------------------------------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------------------------------------------------
