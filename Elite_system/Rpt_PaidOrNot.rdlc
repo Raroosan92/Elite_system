@@ -2,41 +2,41 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Tablix Name="Tablix7">
+      <Tablix Name="Tablix3">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.15968cm</Width>
+              <Width>3.6233cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>3.34667cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.76459cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.119cm</Width>
+              <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.17665cm</Width>
+              <Width>3.82293cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.67586cm</Width>
+              <Width>3.78291cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.11263cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>4.55316cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.63217cm</Width>
+              <Width>2.5cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.9175cm</Height>
+              <Height>0.76933cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox133">
+                    <Textbox Name="Textbox134">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -91,14 +91,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox125">
+                    <Textbox Name="Textbox126">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>رقم الحساب</Value>
+                              <Value>المبلغ المدفوع</Value>
                               <Style>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -146,69 +146,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox131">
+                    <Textbox Name="Textbox128">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>المدين</Value>
-                              <Style>
-                                <FontSize>14pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox131</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
-                        <BackgroundColor>Silver</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox127">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>الدائن</Value>
+                              <Value>قيمة المطالبة</Value>
                               <Style>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -256,14 +201,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox175">
+                    <Textbox Name="Textbox2">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>البيان</Value>
+                              <Value>اسم المريض</Value>
                               <Style>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -275,7 +220,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox175</rd:DefaultName>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -311,7 +256,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox137">
+                    <Textbox Name="Textbox139">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -366,7 +311,62 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox135">
+                    <Textbox Name="Textbox69">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>الشركة</Value>
+                              <Style>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox69</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </RightBorder>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox136">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -421,7 +421,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox129">
+                    <Textbox Name="Textbox140">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -477,21 +477,19 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.68467cm</Height>
+              <Height>0.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Claim_ID">
+                    <Textbox Name="Main_Claims_ID">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Claim_ID.Value</Value>
-                              <Style>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Value>=Fields!Main_Claims_ID.Value</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -499,7 +497,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Claim_ID</rd:DefaultName>
+                      <rd:DefaultName>Main_Claims_ID</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -534,17 +532,15 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Acounting_NO1">
+                    <Textbox Name="PayValue">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Acounting_NO.Value</Value>
-                              <Style>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Value>=Fields!PayValue.Value</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -552,7 +548,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Acounting_NO1</rd:DefaultName>
+                      <rd:DefaultName>PayValue</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -587,17 +583,15 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Debtor">
+                    <Textbox Name="Value">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Debtor.Value</Value>
-                              <Style>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Value>=Fields!Value.Value</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -605,7 +599,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Debtor</rd:DefaultName>
+                      <rd:DefaultName>Value</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -640,17 +634,15 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Creditor">
+                    <Textbox Name="patient_name">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Creditor.Value</Value>
-                              <Style>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Value>=Fields!patient_name.Value</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -658,7 +650,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Creditor</rd:DefaultName>
+                      <rd:DefaultName>patient_name</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -693,17 +685,15 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Description">
+                    <Textbox Name="Textbox34">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Description.Value</Value>
-                              <Style>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Value>=FormatDateTime(Fields!Entry_Date.Value, Microsoft.VisualBasic.DateFormat.ShortDate)</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -711,7 +701,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Description</rd:DefaultName>
+                      <rd:DefaultName>Textbox34</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -746,17 +736,15 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox138">
+                    <Textbox Name="Main_CompanyDesc">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=FormatDateTime(Fields!Bond_Date.Value, Microsoft.VisualBasic.DateFormat.ShortDate)</Value>
-                              <Style>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Value>=Fields!Main_CompanyDesc.Value</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -764,7 +752,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox138</rd:DefaultName>
+                      <rd:DefaultName>Main_CompanyDesc</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -807,9 +795,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Medical_TypeName.Value</Value>
-                              <Style>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -852,17 +838,15 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox130">
+                    <Textbox Name="Textbox44">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=RowNumber(nothing)</Value>
-                              <Style>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Value>=RowNumber(Nothing)</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -870,7 +854,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox130</rd:DefaultName>
+                      <rd:DefaultName>Textbox44</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -906,11 +890,11 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.81167cm</Height>
+              <Height>1.00217cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox192">
+                    <Textbox Name="Textbox71">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -918,6 +902,57 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox71</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </RightBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="PayValue1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!PayValue.Value)</Value>
                               <Style>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -929,7 +964,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox192</rd:DefaultName>
+                      <rd:DefaultName>PayValue1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -960,22 +995,20 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <ColSpan>2</ColSpan>
                   </CellContents>
                 </TablixCell>
-                <TablixCell />
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Debtor1">
+                    <Textbox Name="Value1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Debtor.Value)</Value>
+                              <Value>=Sum(Fields!Value.Value)</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
+                                <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -985,7 +1018,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Debtor1</rd:DefaultName>
+                      <rd:DefaultName>Value1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -1020,61 +1053,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Creditor1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Sum(Fields!Creditor.Value)</Value>
-                              <Style>
-                                <FontSize>12pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Creditor1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox178">
+                    <Textbox Name="Textbox74">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -1093,7 +1072,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox177</rd:DefaultName>
+                      <rd:DefaultName>Textbox74</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -1125,9 +1104,10 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <ColSpan>4</ColSpan>
+                    <ColSpan>5</ColSpan>
                   </CellContents>
                 </TablixCell>
+                <TablixCell />
                 <TablixCell />
                 <TablixCell />
                 <TablixCell />
@@ -1153,18 +1133,18 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="Details" />
+              <Group Name="Details1" />
             </TablixMember>
             <TablixMember>
               <KeepWithGroup>Before</KeepWithGroup>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DS_Account2</DataSetName>
-        <Top>0.62976cm</Top>
-        <Left>0.66887cm</Left>
-        <Height>2.41383cm</Height>
-        <Width>23.92916cm</Width>
+        <DataSetName>DS_PaidOrNot</DataSetName>
+        <Top>0.45058cm</Top>
+        <Left>0.68251cm</Left>
+        <Height>2.3715cm</Height>
+        <Width>24.8404cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1172,13 +1152,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.55833in</Height>
+    <Height>1.58333in</Height>
     <Style />
   </Body>
-  <Width>9.98426in</Width>
+  <Width>10.32339in</Width>
   <Page>
     <PageHeader>
-      <Height>3.17177cm</Height>
+      <Height>4.10633cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1202,8 +1182,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.10694in</Top>
-          <Left>8.52293in</Left>
+          <Top>0.29091in</Top>
+          <Left>8.58496in</Left>
           <Height>0.25in</Height>
           <Width>0.47917in</Width>
           <Style>
@@ -1236,8 +1216,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.46805in</Top>
-          <Left>8.29376in</Left>
+          <Top>0.65202in</Top>
+          <Left>8.35579in</Left>
           <Height>0.25in</Height>
           <Width>0.70834in</Width>
           <ZIndex>1</ZIndex>
@@ -1271,8 +1251,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.84307in</Top>
-          <Left>8.29376in</Left>
+          <Top>1.02704in</Top>
+          <Left>8.35579in</Left>
           <Height>0.2625in</Height>
           <Width>0.72223in</Width>
           <ZIndex>2</ZIndex>
@@ -1307,8 +1287,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
-          <Top>0.10694in</Top>
-          <Left>7.03335in</Left>
+          <Top>0.29091in</Top>
+          <Left>7.09538in</Left>
           <Height>0.25in</Height>
           <Width>1.48958in</Width>
           <ZIndex>3</ZIndex>
@@ -1329,7 +1309,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!Medical_TypeName.Value, "DS_Account2")</Value>
+                  <Value>=First(Fields!Medical_TypeName.Value, "DS_PaidOrNot")</Value>
                   <Style>
                     <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -1342,8 +1322,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Medical_TypeName</rd:DefaultName>
-          <Top>0.46805in</Top>
-          <Left>4.33828in</Left>
+          <Top>0.65202in</Top>
+          <Left>4.40031in</Left>
           <Height>0.25in</Height>
           <Width>4.08048in</Width>
           <ZIndex>4</ZIndex>
@@ -1361,7 +1341,8 @@
           <Source>Embedded</Source>
           <Value>EliteSystem</Value>
           <Sizing>FitProportional</Sizing>
-          <Left>2.07842cm</Left>
+          <Top>0.46728cm</Top>
+          <Left>2.23598cm</Left>
           <Height>1.24873in</Height>
           <Width>2.45056in</Width>
           <ZIndex>5</ZIndex>
@@ -1391,8 +1372,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.84307in</Top>
-          <Left>6.19653in</Left>
+          <Top>1.02704in</Top>
+          <Left>6.25856in</Left>
           <Height>0.2625in</Height>
           <Width>2.22223in</Width>
           <ZIndex>6</ZIndex>
@@ -1413,29 +1394,29 @@
         </Border>
       </Style>
     </PageHeader>
-    <PageHeight>27cm</PageHeight>
-    <PageWidth>30cm</PageWidth>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>31cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
-    <TopMargin>1.5cm</TopMargin>
-    <BottomMargin>1.5cm</BottomMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="DS_Account">
+    <DataSource Name="DS_Claims5">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>1a58c114-3426-4117-a032-bee825d4b4e4</rd:DataSourceID>
+      <rd:DataSourceID>b5775bb6-34f5-49c1-835c-31f556f52e4a</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DS_Account2">
+    <DataSet Name="DS_PaidOrNot">
       <Query>
-        <DataSourceName>DS_Account</DataSourceName>
+        <DataSourceName>DS_Claims5</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1443,58 +1424,306 @@
           <DataField>ID</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="Medical_Type">
-          <DataField>Medical_Type</DataField>
+        <Field Name="Medical_Name">
+          <DataField>Medical_Name</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="Medical_TypeName">
           <DataField>Medical_TypeName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Type">
-          <DataField>Type</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="TypeDescription">
-          <DataField>TypeDescription</DataField>
+        <Field Name="Month_Year">
+          <DataField>Month_Year</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Bond_Date">
-          <DataField>Bond_Date</DataField>
+        <Field Name="Received_Date">
+          <DataField>Received_Date</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="Debtor">
-          <DataField>Debtor</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+        <Field Name="Receiver_Employee">
+          <DataField>Receiver_Employee</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Creditor">
-          <DataField>Creditor</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
+        <Field Name="Employee_Name">
+          <DataField>Employee_Name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Acounting_NO">
-          <DataField>Acounting_NO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="Entry_Date">
+          <DataField>Entry_Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Batch_No">
+          <DataField>Batch_No</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Claim_ID">
           <DataField>Claim_ID</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="Sent_To">
-          <DataField>Sent_To</DataField>
+        <Field Name="Sub_ClaimsID">
+          <DataField>Sub_ClaimsID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Main_Company">
+          <DataField>Main_Company</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Main_CompanyDesc">
+          <DataField>Main_CompanyDesc</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Sub_Company">
+          <DataField>Sub_Company</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Sub_CompanyDesc">
+          <DataField>Sub_CompanyDesc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Claims_Count">
+          <DataField>Claims_Count</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>Value</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Stamps">
+          <DataField>Stamps</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Main_Claims_ID">
+          <DataField>Main_Claims_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Delivered">
+          <DataField>Delivered</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
+        <Field Name="Company_Address">
+          <DataField>Company_Address</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Medical_TypeAddress">
+          <DataField>Medical_TypeAddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="patient_name">
+          <DataField>patient_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Date_Subclaim">
+          <DataField>Date_Subclaim</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Approval_number">
+          <DataField>Approval_number</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="procedures_Subclaim">
+          <DataField>procedures_Subclaim</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Checked">
+          <DataField>Checked</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="PatientRatio">
+          <DataField>PatientRatio</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Tax">
+          <DataField>Tax</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Procedure1">
+          <DataField>Procedure1</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ProcedureDesc1">
+          <DataField>ProcedureDesc1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Specialization1">
+          <DataField>Specialization1</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Specialization1_Desc">
+          <DataField>Specialization1_Desc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Points1">
+          <DataField>Points1</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Procedure2">
+          <DataField>Procedure2</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Procedure2_Desc">
+          <DataField>Procedure2_Desc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Specialization2">
+          <DataField>Specialization2</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Specialization2_Desc">
+          <DataField>Specialization2_Desc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Points2">
+          <DataField>Points2</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Procedure3">
+          <DataField>Procedure3</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Procedure3_Desc">
+          <DataField>Procedure3_Desc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Specialization3">
+          <DataField>Specialization3</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Specialization3_Desc">
+          <DataField>Specialization3_Desc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Points3">
+          <DataField>Points3</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Procedure4">
+          <DataField>Procedure4</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Procedure4_Desc">
+          <DataField>Procedure4_Desc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Specialization4">
+          <DataField>Specialization4</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Specialization4_Desc">
+          <DataField>Specialization4_Desc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Point4">
+          <DataField>Point4</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Procedure5">
+          <DataField>Procedure5</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Procedure5_Desc">
+          <DataField>Procedure5_Desc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Specialization5">
+          <DataField>Specialization5</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Specialization5_Desc">
+          <DataField>Specialization5_Desc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Points5">
+          <DataField>Points5</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TransactionPrice1">
+          <DataField>TransactionPrice1</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CheckPrice1">
+          <DataField>CheckPrice1</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DiscountRatio1">
+          <DataField>DiscountRatio1</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TransactionPrice2">
+          <DataField>TransactionPrice2</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CheckPrice2">
+          <DataField>CheckPrice2</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DiscountRatio2">
+          <DataField>DiscountRatio2</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TransactionPrice3">
+          <DataField>TransactionPrice3</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CheckPrice3">
+          <DataField>CheckPrice3</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DiscountRatio3">
+          <DataField>DiscountRatio3</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TransactionPrice4">
+          <DataField>TransactionPrice4</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CheckPrice4">
+          <DataField>CheckPrice4</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DiscountRatio4">
+          <DataField>DiscountRatio4</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TransactionPrice5">
+          <DataField>TransactionPrice5</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CheckPrice5">
+          <DataField>CheckPrice5</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DiscountRatio5">
+          <DataField>DiscountRatio5</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Type">
+          <DataField>Type</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Card_Num">
+          <DataField>Card_Num</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Sample_Num">
+          <DataField>Sample_Num</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CheckDiscountRatio1">
+          <DataField>CheckDiscountRatio1</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PayValue">
+          <DataField>PayValue</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>DS_Account</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects_Development\النخبة  Elite\Elite_system-08-12-2020\Elite_system-08-12-2020\Elite_system\DS_Account.xsd</rd:SchemaPath>
-        <rd:TableName>V_Listing_Bonds</rd:TableName>
+        <rd:DataSetName>DS_Claims5</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects_Development\النخبة  Elite\Elite_system-08-12-2020\Elite_system-08-12-2020\Elite_system\DS_Claims5.xsd</rd:SchemaPath>
+        <rd:TableName>V_ClaimsRpt2</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>V_Listing_BondsTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>V_ClaimsRpt2TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -1661,5 +1890,5 @@ ZGF0ZTpjcmVhdGUAMjAyMC0wNy0wNlQxOTo0NjowOCswMDowMIGBImEAAAAldEVYdGRhdGU6bW9kaWZ5
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>178955a7-99a7-46c4-a851-4c4a766215a2</rd:ReportID>
+  <rd:ReportID>3259d68a-96b4-46ba-af16-4b0832c06ab9</rd:ReportID>
 </Report>

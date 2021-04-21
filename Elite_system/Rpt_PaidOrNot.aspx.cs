@@ -24,16 +24,19 @@ namespace Elite_system
                 DDL_Medical_Name.DataSource = Cls_Main_Claims.Get_Medical_Types3();
                 DDL_Medical_Name.DataBind();
                 DDL_Medical_Name.Items.Insert(0, new ListItem("--اختر--", "0"));
+
+
+
+
+                DDL_Main_Company.DataSource = Cls_Main_Claims.Get_Companies3();
+                DDL_Main_Company.DataBind();
+                DDL_Main_Company.Items.Insert(0, new ListItem("--اختر--", "0"));
             }
         }
-
-
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             Result_DT();
         }
-
         public void Result_DT()
         {
             try
@@ -56,6 +59,7 @@ namespace Elite_system
                 cmd.Parameters.AddWithValue("@From", dt1);
                 cmd.Parameters.AddWithValue("@To", dt2);
                 cmd.Parameters.AddWithValue("@Medical_Type", long.Parse(DDL_Medical_Name.SelectedValue));
+                cmd.Parameters.AddWithValue("@Main_Company", long.Parse(DDL_Main_Company.SelectedValue));
                 cmd.Parameters.AddWithValue("@Paid", DropDownList1.SelectedIndex);
 
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
@@ -69,7 +73,7 @@ namespace Elite_system
                 ReportViewer1.LocalReport.SetParameters(rp2);
                 ReportViewer1.LocalReport.SetParameters(rp3);
                 ReportViewer1.LocalReport.DataSources.Clear();
-                ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_Account2", dt_Result));
+                ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_PaidOrNot", dt_Result));
                 ReportViewer1.LocalReport.Refresh();
             }
             catch (Exception ex)
@@ -77,7 +81,6 @@ namespace Elite_system
                 string x = ex.Message.ToString();
             }
         }
-
         private void PrintPDF()
         {
             try
@@ -106,8 +109,6 @@ namespace Elite_system
 
             }
         }
-
-
         protected void Button2_Click(object sender, EventArgs e)
         {
             PrintPDF();

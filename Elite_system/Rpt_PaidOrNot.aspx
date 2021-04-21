@@ -78,6 +78,16 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>
+
+                                    <asp:DropDownList ID="DDL_Main_Company" runat="server" AutoPostBack="True" DataTextField="Name" DataValueField="ID" Width="300px">
+                                    </asp:DropDownList>
+                                </td>
+                                <td>
+                                    <asp:Label runat="server" Text="الشركة الرئيسية"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td class="auto-style1">
 
                                     <asp:DropDownList ID="DropDownList1" runat="server" DataTextField="Name" DataValueField="ID" Width="270px">
@@ -133,16 +143,20 @@
         <rsweb:ReportViewer ID="ReportViewer1" CssClass="Report" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="974px">
             <LocalReport ReportPath="Rpt_PaidOrNot.rdlc">
                 <DataSources>
-                    <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DS_Account2" />
+                    <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DS_PaidOrNot" />
                 </DataSources>
             </LocalReport>
         </rsweb:ReportViewer>
 
-            
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="Elite_system.DS_AccountTableAdapters.V_Listing_BondsTableAdapter"></asp:ObjectDataSource>
 
-            
-        </asp:SqlDataSource>
+
+
+
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="Elite_system.DS_Claims5TableAdapters.V_ClaimsRpt2TableAdapter"></asp:ObjectDataSource>
+
+
+
+
 
     </section>
     <script src="scripts/select2.min.js"></script>
@@ -155,13 +169,14 @@
         }
         function jsFunctions() {
             $("#<%=DDL_Medical_Name.ClientID%>").select2();
-
+            $("#<%=DDL_Main_Company.ClientID%>").select2();
         }
 
     </script>
     <script>
         $(function () {
             $("#<%=DDL_Medical_Name.ClientID%>").select2();
+             $("#<%=DDL_Main_Company.ClientID%>").select2();
         })
     </script>
 
