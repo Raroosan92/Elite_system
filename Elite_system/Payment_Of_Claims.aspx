@@ -1,4 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeBehind="Payment_Of_Claims.aspx.cs" Inherits="Elite_system.Payment_Of_Claims" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="Payment_Of_Claims.aspx.cs" Inherits="Elite_system.Payment_Of_Claims" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -36,10 +39,10 @@
     <link href="Content/css/select2.min.css" rel="stylesheet" />
     <link href="css/thumbnail-slider.css" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"  UpdateMode="Conditional">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-    <asp:ScriptManager runat="server"></asp:ScriptManager>
-    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
 
             <section class="text-center" style="padding-top: 1%; direction: ltr;">
@@ -48,11 +51,9 @@
                     <div class="row">
                         <div class="COLR" style="float: right">
                             <div class="table-responsive">
-                                <table class="table table-striped">
-                                     <tr style="background-color: #2f323a;">
-                                        <td class="auto-style1">
-
-                                        </td>
+                                <table id="SubClaimTable" runat="server" class="table table-striped">
+                                    <tr style="background-color: #2f323a;">
+                                        <td class="auto-style1"></td>
                                         <td style="width: 98px">
                                             <asp:Label ID="Label4" runat="server" Text="الدفع" ForeColor="#f2f2f2" Font-Bold="True" Font-Size="Larger"></asp:Label>
                                         </td>
@@ -89,13 +90,28 @@
                                             <asp:Label runat="server" Text="المبلغ المدفوع"></asp:Label>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td class="nav-justified" style="direction: rtl;">
+                                            <asp:FileUpload ID="fileImages" Multiple="Multiple" runat="server" Width="236px" />
+                                            <asp:Repeater ID="Rpt_Download" Visible="false" runat="server">
+                                                <ItemTemplate>
+                                                    <a href="Download.ashx?file=\\UploadedImages<%# DataBinder.Eval(Container, "DataItem.attach_Path") %>" style="font-size: large; color: black;">تنزيل</a>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </td>
+
+                                        <td style="height: 26px; width: 98px;">
+                                            <asp:Label runat="server" Text="الملفات المرفقة"></asp:Label>
+                                        </td>
+                                    </tr>
 
                                     <tr style="direction: rtl;">
                                         <td>
                                             <asp:Button ID="Btn_Save" runat="server" Text="دفع" OnClick="Btn_Save_Click" />
                                         </td>
-
-                                        <td></td>
+                                        <td>
+                                            <asp:Button ID="Btn_Upload" runat="server" Text="تحميل المرفق" OnClick="Btn_Upload_Click" />
+                                        </td>
                                     </tr>
 
                                     <tr style="direction: rtl;">
@@ -122,7 +138,7 @@
                                             <asp:Label ID="Label3" runat="server" Text="اسم المريض"></asp:Label>
                                         </td>
                                     </tr>
-                                     <tr style="direction: rtl;">
+                                    <tr style="direction: rtl;">
                                         <td>
                                             <asp:Label ID="lbl_count" runat="server" Text=" " Font-Size="26px" ForeColor="red"></asp:Label>
                                         </td>
@@ -136,7 +152,7 @@
                     </div>
                 </div>
             </section>
-            <section class="text-center my-5" style="direction: ltr; margin-right:10%">
+            <section class="text-center my-5" style="direction: ltr; margin-right: 10%">
                 <div class="container">
                     <div class="row">
                     </div>
@@ -152,7 +168,7 @@
             </section>
         </ContentTemplate>
         <Triggers>
-            <%--<asp:PostBackTrigger ControlID="Btn_Save" />--%>
+            <asp:PostBackTrigger ControlID="Btn_Upload" />
         </Triggers>
     </asp:UpdatePanel>
     <script src="scripts/jquery-1.7.min.js"></script>

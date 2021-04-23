@@ -111,6 +111,14 @@
             text-align: center;*/
             margin-top: 50%;
         }
+    .auto-style2 {
+        width: 100%;
+        height: 26px;
+    }
+    .auto-style3 {
+        width: 98px;
+        height: 26px;
+    }
     </style>
 
 
@@ -144,7 +152,7 @@
 
                                     <tr>
                                         <td class="auto-style1">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Batch_No" width="236px" onkeydown="return (event.keyCode!=13);">1</asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Batch_No" Width="236px" onkeydown="return (event.keyCode!=13);">1</asp:TextBox>
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="رقم الدفعة"></asp:Label>
@@ -155,7 +163,7 @@
                                             <%-- <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="DDL_Medical_Name"
                                                 CssClass="alertFont" ErrorMessage="الرجاء اختيار الجهة الطبية" Operator="NotEqual"
                                                 ValueToCompare="0" Display="Dynamic" ForeColor="Red" Font-Bold="true">الرجاء اختيار الجهة الطبية</asp:CompareValidator>--%>
-                                            <asp:DropDownList ID="DDL_Medical_Name" runat="server" AutoPostBack="True" DataTextField="Name" DataValueField="ID" OnSelectedIndexChanged="DDL_Medical_Name_SelectedIndexChanged" width="236px"></asp:DropDownList>
+                                            <asp:DropDownList ID="DDL_Medical_Name" runat="server" AutoPostBack="True" DataTextField="Name" DataValueField="ID" OnSelectedIndexChanged="DDL_Medical_Name_SelectedIndexChanged" Width="236px"></asp:DropDownList>
 
 
                                         </td>
@@ -166,7 +174,7 @@
 
                                     <tr>
                                         <td class="auto-style1">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Month_Year" BackColor="#CCCCCC" width="236px" onkeydown="return (event.keyCode!=13);"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Month_Year" BackColor="#CCCCCC" Width="236px" onkeydown="return (event.keyCode!=13);"></asp:TextBox>
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="مطالبات: شهر/سنة"></asp:Label>
@@ -175,7 +183,7 @@
 
                                     <tr>
                                         <td class="auto-style1">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Received_Date" width="236px" onkeydown="return (event.keyCode!=13);"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Received_Date" Width="236px" onkeydown="return (event.keyCode!=13);"></asp:TextBox>
                                             <ajaxToolkit:CalendarExtender ID="CalendarExtender2" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_Received_Date" />
                                         </td>
                                         <td style="width: 98px">
@@ -185,7 +193,7 @@
 
                                     <tr>
                                         <td class="auto-style1">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_ID" BackColor="#CCCCCC" ReadOnly="True" width="236px" onkeydown="return (event.keyCode!=13);"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_ID" BackColor="#CCCCCC" ReadOnly="True" Width="236px" onkeydown="return (event.keyCode!=13);"></asp:TextBox>
 
                                         </td>
                                         <td style="width: 98px">
@@ -196,7 +204,7 @@
 
                                     <tr>
                                         <td class="auto-style2">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Entry_Date" ReadOnly="True" BackColor="#CCCCCC" width="236px" onkeydown="return (event.keyCode!=13);"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Entry_Date" ReadOnly="True" BackColor="#CCCCCC" Width="236px" onkeydown="return (event.keyCode!=13);"></asp:TextBox>
                                             <ajaxToolkit:CalendarExtender ID="CalendarExtender3" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_Entry_Date" />
                                         </td>
                                         <td style="height: 26px; width: 98px;">
@@ -210,7 +218,7 @@
                                             <%--  <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="DDL_Receiver_Employee"
                                                 CssClass="alertFont" ErrorMessage="الرجاء اختيار المستلم" Operator="NotEqual"
                                                 ValueToCompare="0" Display="Dynamic" ForeColor="Red" Font-Bold="true">الرجاء اختيار اسم المستلم</asp:CompareValidator>--%>
-                                            <asp:DropDownList ID="DDL_Receiver_Employee" runat="server" DataTextField="Employee_Name" DataValueField="ID" width="236px">
+                                            <asp:DropDownList ID="DDL_Receiver_Employee" runat="server" DataTextField="Employee_Name" DataValueField="ID" Width="236px">
                                             </asp:DropDownList>
                                         </td>
                                         <td style="width: 98px; height: 26px;">
@@ -392,7 +400,7 @@
                                     <tr>
                                         <td>
 
-                                            <asp:DropDownList ID="DDL_Main_Company" runat="server" AutoPostBack="True" DataTextField="Name" DataValueField="ID" OnSelectedIndexChanged="DDL_Main_Company_SelectedIndexChanged" width="236px">
+                                            <asp:DropDownList ID="DDL_Main_Company" runat="server" AutoPostBack="True" DataTextField="Name" DataValueField="ID" OnSelectedIndexChanged="DDL_Main_Company_SelectedIndexChanged" Width="236px">
                                             </asp:DropDownList>
                                         </td>
                                         <td>
@@ -402,7 +410,7 @@
 
                                     <tr>
                                         <td>
-                                            <asp:DropDownList ID="DDL_Sub_Company" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DDL_Sub_Company_SelectedIndexChanged" width="236px" DataTextField="Sub_Company" DataValueField="ID">
+                                            <asp:DropDownList ID="DDL_Sub_Company" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DDL_Sub_Company_SelectedIndexChanged" Width="236px" DataTextField="Sub_Company" DataValueField="ID">
                                             </asp:DropDownList>
                                         </td>
                                         <td>
@@ -413,7 +421,7 @@
 
                                         <td>
 
-                                            <asp:DropDownList runat="server" ID="DDL_Specialization" DataTextField="Description" DataValueField="ID" width="236px" OnSelectedIndexChanged="DDL_Specialization_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                                            <asp:DropDownList runat="server" ID="DDL_Specialization" DataTextField="Description" DataValueField="ID" Width="236px" OnSelectedIndexChanged="DDL_Specialization_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="التخصص"></asp:Label>
@@ -429,7 +437,7 @@
                                                 ErrorMessage="خطأ في عدد المطالبات"
                                                 ValidationExpression="((\d+)((\.\d{1,2})?))$">
                                             </asp:RegularExpressionValidator>--%>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Claims_Count" width="236px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Claims_Count" Width="236px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="عدد المطالبات"></asp:Label>
@@ -443,7 +451,7 @@
                                                 ErrorMessage="خطأ في قيمة المطالبة"
                                                 ValidationExpression="((\d+)((\.\d{1,2})?))$">
                                             </asp:RegularExpressionValidator>--%>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Value" AutoPostBack="True" OnTextChanged="Txt_Value_TextChanged" width="236px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Value" AutoPostBack="True" OnTextChanged="Txt_Value_TextChanged" Width="236px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="قيمة المطالبة"></asp:Label>
@@ -452,7 +460,7 @@
 
                                     <tr id="patient_name" runat="server">
                                         <td class="auto-style2" style="direction: rtl;">
-                                            <asp:TextBox ID="Txt_patient_name" AutoCompleteType="Disabled" runat="server" width="236px"></asp:TextBox>
+                                            <asp:TextBox ID="Txt_patient_name" AutoCompleteType="Disabled" runat="server" Width="236px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="اسم المريض"></asp:Label>
@@ -463,7 +471,7 @@
 
                                         <td>
 
-                                            <asp:DropDownList runat="server" ID="DDL_ProcedureDesc1" DataTextField="ProcedureDesc" DataValueField="ID" AutoPostBack="True" width="236px" OnSelectedIndexChanged="DDL_ProcedureDesc1_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:DropDownList runat="server" ID="DDL_ProcedureDesc1" DataTextField="ProcedureDesc" DataValueField="ID" AutoPostBack="True" Width="236px" OnSelectedIndexChanged="DDL_ProcedureDesc1_SelectedIndexChanged"></asp:DropDownList>
 
                                             <%--<br />
                                             <asp:Label ID="Lbl_ProcedureDesc1" runat="server" ForeColor="Red" Font-Size="12px"></asp:Label>
@@ -481,7 +489,7 @@
 
                                         <td>
 
-                                            <asp:DropDownList runat="server" ID="DDL_ProcedureDesc2" DataTextField="ProcedureDesc" DataValueField="ID" AutoPostBack="True" width="236px" OnSelectedIndexChanged="DDL_ProcedureDesc2_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:DropDownList runat="server" ID="DDL_ProcedureDesc2" DataTextField="ProcedureDesc" DataValueField="ID" AutoPostBack="True" Width="236px" OnSelectedIndexChanged="DDL_ProcedureDesc2_SelectedIndexChanged"></asp:DropDownList>
                                             <%-- <br />
                                             <asp:Label ID="Lbl_ProcedureDesc2" runat="server" ForeColor="Red" Font-Size="12px"></asp:Label>
                                              <br />
@@ -496,7 +504,7 @@
 
                                         <td>
 
-                                            <asp:DropDownList runat="server" ID="DDL_ProcedureDesc3" DataTextField="ProcedureDesc" DataValueField="ID" AutoPostBack="True" width="236px" OnSelectedIndexChanged="DDL_ProcedureDesc3_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:DropDownList runat="server" ID="DDL_ProcedureDesc3" DataTextField="ProcedureDesc" DataValueField="ID" AutoPostBack="True" Width="236px" OnSelectedIndexChanged="DDL_ProcedureDesc3_SelectedIndexChanged"></asp:DropDownList>
                                             <%--<br />
                                             <asp:Label ID="Lbl_ProcedureDesc3" runat="server" ForeColor="Red" Font-Size="12px"></asp:Label>
                                              <br />
@@ -511,7 +519,7 @@
 
                                         <td>
 
-                                            <asp:DropDownList runat="server" ID="DDL_ProcedureDesc4" DataTextField="ProcedureDesc" DataValueField="ID" AutoPostBack="True" width="236px" OnSelectedIndexChanged="DDL_ProcedureDesc4_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:DropDownList runat="server" ID="DDL_ProcedureDesc4" DataTextField="ProcedureDesc" DataValueField="ID" AutoPostBack="True" Width="236px" OnSelectedIndexChanged="DDL_ProcedureDesc4_SelectedIndexChanged"></asp:DropDownList>
                                             <%--<br />
                                             <asp:Label ID="Lbl_ProcedureDesc4" runat="server" ForeColor="Red" Font-Size="12px"></asp:Label>
                                              <br />
@@ -526,7 +534,7 @@
 
                                         <td>
 
-                                            <asp:DropDownList runat="server" ID="DDL_ProcedureDesc5" DataTextField="ProcedureDesc" DataValueField="ID" AutoPostBack="True" width="236px" OnSelectedIndexChanged="DDL_ProcedureDesc5_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:DropDownList runat="server" ID="DDL_ProcedureDesc5" DataTextField="ProcedureDesc" DataValueField="ID" AutoPostBack="True" Width="236px" OnSelectedIndexChanged="DDL_ProcedureDesc5_SelectedIndexChanged"></asp:DropDownList>
                                             <%-- <br />
                                             <asp:Label ID="Lbl_ProcedureDesc5" runat="server" ForeColor="Red" Font-Size="12px"></asp:Label>
                                              <br />
@@ -539,7 +547,7 @@
                                     <tr id="PatientRatio" runat="server">
                                         <td>
 
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_PatientRatio" placeholder="5 تعني 5%" width="236px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_PatientRatio" placeholder="5 تعني 5%" Width="236px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="% نسبة تحمل المريض"></asp:Label>
@@ -558,7 +566,7 @@
                                     <tr id="Tax" runat="server">
                                         <td>
 
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Tax" placeholder="5 تعني 5%" width="236px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Tax" placeholder="5 تعني 5%" Width="236px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="% ضريبة الدخل"></asp:Label>
@@ -571,7 +579,7 @@
                                     <tr id="Module_No" runat="server">
 
                                         <td>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Sample_Num" width="236px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Sample_Num" Width="236px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="رقم النموذج"></asp:Label>
@@ -582,7 +590,7 @@
 
                                     <tr id="Card_No" runat="server">
                                         <td>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Card_Num" width="236px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Card_Num" Width="236px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="رقم البطاقة"></asp:Label>
@@ -591,7 +599,7 @@
 
                                     <tr id="Approval_number" runat="server">
                                         <td class="auto-style2" style="direction: rtl;">
-                                            <asp:TextBox ID="Txt_Approval_number" AutoCompleteType="Disabled" runat="server" width="236px"></asp:TextBox>
+                                            <asp:TextBox ID="Txt_Approval_number" AutoCompleteType="Disabled" runat="server" Width="236px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="رقم الموافقة"></asp:Label>
@@ -600,7 +608,7 @@
 
                                     <tr>
                                         <td>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Stamps" BackColor="#CCCCCC" ReadOnly="True" width="236px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Stamps" BackColor="#CCCCCC" ReadOnly="True" Width="236px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="الطوابع"></asp:Label>
@@ -611,7 +619,7 @@
 
                                     <tr>
                                         <td class="auto-style2" style="direction: rtl;">
-                                            <asp:TextBox ID="Txt_Stamps_Total" ReadOnly="true" Enabled="false" runat="server" width="236px"></asp:TextBox>
+                                            <asp:TextBox ID="Txt_Stamps_Total" ReadOnly="true" Enabled="false" runat="server" Width="236px"></asp:TextBox>
                                         </td>
                                         <td style="height: 26px; width: 98px;">
                                             <asp:Label runat="server" Text="مجموع الطوابع"></asp:Label>
@@ -635,7 +643,7 @@
 
                                     <tr id="Date" runat="server">
                                         <td class="auto-style2" style="direction: rtl;">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="TxtDate_SubClaim" width="236px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="TxtDate_SubClaim" Width="236px"></asp:TextBox>
                                             <ajaxToolkit:CalendarExtender ID="CalendarExtender1" Format="yyyy-MM-dd" runat="server" TargetControlID="TxtDate_SubClaim" />
 
                                         </td>
@@ -646,7 +654,7 @@
 
                                     <tr id="procedures" runat="server">
                                         <td class="auto-style2" style="direction: rtl;">
-                                            <asp:TextBox ID="Txt_procedures" TextMode="MultiLine" AutoCompleteType="Disabled" runat="server" width="236px"></asp:TextBox>
+                                            <asp:TextBox ID="Txt_procedures" TextMode="MultiLine" AutoCompleteType="Disabled" runat="server" Width="236px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="الملاحظات"></asp:Label>
@@ -654,7 +662,7 @@
                                     </tr>
 
                                     <%--Recipt--%>
-                                     <tr id="Recipt" runat="server" >
+                                    <tr id="Recipt" runat="server">
                                         <td class="auto-style2" style="direction: rtl;">
                                             <asp:DropDownList ID="DDL_Recipt" runat="server" DataValueField="ID" Width="214px" OnSelectedIndexChanged="DDL_Recipt_SelectedIndexChanged" AutoPostBack="True">
                                                 <asp:ListItem>--اختر--</asp:ListItem>
@@ -679,19 +687,19 @@
                                         </td>
                                     </tr>
 
-                                     <tr id="SubID" runat="server">
+                                    <tr id="SubID" runat="server">
                                         <td class="auto-style1">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_SubID" width="236px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_SubID" Width="236px"></asp:TextBox>
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="رقم السند الفرعي"></asp:Label>
                                         </td>
                                     </tr>
 
-                                    
+
                                     <tr id="Receipt_Date" runat="server">
                                         <td class="auto-style1">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Receipt_Date" width="236px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Receipt_Date" Width="236px"></asp:TextBox>
                                             <ajaxToolkit:CalendarExtender ID="CalendarExtender6" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_Receipt_Date" />
                                         </td>
                                         <td style="width: 98px">
@@ -701,16 +709,16 @@
 
                                     <tr id="Ammount" runat="server">
                                         <td class="auto-style1">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_ReceiptAmmount" width="236px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_ReceiptAmmount" Width="236px"></asp:TextBox>
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="المبلغ"></asp:Label>
                                         </td>
                                     </tr>
-                                    
-                                     <tr id="Acounting_No" runat="server">
+
+                                    <tr id="Acounting_No" runat="server">
                                         <td class="auto-style1">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Acounting_No" width="236px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Acounting_No" Width="236px"></asp:TextBox>
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="رقم الحساب"></asp:Label>
@@ -720,7 +728,7 @@
 
                                     <tr id="Statement" runat="server">
                                         <td class="auto-style1">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Statement" TextMode="MultiLine" width="236px"> </asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Statement" TextMode="MultiLine" Width="236px"> </asp:TextBox>
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="البيان"></asp:Label>
@@ -730,8 +738,8 @@
 
 
                                     <tr>
-                                        <td class="nav-justified" style="direction: rtl;">
-                                            <asp:FileUpload ID="fileImages" Multiple="Multiple" runat="server" width="236px" />
+                                        <td class="auto-style2" style="direction: rtl;">
+                                            <asp:FileUpload ID="fileImages" Multiple="Multiple" runat="server" Width="236px" />
                                             <asp:Repeater ID="Rpt_Download" Visible="false" runat="server">
                                                 <ItemTemplate>
                                                     <a href="Download.ashx?file=\\UploadedImages<%# DataBinder.Eval(Container, "DataItem.attach_Path") %>" style="font-size: large; color: black;">تنزيل</a>
@@ -739,7 +747,7 @@
                                             </asp:Repeater>
                                         </td>
 
-                                        <td style="height: 26px; width: 98px;">
+                                        <td class="auto-style3">
                                             <asp:Label runat="server" Text="الملفات المرفقة"></asp:Label>
                                         </td>
                                     </tr>
@@ -760,17 +768,17 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Button ID="Btn_SaveReceipt" runat="server" Text="حفظ مستند القبض" width="236px" OnClick="Btn_SaveReceipt_Click" />
+                                            <asp:Button ID="Btn_SaveReceipt" runat="server" Text="حفظ مستند القبض" Width="236px" OnClick="Btn_SaveReceipt_Click" />
                                         </td>
                                         <td></td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Button ID="Btn_InsertAll" runat="server" Text="حفظ جميع المدخلات" width="236px" OnClick="Btn_InsertAll_Click" />
+                                            <asp:Button ID="Btn_InsertAll" runat="server" Text="حفظ جميع المدخلات" Width="236px" OnClick="Btn_InsertAll_Click" />
                                         </td>
                                         <td></td>
                                     </tr>
-                                   
+
                                     <%-- <tr>
                                         <td>
                                             <asp:Button ID="Btn_ListingBonds" Visible="false" runat="server" CssClass="btn_listingbonds" Text="إدخال حركة قيد لمجموع الطوابع" OnClick="Btn_ListingBonds_Click" />
@@ -814,7 +822,7 @@
                                 </td>
                                 <td>
 
-                                    <asp:DropDownList ID="DDL_Main_Company2" runat="server" DataTextField="Name" DataValueField="ID" width="236px"></asp:DropDownList>
+                                    <asp:DropDownList ID="DDL_Main_Company2" runat="server" DataTextField="Name" DataValueField="ID" Width="236px"></asp:DropDownList>
                                     <asp:Label ID="Label11" runat="server" Text="الشركة"></asp:Label>
                                 </td>
 
