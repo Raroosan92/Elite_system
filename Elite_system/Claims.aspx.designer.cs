@@ -906,6 +906,15 @@ namespace Elite_system
         protected global::System.Web.UI.WebControls.Button Btn_InsertAll;
 
         /// <summary>
+        /// BTN_RAMI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BTN_RAMI;
+
+        /// <summary>
         /// DropDownList1 control.
         /// </summary>
         /// <remarks>

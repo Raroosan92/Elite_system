@@ -61,6 +61,7 @@ namespace Elite_system
 
                 cmd.Parameters.AddWithValue("@From", dt1);
                 cmd.Parameters.AddWithValue("@To", dt2);
+                cmd.Parameters.AddWithValue("@BrachNo", Txt_BranchNo.Text);
 
                 cmd.Parameters.AddWithValue("@Main_Company", long.Parse(DDL_Main_Company.SelectedValue));
                 cmd.Parameters.AddWithValue("@Main_Medical", long.Parse(DDL_Main_Medical.SelectedValue));

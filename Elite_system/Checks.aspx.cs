@@ -78,9 +78,9 @@ namespace Elite_system
                 // MyMethod();
                 //rami
                 slider.Visible = false;
-                Btn_Update1.Visible = HttpContext.Current.User.IsInRole("Update");
-                BtnDelete.Visible = HttpContext.Current.User.IsInRole("Delete");
-                Btn_Save1.Visible = HttpContext.Current.User.IsInRole("Add");
+                Btn_Update1.Visible = HttpContext.Current.User.IsInRole("Update_Checks");
+                BtnDelete.Visible = HttpContext.Current.User.IsInRole("Delete_Checks");
+                Btn_Save1.Visible = HttpContext.Current.User.IsInRole("Add_Checks");
                 if (HttpContext.Current.User.IsInRole("Admin"))
                 {
                     Btn_Save1.Visible = true;

@@ -77,7 +77,7 @@
             <section class="wrapper site-min-height">
                 <%--<h3><i class="fa fa-angle-right"></i> اسم الصفحة</h3>
         <div class="row mt">--%>
-                <form id="form1" runat="server">
+                <form id="form1" runat="server" autocomplete="off">
                     <uc1:Header runat="server" ID="Header" />
                     <%--<uc1:Menu runat="server" ID="Menu" />--%>
 

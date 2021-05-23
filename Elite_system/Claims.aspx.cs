@@ -63,7 +63,7 @@ namespace Elite_system
                 patient_name.Visible = false;
                 Date.Visible = false;
                 procedures.Visible = false;
-                //BTN_RAMI.Visible = false;
+                BTN_RAMI.Visible = false;
                 Specializatio.Visible = false;
                 ProcedureDesc1.Visible = false;
                 ProcedureDesc2.Visible = false;
@@ -77,19 +77,19 @@ namespace Elite_system
                 Card_No.Visible = false;
 
 
-                Btn_Update.Visible = HttpContext.Current.User.IsInRole("Update");
-                Btn_Delete.Visible = HttpContext.Current.User.IsInRole("Delete");
-                Btn_Save.Visible = HttpContext.Current.User.IsInRole("Add");
+                Btn_Update.Visible = HttpContext.Current.User.IsInRole("Update_Claim");
+                Btn_Delete.Visible = HttpContext.Current.User.IsInRole("Delete_Claim");
+                Btn_Save.Visible = HttpContext.Current.User.IsInRole("Add_Claim");
 
-                Btn_Update_SubClaims.Visible = HttpContext.Current.User.IsInRole("Update");
-                Btn_Save_SubClaims.Visible = HttpContext.Current.User.IsInRole("Add");
-                Btn_Delete_SubClaims.Visible = HttpContext.Current.User.IsInRole("Delete");
+                Btn_Update_SubClaims.Visible = HttpContext.Current.User.IsInRole("Update_Claim");
+                Btn_Save_SubClaims.Visible = HttpContext.Current.User.IsInRole("Add_Claim");
+                Btn_Delete_SubClaims.Visible = HttpContext.Current.User.IsInRole("Delete_Claim");
                 if (HttpContext.Current.User.IsInRole("Admin"))
                 {
                     Btn_Save.Visible = true;
                     Btn_Update.Visible = true;
                     Btn_Delete.Visible = true;
-                    //BTN_RAMI.Visible = true;
+                    BTN_RAMI.Visible = true;
                     Btn_Save_SubClaims.Visible = true;
                     Btn_Update_SubClaims.Visible = true;
                     Btn_Delete_SubClaims.Visible = true;
@@ -306,6 +306,7 @@ namespace Elite_system
                 {
                     Cls_Connection.open_connection();
                     s = cmd.ExecuteScalar().ToString();
+                    Cls_Connection.close_connection();
                 }
                 catch (Exception)
                 {
@@ -314,8 +315,10 @@ namespace Elite_system
 
                 Check2 = Int64.Parse(s);
 
-
-                Main_Listing_Bonds._Company = long.Parse(ID_Medical_Name[i]);
+                if (Check2 == 0)
+                {
+                    Cls_Connection.open_connection();
+                    Main_Listing_Bonds._Company = long.Parse(ID_Medical_Name[i]);
                 Main_Listing_Bonds._Type = 296;
                 Main_Listing_Bonds._Bond_Date = DateTime.UtcNow.AddHours(3).Date;
                 string Contracting_Value = Cls_Medical_Types_And_Companies.Get_Contracting_Value(long.Parse(ID_Medical_Name[i]));
@@ -327,8 +330,7 @@ namespace Elite_system
                 Cls_Connection.close_connection();
 
 
-                if (Check2 == 0)
-                {
+                
                     Result3 = Main_Listing_Bonds.Insert_Main_Listing_Bonds();
 
                     //////////////////////////////////       Log        /////////////////////////////////////////////
@@ -337,29 +339,23 @@ namespace Elite_system
                     //log.Insert_Log();
                     //////////////////////////////////   End Of Log        /////////////////////////////////////////////
                 }
-                else
-                {
-                    Main_Listing_Bonds._ID = Check2;
-                    Result3 = Main_Listing_Bonds.Update_Main_Listing_Bonds();
+                //else
+                //{
+                //    Main_Listing_Bonds._ID = Check2;
+                //   //Result3 = Main_Listing_Bonds.Update_Main_Listing_Bonds();
 
-                    //////////////////////////////////       Log        /////////////////////////////////////////////
-                    //Cls_Log log = new Cls_Log();
-                    //log._Log_Event = " تعديل أتعاب مطالبات شهر " + Txt_Month_Year.Text + " لمطالبة رقم " + Txt_ID.Text + " للجهة الطبية " + DDL_Medical_Name.SelectedItem.Text + " دفعة رقم " + Txt_Batch_No.Text;
-                    //log.Insert_Log();
-                    //////////////////////////////////   End Of Log        /////////////////////////////////////////////
-                }
+                //    //////////////////////////////////       Log        /////////////////////////////////////////////
+                //    //Cls_Log log = new Cls_Log();
+                //    //log._Log_Event = " تعديل أتعاب مطالبات شهر " + Txt_Month_Year.Text + " لمطالبة رقم " + Txt_ID.Text + " للجهة الطبية " + DDL_Medical_Name.SelectedItem.Text + " دفعة رقم " + Txt_Batch_No.Text;
+                //    //log.Insert_Log();
+                //    //////////////////////////////////   End Of Log        /////////////////////////////////////////////
+                //}
             }
             if (con.State == ConnectionState.Open)
             {
                 Cls_Connection.close_connection();
             }
-
             MSG("تم التعديل على حسابات الجهات الطبية وتم اضافة الاشتراكات");
-
-
-
-
-
             ////----------------------------------------------------------- 
 
 
@@ -2565,7 +2561,7 @@ namespace Elite_system
                     DateTime FreezFrom2;
                     string FreezTo;
                     DateTime FreezTo2;
-                    
+
 
                     while (dr2.Read())
                     {
@@ -2623,7 +2619,7 @@ namespace Elite_system
         protected void DDL_Medical_Name_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            Txt_Acounting_No.Text = DDL_Medical_Name.SelectedValue.ToString() ;
+            Txt_Acounting_No.Text = DDL_Medical_Name.SelectedValue.ToString();
 
             string Contracting_Value = Cls_Medical_Types_And_Companies.Get_Contracting_Value(long.Parse(DDL_Medical_Name.SelectedValue.ToString()));
 
@@ -2631,7 +2627,7 @@ namespace Elite_system
 
             DoctorSpecializatio = Get_DoctorSpecializationByID();
             DDL_Specialization.SelectedValue = DoctorSpecializatio.ToString();
-            
+
             //if (HttpContext.Current.User.IsInRole("Doctor"))
             //{
 
@@ -2644,7 +2640,7 @@ namespace Elite_system
             //Fill_DDL();
 
             Txt_Received_Date.Focus();
-          
+
         }
 
 
@@ -3514,11 +3510,11 @@ namespace Elite_system
 
         protected void BTN_RAMI_Click(object sender, EventArgs e)
         {
-            System.Threading.Thread.Sleep(48540);
+            //System.Threading.Thread.Sleep(4854);
             //var watch = System.Diagnostics.Stopwatch.StartNew();
-
-
             ListingBonds3();
+            
+
             //watch.Stop();
             //var elapsedMs = watch.ElapsedMilliseconds;
             //Txt_procedures.Text = elapsedMs.ToString();
@@ -3587,7 +3583,7 @@ namespace Elite_system
             Tax.Visible = false;
             Card_No.Visible = false;
             Module_No.Visible = false;
-            DDL_Recipt.Visible = false; 
+            DDL_Recipt.Visible = false;
         }
 
         protected void Btn_Search2_Click(object sender, EventArgs e)
@@ -3626,7 +3622,7 @@ namespace Elite_system
 
         protected void DDL_Recipt_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DDL_Recipt.SelectedIndex ==1)
+            if (DDL_Recipt.SelectedIndex == 1)
             {
                 Statement.Visible = true;
                 SubID.Visible = true;
@@ -3701,18 +3697,18 @@ namespace Elite_system
                 MSG("يرجى اختيار جهة طبية مرة اخرى لجلب رقم الحساب");
                 return;
             }
-            
+
             Main_Listing_Bonds._Debtor = 0;
             Main_Listing_Bonds._Description = Txt_Statement.Text;
-            if (Contracting_Value+ Stamps> decimal.Parse(Txt_ReceiptAmmount.Text))
+            if (Contracting_Value + Stamps > decimal.Parse(Txt_ReceiptAmmount.Text))
             {
-                MSG("القيمة المدخلة اقل من قيمة السند ب + "+ Math.Abs((Contracting_Value + Stamps)- decimal.Parse(Txt_ReceiptAmmount.Text)) + "");
+                MSG("القيمة المدخلة اقل من قيمة السند ب + " + Math.Abs((Contracting_Value + Stamps) - decimal.Parse(Txt_ReceiptAmmount.Text)) + "");
                 Main_Listing_Bonds._Creditor = decimal.Parse(Txt_ReceiptAmmount.Text);
                 //return;
             }
             else if (Contracting_Value + Stamps < decimal.Parse(Txt_ReceiptAmmount.Text))
             {
-                MSG("القيمة المدخلة اكبر من قيمة السند ب "+ Math.Abs((Contracting_Value + Stamps) - decimal.Parse(Txt_ReceiptAmmount.Text)) + "");
+                MSG("القيمة المدخلة اكبر من قيمة السند ب " + Math.Abs((Contracting_Value + Stamps) - decimal.Parse(Txt_ReceiptAmmount.Text)) + "");
                 Main_Listing_Bonds._Creditor = decimal.Parse(Txt_ReceiptAmmount.Text);
                 //return;
             }
@@ -3722,8 +3718,8 @@ namespace Elite_system
             }
             Main_Listing_Bonds._Sent_To = RB_Sent_To.SelectedValue.ToString();
             Main_Listing_Bonds._Claim_ID = long.Parse(Txt_SubID.Text);
-            
-            string Result =  Main_Listing_Bonds.Insert_Main_Listing_Bonds();
+
+            string Result = Main_Listing_Bonds.Insert_Main_Listing_Bonds();
 
             ////////////////////////////////       Log        /////////////////////////////////////////////
             Cls_Log log = new Cls_Log();

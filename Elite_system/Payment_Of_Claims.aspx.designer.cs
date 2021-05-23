@@ -69,6 +69,15 @@ namespace Elite_system
         protected global::System.Web.UI.WebControls.DropDownList DDL_Main_Company;
 
         /// <summary>
+        /// DDL_Status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Status;
+
+        /// <summary>
         /// Txt_PayAmmount control.
         /// </summary>
         /// <remarks>
@@ -184,6 +193,33 @@ namespace Elite_system
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label5;
+
+        /// <summary>
+        /// slider control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl slider;
+
+        /// <summary>
+        /// RP_ImagesLi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RP_ImagesLi;
+
+        /// <summary>
+        /// RP_Image control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RP_Image;
 
         /// <summary>
         /// GridView control.

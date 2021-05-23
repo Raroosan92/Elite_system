@@ -2268,6 +2268,7 @@ th {
   padding: 8px;
       font-size: 16px;
       white-space: nowrap;
+      /*white-space: normal;*/
       text-align-last: right;
   line-height: 1.42857143;
   vertical-align: top;

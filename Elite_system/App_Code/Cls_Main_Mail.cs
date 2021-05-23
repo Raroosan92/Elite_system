@@ -282,7 +282,7 @@ public class Cls_Main_Mail
     {
         try
         {
-
+           
             con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
             con = Cls_Connection._con;
             SqlCommand cmd = new SqlCommand();
@@ -290,9 +290,6 @@ public class Cls_Main_Mail
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "SP_Main_Mail";
             cmd.Parameters.AddWithValue("@Company", Company);
-            cmd.Parameters.AddWithValue("@Entry_Date", Entry_Date);
-            cmd.Parameters.AddWithValue("@Received_Date", Received_Date);
-            cmd.Parameters.AddWithValue("@Delivery_Date", Delivery_Date);
             cmd.Parameters.AddWithValue("@ID", ID);
             cmd.Parameters.AddWithValue("@Sent_To", Sent_To);
             cmd.Parameters.AddWithValue("@Mail_Type", Mail_Type);
@@ -302,7 +299,32 @@ public class Cls_Main_Mail
             cmd.Parameters.AddWithValue("@Refunded", Refunded);
             cmd.Parameters.AddWithValue("@BarCode", BarCode);
             cmd.Parameters.AddWithValue("@check", "u");
+            if (Entry_Date == DateTime.MinValue)
+            {
+                //DateTime is null
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@Entry_Date", Entry_Date);
+            }
 
+            if (Received_Date == DateTime.MinValue)
+            {
+                //DateTime is null
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@Received_Date", Received_Date);
+            }
+
+            if (Delivery_Date == DateTime.MinValue)
+            {
+                //DateTime is null
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@Delivery_Date", Delivery_Date);
+            }
             Cls_Connection.open_connection();
             cmd.ExecuteNonQuery();
             result = "تم التعديل بنجاح";

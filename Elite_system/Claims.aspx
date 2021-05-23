@@ -111,14 +111,16 @@
             text-align: center;*/
             margin-top: 50%;
         }
-    .auto-style2 {
-        width: 100%;
-        height: 26px;
-    }
-    .auto-style3 {
-        width: 98px;
-        height: 26px;
-    }
+
+        .auto-style2 {
+            width: 100%;
+            height: 26px;
+        }
+
+        .auto-style3 {
+            width: 98px;
+            height: 26px;
+        }
     </style>
 
 
@@ -451,7 +453,7 @@
                                                 ErrorMessage="خطأ في قيمة المطالبة"
                                                 ValidationExpression="((\d+)((\.\d{1,2})?))$">
                                             </asp:RegularExpressionValidator>--%>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Value" AutoPostBack="True" OnTextChanged="Txt_Value_TextChanged" Width="236px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Value" AutoPostBack="True" OnTextChanged="Txt_Value_TextChanged" Width="236px" ></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="قيمة المطالبة"></asp:Label>
@@ -742,6 +744,7 @@
                                             <asp:FileUpload ID="fileImages" Multiple="Multiple" runat="server" Width="236px" />
                                             <asp:Repeater ID="Rpt_Download" Visible="false" runat="server">
                                                 <ItemTemplate>
+
                                                     <a href="Download.ashx?file=\\UploadedImages<%# DataBinder.Eval(Container, "DataItem.attach_Path") %>" style="font-size: large; color: black;">تنزيل</a>
                                                 </ItemTemplate>
                                             </asp:Repeater>
@@ -785,18 +788,18 @@
                                         </td>
 
                                     </tr>--%>
-                                    <%--  <tr>
+                                      <tr>
                                         <td>
-                                            <asp:Button ID="BTN_RAMI" runat="server" Text="حفظ جميع " width="236px" OnClick="BTN_RAMI_Click" />
+                                            <asp:Button ID="BTN_RAMI" runat="server" Text="ترحيل جميع الاشتراكات" width="236px" OnClick="BTN_RAMI_Click" />
                                         </td>
                                         <td></td>
-                                    </tr>--%>
+                                    </tr>
                                 </table>
                             </ContentTemplate>
                             <Triggers>
                                 <asp:PostBackTrigger ControlID="Btn_Save_SubClaims" />
                                 <asp:PostBackTrigger ControlID="Btn_Update_SubClaims" />
-                                <%--<asp:PostBackTrigger ControlID="BTN_RAMI" />--%>
+                                <asp:PostBackTrigger ControlID="BTN_RAMI" />
                             </Triggers>
                         </asp:UpdatePanel>
 
@@ -898,7 +901,7 @@
             </div>
 
         </div>
-        <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+        <asp:UpdateProgress ID="UpdateProgress1" runat="server" DisplayAfter="2000">
             <ProgressTemplate>
                 <div id="blur" />
                 <div id="progress">

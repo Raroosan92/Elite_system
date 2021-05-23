@@ -39,7 +39,7 @@
     <link href="Content/css/select2.min.css" rel="stylesheet" />
     <link href="css/thumbnail-slider.css" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"  UpdateMode="Conditional">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" UpdateMode="Conditional">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
     <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
@@ -82,6 +82,19 @@
 
                                     <tr>
                                         <td>
+                                            <asp:DropDownList ID="DDL_Status" runat="server" AutoPostBack="True" DataTextField="Name" DataValueField="ID" Width="300px" OnSelectedIndexChanged="DDL_Status_SelectedIndexChanged">
+                                                <asp:ListItem>--أختر--</asp:ListItem>
+                                                <asp:ListItem>IN</asp:ListItem>
+                                                <asp:ListItem>OUT</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td>
+                                            <asp:Label runat="server" Text="الحالة"></asp:Label>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
                                             <%--  <asp:DropDownList ID="DDL_Sub_Company" runat="server" AutoPostBack="True" Width="300px" DataTextField="Sub_Company" DataValueField="ID">
                                             </asp:DropDownList>--%>
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_PayAmmount" Width="300px"></asp:TextBox>
@@ -90,12 +103,19 @@
                                             <asp:Label runat="server" Text="المبلغ المدفوع"></asp:Label>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="nav-justified" style="direction: rtl;">
+                                    <tr >
+                                        <td class="nav-justified" style="direction: rtl;white-space: normal;">
                                             <asp:FileUpload ID="fileImages" Multiple="Multiple" runat="server" Width="236px" />
                                             <asp:Repeater ID="Rpt_Download" Visible="false" runat="server">
                                                 <ItemTemplate>
-                                                    <a href="Download.ashx?file=\\UploadedImages<%# DataBinder.Eval(Container, "DataItem.attach_Path") %>" style="font-size: large; color: black;">تنزيل</a>
+                                                    <a href="Download.ashx?file=\\UploadedImages<%# DataBinder.Eval(Container, "DataItem.attach_Path") %>" style="font-size: large; color: blue;" target="_blank">تنزيل</a>
+
+
+                                                    <%--<input type="button" title="X" value="X" style="color: red; background: none; border: none;"
+                                                        onclick="ConfirmDelete()">
+                                                    <asp:LinkButton ID="btnDeletePic2" runat="server" Style="font-size: large; color: red; visibility: hidden" CommandArgument='<%#DataBinder.Eval(Container, "DataItem.Attach_Id") %>' OnClick="btnDeletePic_Click">
+                                            X
+                                                    </asp:LinkButton>--%>
                                                 </ItemTemplate>
                                             </asp:Repeater>
                                         </td>
@@ -104,6 +124,7 @@
                                             <asp:Label runat="server" Text="الملفات المرفقة"></asp:Label>
                                         </td>
                                     </tr>
+
 
                                     <tr style="direction: rtl;">
                                         <td>
@@ -147,6 +168,53 @@
                                         </td>
                                     </tr>
                                 </table>
+
+
+                            </div>
+                        </div>
+                        <div class="COLR" style="float: right">
+
+                            <div id="slider" runat="server" style="padding: 100px 0; background: #333; width: 100%; height: 12px;">
+                                <div id="thumbnail-slider" style="display: none;">
+                                    <div class="inner">
+                                        <ul>
+                                            <asp:Repeater ID="RP_ImagesLi" runat="server">
+                                                <ItemTemplate>
+                                                    <li>
+                                                        <a class="thumb" href='UploadedImages<%# DataBinder.Eval(Container, "DataItem.attach_Path") %>'></a>
+
+                                                          <%-- <input type="button" title="X" value="X" style="color: red; background: none; border: none;"
+                                                               onclick="ConfirmDelete()">
+                                                        <asp:LinkButton ID="btnDeletePic" runat="server" Style="font-size: large; visibility:hidden" CommandArgument='<%#DataBinder.Eval(Container, "DataItem.Attach_Id") %>' OnClick="btnDeletePic_Click">
+                                            حذف
+                                                        </asp:LinkButton>--%>
+                                                    </li>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </ul>
+                                    </div>
+                                    <div id="closeBtn">CLOSE</div>
+                                </div>
+
+                                <ul id="myGallery" style="display: inline-flex; margin-top: -99px;">
+                                    <asp:Repeater ID="RP_Image" runat="server">
+                                        <ItemTemplate>
+                                            <li>
+                                                <img style="margin-top: -39px; height: 87%;" src="UploadedImages\<%# DataBinder.Eval(Container, "DataItem.attach_Path") %>" title="<%# DataBinder.Eval(Container, "DataItem.Attach_Id") %>" />
+                                                <%--<a id="Btn_Delete_Image"  style="font-size: large;" onclick="Delete_Image(<%# DataBinder.Eval(Container, "DataItem.Attach_Id") %>)">حذف</a>--%>
+                                                  <%-- <input type="button" title="X" value="X" style="color: red; background: none; border: none;"
+                                                       onclick="ConfirmDelete2()">
+                                                <asp:LinkButton ID="btnDeletePic" tagname="btnDeletePic" runat="server" Style="font-size: large; visibility:hidden" CommandArgument='<%#DataBinder.Eval(Container, "DataItem.Attach_Id") %>' OnClick="btnDeletePic_Click">
+                                            حذف
+                                                </asp:LinkButton>--%>
+
+                                            </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </ul>
+
+                                <div style="clear: both;"></div>
+
                             </div>
                         </div>
                     </div>
@@ -169,10 +237,56 @@
         </ContentTemplate>
         <Triggers>
             <asp:PostBackTrigger ControlID="Btn_Upload" />
+
         </Triggers>
     </asp:UpdatePanel>
     <script src="scripts/jquery-1.7.min.js"></script>
     <script src="scripts/select2.min.js"></script>
+
+
+    <script src="js/thumbnail-slider.js"></script>
+
+    <script>
+        function ConfirmDelete() {
+            var x = confirm("هلا انت متأكد من الحذف");
+            if (x)
+                document.getElementById("ContentPlaceHolder1_Rpt_Download_btnDeletePic2_0").click();
+            else
+                return false;
+        }
+
+
+        function ConfirmDelete2() {
+            var x = confirm("هلا انت متأكد من الحذف");
+            if (x)
+                document.getElementsByTagName("btnDeletePic").click();
+            else
+                return false;
+        }
+    </script>
+
+
+    <script>
+        //Note: this script should be placed at the bottom of the page, or after the slider markup. It cannot be placed in the head section of the page.
+        var thumbSldr = document.getElementById("thumbnail-slider");
+        var closeBtn = document.getElementById("closeBtn");
+        var galleryImgs = document.getElementById("myGallery").getElementsByTagName("img");
+        for (var i = 0; i < galleryImgs.length; i++) {
+            galleryImgs[i].index = i;
+            galleryImgs[i].onclick = function (e) {
+                var li = this;
+                thumbSldr.style.display = "block";
+                mcThumbnailSlider.init(li.index);
+            };
+        }
+
+        thumbSldr.onclick = closeBtn.onclick = function (e) {
+            //This event will be triggered only when clicking the area outside the thumbs or clicking the CLOSE button
+            thumbSldr.style.display = "none";
+        };
+    </script>
+
+
     <script language="javascript" type="text/javascript">
         window.onload = function load() {
             Sys.WebForms.PageRequestManager.getInstance().add_endRequest(jsFunctions);

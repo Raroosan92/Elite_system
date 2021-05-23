@@ -128,8 +128,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
             Rpt_MedicalTypesWithNoClaims.Attributes.Add("style", "display:none");
 
 
-            HtmlControl Rpt_Claims4 = (HtmlControl)Page.Master.FindControl("Rpt_Claims4");
-            Rpt_Claims3.Attributes.Add("style", "display:none");
+            HtmlControl Rpt_Claims4 = (HtmlControl)Page.Master.FindControl("Claims_Report_Company");
+            Rpt_Claims4.Attributes.Add("style", "display:none");
 
             HtmlControl PaymentOfClaim = (HtmlControl)Page.Master.FindControl("PaymentOfClaim");
             PaymentOfClaim.Attributes.Add("style", "display:none");

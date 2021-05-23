@@ -109,6 +109,15 @@
                                      <asp:Label runat="server" Text="الجهة الطبية"></asp:Label>
                                 </td>
                             </tr>
+
+                            <tr>
+                                <td>
+                                   <asp:TextBox AutoCompleteType="Disabled" ID="Txt_BranchNo" runat="server" Width="120px"></asp:TextBox>
+                                </td>
+                                <td>
+                                     <asp:Label runat="server" Text="رقم الدفعة"></asp:Label>
+                                </td>
+                            </tr>
                             <tr>
                                 <td class="auto-style1"></td>
                                 <td style="width: 98px">
