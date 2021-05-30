@@ -377,7 +377,7 @@ namespace Elite_system
                     {
                         //To Update Name in checkes
                         string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
-                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= " + dt1 + " WHERE Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
+                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue);
                         Cls_Connection.open_connection();
                         cmd.ExecuteNonQuery();
                         Check = true;

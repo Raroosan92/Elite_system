@@ -26,7 +26,7 @@
         }
 
         .Grid {
-            width: 100%;
+            width: 92%  ;
             text-align: center;
             direction: rtl;
         }

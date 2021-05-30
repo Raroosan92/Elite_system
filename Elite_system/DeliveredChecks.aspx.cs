@@ -436,7 +436,11 @@ namespace Elite_system
 
                     else
                     {
-
+                        Cls_Connection.open_connection();
+                        cmd.Parameters.Clear();
+                        cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE Check_No = '" + Txt_CheckNo.Text + "' and Sent_To=" + long.Parse(DDL_Sent_To.SelectedValue) + "";
+                        empname = cmd.ExecuteScalar().ToString();
+                        Cls_Connection.close_connection();
                         if (empname != "")
                         {
                             //To Update Name in checkes
