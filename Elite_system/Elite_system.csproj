@@ -690,6 +690,7 @@
     <Content Include="RamiRami.aspx" />
     <Content Include="RefundedCheckes.aspx" />
     <Content Include="Rep_Log.aspx" />
+    <Content Include="Rpt_Receivables.aspx" />
     <Content Include="Rpt_Claims3.aspx" />
     <Content Include="Rpt_Claims4.aspx" />
     <Content Include="Rpt_GetContractingValue.aspx" />
@@ -986,6 +987,17 @@
     <Content Include="DS_Medical_Name_Main_Company.xss">
       <DependentUpon>DS_Medical_Name_Main_Company.xsd</DependentUpon>
     </Content>
+    <Content Include="DS_Receivables.xsc">
+      <DependentUpon>DS_Receivables.xsd</DependentUpon>
+    </Content>
+    <None Include="DS_Receivables.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Receivables.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DS_Receivables.xss">
+      <DependentUpon>DS_Receivables.xsd</DependentUpon>
+    </Content>
     <None Include="DS_Rpt_MedicalTypesWithNoClaims.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -1150,6 +1162,11 @@
     </Compile>
     <Compile Include="DeliveredMail.aspx.designer.cs">
       <DependentUpon>DeliveredMail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DS_Receivables.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Receivables.xsd</DependentUpon>
     </Compile>
     <Compile Include="RefundedMail.aspx.cs">
       <DependentUpon>RefundedMail.aspx</DependentUpon>
@@ -1585,6 +1602,13 @@
     <Compile Include="Rep_Log.aspx.designer.cs">
       <DependentUpon>Rep_Log.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Rpt_Receivables.aspx.cs">
+      <DependentUpon>Rpt_Receivables.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt_Receivables.aspx.designer.cs">
+      <DependentUpon>Rpt_Receivables.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Rpt_Claims3.aspx.cs">
       <DependentUpon>Rpt_Claims3.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1765,6 +1789,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AssignedChecksView.rdlc" />
+    <EmbeddedResource Include="Rpt_Receivables.rdlc" />
     <EmbeddedResource Include="Rpt_CheckLogStatus.rdlc" />
     <EmbeddedResource Include="Rpt_Claims.rdlc" />
     <EmbeddedResource Include="Rpt_Claims_Updated.rdlc" />

@@ -20,17 +20,17 @@ namespace Elite_system {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DS_Financial_Receivables")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DS_Receivables")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DS_Financial_Receivables : global::System.Data.DataSet {
+    public partial class DS_Receivables : global::System.Data.DataSet {
         
-        private V_Financial_ReceivablesDataTable tableV_Financial_Receivables;
+        private V_Financial_Receivables2DataTable tableV_Financial_Receivables2;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public DS_Financial_Receivables() {
+        public DS_Receivables() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Elite_system {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected DS_Financial_Receivables(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DS_Receivables(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace Elite_system {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["V_Financial_Receivables"] != null)) {
-                    base.Tables.Add(new V_Financial_ReceivablesDataTable(ds.Tables["V_Financial_Receivables"]));
+                if ((ds.Tables["V_Financial_Receivables2"] != null)) {
+                    base.Tables.Add(new V_Financial_Receivables2DataTable(ds.Tables["V_Financial_Receivables2"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Elite_system {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public V_Financial_ReceivablesDataTable V_Financial_Receivables {
+        public V_Financial_Receivables2DataTable V_Financial_Receivables2 {
             get {
-                return this.tableV_Financial_Receivables;
+                return this.tableV_Financial_Receivables2;
             }
         }
         
@@ -127,7 +127,7 @@ namespace Elite_system {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DS_Financial_Receivables cln = ((DS_Financial_Receivables)(base.Clone()));
+            DS_Receivables cln = ((DS_Receivables)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace Elite_system {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["V_Financial_Receivables"] != null)) {
-                    base.Tables.Add(new V_Financial_ReceivablesDataTable(ds.Tables["V_Financial_Receivables"]));
+                if ((ds.Tables["V_Financial_Receivables2"] != null)) {
+                    base.Tables.Add(new V_Financial_Receivables2DataTable(ds.Tables["V_Financial_Receivables2"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Elite_system {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableV_Financial_Receivables = ((V_Financial_ReceivablesDataTable)(base.Tables["V_Financial_Receivables"]));
+            this.tableV_Financial_Receivables2 = ((V_Financial_Receivables2DataTable)(base.Tables["V_Financial_Receivables2"]));
             if ((initTable == true)) {
-                if ((this.tableV_Financial_Receivables != null)) {
-                    this.tableV_Financial_Receivables.InitVars();
+                if ((this.tableV_Financial_Receivables2 != null)) {
+                    this.tableV_Financial_Receivables2.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace Elite_system {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DS_Financial_Receivables";
+            this.DataSetName = "DS_Receivables";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DS_Financial_Receivables.xsd";
+            this.Namespace = "http://tempuri.org/DS_Receivables.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableV_Financial_Receivables = new V_Financial_ReceivablesDataTable();
-            base.Tables.Add(this.tableV_Financial_Receivables);
+            this.tableV_Financial_Receivables2 = new V_Financial_Receivables2DataTable();
+            base.Tables.Add(this.tableV_Financial_Receivables2);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeV_Financial_Receivables() {
+        private bool ShouldSerializeV_Financial_Receivables2() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace Elite_system {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DS_Financial_Receivables ds = new DS_Financial_Receivables();
+            DS_Receivables ds = new DS_Receivables();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,14 +270,14 @@ namespace Elite_system {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void V_Financial_ReceivablesRowChangeEventHandler(object sender, V_Financial_ReceivablesRowChangeEvent e);
+        public delegate void V_Financial_Receivables2RowChangeEventHandler(object sender, V_Financial_Receivables2RowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class V_Financial_ReceivablesDataTable : global::System.Data.TypedTableBase<V_Financial_ReceivablesRow> {
+        public partial class V_Financial_Receivables2DataTable : global::System.Data.TypedTableBase<V_Financial_Receivables2Row> {
             
             private global::System.Data.DataColumn columnID;
             
@@ -295,8 +295,6 @@ namespace Elite_system {
             
             private global::System.Data.DataColumn columnTotal_Fin;
             
-            private global::System.Data.DataColumn columnContracting_Value1;
-            
             private global::System.Data.DataColumn columnContract_Date;
             
             private global::System.Data.DataColumn columnEmployee_Name;
@@ -307,8 +305,8 @@ namespace Elite_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_Financial_ReceivablesDataTable() {
-                this.TableName = "V_Financial_Receivables";
+            public V_Financial_Receivables2DataTable() {
+                this.TableName = "V_Financial_Receivables2";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -316,7 +314,7 @@ namespace Elite_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal V_Financial_ReceivablesDataTable(global::System.Data.DataTable table) {
+            internal V_Financial_Receivables2DataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -333,7 +331,7 @@ namespace Elite_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected V_Financial_ReceivablesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected V_Financial_Receivables2DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -404,14 +402,6 @@ namespace Elite_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Contracting_Value1Column {
-                get {
-                    return this.columnContracting_Value1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn Contract_DateColumn {
                 get {
                     return this.columnContract_Date;
@@ -453,34 +443,34 @@ namespace Elite_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_Financial_ReceivablesRow this[int index] {
+            public V_Financial_Receivables2Row this[int index] {
                 get {
-                    return ((V_Financial_ReceivablesRow)(this.Rows[index]));
+                    return ((V_Financial_Receivables2Row)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event V_Financial_ReceivablesRowChangeEventHandler V_Financial_ReceivablesRowChanging;
+            public event V_Financial_Receivables2RowChangeEventHandler V_Financial_Receivables2RowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event V_Financial_ReceivablesRowChangeEventHandler V_Financial_ReceivablesRowChanged;
+            public event V_Financial_Receivables2RowChangeEventHandler V_Financial_Receivables2RowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event V_Financial_ReceivablesRowChangeEventHandler V_Financial_ReceivablesRowDeleting;
+            public event V_Financial_Receivables2RowChangeEventHandler V_Financial_Receivables2RowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event V_Financial_ReceivablesRowChangeEventHandler V_Financial_ReceivablesRowDeleted;
+            public event V_Financial_Receivables2RowChangeEventHandler V_Financial_Receivables2RowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddV_Financial_ReceivablesRow(V_Financial_ReceivablesRow row) {
+            public void AddV_Financial_Receivables2Row(V_Financial_Receivables2Row row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_Financial_ReceivablesRow AddV_Financial_ReceivablesRow(decimal ID, string Name, string Phone, string Address, int Contracting_Value, string Stamps, int Count_NonDelivered, decimal Total_Fin, decimal Contracting_Value1, System.DateTime Contract_Date, string Employee_Name, string Mobile, System.DateTime Bond_Date) {
-                V_Financial_ReceivablesRow rowV_Financial_ReceivablesRow = ((V_Financial_ReceivablesRow)(this.NewRow()));
+            public V_Financial_Receivables2Row AddV_Financial_Receivables2Row(decimal ID, string Name, string Phone, string Address, decimal Contracting_Value, string Stamps, int Count_NonDelivered, decimal Total_Fin, System.DateTime Contract_Date, string Employee_Name, string Mobile, System.DateTime Bond_Date) {
+                V_Financial_Receivables2Row rowV_Financial_Receivables2Row = ((V_Financial_Receivables2Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
                         Name,
@@ -490,27 +480,26 @@ namespace Elite_system {
                         Stamps,
                         Count_NonDelivered,
                         Total_Fin,
-                        Contracting_Value1,
                         Contract_Date,
                         Employee_Name,
                         Mobile,
                         Bond_Date};
-                rowV_Financial_ReceivablesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowV_Financial_ReceivablesRow);
-                return rowV_Financial_ReceivablesRow;
+                rowV_Financial_Receivables2Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowV_Financial_Receivables2Row);
+                return rowV_Financial_Receivables2Row;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_Financial_ReceivablesRow FindByID(decimal ID) {
-                return ((V_Financial_ReceivablesRow)(this.Rows.Find(new object[] {
+            public V_Financial_Receivables2Row FindByID(decimal ID) {
+                return ((V_Financial_Receivables2Row)(this.Rows.Find(new object[] {
                             ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                V_Financial_ReceivablesDataTable cln = ((V_Financial_ReceivablesDataTable)(base.Clone()));
+                V_Financial_Receivables2DataTable cln = ((V_Financial_Receivables2DataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -518,7 +507,7 @@ namespace Elite_system {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new V_Financial_ReceivablesDataTable();
+                return new V_Financial_Receivables2DataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -532,7 +521,6 @@ namespace Elite_system {
                 this.columnStamps = base.Columns["Stamps"];
                 this.columnCount_NonDelivered = base.Columns["Count_NonDelivered"];
                 this.columnTotal_Fin = base.Columns["Total_Fin"];
-                this.columnContracting_Value1 = base.Columns["Contracting_Value1"];
                 this.columnContract_Date = base.Columns["Contract_Date"];
                 this.columnEmployee_Name = base.Columns["Employee_Name"];
                 this.columnMobile = base.Columns["Mobile"];
@@ -550,7 +538,7 @@ namespace Elite_system {
                 base.Columns.Add(this.columnPhone);
                 this.columnAddress = new global::System.Data.DataColumn("Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAddress);
-                this.columnContracting_Value = new global::System.Data.DataColumn("Contracting_Value", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnContracting_Value = new global::System.Data.DataColumn("Contracting_Value", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContracting_Value);
                 this.columnStamps = new global::System.Data.DataColumn("Stamps", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStamps);
@@ -558,8 +546,6 @@ namespace Elite_system {
                 base.Columns.Add(this.columnCount_NonDelivered);
                 this.columnTotal_Fin = new global::System.Data.DataColumn("Total_Fin", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_Fin);
-                this.columnContracting_Value1 = new global::System.Data.DataColumn("Contracting_Value1", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnContracting_Value1);
                 this.columnContract_Date = new global::System.Data.DataColumn("Contract_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContract_Date);
                 this.columnEmployee_Name = new global::System.Data.DataColumn("Employee_Name", typeof(string), null, global::System.Data.MappingType.Element);
@@ -575,39 +561,37 @@ namespace Elite_system {
                 this.columnName.MaxLength = 200;
                 this.columnPhone.MaxLength = 50;
                 this.columnAddress.MaxLength = 500;
-                this.columnContracting_Value.AllowDBNull = false;
                 this.columnStamps.MaxLength = 500;
                 this.columnCount_NonDelivered.ReadOnly = true;
                 this.columnTotal_Fin.ReadOnly = true;
-                this.columnContracting_Value1.Caption = "Contracting_Value";
                 this.columnEmployee_Name.MaxLength = 300;
                 this.columnMobile.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_Financial_ReceivablesRow NewV_Financial_ReceivablesRow() {
-                return ((V_Financial_ReceivablesRow)(this.NewRow()));
+            public V_Financial_Receivables2Row NewV_Financial_Receivables2Row() {
+                return ((V_Financial_Receivables2Row)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new V_Financial_ReceivablesRow(builder);
+                return new V_Financial_Receivables2Row(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(V_Financial_ReceivablesRow);
+                return typeof(V_Financial_Receivables2Row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.V_Financial_ReceivablesRowChanged != null)) {
-                    this.V_Financial_ReceivablesRowChanged(this, new V_Financial_ReceivablesRowChangeEvent(((V_Financial_ReceivablesRow)(e.Row)), e.Action));
+                if ((this.V_Financial_Receivables2RowChanged != null)) {
+                    this.V_Financial_Receivables2RowChanged(this, new V_Financial_Receivables2RowChangeEvent(((V_Financial_Receivables2Row)(e.Row)), e.Action));
                 }
             }
             
@@ -615,8 +599,8 @@ namespace Elite_system {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.V_Financial_ReceivablesRowChanging != null)) {
-                    this.V_Financial_ReceivablesRowChanging(this, new V_Financial_ReceivablesRowChangeEvent(((V_Financial_ReceivablesRow)(e.Row)), e.Action));
+                if ((this.V_Financial_Receivables2RowChanging != null)) {
+                    this.V_Financial_Receivables2RowChanging(this, new V_Financial_Receivables2RowChangeEvent(((V_Financial_Receivables2Row)(e.Row)), e.Action));
                 }
             }
             
@@ -624,8 +608,8 @@ namespace Elite_system {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.V_Financial_ReceivablesRowDeleted != null)) {
-                    this.V_Financial_ReceivablesRowDeleted(this, new V_Financial_ReceivablesRowChangeEvent(((V_Financial_ReceivablesRow)(e.Row)), e.Action));
+                if ((this.V_Financial_Receivables2RowDeleted != null)) {
+                    this.V_Financial_Receivables2RowDeleted(this, new V_Financial_Receivables2RowChangeEvent(((V_Financial_Receivables2Row)(e.Row)), e.Action));
                 }
             }
             
@@ -633,14 +617,14 @@ namespace Elite_system {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.V_Financial_ReceivablesRowDeleting != null)) {
-                    this.V_Financial_ReceivablesRowDeleting(this, new V_Financial_ReceivablesRowChangeEvent(((V_Financial_ReceivablesRow)(e.Row)), e.Action));
+                if ((this.V_Financial_Receivables2RowDeleting != null)) {
+                    this.V_Financial_Receivables2RowDeleting(this, new V_Financial_Receivables2RowChangeEvent(((V_Financial_Receivables2Row)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveV_Financial_ReceivablesRow(V_Financial_ReceivablesRow row) {
+            public void RemoveV_Financial_Receivables2Row(V_Financial_Receivables2Row row) {
                 this.Rows.Remove(row);
             }
             
@@ -649,7 +633,7 @@ namespace Elite_system {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DS_Financial_Receivables ds = new DS_Financial_Receivables();
+                DS_Receivables ds = new DS_Receivables();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -667,7 +651,7 @@ namespace Elite_system {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "V_Financial_ReceivablesDataTable";
+                attribute2.FixedValue = "V_Financial_Receivables2DataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -711,25 +695,25 @@ namespace Elite_system {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class V_Financial_ReceivablesRow : global::System.Data.DataRow {
+        public partial class V_Financial_Receivables2Row : global::System.Data.DataRow {
             
-            private V_Financial_ReceivablesDataTable tableV_Financial_Receivables;
+            private V_Financial_Receivables2DataTable tableV_Financial_Receivables2;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal V_Financial_ReceivablesRow(global::System.Data.DataRowBuilder rb) : 
+            internal V_Financial_Receivables2Row(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableV_Financial_Receivables = ((V_Financial_ReceivablesDataTable)(this.Table));
+                this.tableV_Financial_Receivables2 = ((V_Financial_Receivables2DataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal ID {
                 get {
-                    return ((decimal)(this[this.tableV_Financial_Receivables.IDColumn]));
+                    return ((decimal)(this[this.tableV_Financial_Receivables2.IDColumn]));
                 }
                 set {
-                    this[this.tableV_Financial_Receivables.IDColumn] = value;
+                    this[this.tableV_Financial_Receivables2.IDColumn] = value;
                 }
             }
             
@@ -738,14 +722,14 @@ namespace Elite_system {
             public string Name {
                 get {
                     try {
-                        return ((string)(this[this.tableV_Financial_Receivables.NameColumn]));
+                        return ((string)(this[this.tableV_Financial_Receivables2.NameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'V_Financial_Receivables\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'V_Financial_Receivables2\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Financial_Receivables.NameColumn] = value;
+                    this[this.tableV_Financial_Receivables2.NameColumn] = value;
                 }
             }
             
@@ -754,14 +738,14 @@ namespace Elite_system {
             public string Phone {
                 get {
                     try {
-                        return ((string)(this[this.tableV_Financial_Receivables.PhoneColumn]));
+                        return ((string)(this[this.tableV_Financial_Receivables2.PhoneColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'V_Financial_Receivables\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'V_Financial_Receivables2\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Financial_Receivables.PhoneColumn] = value;
+                    this[this.tableV_Financial_Receivables2.PhoneColumn] = value;
                 }
             }
             
@@ -770,25 +754,31 @@ namespace Elite_system {
             public string Address {
                 get {
                     try {
-                        return ((string)(this[this.tableV_Financial_Receivables.AddressColumn]));
+                        return ((string)(this[this.tableV_Financial_Receivables2.AddressColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Address\' in table \'V_Financial_Receivables\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Address\' in table \'V_Financial_Receivables2\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Financial_Receivables.AddressColumn] = value;
+                    this[this.tableV_Financial_Receivables2.AddressColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Contracting_Value {
+            public decimal Contracting_Value {
                 get {
-                    return ((int)(this[this.tableV_Financial_Receivables.Contracting_ValueColumn]));
+                    try {
+                        return ((decimal)(this[this.tableV_Financial_Receivables2.Contracting_ValueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Contracting_Value\' in table \'V_Financial_Receivables2\' is D" +
+                                "BNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableV_Financial_Receivables.Contracting_ValueColumn] = value;
+                    this[this.tableV_Financial_Receivables2.Contracting_ValueColumn] = value;
                 }
             }
             
@@ -797,14 +787,14 @@ namespace Elite_system {
             public string Stamps {
                 get {
                     try {
-                        return ((string)(this[this.tableV_Financial_Receivables.StampsColumn]));
+                        return ((string)(this[this.tableV_Financial_Receivables2.StampsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Stamps\' in table \'V_Financial_Receivables\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Stamps\' in table \'V_Financial_Receivables2\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Financial_Receivables.StampsColumn] = value;
+                    this[this.tableV_Financial_Receivables2.StampsColumn] = value;
                 }
             }
             
@@ -813,15 +803,15 @@ namespace Elite_system {
             public int Count_NonDelivered {
                 get {
                     try {
-                        return ((int)(this[this.tableV_Financial_Receivables.Count_NonDeliveredColumn]));
+                        return ((int)(this[this.tableV_Financial_Receivables2.Count_NonDeliveredColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Count_NonDelivered\' in table \'V_Financial_Receivables\' is D" +
-                                "BNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Count_NonDelivered\' in table \'V_Financial_Receivables2\' is " +
+                                "DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Financial_Receivables.Count_NonDeliveredColumn] = value;
+                    this[this.tableV_Financial_Receivables2.Count_NonDeliveredColumn] = value;
                 }
             }
             
@@ -830,31 +820,14 @@ namespace Elite_system {
             public decimal Total_Fin {
                 get {
                     try {
-                        return ((decimal)(this[this.tableV_Financial_Receivables.Total_FinColumn]));
+                        return ((decimal)(this[this.tableV_Financial_Receivables2.Total_FinColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Total_Fin\' in table \'V_Financial_Receivables\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total_Fin\' in table \'V_Financial_Receivables2\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Financial_Receivables.Total_FinColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal Contracting_Value1 {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableV_Financial_Receivables.Contracting_Value1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Contracting_Value1\' in table \'V_Financial_Receivables\' is D" +
-                                "BNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Financial_Receivables.Contracting_Value1Column] = value;
+                    this[this.tableV_Financial_Receivables2.Total_FinColumn] = value;
                 }
             }
             
@@ -863,15 +836,15 @@ namespace Elite_system {
             public System.DateTime Contract_Date {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableV_Financial_Receivables.Contract_DateColumn]));
+                        return ((global::System.DateTime)(this[this.tableV_Financial_Receivables2.Contract_DateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Contract_Date\' in table \'V_Financial_Receivables\' is DBNull" +
-                                ".", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Contract_Date\' in table \'V_Financial_Receivables2\' is DBNul" +
+                                "l.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Financial_Receivables.Contract_DateColumn] = value;
+                    this[this.tableV_Financial_Receivables2.Contract_DateColumn] = value;
                 }
             }
             
@@ -880,15 +853,15 @@ namespace Elite_system {
             public string Employee_Name {
                 get {
                     try {
-                        return ((string)(this[this.tableV_Financial_Receivables.Employee_NameColumn]));
+                        return ((string)(this[this.tableV_Financial_Receivables2.Employee_NameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Employee_Name\' in table \'V_Financial_Receivables\' is DBNull" +
-                                ".", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Employee_Name\' in table \'V_Financial_Receivables2\' is DBNul" +
+                                "l.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Financial_Receivables.Employee_NameColumn] = value;
+                    this[this.tableV_Financial_Receivables2.Employee_NameColumn] = value;
                 }
             }
             
@@ -897,14 +870,14 @@ namespace Elite_system {
             public string Mobile {
                 get {
                     try {
-                        return ((string)(this[this.tableV_Financial_Receivables.MobileColumn]));
+                        return ((string)(this[this.tableV_Financial_Receivables2.MobileColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Mobile\' in table \'V_Financial_Receivables\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Mobile\' in table \'V_Financial_Receivables2\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Financial_Receivables.MobileColumn] = value;
+                    this[this.tableV_Financial_Receivables2.MobileColumn] = value;
                 }
             }
             
@@ -913,147 +886,147 @@ namespace Elite_system {
             public System.DateTime Bond_Date {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableV_Financial_Receivables.Bond_DateColumn]));
+                        return ((global::System.DateTime)(this[this.tableV_Financial_Receivables2.Bond_DateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Bond_Date\' in table \'V_Financial_Receivables\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Bond_Date\' in table \'V_Financial_Receivables2\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Financial_Receivables.Bond_DateColumn] = value;
+                    this[this.tableV_Financial_Receivables2.Bond_DateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsNameNull() {
-                return this.IsNull(this.tableV_Financial_Receivables.NameColumn);
+                return this.IsNull(this.tableV_Financial_Receivables2.NameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetNameNull() {
-                this[this.tableV_Financial_Receivables.NameColumn] = global::System.Convert.DBNull;
+                this[this.tableV_Financial_Receivables2.NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPhoneNull() {
-                return this.IsNull(this.tableV_Financial_Receivables.PhoneColumn);
+                return this.IsNull(this.tableV_Financial_Receivables2.PhoneColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPhoneNull() {
-                this[this.tableV_Financial_Receivables.PhoneColumn] = global::System.Convert.DBNull;
+                this[this.tableV_Financial_Receivables2.PhoneColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsAddressNull() {
-                return this.IsNull(this.tableV_Financial_Receivables.AddressColumn);
+                return this.IsNull(this.tableV_Financial_Receivables2.AddressColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAddressNull() {
-                this[this.tableV_Financial_Receivables.AddressColumn] = global::System.Convert.DBNull;
+                this[this.tableV_Financial_Receivables2.AddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsContracting_ValueNull() {
+                return this.IsNull(this.tableV_Financial_Receivables2.Contracting_ValueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetContracting_ValueNull() {
+                this[this.tableV_Financial_Receivables2.Contracting_ValueColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsStampsNull() {
-                return this.IsNull(this.tableV_Financial_Receivables.StampsColumn);
+                return this.IsNull(this.tableV_Financial_Receivables2.StampsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetStampsNull() {
-                this[this.tableV_Financial_Receivables.StampsColumn] = global::System.Convert.DBNull;
+                this[this.tableV_Financial_Receivables2.StampsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsCount_NonDeliveredNull() {
-                return this.IsNull(this.tableV_Financial_Receivables.Count_NonDeliveredColumn);
+                return this.IsNull(this.tableV_Financial_Receivables2.Count_NonDeliveredColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCount_NonDeliveredNull() {
-                this[this.tableV_Financial_Receivables.Count_NonDeliveredColumn] = global::System.Convert.DBNull;
+                this[this.tableV_Financial_Receivables2.Count_NonDeliveredColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTotal_FinNull() {
-                return this.IsNull(this.tableV_Financial_Receivables.Total_FinColumn);
+                return this.IsNull(this.tableV_Financial_Receivables2.Total_FinColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTotal_FinNull() {
-                this[this.tableV_Financial_Receivables.Total_FinColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsContracting_Value1Null() {
-                return this.IsNull(this.tableV_Financial_Receivables.Contracting_Value1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetContracting_Value1Null() {
-                this[this.tableV_Financial_Receivables.Contracting_Value1Column] = global::System.Convert.DBNull;
+                this[this.tableV_Financial_Receivables2.Total_FinColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsContract_DateNull() {
-                return this.IsNull(this.tableV_Financial_Receivables.Contract_DateColumn);
+                return this.IsNull(this.tableV_Financial_Receivables2.Contract_DateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetContract_DateNull() {
-                this[this.tableV_Financial_Receivables.Contract_DateColumn] = global::System.Convert.DBNull;
+                this[this.tableV_Financial_Receivables2.Contract_DateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsEmployee_NameNull() {
-                return this.IsNull(this.tableV_Financial_Receivables.Employee_NameColumn);
+                return this.IsNull(this.tableV_Financial_Receivables2.Employee_NameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetEmployee_NameNull() {
-                this[this.tableV_Financial_Receivables.Employee_NameColumn] = global::System.Convert.DBNull;
+                this[this.tableV_Financial_Receivables2.Employee_NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsMobileNull() {
-                return this.IsNull(this.tableV_Financial_Receivables.MobileColumn);
+                return this.IsNull(this.tableV_Financial_Receivables2.MobileColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetMobileNull() {
-                this[this.tableV_Financial_Receivables.MobileColumn] = global::System.Convert.DBNull;
+                this[this.tableV_Financial_Receivables2.MobileColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsBond_DateNull() {
-                return this.IsNull(this.tableV_Financial_Receivables.Bond_DateColumn);
+                return this.IsNull(this.tableV_Financial_Receivables2.Bond_DateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetBond_DateNull() {
-                this[this.tableV_Financial_Receivables.Bond_DateColumn] = global::System.Convert.DBNull;
+                this[this.tableV_Financial_Receivables2.Bond_DateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1061,22 +1034,22 @@ namespace Elite_system {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class V_Financial_ReceivablesRowChangeEvent : global::System.EventArgs {
+        public class V_Financial_Receivables2RowChangeEvent : global::System.EventArgs {
             
-            private V_Financial_ReceivablesRow eventRow;
+            private V_Financial_Receivables2Row eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_Financial_ReceivablesRowChangeEvent(V_Financial_ReceivablesRow row, global::System.Data.DataRowAction action) {
+            public V_Financial_Receivables2RowChangeEvent(V_Financial_Receivables2Row row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_Financial_ReceivablesRow Row {
+            public V_Financial_Receivables2Row Row {
                 get {
                     return this.eventRow;
                 }
@@ -1092,7 +1065,7 @@ namespace Elite_system {
         }
     }
 }
-namespace Elite_system.DS_Financial_ReceivablesTableAdapters {
+namespace Elite_system.DS_ReceivablesTableAdapters {
     
     
     /// <summary>
@@ -1104,7 +1077,7 @@ namespace Elite_system.DS_Financial_ReceivablesTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class V_Financial_ReceivablesTableAdapter : global::System.ComponentModel.Component {
+    public partial class V_Financial_Receivables2TableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1118,7 +1091,7 @@ namespace Elite_system.DS_Financial_ReceivablesTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public V_Financial_ReceivablesTableAdapter() {
+        public V_Financial_Receivables2TableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1215,15 +1188,15 @@ namespace Elite_system.DS_Financial_ReceivablesTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "V_Financial_Receivables";
+            tableMapping.DataSetTable = "V_Financial_Receivables2";
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Phone", "Phone");
             tableMapping.ColumnMappings.Add("Address", "Address");
+            tableMapping.ColumnMappings.Add("Contracting_Value", "Contracting_Value");
             tableMapping.ColumnMappings.Add("Stamps", "Stamps");
             tableMapping.ColumnMappings.Add("Count_NonDelivered", "Count_NonDelivered");
             tableMapping.ColumnMappings.Add("Total_Fin", "Total_Fin");
-            tableMapping.ColumnMappings.Add("Contracting_Value", "Contracting_Value1");
             tableMapping.ColumnMappings.Add("Contract_Date", "Contract_Date");
             tableMapping.ColumnMappings.Add("Employee_Name", "Employee_Name");
             tableMapping.ColumnMappings.Add("Mobile", "Mobile");
@@ -1246,7 +1219,7 @@ namespace Elite_system.DS_Financial_ReceivablesTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID, Name, Phone, Address, Contracting_Value, Stamps, Count_NonDelivered, T" +
                 "otal_Fin, Contract_Date, Employee_Name, Mobile ,Bond_Date\r\nFROM     V_Financial_" +
-                "Receivables ";
+                "Receivables2 ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1254,7 +1227,7 @@ namespace Elite_system.DS_Financial_ReceivablesTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DS_Financial_Receivables.V_Financial_ReceivablesDataTable dataTable) {
+        public virtual int Fill(DS_Receivables.V_Financial_Receivables2DataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1267,9 +1240,9 @@ namespace Elite_system.DS_Financial_ReceivablesTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DS_Financial_Receivables.V_Financial_ReceivablesDataTable GetData() {
+        public virtual DS_Receivables.V_Financial_Receivables2DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DS_Financial_Receivables.V_Financial_ReceivablesDataTable dataTable = new DS_Financial_Receivables.V_Financial_ReceivablesDataTable();
+            DS_Receivables.V_Financial_Receivables2DataTable dataTable = new DS_Receivables.V_Financial_Receivables2DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1343,7 +1316,7 @@ namespace Elite_system.DS_Financial_ReceivablesTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(DS_Financial_Receivables dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DS_Receivables dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1353,7 +1326,7 @@ namespace Elite_system.DS_Financial_ReceivablesTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(DS_Financial_Receivables dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DS_Receivables dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1363,7 +1336,7 @@ namespace Elite_system.DS_Financial_ReceivablesTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(DS_Financial_Receivables dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DS_Receivables dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1397,7 +1370,7 @@ namespace Elite_system.DS_Financial_ReceivablesTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(DS_Financial_Receivables dataSet) {
+        public virtual int UpdateAll(DS_Receivables dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

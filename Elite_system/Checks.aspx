@@ -112,7 +112,7 @@
                                 </td>
                             </tr>
 
-                            <tr style="display:none">
+                            <tr style="display: none">
                                 <td class="auto-style1">
                                     <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Received_Date" Font-Bold="True" Font-Size="Medium" Width="300px">
 
@@ -287,7 +287,7 @@
 
                 <div class="COLR">
 
-                    <div class="table-responsive" style="height: 780px;">
+                    <div class="table-responsive" style="height: 780px; margin-right: 40px; margin-left: -19%;">
                         <table class="table table-striped" style="direction: ltr;">
 
                             <tr>
@@ -309,6 +309,15 @@
                                 </td>
                                 <td style="width: 98px">
                                     <asp:Button ID="Btn_Search2" runat="server" Text="بحث برقم الشيك" OnClick="Btn_Search2_Click" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="auto-style1">
+                                    <asp:DropDownList runat="server" ID="DDL_MedicalName_Search" Width="300px" DataTextField="Name" DataValueField="ID" Font-Bold="True" Font-Size="Medium"></asp:DropDownList>
+                                </td>
+                                <td style="width: 98px">
+                                    <asp:Button ID="Btn_Search_MedicalName" runat="server" Text="بحث بإسم الجهة الطبية" OnClick="Btn_Search_MedicalName_Click" />
                                 </td>
                             </tr>
 
@@ -556,6 +565,7 @@
         function jsFunctions() {
 
             $("#<%=DDL_Company.ClientID%>").select2();
+            $("#<%=DDL_MedicalName_Search.ClientID%>").select2();
             $("#<%=DDL_Company_Search.ClientID%>").select2();
             $("#<%=DDL_Bank.ClientID%>").select2();
             $("#<%=DDL_Bank_Branch.ClientID%>").select2();
@@ -567,6 +577,7 @@
     <script>
         $(function () {
             $("#<%=DDL_Company.ClientID%>").select2();
+            $("#<%=DDL_MedicalName_Search.ClientID%>").select2();
             $("#<%=DDL_Company_Search.ClientID%>").select2();
             $("#<%=DDL_Bank.ClientID%>").select2();
             $("#<%=DDL_Bank_Branch.ClientID%>").select2();

@@ -94,6 +94,7 @@ namespace Elite_system
                 {
                     Btn_Search.Visible = false;
                     DDL_Company_Search.Visible = false;
+                    DDL_MedicalName_Search.Visible = false;
                     Get_MainChecks_ForGridView(HttpContext.Current.User.Identity.Name);
                 }
                 else
@@ -120,6 +121,11 @@ namespace Elite_system
                 DDL_Sent_To.DataSource = Cls_Main_Claims.Get_Medical_Types2();
                 DDL_Sent_To.DataBind();
                 DDL_Sent_To.Items.Insert(0, new ListItem("--اختر--", "0"));
+                //DDL_Sent_To.SelectedValue = "6819";
+
+                DDL_MedicalName_Search.DataSource = Cls_Main_Claims.Get_Medical_Types2();
+                DDL_MedicalName_Search.DataBind();
+                DDL_MedicalName_Search.Items.Insert(0, new ListItem("--اختر--", "0"));
                 //DDL_Sent_To.SelectedValue = "6819";
 
                 //Get_MainChecks_ForUpdate();
@@ -277,8 +283,10 @@ namespace Elite_system
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
 
+
                 if (HttpContext.Current.User.IsInRole("Doctor"))
                 {
+
                     cmd.CommandText = "SELECT [ID] as 'التسلسل' ,[Company] as 'اسم الشركة',[Check_Date] as 'تاريخ الشيك',SentTo as 'الجهة الطبية',Value as 'المبلغ' ,Check_No as 'رقم الشيك' FROM[dbo].[V_Main_Check] where Check_No = N'" + Txt_CheckNo.Text + "'  and UName='" + HttpContext.Current.User.Identity.Name + "' ORDER BY [ID] DESC";
                 }
                 else
@@ -298,6 +306,69 @@ namespace Elite_system
                 GV_Main_Check.DataBind();
                 Cls_Connection.close_connection();
 
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                Cls_Connection.close_connection();
+
+
+            }
+
+        }
+
+
+
+        protected void Btn_Search_MedicalName_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                SqlConnection con = new SqlConnection();
+
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+                con = Cls_Connection._con;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                if (DDL_MedicalName_Search.SelectedItem.Text == "--اختر--")
+                {
+                  
+
+                    //rami
+                    if (HttpContext.Current.User.IsInRole("Doctor"))
+                    {
+                        Get_MainChecks_ForGridView(HttpContext.Current.User.Identity.Name);
+                    }
+                    else
+                    {
+                        Get_MainChecks_ForGridView();
+                    }
+                    //rami
+
+                }
+                else
+                {
+                    if (HttpContext.Current.User.IsInRole("Doctor"))
+                    {
+                        cmd.CommandText = "SELECT [ID] as 'التسلسل' ,[Company] as 'اسم الشركة', [Check_Date] as 'تاريخ الشيك',SentTo as 'الجهة الطبية',Value as 'المبلغ' ,Check_No as 'رقم الشيك' FROM[dbo].[V_Main_Check] where SentTo = N'" + DDL_MedicalName_Search.SelectedItem.Text + "' and UName='" + HttpContext.Current.User.Identity.Name + "' ORDER BY [ID] DESC";
+                    }
+                    else
+                    {
+                        cmd.CommandText = "SELECT [ID] as 'التسلسل' ,[Company] as 'اسم الشركة',[Check_Date] as 'تاريخ الشيك',SentTo as 'الجهة الطبية',Value as 'المبلغ' ,Check_No as 'رقم الشيك' FROM[dbo].[V_Main_Check] where SentTo = N'" + DDL_MedicalName_Search.SelectedItem.Text + "' ORDER BY [ID] DESC";
+                    }
+
+
+
+
+                    Cls_Connection.open_connection();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    GV_Main_Check.DataSourceID = null;
+                    GV_Main_Check.DataSource = dt;
+                    GV_Main_Check.DataBind();
+                    Cls_Connection.close_connection();
+                }
             }
             catch (Exception ex)
             {
@@ -1626,17 +1697,6 @@ namespace Elite_system
             Response.Redirect("DownloadFont.ashx");
         }
 
-        //rami
-        //protected void GV_SubChecks_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    Get_SubChecks_ForUpdate();
-        //}
 
-        //protected void GV_SubChecks_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        //{
-        //    Get_SubChecks_ForGridView();
-        //    GV_SubChecks.PageIndex = e.NewPageIndex;
-        //    GV_SubChecks.DataBind();
-        //}
     }
 }

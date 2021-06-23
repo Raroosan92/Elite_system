@@ -303,6 +303,24 @@ namespace Elite_system
         protected global::System.Web.UI.WebControls.Button Btn_Search2;
 
         /// <summary>
+        /// DDL_MedicalName_Search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_MedicalName_Search;
+
+        /// <summary>
+        /// Btn_Search_MedicalName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_Search_MedicalName;
+
+        /// <summary>
         /// GV_Main_Check control.
         /// </summary>
         /// <remarks>

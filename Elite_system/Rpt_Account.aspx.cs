@@ -20,7 +20,7 @@ namespace Elite_system
             {
                 Txt_FromDate.Text = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                 Txt_ToDate.Text = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
-                DDL_Medical_Name.DataSource = Cls_Main_Claims.Get_Medical_Types3();
+                DDL_Medical_Name.DataSource = Cls_Main_Claims.Get_Medical_Types();
                 DDL_Medical_Name.DataBind();
                 DDL_Medical_Name.Items.Insert(0, new ListItem("--اختر--", "0"));
             }
