@@ -303,7 +303,17 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                if (DDL_Sent_To.SelectedIndex == 0)
+                {
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                }
+                else
+                {
+
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+                }
+
+
                 Cls_Connection.open_connection();
                 int Exist = int.Parse(cmd.ExecuteScalar().ToString());
                 Cls_Connection.close_connection();
@@ -311,7 +321,16 @@ namespace Elite_system
                 {
                     //To Update Name in checkes
                     string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
-                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                    if (DDL_Sent_To.SelectedIndex == 0)
+                    {
+
+                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                    }
+                    else
+                    {
+                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '*" + Txt_BarCode.Text + "*' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+                    }
+
                     Cls_Connection.open_connection();
                     cmd.ExecuteNonQuery();
                     Cls_Connection.close_connection();
@@ -319,7 +338,7 @@ namespace Elite_system
                 }
                 else
                 {
-                    MSG("هذا الشيك غير مدخل من قبل");
+                    MSG("هذا الشيك غير مدخل من قبل او انه مكرر");
                 }
 
 
@@ -349,7 +368,18 @@ namespace Elite_system
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
 
                 cmd.Connection = con;
-                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Check_No = '" + Txt_CheckNo.Text + "'";
+                if (DDL_Sent_To.SelectedIndex == 0)
+                {
+
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Check_No = '" + Txt_CheckNo.Text + "'";
+                }
+                else
+                {
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Check_No = '" + Txt_CheckNo.Text + "'and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+
+                }
+
+
                 Cls_Connection.open_connection();
                 int Exist = int.Parse(cmd.ExecuteScalar().ToString());
                 Cls_Connection.close_connection();
@@ -357,7 +387,20 @@ namespace Elite_system
                 {
                     //To Update Name in checkes
                     string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
-                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "'";
+
+                    if (DDL_Sent_To.SelectedIndex == 0)
+                    {
+
+                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "'";
+                    }
+                    else
+                    {
+                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+
+
+                    }
+
+
                     Cls_Connection.open_connection();
                     cmd.ExecuteNonQuery();
                     Check = true;
@@ -443,9 +486,18 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
+                if (DDL_Sent_To.SelectedIndex == 0)
+                {
+
+                    cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE Refunded=" + 0 + " and BarCode = '*" + Txt_BarCode.Text + "*'";
+                }
+                else
+                {
+                    cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE Refunded=" + 0 + " and BarCode = '*" + Txt_BarCode.Text + "*' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+
+                }
 
 
-                cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE Refunded=" + 0 + " and BarCode = '*" + Txt_BarCode.Text + "*'";
 
 
                 Cls_Connection.open_connection();
@@ -581,7 +633,17 @@ namespace Elite_system
 
                 cmd.Connection = con;
                 string dt1 = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
-                cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = NULL ,Modified= '" + dt1 + "' WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
+
+                if (DDL_Sent_To.SelectedIndex == 0)
+                {
+                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = NULL ,Modified= '" + dt1 + "' WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
+                }
+                else
+                {
+                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = NULL ,Modified= '" + dt1 + "' WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+                }
+
+                
                 Cls_Connection.open_connection();
                 cmd.ExecuteNonQuery();
 

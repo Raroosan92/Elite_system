@@ -338,11 +338,29 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                if (DDL_Sent_To.SelectedIndex == 0)
+                {
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                }
+                else
+                {
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+
+                }
+
                 Cls_Connection.open_connection();
                 int Exist = int.Parse(cmd.ExecuteScalar().ToString());
                 cmd.Parameters.Clear();
-                cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                if (DDL_Sent_To.SelectedIndex == 0)
+                {
+                    cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*'";
+                }
+                else
+                {
+                    cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*'  and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + ""; 
+                }
+
+
                 empname = cmd.ExecuteScalar().ToString();
                 Cls_Connection.close_connection();
 
@@ -393,11 +411,32 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Check_No = '" + Txt_CheckNo.Text + "'";
+                if (DDL_Sent_To.SelectedIndex == 0)
+                {
+                    
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Check_No = '" + Txt_CheckNo.Text + "'";
+                }
+                else
+                {
+                    
+                        cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Check_No = '" + Txt_CheckNo.Text + "'  and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + ""; 
+                }
+
+                
                 Cls_Connection.open_connection();
                 int Exist = int.Parse(cmd.ExecuteScalar().ToString());
                 cmd.Parameters.Clear();
-                cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE Check_No = '" + Txt_CheckNo.Text + "'";
+                if (DDL_Sent_To.SelectedIndex == 0)
+                {
+                    cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE Check_No = '" + Txt_CheckNo.Text + "'";
+                }
+                else
+                {
+
+                    cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE Check_No = '" + Txt_CheckNo.Text + "' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + ""; 
+                }
+
+
                 string empname = cmd.ExecuteScalar().ToString();
                 Cls_Connection.close_connection();
 
@@ -489,7 +528,22 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Delivered=" + 1 + " and Check_No = '" + Txt_CheckNo.Text + "'";
+
+                if (DDL_Sent_To.SelectedIndex == 0)
+                {
+
+                    
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Delivered=" + 1 + " and Check_No = '" + Txt_CheckNo.Text + "'";
+                }
+                else
+                {
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Delivered=" + 1 + " and Check_No = '" + Txt_CheckNo.Text + "' and sent_To= " + long.Parse( DDL_Sent_To.SelectedValue) + "";
+                    
+                }
+
+
+
+                
                 Cls_Connection.open_connection();
                 int Delivered = int.Parse(cmd.ExecuteScalar().ToString());
                 Cls_Connection.close_connection();
@@ -510,7 +564,21 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Refunded=" + 1 + " and Check_No = '" + Txt_CheckNo.Text + "'";
+
+                if (DDL_Sent_To.SelectedIndex == 0)
+                {
+
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Refunded=" + 1 + " and Check_No = '" + Txt_CheckNo.Text + "'";
+                }
+                else
+                {
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Refunded=" + 1 + " and Check_No = '" + Txt_CheckNo.Text + "' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+                    
+
+                }
+
+
+                
                 Cls_Connection.open_connection();
                 int Refunded = int.Parse(cmd.ExecuteScalar().ToString());
                 Cls_Connection.close_connection();
@@ -532,7 +600,15 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Delivered=" + 1 + " and BarCode = '*" + Txt_BarCode.Text + "*'";
+                if (DDL_Sent_To.SelectedIndex == 0)
+                {
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Delivered=" + 1 + " and BarCode = '*" + Txt_BarCode.Text + "*'";
+                }
+                else
+                {
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Delivered=" + 1 + " and BarCode = '*" + Txt_BarCode.Text + "*' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+                }
+
                 Cls_Connection.open_connection();
                 int Delivered = int.Parse(cmd.ExecuteScalar().ToString());
                 Cls_Connection.close_connection();
@@ -553,7 +629,16 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Refunded=" + 1 + " and BarCode = '*" + Txt_BarCode.Text + "*'";
+                if (DDL_Sent_To.SelectedIndex == 0)
+                {
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Refunded=" + 1 + " and BarCode = '*" + Txt_BarCode.Text + "*'";
+                }
+                else
+                {
+                    cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Refunded=" + 1 + " and BarCode = '*" + Txt_BarCode.Text + "*' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+                }
+
+
                 Cls_Connection.open_connection();
                 int Refunded = int.Parse(cmd.ExecuteScalar().ToString());
                 Cls_Connection.close_connection();
@@ -578,7 +663,7 @@ namespace Elite_system
             Delivered = CheckifDelivered();
             if (Delivered > 0)
             {
-                MSG("لقد تم تسليم هذا الشيك مسبقا");
+                MSG("لقد تم تسليم هذا الشيك مسبقااو انه مكرر");
                 return;
             }
             int Refunded = 0;
@@ -616,7 +701,7 @@ namespace Elite_system
             Delivered = CheckifDelivered2();
             if (Delivered > 0)
             {
-                MSG("لقد تم تسليم هذا الشيك مسبقا");
+                MSG("لقد تم تسليم هذا الشيك مسبقا او انه مكرر");
                 return;
             }
             int Refunded = 0;
@@ -690,7 +775,17 @@ namespace Elite_system
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 0 + ",Delivery_Date= NULL WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
+
+                if (DDL_Sent_To.SelectedIndex == 0)
+                {
+                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 0 + ",Delivery_Date= NULL WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "'";
+                }
+                else
+                {
+                    cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [Delivered] = " + 0 + ",Delivery_Date= NULL WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+                    
+                }
+                
                 Cls_Connection.open_connection();
                 cmd.ExecuteNonQuery();
 
