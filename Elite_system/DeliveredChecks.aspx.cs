@@ -387,7 +387,7 @@ namespace Elite_system
                 else
                 {
                     Result = false;
-                    MSG("هذا الشيك غير مدخل من قبل");
+                    MSG("هذا الشيك غير مدخل من قبل او انه مكرر");
 
                 }
 

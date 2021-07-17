@@ -9,6 +9,10 @@ namespace Elite_system
 {
     public partial class Employees : System.Web.UI.Page
     {
+        public void MSG(string Text)
+        {
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>alert('" + Text + "')</script>", false);
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
     
@@ -22,7 +26,7 @@ namespace Elite_system
             }
             if (!Page.IsPostBack)
             {
-                DDL_Employee.DataSource = Cls_Employees.Get_Employee();
+                DDL_Employee.DataSource = Cls_Employees.Get_Employee_All();
                 DDL_Employee.DataBind();
                 DDL_Employee.SelectedValue = "15";
             }
@@ -38,11 +42,12 @@ namespace Elite_system
             Cls_Log log = new Cls_Log();
             log._Log_Event = "إضافة موظف جديد  : " + Txt_Employee_Name.Text;
             log.Insert_Log();
+            Lbl_Result2.Text = Result;
             ////////////////////////////////   End Of Log        /////////////////////////////////////////////
-            Lbl_Result1.Text = Result;
             DDL_Employee.DataSource = Cls_Employees.Get_Employee();
             DDL_Employee.DataBind();
             DDL_Employee.SelectedValue = "15";
+            
 
         }
 
@@ -62,6 +67,7 @@ namespace Elite_system
             Cls_Log log = new Cls_Log();
             log._Log_Event = "تعديل على الموظف   : " + DDL_Employee.SelectedItem.Text;
             log.Insert_Log();
+            Lbl_Result2.Text = Result;
             ////////////////////////////////   End Of Log        /////////////////////////////////////////////
             Lbl_Result2.Text = Result;
             DDL_Employee.DataSource = Cls_Employees.Get_Employee();
@@ -80,14 +86,38 @@ namespace Elite_system
             Result = Employee.Delete_Employees();
             ////////////////////////////////       Log        /////////////////////////////////////////////
             Cls_Log log = new Cls_Log();
-            log._Log_Event = "حذف الموظف   : " + Emp;
+            log._Log_Event = "ايقاف الموظف   : " + Emp;
             log.Insert_Log();
             ////////////////////////////////   End Of Log        /////////////////////////////////////////////
             Lbl_Result2.Text = Result;
-            DDL_Employee.DataSource = Cls_Employees.Get_Employee();
-            DDL_Employee.DataBind();
-            DDL_Employee.SelectedValue = "15";
-            Txt_Employee_Name2.Text = "";
+            //DDL_Employee.DataSource = Cls_Employees.Get_Employee_All();
+            //DDL_Employee.DataBind();
+            //DDL_Employee.SelectedValue = "15";
+            //Txt_Employee_Name2.Text = "";
+
+
+
+        }
+
+        protected void Btn_Active_Click(object sender, EventArgs e)
+        {
+
+            Cls_Employees Employee = new Cls_Employees();
+            string Result;
+            string Emp = DDL_Employee.SelectedItem.Text;
+            Employee._ID = int.Parse(DDL_Employee.SelectedValue.ToString());
+            Employee._Employee_Name = Txt_Employee_Name2.Text;
+            Result = Employee.Active_Employees();
+            ////////////////////////////////       Log        /////////////////////////////////////////////
+            Cls_Log log = new Cls_Log();
+            log._Log_Event = "تفعيل الموظف   : " + Emp;
+            log.Insert_Log();
+            ////////////////////////////////   End Of Log        /////////////////////////////////////////////
+            Lbl_Result2.Text = Result;
+            //DDL_Employee.DataSource = Cls_Employees.Get_Employee_All();
+            //DDL_Employee.DataBind();
+            //DDL_Employee.SelectedValue = "15";
+            //Txt_Employee_Name2.Text = "";
         }
     }
 }

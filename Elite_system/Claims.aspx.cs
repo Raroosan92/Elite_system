@@ -39,12 +39,12 @@ namespace Elite_system
         {
 
             //--rami لتغيير التاريخ من لوحة المفاتيح--
-            Txt_FreezFrom.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender4.ClientID + "')");
-            Txt_FreezTo.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender5.ClientID + "')");
-            Txt_Received_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender2.ClientID + "');return (event.keyCode!=13);");
-            Txt_Entry_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender3.ClientID + "');return (event.keyCode!=13);");
-            TxtDate_SubClaim.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender1.ClientID + "');return (event.keyCode!=13);");
-            Txt_Month_Year.Attributes.Add("onkeydown", "DateField_KeyDown(this,'return (event.keyCode!=13);");
+            //Txt_FreezFrom.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender4.ClientID + "')");
+            //Txt_FreezTo.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender5.ClientID + "')");
+            //Txt_Received_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender2.ClientID + "');return (event.keyCode!=13);");
+            //Txt_Entry_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender3.ClientID + "');return (event.keyCode!=13);");
+            //TxtDate_SubClaim.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender1.ClientID + "');return (event.keyCode!=13);");
+            //Txt_Month_Year.Attributes.Add("onkeydown", "DateField_KeyDown(this,'return (event.keyCode!=13);");
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
 
 
@@ -2273,7 +2273,7 @@ namespace Elite_system
             TransactionValue5 = 0;
             Txt_Value.Text = "";
             Txt_Stamps.Text = "";
-
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>location.href = '#Btn_Rami';</script>", false);
             DDL_Sub_Company.Focus();
 
         }
@@ -2473,7 +2473,8 @@ namespace Elite_system
                 string x = ex.Message.ToString();
             }
             //Txt_Stamps.Focus();
-            Txt_Claims_Count.Focus();
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>location.href = '#Btn_Rami';</script>", false);
+            Btn_Save_SubClaims.Focus();
         }
 
         public void Get_MainClaims_ForUpdate()
@@ -3742,6 +3743,8 @@ namespace Elite_system
             DDL_Recipt.SelectedIndex = 0;
             MSG(Result);
         }
+
+
 
         //Receipt
     }

@@ -67,7 +67,8 @@ public class Cls_Employees
             cmd.Connection = con;
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "SP_Employees";
-            cmd.Parameters.AddWithValue("@Employee_Name", Employee_Name);            
+            cmd.Parameters.AddWithValue("@Employee_Name", Employee_Name);
+            cmd.Parameters.AddWithValue("@status", 1);
             cmd.Parameters.AddWithValue("@check", "i");
 
             Cls_Connection.open_connection();
@@ -136,7 +137,7 @@ public class Cls_Employees
 
             Cls_Connection.open_connection();
             cmd.ExecuteNonQuery();
-            result = "تم الحذف بنجاح";
+            result = "تم ايقاف الموظف بنجاح";
             Cls_Connection.close_connection();
             return result;
 
@@ -144,7 +145,39 @@ public class Cls_Employees
         catch (Exception)
         {
             Cls_Connection.close_connection();
-            result = "حدث خطأ في الحذف";
+            result = "حدث خطأ في ايقاف الموظف";
+            return result;
+
+        }
+
+    }
+
+    public string Active_Employees()
+    {
+        try
+        {
+
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+            con = Cls_Connection._con;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "SP_Employees";
+            cmd.Parameters.AddWithValue("@Employee_Name", Employee_Name);
+            cmd.Parameters.AddWithValue("@ID", ID);
+            cmd.Parameters.AddWithValue("@check", "A");
+
+            Cls_Connection.open_connection();
+            cmd.ExecuteNonQuery();
+            result = "تم التفعيل بنجاح";
+            Cls_Connection.close_connection();
+            return result;
+
+        }
+        catch (Exception)
+        {
+            Cls_Connection.close_connection();
+            result = "حدث خطأ في عملية التفعيل";
             return result;
 
         }
@@ -181,7 +214,37 @@ public class Cls_Employees
         }
 
     }
+static public DataTable Get_Employee_All()
+    {
+        DataTable dt = new DataTable();
+        try
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+            con = Cls_Connection._con;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "Get_Employee_All";
+        
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            Cls_Connection.open_connection();
+            adp.Fill(dt);
+            Cls_Connection.close_connection();
+            return dt;
 
+        }
+        catch (Exception)
+        {
+            Cls_Connection.close_connection();
+            return dt;
+
+
+        }
+
+    }
+
+    
     #endregion
 
 

@@ -131,7 +131,8 @@
                                     <tr style="direction: rtl;">
                                         <td>
                                             <asp:Button ID="Btn_Update" runat="server" Text="تعديل" OnClick="Btn_Update_Click" Height="26px" />
-                                            <asp:Button ID="Btn_Delete" runat="server" Text="حذف" OnClick="Btn_Delete_Click" Height="26px" />
+                                            <asp:Button ID="Btn_Delete" runat="server" Text="ايقاف" OnClick="Btn_Delete_Click" Height="26px" />
+                                            <asp:Button ID="Btn_Active" runat="server" Text="تفعيل" OnClick="Btn_Active_Click" Height="26px" />
                                         </td>
                                        
                                         <td>

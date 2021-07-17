@@ -4,7 +4,11 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
+    <script>
+        function scrollWin() {
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+    </script>
 
     <style>
         .Drop {
@@ -186,7 +190,7 @@
                                     <tr>
                                         <td class="auto-style1">
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Received_Date" Width="236px" onkeydown="return (event.keyCode!=13);"></asp:TextBox>
-                                            <ajaxToolkit:CalendarExtender ID="CalendarExtender2" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_Received_Date" />
+                                            <ajaxToolkit:CalendarExtender ID="CalendarExtender2" Format="yyy-MM-dd" runat="server" TargetControlID="Txt_Received_Date" />
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="تاريخ الاستلام"></asp:Label>
@@ -365,7 +369,7 @@
 
     </section>
 
-
+      
 
     <section class="text-center my-5" style="padding-top: 1%; direction: ltr;">
         <div class="container">
@@ -430,7 +434,7 @@
                                         </td>
                                     </tr>
 
-
+                                  
 
                                     <tr>
                                         <td>
@@ -439,7 +443,7 @@
                                                 ErrorMessage="خطأ في عدد المطالبات"
                                                 ValidationExpression="((\d+)((\.\d{1,2})?))$">
                                             </asp:RegularExpressionValidator>--%>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Claims_Count" Width="236px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Claims_Count" Width="236px" ></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="عدد المطالبات"></asp:Label>
@@ -453,7 +457,7 @@
                                                 ErrorMessage="خطأ في قيمة المطالبة"
                                                 ValidationExpression="((\d+)((\.\d{1,2})?))$">
                                             </asp:RegularExpressionValidator>--%>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Value" AutoPostBack="True" OnTextChanged="Txt_Value_TextChanged" Width="236px" ></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Value" AutoPostBack="True" OnTextChanged="Txt_Value_TextChanged" Width="236px"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="قيمة المطالبة"></asp:Label>
@@ -788,9 +792,9 @@
                                         </td>
 
                                     </tr>--%>
-                                      <tr>
+                                    <tr>
                                         <td>
-                                            <asp:Button ID="BTN_RAMI" runat="server" Text="ترحيل جميع الاشتراكات" width="236px" OnClick="BTN_RAMI_Click" />
+                                            <asp:Button ID="BTN_RAMI" runat="server" Text="ترحيل جميع الاشتراكات" Width="236px" OnClick="BTN_RAMI_Click" />
                                         </td>
                                         <td></td>
                                     </tr>
@@ -916,6 +920,7 @@
     <script src="scripts/jquery-1.7.min.js"></script>
     <script src="scripts/select2.min.js"></script>
     <script src="js/thumbnail-slider.js"></script>
+    
     <script>
         //Note: this script should be placed at the bottom of the page, or after the slider markup. It cannot be placed in the head section of the page.
         var thumbSldr = document.getElementById("thumbnail-slider");
@@ -987,9 +992,9 @@
                 || (lastKeyCodeEntered == '39')     //keyCode 39=right arrow
                 || (lastKeyCodeEntered == '40'))    //keyCode 40=down arrow
             {
+                debugger;
                 var dtbehav = $find(CalendarExtender2);
                 var enteredDate = dtbehav.get_selectedDate();
-
 
                 if (enteredDate == null) {
                     enteredDate = new Date();
@@ -1012,6 +1017,7 @@
                     }
                     enteredDate.setDate(enteredDate.getDate() + advanceDays);
                 }
+                //dateField.value = enteredDate.getDate("dd/MM/yyyy"). + "/" + (enteredDate.getMonth() + 1) + "/" + enteredDate.getFullYear();
                 dateField.value = (enteredDate.getMonth() + 1) + "/" + enteredDate.getDate() + "/" + enteredDate.getFullYear();
                 dtbehav.set_selectedDate(dateField.value);
             }
