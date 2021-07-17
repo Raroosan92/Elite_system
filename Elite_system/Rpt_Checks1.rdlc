@@ -491,7 +491,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=FormatDateTime(Fields!Delivery_Date.Value, Microsoft.VisualBasic.DateFormat.ShortDate)</Value>
+                              <Value>=format(Fields!Delivery_Date.Value,"dd/MM/yyyy")</Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -535,6 +535,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -546,7 +547,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=FormatDateTime(Fields!Received_Date.Value, Microsoft.VisualBasic.DateFormat.ShortDate)</Value>
+                              <Value>=format(Fields!Received_Date.Value,"dd/MM/yyyy")</Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -656,7 +657,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=FormatDateTime(Fields!Check_Date.Value, Microsoft.VisualBasic.DateFormat.ShortDate)</Value>
+                              <Value>=format(Fields!Check_Date.Value,"dd/MM/yyyy")</Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
