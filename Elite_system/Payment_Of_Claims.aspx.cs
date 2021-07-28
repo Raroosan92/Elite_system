@@ -35,12 +35,12 @@ namespace Elite_system
                 Btn_Save.Visible = HttpContext.Current.User.IsInRole("Pay_Claim");
                 if (HttpContext.Current.User.IsInRole("Admin"))
                 {
-                    Btn_Upload.Visible=true;
+                    Btn_Upload.Visible = true;
                     Btn_Save.Visible = true;
                 }
-                
 
-               
+
+
             }
         }
         protected void DDL_Medical_Name_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,24 +86,43 @@ namespace Elite_system
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
                         cmd.CommandType = CommandType.Text;
-                        if (DDL_Status.SelectedIndex == 1)
+                        if (Patient_Name.Text!= "&nbsp;")
                         {
                             cmd.CommandText = "update Sub_Claims set PayValue = '" + Txt_PayAmmount.Text + "' WHERE Main_Claims_ID= '" + main_ClaimID.Text + "' AND ID= '" + Sub_ClaimID.Text + "' AND patient_name = N'" + Patient_Name.Text + "'";
                         }
 
                         else
                         {
-                            cmd.CommandText = "update Sub_Claims set PayValue = '" + Txt_PayAmmount.Text + "' WHERE Main_Claims_ID= '" + main_ClaimID.Text + "' AND ID= '" + Sub_ClaimID.Text + "' AND patient_name = ''";
+                            var x = "update Sub_Claims set PayValue = '" + Txt_PayAmmount.Text + "' WHERE Main_Claims_ID= '" + main_ClaimID.Text + "' AND ID= '" + Sub_ClaimID.Text + "' AND patient_name = ''";
+                            cmd.CommandText = x;
                         }
                         Cls_Connection.open_connection();
-                        cmd.ExecuteNonQuery();
-                        Cls_Connection.close_connection();
-                        Sub_ClaimID.Text = null;
-                        main_ClaimID.Text = null;
-                        Patient_Name.Text = null;
-                        Txt_PayAmmount.Text = "";
-                        GetClaims();
-                        MSG("تم دفع المبلغ");
+                        if (cmd.ExecuteNonQuery() == 1)
+                        {
+                            Cls_Connection.close_connection();
+
+                            ////////////////////////////////       Log        /////////////////////////////////////////////
+                            Cls_Log log = new Cls_Log();
+                            log._Log_Event = "دفع لمطالبة للجهة الطبية: " +DDL_Medical_Name.SelectedItem.ToString() + "ولمطالبة فرعية لشركة " +DDL_Main_Company.SelectedValue.ToString()+ " رقم المطالبة الفرعية " + Sub_ClaimID.Text + "";
+                            log.Insert_Log();
+                            ////////////////////////////////   End Of Log        /////////////////////////////////////////////
+
+
+
+                            Sub_ClaimID.Text = null;
+                            main_ClaimID.Text = null;
+                            Patient_Name.Text = null;
+                            Txt_PayAmmount.Text = "";
+                            GetClaims();
+                            MSG("تم دفع المبلغ");
+                        }
+                        else
+                        {
+                            Cls_Connection.close_connection();
+                            MSG("يوجد خطأ بعملية الدفع");
+                        }
+
+
                     }
                     else
                     {
@@ -322,26 +341,26 @@ namespace Elite_system
                                         using (SqlCommand cmd1 = new SqlCommand())
                                         {
                                             try
-                                            { 
-                                            cmd1.CommandType = CommandType.StoredProcedure;
-                                            cmd1.CommandText = "SP_Attachments";
-                                            cmd1.Parameters.AddWithValue("@attach_type", attach_type);
-                                            cmd1.Parameters.AddWithValue("@attach_Path", attach_place_store);
-                                            cmd1.Parameters.AddWithValue("@attach_doc_id", strImageName);
-                                            cmd1.Parameters.AddWithValue("@check", "i");
-                                            cmd1.Connection = con2;
-                                            con2.Open();
-                                            cmd1.ExecuteNonQuery();
-                                            con2.Close();
-                                            System.IO.Directory.CreateDirectory(Server.MapPath("\\UploadedImages\\Claims\\" + yy + "\\" + mm + "\\" + dd + "\\"));
-                                            userPostedFile.SaveAs(Server.MapPath("\\UploadedImages\\" + attach_place_store));
+                                            {
+                                                cmd1.CommandType = CommandType.StoredProcedure;
+                                                cmd1.CommandText = "SP_Attachments";
+                                                cmd1.Parameters.AddWithValue("@attach_type", attach_type);
+                                                cmd1.Parameters.AddWithValue("@attach_Path", attach_place_store);
+                                                cmd1.Parameters.AddWithValue("@attach_doc_id", strImageName);
+                                                cmd1.Parameters.AddWithValue("@check", "i");
+                                                cmd1.Connection = con2;
+                                                con2.Open();
+                                                cmd1.ExecuteNonQuery();
+                                                con2.Close();
+                                                System.IO.Directory.CreateDirectory(Server.MapPath("\\UploadedImages\\Claims\\" + yy + "\\" + mm + "\\" + dd + "\\"));
+                                                userPostedFile.SaveAs(Server.MapPath("\\UploadedImages\\" + attach_place_store));
                                             }
                                             catch
                                             {
                                                 MSG("حدث خطأ");
                                             }
                                         }
-                                       
+
                                     }
 
 

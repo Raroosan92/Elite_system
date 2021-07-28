@@ -388,6 +388,7 @@ namespace Elite_system
                 {
                     Result = false;
                     MSG("هذا الشيك غير مدخل من قبل او انه مكرر");
+                    Txt_BarCode.Text = "";
 
                 }
 
@@ -702,6 +703,7 @@ namespace Elite_system
             if (Delivered > 0)
             {
                 MSG("لقد تم تسليم هذا الشيك مسبقا او انه مكرر");
+                Txt_BarCode.Text = "";
                 return;
             }
             int Refunded = 0;

@@ -319,18 +319,18 @@ namespace Elite_system
                 {
                     Cls_Connection.open_connection();
                     Main_Listing_Bonds._Company = long.Parse(ID_Medical_Name[i]);
-                Main_Listing_Bonds._Type = 296;
-                Main_Listing_Bonds._Bond_Date = DateTime.UtcNow.AddHours(3).Date;
-                string Contracting_Value = Cls_Medical_Types_And_Companies.Get_Contracting_Value(long.Parse(ID_Medical_Name[i]));
-                Main_Listing_Bonds._Debtor = decimal.Parse(Contracting_Value);
-                Main_Listing_Bonds._Description = " أتعاب مطالبات " + Txt_Month_Year.Text;
-                Main_Listing_Bonds._Creditor = 0;
-                Main_Listing_Bonds._Claim_ID = long.Parse(Cls_Medical_Types_And_Companies.Get_Claim_ID(long.Parse(ID_Medical_Name[i].ToString()), Txt_Month_Year.Text));
-                Main_Listing_Bonds._Acounting_NO = Cls_Medical_Types_And_Companies.Get_Acounting_NO(long.Parse(ID_Medical_Name[i].ToString()));
-                Cls_Connection.close_connection();
+                    Main_Listing_Bonds._Type = 296;
+                    Main_Listing_Bonds._Bond_Date = DateTime.UtcNow.AddHours(3).Date;
+                    string Contracting_Value = Cls_Medical_Types_And_Companies.Get_Contracting_Value(long.Parse(ID_Medical_Name[i]));
+                    Main_Listing_Bonds._Debtor = decimal.Parse(Contracting_Value);
+                    Main_Listing_Bonds._Description = " أتعاب مطالبات " + Txt_Month_Year.Text;
+                    Main_Listing_Bonds._Creditor = 0;
+                    Main_Listing_Bonds._Claim_ID = long.Parse(Cls_Medical_Types_And_Companies.Get_Claim_ID(long.Parse(ID_Medical_Name[i].ToString()), Txt_Month_Year.Text));
+                    Main_Listing_Bonds._Acounting_NO = Cls_Medical_Types_And_Companies.Get_Acounting_NO(long.Parse(ID_Medical_Name[i].ToString()));
+                    Cls_Connection.close_connection();
 
 
-                
+
                     Result3 = Main_Listing_Bonds.Insert_Main_Listing_Bonds();
 
                     //////////////////////////////////       Log        /////////////////////////////////////////////
@@ -396,12 +396,13 @@ namespace Elite_system
                 {
 
                     MSG("حدث خطأ في رقم الدفعة");
+                    
                     return;
                 }
 
 
 
-                //----------------- insert Into Main Claim ---------------------
+                //----------------- insert Into Main Claims ---------------------
 
                 Cls_Main_Claims Main_Claims = new Cls_Main_Claims();
                 Main_Claims._Claim_ID = Claim_ID;
@@ -417,6 +418,7 @@ namespace Elite_system
                     {
 
                         MSG("حدث خطأ في رقم الدفعة");
+
                         return;
                     }
 
@@ -428,6 +430,7 @@ namespace Elite_system
                     catch (Exception)
                     {
                         MSG("حدث خطأ في صيغة تاريخ الإدخال");
+
                         return;
                     }
 
@@ -464,147 +467,165 @@ namespace Elite_system
                     {
                         Main_Claims._Total_Claims = Max;
                     }
-
-                    Result = Main_Claims.Insert_Main_Claims();
-
-
-                    // --------------------------- insert Into Main Claimd ---------------------
-
-                    ////////////////////////////////       Log        /////////////////////////////////////////////
-                    Cls_Log log = new Cls_Log();
-                    log._Log_Event = "إضافة مطالبة رئيسية للجهة الطبية: " + DDL_Medical_Name.SelectedItem.Text + " لشهر " + Txt_Month_Year.Text + " دفعة رقم " + Txt_Batch_No.Text;
-                    log.Insert_Log();
-                    ////////////////////////////////   End Of Log        /////////////////////////////////////////////
-
-
-                    // --------------- Chech if Medical Typ Pay the Contracting Value ---------------------
-
-                    DateTime month = DateTime.ParseExact(Txt_Entry_Date.Text, "yyyy-MM-dd", null);
-                    var startDate = new DateTime(month.Year, month.Month, 1);
-                    var endDate = startDate.AddMonths(1).AddDays(-1);
-                    DateTime dt1 = startDate;
-                    DateTime dt2 = endDate;
-
-
-                    SqlConnection con = new SqlConnection();
-
-                    con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
-                    con = Cls_Connection._con;
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = con;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "CheckMedicalTypeInListingBonds";
-
-                    cmd.Parameters.AddWithValue("@From", dt1);
-                    cmd.Parameters.AddWithValue("@To", dt2);
-                    cmd.Parameters.AddWithValue("@Medical_ID", long.Parse(DDL_Medical_Name.SelectedValue));
-
-                    Cls_Connection.open_connection();
-
-                    int Check = (int)cmd.ExecuteScalar();
-                    Cls_Connection.close_connection();
-                    if (Check == 0)
+                    try
                     {
-                        //Rami Roosan
-
-                        // To Get Contracting_Value&Freez 
-
-                        SqlCommand cmd1 = new SqlCommand();
-                        cmd1.Connection = con;
-                        string sql = "SELECT [Freez],[Contracting_Value],[Acounting_NO] FROM [dbo].[Medical_Types_And_Companies] where id= '" + DDL_Medical_Name.SelectedValue + "'";
-                        SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
-                        DataTable table = new DataTable();
-                        Cls_Connection.open_connection();
-                        adapter.Fill(table);
-                        string ContractingValue;
-                        string Acounting_NO;
-                        bool Freez = true;
-                        try
+                        Result = Main_Claims.Insert_Main_Claims();
+                        if (Result == "تمت الإضافة بنجاح")
                         {
-                            ContractingValue = table.Rows[0]["Contracting_Value"].ToString();
-                            Acounting_NO = table.Rows[0]["Acounting_NO"].ToString();
-                            Freez = Ch_Freez2.Checked;
-                        }
-                        catch (Exception)
-                        {
-                            ContractingValue = "0";
-                            Acounting_NO = "0";
-                            Freez = false;
-                        }
-
-                        Cls_Connection.close_connection();
 
 
 
-                        Cls_Main_Listing_Bonds Main_Listing_Bonds = new Cls_Main_Listing_Bonds();
+                            // --------------------------- insert Into Main Claimd ---------------------
 
-                        if (DDL_Medical_Name.SelectedValue != "")
-                        {
-                            Main_Listing_Bonds._Company = long.Parse(DDL_Medical_Name.SelectedValue);
-                        }
-                        Main_Listing_Bonds._Type = 296;
+                            ////////////////////////////////       Log        /////////////////////////////////////////////
+                            Cls_Log log = new Cls_Log();
+                            log._Log_Event = "إضافة مطالبة رئيسية للجهة الطبية: " + DDL_Medical_Name.SelectedItem.Text + " لشهر " + Txt_Month_Year.Text + " دفعة رقم " + Txt_Batch_No.Text;
+                            log.Insert_Log();
+                            ////////////////////////////////   End Of Log        /////////////////////////////////////////////
 
-                        if (Txt_Entry_Date.Text != "")
-                        {
-                            Main_Listing_Bonds._Bond_Date = DateTime.Parse(Txt_Entry_Date.Text);
-                        }
-                        if (ContractingValue == null || ContractingValue == "")
-                        {
-                            ContractingValue = "0";
-                        }
-                        if (Acounting_NO == null || Acounting_NO == "")
-                        {
-                            Acounting_NO = "0";
-                        }
-                        Main_Listing_Bonds._Acounting_NO = Acounting_NO;
-                        Main_Listing_Bonds._Claim_ID = Claim_ID;
 
-                        if (Freez == true)
-                        {
-                            Main_Listing_Bonds._Debtor = 0;
-                            Main_Listing_Bonds._Description = " أتعاب مطالبات *ملاحظة* تجميد اشتراك" + Txt_Month_Year.Text;
+                            // --------------- Chech if Medical Typ Pay the Contracting Value ---------------------
+
+                            DateTime dateTime = DateTime.ParseExact(Txt_Entry_Date.Text, "yyyy-MM-dd", null);
+                            DateTime month = dateTime;
+                            var startDate = new DateTime(month.Year, month.Month, 1);
+                            var endDate = startDate.AddMonths(1).AddDays(-1);
+                            DateTime dt1 = startDate;
+                            DateTime dt2 = endDate;
+
+
+                            SqlConnection con = new SqlConnection();
+
+                            con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+                            con = Cls_Connection._con;
+                            SqlCommand cmd = new SqlCommand();
+                            cmd.Connection = con;
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.CommandText = "CheckMedicalTypeInListingBonds";
+
+                            cmd.Parameters.AddWithValue("@From", dt1);
+                            cmd.Parameters.AddWithValue("@To", dt2);
+                            cmd.Parameters.AddWithValue("@Medical_ID", long.Parse(DDL_Medical_Name.SelectedValue));
+
+                            Cls_Connection.open_connection();
+
+                            int Check = (int)cmd.ExecuteScalar();
+                            Cls_Connection.close_connection();
+                            if (Check == 0)
+                            {
+                                //Rami Roosan
+
+                                // To Get Contracting_Value&Freez 
+
+                                SqlCommand cmd1 = new SqlCommand();
+                                cmd1.Connection = con;
+                                string sql = "SELECT [Freez],[Contracting_Value],[Acounting_NO] FROM [dbo].[Medical_Types_And_Companies] where id= '" + DDL_Medical_Name.SelectedValue + "'";
+                                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                                DataTable table = new DataTable();
+                                Cls_Connection.open_connection();
+                                adapter.Fill(table);
+                                string ContractingValue;
+                                string Acounting_NO;
+                                bool Freez = true;
+                                try
+                                {
+                                    ContractingValue = table.Rows[0]["Contracting_Value"].ToString();
+                                    Acounting_NO = table.Rows[0]["Acounting_NO"].ToString();
+                                    Freez = Ch_Freez2.Checked;
+                                }
+                                catch (Exception)
+                                {
+                                    ContractingValue = "0";
+                                    Acounting_NO = "0";
+                                    Freez = false;
+                                }
+
+                                Cls_Connection.close_connection();
+
+
+
+                                Cls_Main_Listing_Bonds Main_Listing_Bonds = new Cls_Main_Listing_Bonds();
+
+                                if (DDL_Medical_Name.SelectedValue != "")
+                                {
+                                    Main_Listing_Bonds._Company = long.Parse(DDL_Medical_Name.SelectedValue);
+                                }
+                                Main_Listing_Bonds._Type = 296;
+
+                                if (Txt_Entry_Date.Text != "")
+                                {
+                                    Main_Listing_Bonds._Bond_Date = DateTime.Parse(Txt_Entry_Date.Text);
+                                }
+                                if (ContractingValue == null || ContractingValue == "")
+                                {
+                                    ContractingValue = "0";
+                                }
+                                if (Acounting_NO == null || Acounting_NO == "")
+                                {
+                                    Acounting_NO = "0";
+                                }
+                                Main_Listing_Bonds._Acounting_NO = Acounting_NO;
+                                Main_Listing_Bonds._Claim_ID = Claim_ID;
+
+                                if (Freez == true)
+                                {
+                                    Main_Listing_Bonds._Debtor = 0;
+                                    Main_Listing_Bonds._Description = " أتعاب مطالبات *ملاحظة* تجميد اشتراك" + Txt_Month_Year.Text;
+                                }
+                                else
+                                {
+                                    Main_Listing_Bonds._Debtor = decimal.Parse(ContractingValue);
+                                    Main_Listing_Bonds._Description = " أتعاب مطالبات " + Txt_Month_Year.Text;
+                                }
+
+                                Main_Listing_Bonds._Creditor = 0;
+                                Main_Listing_Bonds.Insert_Main_Listing_Bonds();
+
+                                ////////////////////////////////       Log        /////////////////////////////////////////////
+
+                                log._Log_Event = " إضافة سند قيد لقيمة  أتعاب مطالبات شهر " + Txt_Month_Year.Text + " لمطالبة رقم " + Txt_ID.Text + " للجهة الطبية " + DDL_Medical_Name.SelectedItem.Text;
+                                log.Insert_Log();
+                                ////////////////////////////////   End Of Log        /////////////////////////////////////////////
+                                //Rami Roosan
+                            }
+
+
+                            GridView2.DataBind();
+                            //Get_MainClaims_ForUpdate();
+
+
+                            MSG(Result);
+                            Txt_ID.Text = "";
+                            Txt_Batch_No.Text = "";
+                            DDL_Medical_Name.SelectedValue = "0";
+                            Txt_Received_Date.Text = "";
+                            DDL_Receiver_Employee.SelectedValue = "0";
+                            Ch_Freez2.Checked = false;
+
+                            int year = DateTimeOffset.UtcNow.AddHours(3).Year;
+                            int month1 = DateTimeOffset.UtcNow.AddHours(3).Month;
+                            DateTime dt3 = new DateTime(year, month1, System.DateTime.DaysInMonth(System.DateTime.Now.Year, month1));
+                            Txt_FreezFrom.Text = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
+                            Txt_FreezTo.Text = dt3.ToString("yyyy-MM-dd");
+
+                            GridView_SubClaims.DataSource = null;
+                            GridView_SubClaims.DataBind();
+
+                            GetClaimsCount();
+                            Txt_Batch_No.Focus();
                         }
                         else
                         {
-                            Main_Listing_Bonds._Debtor = decimal.Parse(ContractingValue);
-                            Main_Listing_Bonds._Description = " أتعاب مطالبات " + Txt_Month_Year.Text;
+                            MSG("هذه المطالبة مدخلة مسبقا يرجى إدخال مطالبات فرعية عليها أو تغيير رقم الدفعة");
                         }
+                    }
+                    catch (Exception)
+                    {
 
-                        Main_Listing_Bonds._Creditor = 0;
-                        Main_Listing_Bonds.Insert_Main_Listing_Bonds();
 
-                        ////////////////////////////////       Log        /////////////////////////////////////////////
-
-                        log._Log_Event = " إضافة سند قيد لقيمة  أتعاب مطالبات شهر " + Txt_Month_Year.Text + " لمطالبة رقم " + Txt_ID.Text + " للجهة الطبية " + DDL_Medical_Name.SelectedItem.Text;
-                        log.Insert_Log();
-                        ////////////////////////////////   End Of Log        /////////////////////////////////////////////
-                        //Rami Roosan
                     }
 
 
-                    GridView2.DataBind();
-                    //Get_MainClaims_ForUpdate();
-
-
-                    MSG(Result);
-                    Txt_ID.Text = "";
-                    Txt_Batch_No.Text = "";
-                    DDL_Medical_Name.SelectedValue = "0";
-                    Txt_Received_Date.Text = "";
-                    DDL_Receiver_Employee.SelectedValue = "0";
-                    Ch_Freez2.Checked = false;
-
-                    int year = DateTimeOffset.UtcNow.AddHours(3).Year;
-                    int month1 = DateTimeOffset.UtcNow.AddHours(3).Month;
-                    DateTime dt3 = new DateTime(year, month1, System.DateTime.DaysInMonth(System.DateTime.Now.Year, month1));
-                    Txt_FreezFrom.Text = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
-                    Txt_FreezTo.Text = dt3.ToString("yyyy-MM-dd");
-
-                    GridView_SubClaims.DataSource = null;
-                    GridView_SubClaims.DataBind();
-
-                    GetClaimsCount();
-                    Txt_Batch_No.Focus();
                 }
                 else
                 {
@@ -612,8 +633,8 @@ namespace Elite_system
                 }
 
 
-                //rami
-                if (HttpContext.Current.User.IsInRole("Doctor"))
+            //rami
+            if (HttpContext.Current.User.IsInRole("Doctor"))
                 {
                     Label3.Visible = false;
                     Get_MainClaims_ForGridView(HttpContext.Current.User.Identity.Name);
@@ -678,6 +699,7 @@ namespace Elite_system
             {
                 MSG("لم تتم عملية الاضافة يوجد حقول فارغة");
             }
+
         }
 
         private int GetMax_TotalClaim()
@@ -3514,7 +3536,7 @@ namespace Elite_system
             //System.Threading.Thread.Sleep(4854);
             //var watch = System.Diagnostics.Stopwatch.StartNew();
             ListingBonds3();
-            
+
 
             //watch.Stop();
             //var elapsedMs = watch.ElapsedMilliseconds;

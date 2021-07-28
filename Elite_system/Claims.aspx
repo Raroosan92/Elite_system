@@ -4,11 +4,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script>
-        function scrollWin() {
-            window.scrollTo(0, document.body.scrollHeight);
-        }
-    </script>
+    
 
     <style>
         .Drop {
@@ -158,7 +154,7 @@
 
                                     <tr>
                                         <td class="auto-style1">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Batch_No" Width="236px" onkeydown="return (event.keyCode!=13);">1</asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Batch_No" Width="236px" >1</asp:TextBox>
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="رقم الدفعة"></asp:Label>
@@ -180,7 +176,7 @@
 
                                     <tr>
                                         <td class="auto-style1">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Month_Year" BackColor="#CCCCCC" Width="236px" onkeydown="return (event.keyCode!=13);"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Month_Year" BackColor="#CCCCCC" Width="236px" ></asp:TextBox>
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="مطالبات: شهر/سنة"></asp:Label>
@@ -189,8 +185,11 @@
 
                                     <tr>
                                         <td class="auto-style1">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Received_Date" Width="236px" onkeydown="return (event.keyCode!=13);"></asp:TextBox>
-                                            <ajaxToolkit:CalendarExtender ID="CalendarExtender2" Format="yyy-MM-dd" runat="server" TargetControlID="Txt_Received_Date" />
+
+                                            <asp:TextBox AutoCompleteType="Disabled" ID="Txt_Received_Date" runat="server" Width="236px"></asp:TextBox>
+                                    <ajaxToolkit:CalendarExtender ID="CalendarExtender2" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_Received_Date" />
+
+
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="تاريخ الاستلام"></asp:Label>
@@ -199,7 +198,7 @@
 
                                     <tr>
                                         <td class="auto-style1">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_ID" BackColor="#CCCCCC" ReadOnly="True" Width="236px" onkeydown="return (event.keyCode!=13);"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_ID" BackColor="#CCCCCC" ReadOnly="True" Width="236px" ></asp:TextBox>
 
                                         </td>
                                         <td style="width: 98px">
@@ -210,7 +209,7 @@
 
                                     <tr>
                                         <td class="auto-style2">
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Entry_Date" ReadOnly="True" BackColor="#CCCCCC" Width="236px" onkeydown="return (event.keyCode!=13);"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Entry_Date" ReadOnly="True" BackColor="#CCCCCC" Width="236px" ></asp:TextBox>
                                             <ajaxToolkit:CalendarExtender ID="CalendarExtender3" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_Entry_Date" />
                                         </td>
                                         <td style="height: 26px; width: 98px;">
@@ -984,7 +983,7 @@
         })
     </script>
     <%--rami لتغيير التاريخ من لوحة المفاتيح--%>
-    <script>
+    <%--<script>
         function DateField_KeyDown(dateField, CalendarExtender2) {
             lastKeyCodeEntered = window.event.keyCode;
             if ((lastKeyCodeEntered == '37')        //keyCode 37=left arrow
@@ -1060,7 +1059,7 @@
                 dtbehav.set_selectedDate(dateField.value);
             }
         }
-    </script>
+    </script>--%>
     <%--rami لتغيير التاريخ من لوحة المفاتيح--%>
 
 
