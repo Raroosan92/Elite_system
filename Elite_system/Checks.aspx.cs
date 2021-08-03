@@ -87,7 +87,7 @@ namespace Elite_system
                 Txt_Months.Enabled = false;
                 Txt_Notes.Enabled = false;
                 Btn_Save1.Enabled = false;
-                Txt_Value.Focus()
+                Txt_Value.Focus();
             }
             if (!Page.IsPostBack)
             {
@@ -1730,7 +1730,7 @@ namespace Elite_system
                 Txt_Months.Enabled = false;
                 Txt_Notes.Enabled = false;
                 Btn_Save1.Enabled = false;
-                Txt_Value.Focus()
+                Txt_Value.Focus();
             }
         }
     }
