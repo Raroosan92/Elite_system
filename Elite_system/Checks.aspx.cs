@@ -72,7 +72,23 @@ namespace Elite_system
             Txt_Received_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender2.ClientID + "')");
             Txt_Delivery_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender1.ClientID + "')");
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
-
+            if (DDL_Sent_To.SelectedItem.Text != "--اختر--")
+            {
+                Txt_Value.Enabled = true;
+                Txt_Check_No.Enabled = true;
+                Txt_Months.Enabled = true;
+                Txt_Notes.Enabled = true;
+                Btn_Save1.Enabled = true;
+            }
+            else
+            {
+                Txt_Value.Enabled = false;
+                Txt_Check_No.Enabled = false;
+                Txt_Months.Enabled = false;
+                Txt_Notes.Enabled = false;
+                Btn_Save1.Enabled = false;
+                Txt_Value.Focus()
+            }
             if (!Page.IsPostBack)
             {
                 // MyMethod();
@@ -1697,6 +1713,25 @@ namespace Elite_system
             Response.Redirect("DownloadFont.ashx");
         }
 
-
+        protected void DDL_Sent_To_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DDL_Sent_To.SelectedItem.Text!="--اختر--")
+            {
+                Txt_Value.Enabled = true;
+                Txt_Check_No.Enabled = true;
+                Txt_Months.Enabled = true;
+                Txt_Notes.Enabled = true;
+                Btn_Save1.Enabled = true;
+            }
+            else
+            {
+                Txt_Value.Enabled = false;
+                Txt_Check_No.Enabled = false;
+                Txt_Months.Enabled = false;
+                Txt_Notes.Enabled = false;
+                Btn_Save1.Enabled = false;
+                Txt_Value.Focus()
+            }
+        }
     }
 }

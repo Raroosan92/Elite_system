@@ -160,7 +160,7 @@
                                     <%--<asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="DDL_Sent_To"
                                         CssClass="alertFont" ErrorMessage="*" Operator="NotEqual"
                                         ValueToCompare="0" Display="Dynamic" ForeColor="Red" Font-Bold="true">*</asp:CompareValidator>--%>
-                                    <asp:DropDownList ID="DDL_Sent_To" Width="300px" runat="server" DataTextField="Name" DataValueField="ID" Font-Bold="True" Font-Size="Medium"></asp:DropDownList>
+                                    <asp:DropDownList ID="DDL_Sent_To" Width="300px" runat="server" DataTextField="Name" DataValueField="ID" Font-Bold="True" Font-Size="Medium" OnSelectedIndexChanged="DDL_Sent_To_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                                 </td>
                                 <td>
 
