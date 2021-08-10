@@ -72,23 +72,11 @@ namespace Elite_system
             Txt_Received_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender2.ClientID + "')");
             Txt_Delivery_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender1.ClientID + "')");
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
-            if (DDL_Sent_To.SelectedItem.Text != "--اختر--")
-            {
-                Txt_Value.Enabled = true;
-                Txt_Check_No.Enabled = true;
-                Txt_Months.Enabled = true;
-                Txt_Notes.Enabled = true;
-                Btn_Save1.Enabled = true;
-            }
-            else
-            {
-                Txt_Value.Enabled = false;
-                Txt_Check_No.Enabled = false;
-                Txt_Months.Enabled = false;
-                Txt_Notes.Enabled = false;
-                Btn_Save1.Enabled = false;
-                Txt_Value.Focus();
-            }
+            Txt_Value.Enabled = false;
+            Txt_Check_No.Enabled = false;
+            Txt_Months.Enabled = false;
+            Txt_Notes.Enabled = false;
+            Btn_Save1.Enabled = false;
             if (!Page.IsPostBack)
             {
                 // MyMethod();
@@ -1033,7 +1021,13 @@ namespace Elite_system
         {
             try
             {
-
+                
+                    Txt_Value.Enabled = true;
+                    Txt_Check_No.Enabled = true;
+                    Txt_Months.Enabled = true;
+                    Txt_Notes.Enabled = true;
+                    Btn_Save1.Enabled = true;
+                
                 SqlConnection con = new SqlConnection();
 
                 con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
@@ -1715,13 +1709,14 @@ namespace Elite_system
 
         protected void DDL_Sent_To_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DDL_Sent_To.SelectedItem.Text!="--اختر--")
+            if (DDL_Sent_To.SelectedIndex!=0)
             {
                 Txt_Value.Enabled = true;
                 Txt_Check_No.Enabled = true;
                 Txt_Months.Enabled = true;
                 Txt_Notes.Enabled = true;
                 Btn_Save1.Enabled = true;
+                Txt_Value.Focus();
             }
             else
             {
@@ -1730,7 +1725,7 @@ namespace Elite_system
                 Txt_Months.Enabled = false;
                 Txt_Notes.Enabled = false;
                 Btn_Save1.Enabled = false;
-                Txt_Value.Focus();
+                
             }
         }
     }
