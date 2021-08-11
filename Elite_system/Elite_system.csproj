@@ -274,6 +274,7 @@
     <Content Include="Account\Lockout.aspx" />
     <Content Include="AssignCheck.aspx" />
     <Content Include="AssignMail.aspx" />
+    <Content Include="Bond_StartDate.aspx" />
     <Content Include="DeliveredMail.aspx" />
     <Content Include="RefundedMail.aspx" />
     <Content Include="Rpt_CheckLogStatus.aspx" />
@@ -1163,6 +1164,13 @@
     </Compile>
     <Compile Include="AssignMail.aspx.designer.cs">
       <DependentUpon>AssignMail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bond_StartDate.aspx.cs">
+      <DependentUpon>Bond_StartDate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bond_StartDate.aspx.designer.cs">
+      <DependentUpon>Bond_StartDate.aspx</DependentUpon>
     </Compile>
     <Compile Include="DeliveredMail.aspx.cs">
       <DependentUpon>DeliveredMail.aspx</DependentUpon>

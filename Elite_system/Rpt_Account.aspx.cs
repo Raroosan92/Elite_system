@@ -35,23 +35,17 @@ namespace Elite_system
         {
             try
             {
-               
-
                 SqlConnection con = new SqlConnection();
-
                 con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
                 con = Cls_Connection._con;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "Get_V_Listing_Bonds";
-               
                 DateTime dt1 = DateTime.ParseExact(Txt_FromDate.Text, "yyyy-MM-dd", null); ;
                 DateTime dt2 = DateTime.ParseExact(Txt_ToDate.Text, "yyyy-MM-dd", null); ;
-
                 ReportParameter rp1 = new ReportParameter("From", Txt_FromDate.Text);
                 ReportParameter rp2 = new ReportParameter("To", Txt_ToDate.Text);
-
                 cmd.Parameters.AddWithValue("@From", dt1);
                 cmd.Parameters.AddWithValue("@To", dt2);
                 cmd.Parameters.AddWithValue("@Medical_Type", long.Parse(DDL_Medical_Name.SelectedValue));

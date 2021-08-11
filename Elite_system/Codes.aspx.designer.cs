@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Elite_system {
-    
-    
-    public partial class Codes {
-        
+namespace Elite_system
+{
+
+
+    public partial class Codes
+    {
+
         /// <summary>
         /// UpdatePanel2 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
-        
+
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-        
+
         /// <summary>
         /// DDL_Parent control.
         /// </summary>
@@ -38,16 +40,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Parent;
-        
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
+
         /// <summary>
         /// Txt_Description control.
         /// </summary>
@@ -56,7 +49,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Description;
-        
+
         /// <summary>
         /// Btn_Save control.
         /// </summary>
@@ -65,7 +58,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Save;
-        
+
         /// <summary>
         /// Lbl_Result1 control.
         /// </summary>
@@ -74,7 +67,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lbl_Result1;
-        
+
         /// <summary>
         /// Label3 control.
         /// </summary>
@@ -83,7 +76,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-        
+
         /// <summary>
         /// DDL_Parent2 control.
         /// </summary>
@@ -92,7 +85,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Parent2;
-        
+
         /// <summary>
         /// DDL_Sub control.
         /// </summary>
@@ -101,16 +94,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Sub;
-        
-        /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
+
         /// <summary>
         /// Txt_Description2 control.
         /// </summary>
@@ -119,7 +103,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Txt_Description2;
-        
+
         /// <summary>
         /// Btn_Update control.
         /// </summary>
@@ -128,7 +112,7 @@ namespace Elite_system {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Update;
-        
+
         /// <summary>
         /// Lbl_Result2 control.
         /// </summary>

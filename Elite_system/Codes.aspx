@@ -80,7 +80,7 @@
                                     <tr>
                                          <td style="width: 98px">
                                             <asp:Label runat="server" Text="الوصف"></asp:Label>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="يرجى ادخال الوصف" ControlToValidate="Txt_Description" ForeColor="Red"></asp:RequiredFieldValidator>
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="يرجى ادخال الوصف" ControlToValidate="Txt_Description" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                         </td>
                                         <td>
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Description"></asp:TextBox>
@@ -145,7 +145,7 @@
                                     <tr>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="الوصف"></asp:Label>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="يرجى ادخال الوصف" ControlToValidate="Txt_Description2" ForeColor="Red"></asp:RequiredFieldValidator>
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="يرجى ادخال الوصف" ControlToValidate="Txt_Description2" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                         </td>
                                         <td>
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Description2"></asp:TextBox>
