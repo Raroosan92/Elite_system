@@ -10,6 +10,7 @@ namespace Elite_system
     public partial class Rpt_Account : System.Web.UI.Page
     {
         DataTable dt_Result = new DataTable();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             //--rami لتغيير التاريخ من لوحة المفاتيح--
@@ -54,11 +55,35 @@ namespace Elite_system
                 Cls_Connection.open_connection();
                 adp.Fill(dt_Result);
                 Cls_Connection.close_connection();
+                //لجلب رصيد بداية المدة
+                cmd.Parameters.Clear();
+
+                Cls_Connection.open_connection();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "Get_V_Listing_Bonds_Start";
+                
+                cmd.Parameters.AddWithValue("@From", dt1);
+                cmd.Parameters.AddWithValue("@To", dt2);
+                cmd.Parameters.AddWithValue("@Medical_Type", long.Parse(DDL_Medical_Name.SelectedValue));
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                
+
+               
+                ReportParameter rp3 = new ReportParameter("StartDesc", dr.GetValue(dr.GetOrdinal("Description")).ToString());
+                ReportParameter rp4 = new ReportParameter("StartDebtor", dr.GetValue(dr.GetOrdinal("Debtor")).ToString());
+                ReportParameter rp5 = new ReportParameter("StartCreditor", dr.GetValue(dr.GetOrdinal("Creditor")).ToString());
+                Cls_Connection.close_connection();
                 ReportViewer1.Reset();
                 ReportViewer1.ProcessingMode = ProcessingMode.Local;
                 ReportViewer1.LocalReport.ReportPath = Server.MapPath("Rpt_Account.rdlc");
                 ReportViewer1.LocalReport.SetParameters(rp1);
                 ReportViewer1.LocalReport.SetParameters(rp2);
+                ReportViewer1.LocalReport.SetParameters(rp3);
+                ReportViewer1.LocalReport.SetParameters(rp4);
+                ReportViewer1.LocalReport.SetParameters(rp5);
+                
                 ReportViewer1.LocalReport.DataSources.Clear();
                 ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_Account", dt_Result));
                 ReportViewer1.LocalReport.Refresh();

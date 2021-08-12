@@ -12,6 +12,26 @@
             <asp:Button ID="Btn_Backup" runat="server" Text="Backup" OnClick="Btn_Backup_Click" />
              <asp:Label ID="lblMessage" runat="server" Font-Size="X-Large" ForeColor="Red"></asp:Label>
        <asp:ListBox ID="lstBackupfiles" runat="server" Height="257px" Width="368px" style="margin-left: 21px; text-align: left;"></asp:ListBox>
+
+            USE [DB_A5D8AE_EliteSystem]
+GO
+/****** Object:  StoredProcedure [dbo].[Get_V_Listing_Bonds]    Script Date: 12/08/2021 01:31:56 م ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create proc [dbo].[Get_V_Listing_Bonds_Start]
+@From date,
+@To date,
+@Medical_Type numeric(18,0)
+as
+begin
+SELECT Description,[Bond_Date],sum(Debtor),Sum(Creditor) FROM [dbo].[V_Listing_Bonds] 
+where [Medical_Type]=@Medical_Type and Type=332 and [Bond_Date] between @From and @To group by Description,[Bond_Date] order by Bond_Date
+end
+
+
+
     
         </div>
     </form>
