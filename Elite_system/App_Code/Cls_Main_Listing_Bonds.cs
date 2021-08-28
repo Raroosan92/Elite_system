@@ -168,14 +168,14 @@ public class Cls_Main_Listing_Bonds // سندات القيد الرئيسية
             cmd.Connection = con;
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "SP_Main_Listing_Bonds";
-           
+
             //rami roosan
-           
-            cmd.Parameters.AddWithValue("@Debtor", Debtor);                       
+
+            cmd.Parameters.AddWithValue("@Debtor", Debtor);
             cmd.Parameters.AddWithValue("@Creditor", Creditor);
             cmd.Parameters.AddWithValue("@Claim_ID", Claim_ID);
             cmd.Parameters.AddWithValue("@Acounting_NO", Acounting_NO);
-           
+
 
             if (Description != "")
             {
@@ -329,6 +329,36 @@ public class Cls_Main_Listing_Bonds // سندات القيد الرئيسية
             result = "حدث خطأ في الحذف";
             return result;
 
+        }
+
+    }
+
+
+    public string Check_Start_Listing_Bonds()
+    {
+        try
+        {
+
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+                con = Cls_Connection._con;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_Main_Listing_Bonds";
+                cmd.Parameters.AddWithValue("@Company", Company);
+                cmd.Parameters.AddWithValue("@check", "C");
+
+                Cls_Connection.open_connection();
+                
+                result = cmd.ExecuteScalar().ToString();
+            Cls_Connection.close_connection();
+                return result;
+
+            }
+        catch (Exception ex)
+        {
+            Cls_Connection.close_connection();
+            return "1";
         }
 
     }

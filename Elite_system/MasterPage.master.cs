@@ -24,6 +24,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
             
             HtmlControl Rpt_Receivables = (HtmlControl)Page.Master.FindControl("Rpt_Receivables");
             Rpt_Receivables.Attributes.Add("style", "display:none");
+            
+            HtmlControl spendings = (HtmlControl)Page.Master.FindControl("spendings");
+            spendings.Attributes.Add("style", "display:none");
 
             HtmlControl Medical_Types = (HtmlControl)Page.Master.FindControl("Medical_Types");
             Medical_Types.Attributes.Add("style", "display:none");
@@ -185,6 +188,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 if (HttpContext.Current.User.IsInRole("Claims"))
                 {
                     claim.Attributes.Add("style", "display:Block");
+                }
+                
+                if (HttpContext.Current.User.IsInRole("spendings"))
+                {
+                    spendings.Attributes.Add("style", "display:Block");
                 }
 
                 if (HttpContext.Current.User.IsInRole("Rpt_Receivables"))
@@ -430,6 +438,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             {
                 Claims_Report_Company.Attributes.Add("style", "display:Block");
                 Rpt_Receivables.Attributes.Add("style", "display:Block");
+                spendings.Attributes.Add("style", "display:Block");
                 CompletionRate.Attributes.Add("style", "display:Block");
                 Rpt_Medical_Name_Main_Company.Attributes.Add("style", "display:Block");
                 Bond_StartDate.Attributes.Add("style", "display:Block");

@@ -75,7 +75,7 @@
 
                                     <tr style="direction: rtl;">
                                         <td>
-                                          <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Debtor" Width="300px"></asp:TextBox>
+                                          <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Debtor" Width="300px" AutoPostBack="True" OnTextChanged="Txt_Debtor_TextChanged"></asp:TextBox>
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="المدين"></asp:Label>
@@ -84,7 +84,7 @@
 
                                     <tr style="direction: rtl;">
                                         <td>
-                                          <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_creditor" Width="300px"></asp:TextBox>
+                                          <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_creditor" Width="300px" AutoPostBack="True" OnTextChanged="Txt_creditor_TextChanged"></asp:TextBox>
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="الدائن"></asp:Label>

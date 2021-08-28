@@ -772,6 +772,7 @@
     <Content Include="Scripts\waitMe.js" />
     <Content Include="Scripts\waitMe.min.js" />
     <Content Include="sitemap.xml" />
+    <Content Include="spendings.aspx" />
     <Content Include="Sub_Companies.aspx" />
     <Content Include="Admin\Web.config">
       <SubType>Designer</SubType>
@@ -817,6 +818,17 @@
     <Content Include="DownloadFont.ashx" />
     <Content Include="..\.editorconfig">
       <Link>.editorconfig</Link>
+    </Content>
+    <Content Include="DB_A5D8AE_EliteSystemDataSet1.xsc">
+      <DependentUpon>DB_A5D8AE_EliteSystemDataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="DB_A5D8AE_EliteSystemDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_A5D8AE_EliteSystemDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DB_A5D8AE_EliteSystemDataSet1.xss">
+      <DependentUpon>DB_A5D8AE_EliteSystemDataSet1.xsd</DependentUpon>
     </Content>
     <None Include="DS_Account.xsd">
       <Generator>MSDataSetGenerator</Generator>
@@ -1171,6 +1183,12 @@
     </Compile>
     <Compile Include="Bond_StartDate.aspx.designer.cs">
       <DependentUpon>Bond_StartDate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\Cls_Spendings.cs" />
+    <Compile Include="DB_A5D8AE_EliteSystemDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_A5D8AE_EliteSystemDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="DeliveredMail.aspx.cs">
       <DependentUpon>DeliveredMail.aspx</DependentUpon>
@@ -1744,6 +1762,13 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="spendings.aspx.cs">
+      <DependentUpon>spendings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="spendings.aspx.designer.cs">
+      <DependentUpon>spendings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Sub_Banks.aspx.cs">
       <DependentUpon>Sub_Banks.aspx</DependentUpon>
@@ -1805,6 +1830,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AssignedChecksView.rdlc" />
+    <EmbeddedResource Include="Rpt_Spendings_All.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rpt_Receivables.rdlc" />
     <EmbeddedResource Include="Rpt_CheckLogStatus.rdlc" />
     <EmbeddedResource Include="Rpt_Claims.rdlc" />
@@ -1847,6 +1875,7 @@
     <EmbeddedResource Include="Rpt_Mails2.rdlc" />
     <EmbeddedResource Include="Rpt_MedicalTypesWithNoClaims.rdlc" />
     <EmbeddedResource Include="Rpt_PaidOrNot.rdlc" />
+    <EmbeddedResource Include="Rpt_Spendings.rdlc" />
     <EmbeddedResource Include="Rpt_Stamps.rdlc" />
   </ItemGroup>
   <ItemGroup>

@@ -34,7 +34,7 @@
 
         .Report {
             MARGIN-LEFT: -6%;
-            width: 91% !important;
+            width: 76% !important;
             height:500PX;
         }
 
@@ -166,7 +166,7 @@
 
 
     <section class="text-center Report" style="padding-top: 1%; direction: ltr;">
-        <rsweb:ReportViewer ID="ReportViewer1" CssClass="Report" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="1431px" Height="800px" ShowPrintButton="true">
+        <rsweb:ReportViewer ID="ReportViewer1" CssClass="Report" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="1131px" Height="800px" ShowPrintButton="true">
             <LocalReport ReportPath="Rpt_Log.rdlc">
                 <DataSources>
                     <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DS_Log" />

@@ -41,8 +41,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
-    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-        <ContentTemplate>
+    <%--<asp:UpdatePanel ID="UpdatePanel2" runat="server">
+        <ContentTemplate>--%>
 
             <section class="text-center my-5" style="padding-top: 1%; direction: ltr;">
                 <div class="container">
@@ -99,7 +99,7 @@
                                             <asp:Label runat="server" Text="المبلغ"></asp:Label>
                                         </td>
                                     </tr>
-                                    
+
                                     <tr>
                                         <td class="auto-style1">
                                             <%--<asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="DDL_Medical_Name"
@@ -114,7 +114,7 @@
 
                                     <tr id="Acounting_No" runat="server">
                                         <td class="auto-style1">
-                                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" Display="Dynamic" ForeColor="Red" Font-Bold="true" ControlToValidate="Txt_Acounting_No"></asp:RequiredFieldValidator>--%>
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" Display="Dynamic" ForeColor="Red" Font-Bold="true" ControlToValidate="Txt_Acounting_No"></asp:RequiredFieldValidator>--%>
                                             <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Acounting_No" Width="300px"></asp:TextBox>
                                         </td>
                                         <td style="width: 98px">
@@ -133,7 +133,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                             <asp:Label ID="LblErrors" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
+                                            <asp:Label ID="LblErrors" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
                                         </td>
                                         <td></td>
                                     </tr>
@@ -146,7 +146,7 @@
                                             <asp:Label runat="server" Text="  رقم السند الرئيسي" Visible="false"></asp:Label>
                                         </td>
                                     </tr>
-                                    
+
 
                                     <tr style="direction: rtl;">
                                         <td>
@@ -167,24 +167,25 @@
                             <div class="table-responsive" style="height: 500px;">
                                 <table class="table-responsive">
                                     <asp:DropDownList ID="DDL_Medical_Name_Search" runat="server" DataTextField="Name" DataValueField="ID" Width="300px"></asp:DropDownList>
-                                    <asp:Button ID="Btn_Search" runat="server" Text="بحث" OnClick="Btn_Search_Click"  />
+                                    <asp:Button ID="Btn_Search" runat="server" Text="بحث" OnClick="Btn_Search_Click" />
+
+                                    <asp:TextBox AutoCompleteType="Disabled" PlaceHolder="بحث من خلال رقم السند الفرعي" runat="server" ID="Txt_SearchBondNo" Width="300px"></asp:TextBox>
+                                    <asp:Button ID="Btn_SearchBondNo" runat="server" Text="بحث" OnClick="Btn_SearchBondNo_Click" />
                                     <asp:SqlDataSource runat="server" ID="SqlDataSource_Receipt" ConnectionString='<%$ ConnectionStrings:CONN %>' SelectCommand="SELECT [ID],[Medical_TypeName],[TypeDescription],[Bond_Date],[Debtor],[Creditor],[Description],[Claim_ID] FROM [dbo].[V_Listing_Bonds] Where TypeDescription=N'قبض' order by ID desc"></asp:SqlDataSource>
-                                    <asp:GridView ID="GridView_receipt" runat="server" CssClass="Grid" AllowPaging="false" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource_Receipt" OnSelectedIndexChanged="GridView_receipt_SelectedIndexChanged" >
+                                    <asp:GridView ID="GridView_receipt" runat="server" CssClass="Grid" AllowPaging="false" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource_Receipt" OnSelectedIndexChanged="GridView_receipt_SelectedIndexChanged">
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" SelectText="اختر" ControlStyle-ForeColor="Black" />
+                                            <asp:BoundField DataField="ID" HeaderText=" ID" ReadOnly="True" SortExpression="ID" HeaderStyle-Width="150px"></asp:BoundField>
                                             <asp:BoundField DataField="Medical_TypeName" HeaderText="الجهة الطبية" SortExpression="Medical_TypeName" HeaderStyle-Width="430px"></asp:BoundField>
-                                             <%--<asp:BoundField DataField="Claim_ID" HeaderText=" السند الفرعي" ReadOnly="True" SortExpression="Claim_ID" HeaderStyle-Width="150px"></asp:BoundField>--%>
+
                                             <%--<asp:BoundField DataField="Debtor" HeaderText="المدين" ReadOnly="True" SortExpression="Debtor"></asp:BoundField>--%>
                                             <asp:BoundField DataField="Creditor" HeaderText="الدائن" SortExpression="Creditor"></asp:BoundField>
                                             <asp:BoundField DataField="Description" HeaderText="البيان" SortExpression="Description" HeaderStyle-Width="280px"></asp:BoundField>
-                                            <asp:BoundField DataField="ID" HeaderText=" الرقم الرئيسي" ReadOnly="True" SortExpression="ID" HeaderStyle-Width="150px"></asp:BoundField>
-                                           <%-- <asp:BoundField DataField="Bond_Date" HeaderText="تاريخ السند" SortExpression="Bond_Date" DataFormatString="{0:yyyy-MM-dd}" HeaderStyle-Width="150px"></asp:BoundField>--%>
+
+                                            <asp:BoundField DataField="Claim_ID" HeaderText=" السند الفرعي" ReadOnly="True" SortExpression="Claim_ID" HeaderStyle-Width="150px"></asp:BoundField>
+
+                                            <%-- <asp:BoundField DataField="Bond_Date" HeaderText="تاريخ السند" SortExpression="Bond_Date" DataFormatString="{0:yyyy-MM-dd}" HeaderStyle-Width="150px"></asp:BoundField>--%>
                                             <%--<asp:BoundField DataField="TypeDescription" HeaderText="نوع السند" SortExpression="TypeDescription"></asp:BoundField>--%>
-
-
-
-
-
                                         </Columns>
                                     </asp:GridView>
 
@@ -292,8 +293,8 @@
             </section>
         </ContentTemplate>
     </asp:UpdatePanel>--%>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+       <%-- </ContentTemplate>
+    </asp:UpdatePanel>--%>
     <script src="scripts/select2.min.js"></script>
 
 
@@ -315,8 +316,8 @@
         })
     </script>
 
-    
-        <%--rami لتغيير التاريخ من لوحة المفاتيح--%>
+
+    <%--rami لتغيير التاريخ من لوحة المفاتيح--%>
     <script>
         function DateField_KeyDown(dateField, CalendarExtender2) {
             lastKeyCodeEntered = window.event.keyCode;
@@ -356,5 +357,4 @@
         }
     </script>
     <%--rami لتغيير التاريخ من لوحة المفاتيح--%>
-
 </asp:Content>

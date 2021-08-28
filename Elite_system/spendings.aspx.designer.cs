@@ -11,7 +11,7 @@ namespace Elite_system
 {
 
 
-    public partial class Receipt
+    public partial class spendings
     {
 
         /// <summary>
@@ -33,22 +33,31 @@ namespace Elite_system
         protected global::System.Web.UI.WebControls.RadioButtonList RB_Sent_To;
 
         /// <summary>
-        /// Txt_SubID control.
+        /// Txt_Company control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Txt_SubID;
+        protected global::System.Web.UI.WebControls.TextBox Txt_Company;
 
         /// <summary>
-        /// Txt_Receipt_Date control.
+        /// Txt_VoucherNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Txt_Receipt_Date;
+        protected global::System.Web.UI.WebControls.TextBox Txt_VoucherNo;
+
+        /// <summary>
+        /// Txt_Voucher_Date control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Txt_Voucher_Date;
 
         /// <summary>
         /// CalendarExtender2 control.
@@ -69,58 +78,31 @@ namespace Elite_system
         protected global::System.Web.UI.HtmlControls.HtmlTableRow Ammount;
 
         /// <summary>
-        /// Txt_Value control.
+        /// Txt_Voucher_Value control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Txt_Value;
+        protected global::System.Web.UI.WebControls.TextBox Txt_Voucher_Value;
 
         /// <summary>
-        /// DDL_Medical_Name control.
+        /// DDL_Description control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name;
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Description;
 
         /// <summary>
-        /// Acounting_No control.
+        /// Txt_Invoice_No control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow Acounting_No;
-
-        /// <summary>
-        /// Txt_Acounting_No control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Txt_Acounting_No;
-
-        /// <summary>
-        /// Statement control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow Statement;
-
-        /// <summary>
-        /// Txt_Statement control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Txt_Statement;
+        protected global::System.Web.UI.WebControls.TextBox Txt_Invoice_No;
 
         /// <summary>
         /// LblErrors control.
@@ -130,15 +112,6 @@ namespace Elite_system
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblErrors;
-
-        /// <summary>
-        /// Txt_MainID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Txt_MainID;
 
         /// <summary>
         /// Btn_SaveReceipt control.
@@ -168,22 +141,13 @@ namespace Elite_system
         protected global::System.Web.UI.WebControls.Button Btn_Delete;
 
         /// <summary>
-        /// DDL_Medical_Name_Search control.
+        /// Txt_MainID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDL_Medical_Name_Search;
-
-        /// <summary>
-        /// Btn_Search control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Search;
+        protected global::System.Web.UI.WebControls.TextBox Txt_MainID;
 
         /// <summary>
         /// Txt_SearchBondNo control.

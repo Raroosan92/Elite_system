@@ -16,7 +16,7 @@ namespace Elite_system
         {
 
             //--rami لتغيير التاريخ من لوحة المفاتيح--
-            Txt_Receipt_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender2.ClientID + "')");
+            //Txt_Receipt_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender2.ClientID + "')");
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
             if (!Page.IsPostBack)
             {
@@ -77,7 +77,7 @@ namespace Elite_system
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "Get_Main_Receipt_ForUpdate";
-                cmd.Parameters.AddWithValue("@ID", Convert.ToInt64(GridView_receipt.SelectedRow.Cells[4].Text));
+                cmd.Parameters.AddWithValue("@ID", Convert.ToInt64(GridView_receipt.SelectedRow.Cells[1].Text));
                 Cls_Connection.open_connection();
                 SqlDataReader dr = cmd.ExecuteReader();
 
@@ -423,6 +423,47 @@ namespace Elite_system
             Txt_Statement.Text = ST;
             Txt_SubID.Focus();
             LblErrors.Text = "";
+        }
+
+        protected void Btn_SearchBondNo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                SqlConnection con = new SqlConnection();
+
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+                con = Cls_Connection._con;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                if (Txt_SearchBondNo.Text == "")
+                {
+                    GridView_receipt.DataSource = SqlDataSource_Receipt;
+                    GridView_receipt.DataBind();
+                }
+                else
+                {
+
+
+                    cmd.CommandText = "SELECT[ID],[Medical_TypeName],[TypeDescription],[Bond_Date],[Debtor],[Creditor],[Description],[Claim_ID] FROM[dbo].[V_Listing_Bonds] WHERE TypeDescription=N'قبض' AND Claim_ID = " + Txt_SearchBondNo.Text + " ORDER BY [ID] DESC";
+                    Cls_Connection.open_connection();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    GridView_receipt.DataSourceID = null;
+                    GridView_receipt.DataSource = dt;
+                    GridView_receipt.DataBind();
+                    Cls_Connection.close_connection();
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                Cls_Connection.close_connection();
+
+
+            }
+
         }
 
         //protected void GridView_SubReceipt_SelectedIndexChanged(object sender, EventArgs e)

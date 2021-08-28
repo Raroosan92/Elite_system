@@ -186,6 +186,36 @@ namespace Elite_system
             }
 
         }
+        
+        
+        public static DataTable Get_Codes2()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+                con = Cls_Connection._con;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_Select_Codes2";
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                Cls_Connection.open_connection();
+                adp.Fill(dt);
+                Cls_Connection.close_connection();
+                return dt;
+
+            }
+            catch (Exception)
+            {
+                Cls_Connection.close_connection();
+                return dt;
+
+
+            }
+
+        }
 
 
         public static DataTable Fill_Specialization(long id)

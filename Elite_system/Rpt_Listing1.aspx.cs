@@ -46,7 +46,7 @@ namespace Elite_system
         {
             try
             {
-               
+
 
                 SqlConnection con = new SqlConnection();
 
@@ -55,8 +55,14 @@ namespace Elite_system
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
+                if (DDL_Type.SelectedValue == "315")
+                {
+                    cmd.CommandText = "Get_Listing_Spendings";
+                }
+                else
+                { 
                 cmd.CommandText = "Get_Listing";
-               
+                }
                 DateTime dt1 = DateTime.ParseExact(Txt_FromDate.Text, "yyyy-MM-dd", null); ;
                 DateTime dt2 = DateTime.ParseExact(Txt_ToDate.Text, "yyyy-MM-dd", null); ;
 
@@ -73,7 +79,7 @@ namespace Elite_system
                 Cls_Connection.close_connection();
                 ReportViewer1.Reset();
                 ReportViewer1.ProcessingMode = ProcessingMode.Local;
-                if (DDL_Type.SelectedValue=="296")
+                if (DDL_Type.SelectedValue == "296")
                 {
                     ReportViewer1.LocalReport.ReportPath = Server.MapPath("Rpt_Listing1.rdlc");
                 }
@@ -81,15 +87,27 @@ namespace Elite_system
                 {
                     ReportViewer1.LocalReport.ReportPath = Server.MapPath("Rpt_Listing2.rdlc");
                 }
+                else if (DDL_Type.SelectedValue == "315")
+                {
+                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("Rpt_Spendings_All.rdlc");
+                }
                 else
                 {
                     ReportViewer1.LocalReport.ReportPath = Server.MapPath("Rpt_Listing1.rdlc");
                 }
-                
+
                 ReportViewer1.LocalReport.SetParameters(rp1);
                 ReportViewer1.LocalReport.SetParameters(rp2);
                 ReportViewer1.LocalReport.DataSources.Clear();
-                ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_Account", dt_Result));
+                 if (DDL_Type.SelectedValue == "315")
+                {
+                    ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_Spendings_All", dt_Result));
+                }
+                 else
+                {
+                    ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DS_Account", dt_Result));
+                }
+                
                 ReportViewer1.LocalReport.Refresh();
             }
             catch (Exception ex)

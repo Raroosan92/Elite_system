@@ -138,7 +138,8 @@
                                         <li id="Employees" runat="server" class=""><a href="../Employees.aspx">الموظفين<img src="../imgSideBar/header/employee.png" /></a></li>
 
                                         <li id="Receipt" runat="server" class=""><a href="../Receipt.aspx">سندات القبض<img src="../imgSideBar/header/bill.png" /></a></li>
-                                        <li id="Bond_StartDate" runat="server" class=""><a href="../Bond_StartDate.aspx">سندات بداية المدة<img src="../imgSideBar/header/bill.png" /></a></li>
+                                        <li id="spendings" runat="server" class=""><a href="../spendings.aspx">سندات الصرف<img src="../imgSideBar/header/bill.png" /></a></li>
+                                        <li id="Bond_StartDate" runat="server" class=""><a href="../Bond_StartDate.aspx">رصيد بداية المدة<img src="../imgSideBar/header/bill.png" /></a></li>
 
                                         <li id="Update_Listing_Bonds" runat="server" class=""><a href="../Update_Listing_Bonds.aspx">تعديل حساب<img src="../imgSideBar/header/EditeAccount.png" /></a></li>
 

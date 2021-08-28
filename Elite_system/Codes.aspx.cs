@@ -18,7 +18,8 @@ namespace Elite_system
             {               
 
                 DataTable dt = new DataTable();
-                dt = Cls_Codes.Get_Codes();
+                dt = Cls_Codes.Get_Codes2();
+                //dt = Cls_Codes.Get_Codes();
 
                 DDL_Parent.DataSource = dt;
                 DDL_Parent.DataBind();

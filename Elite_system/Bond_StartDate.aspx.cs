@@ -168,7 +168,17 @@ namespace Elite_system
             }
             Main_Listing_Bonds._Description = Txt_Statement.Text;
             //Main_Listing_Bonds._Claim_ID = long.Parse(Txt_SubID.Text);
-            Result = Main_Listing_Bonds.Insert_Main_Listing_Bonds();
+
+
+            if (Main_Listing_Bonds.Check_Start_Listing_Bonds()=="0")
+            {
+                Result = Main_Listing_Bonds.Insert_Main_Listing_Bonds();
+            }
+            else
+            {
+                MSG("الجهة الطبية تم اضافة رصيدها مسبقاً يرجى التعديل عليها");
+                goto S;
+            }
 
             ////////////////////////////////       Log        /////////////////////////////////////////////
             Cls_Log log = new Cls_Log();
@@ -178,7 +188,7 @@ namespace Elite_system
 
 
             MSG(Result);
-            
+            S:
             string D = Txt_Receipt_Date.Text;
             string ST = Txt_Statement.Text;
             ClearFields(Form.Controls);
@@ -403,5 +413,30 @@ namespace Elite_system
             LblErrors.Text = "";
         }
 
+        protected void Txt_Debtor_TextChanged(object sender, EventArgs e)
+        {
+            if (Txt_Debtor.Text.Length>0)
+            {
+                Txt_creditor.Enabled = false;
+                Txt_Receipt_Date.Focus();
+            }
+            else
+            {
+                Txt_creditor.Enabled = true;
+            }
+        }
+
+        protected void Txt_creditor_TextChanged(object sender, EventArgs e)
+        {
+            if (Txt_creditor.Text.Length > 0)
+            {
+                Txt_Debtor.Enabled = false;
+                Txt_Receipt_Date.Focus();
+            }
+            else
+            {
+                Txt_Debtor.Enabled = true;
+            }
+        }
     }
 }
