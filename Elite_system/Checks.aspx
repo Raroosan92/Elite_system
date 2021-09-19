@@ -34,7 +34,7 @@
         .Barcode {
             font-family: IDAutomationHC39M;
             background-color: white;
-            margin-right: 73px;
+            margin-right: 23px;
         }
     </style>
 
