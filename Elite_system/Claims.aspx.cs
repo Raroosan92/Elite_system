@@ -390,7 +390,7 @@ namespace Elite_system
                 Int64 Claim_ID;
                 try
                 {
-                    Claim_ID = Int64.Parse(Year + Month + Medical_ID + Batch_No);
+                    Claim_ID = Int64.Parse(Year.ToString() + Month.ToString() + Medical_ID + Batch_No);
                 }
                 catch (Exception)
                 {
@@ -2712,7 +2712,7 @@ namespace Elite_system
                 Int64 Claim_ID;
                 try
                 {
-                    Claim_ID = Int64.Parse(Year + Month + Medical_ID + Batch_No);
+                    Claim_ID = Int64.Parse(Year.ToString() + Month.ToString() + Medical_ID + Batch_No);
                 }
                 catch (Exception)
                 {
@@ -2834,7 +2834,7 @@ namespace Elite_system
                 Int64 Claim_ID;
                 try
                 {
-                    Claim_ID = Int64.Parse(Year + Month + Medical_ID + Batch_No);
+                    Claim_ID = Int64.Parse(Year.ToString() + Month.ToString() + Medical_ID + Batch_No);
                 }
                 catch (Exception)
                 {
