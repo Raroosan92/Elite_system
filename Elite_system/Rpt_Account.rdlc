@@ -1267,7 +1267,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>5.61536cm</Height>
+    <Height>5.43015cm</Height>
     <Style />
   </Body>
   <Width>18.38439cm</Width>
@@ -1507,12 +1507,12 @@
         </Border>
       </Style>
     </PageHeader>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>25cm</PageWidth>
-    <LeftMargin>2.54cm</LeftMargin>
-    <RightMargin>2.54cm</RightMargin>
-    <TopMargin>2.54cm</TopMargin>
-    <BottomMargin>2.54cm</BottomMargin>
+    <PageHeight>32cm</PageHeight>
+    <PageWidth>23cm</PageWidth>
+    <LeftMargin>1.5cm</LeftMargin>
+    <RightMargin>1.5cm</RightMargin>
+    <TopMargin>1.5cm</TopMargin>
+    <BottomMargin>1.5cm</BottomMargin>
     <ColumnSpacing>1.27cm</ColumnSpacing>
     <Style />
   </Page>
