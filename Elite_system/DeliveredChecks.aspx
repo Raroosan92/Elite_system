@@ -82,7 +82,17 @@
 
                                     </tr>
 
+                                     <tr>
+                                        <td>
+                                            <asp:Label runat="server" Text="اسم الشركة" Font-Bold="True" Font-Size="Medium"></asp:Label><br />
 
+                                        </td>
+                                        <td>
+                                            <asp:DropDownList ID="DDL_Sent_ToCompany" Width="180px" runat="server" DataTextField="Name" DataValueField="ID" Font-Bold="True" Font-Size="Medium"></asp:DropDownList>
+                                            في حالة تكرار رقم الشيك
+                                        </td>
+
+                                    </tr>
                                     <tr>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="رقم البار كود"></asp:Label>
@@ -161,6 +171,7 @@
         }
         function jsFunctions() {
             $("#<%=DDL_Sent_To.ClientID%>").select2();
+            $("#<%=DDL_Sent_ToCompany.ClientID%>").select2();
 
         }
 
@@ -168,6 +179,7 @@
     <script>
         $(function () {
             $("#<%=DDL_Sent_To.ClientID%>").select2();
+            $("#<%=DDL_Sent_ToCompany.ClientID%>").select2();
         })
     </script>
 

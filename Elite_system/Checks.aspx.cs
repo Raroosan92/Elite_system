@@ -1043,20 +1043,20 @@ namespace Elite_system
                 Cls_Connection.open_connection();
                 result = cmd.ExecuteScalar();
                 Cls_Connection.close_connection();
-                if (HttpContext.Current.User.IsInRole("Admin"))
-                {
-                    if (bool.Parse(result.ToString()) == true)
-                    {
-                        Btn_Update1.Visible = false;
-                        BtnDelete.Visible = false;
-                    }
-                    else
-                    {
-                        Btn_Update1.Visible = true;
-                        BtnDelete.Visible = true;
-                    }
+                //if (HttpContext.Current.User.IsInRole("Admin"))
+                //{
+                //    if (bool.Parse(result.ToString()) == false)
+                //    {
+                //        Btn_Update1.Visible = false;
+                //        BtnDelete.Visible = false;
+                //    }
+                //    else
+                //    {
+                //        Btn_Update1.Visible = true;
+                //        BtnDelete.Visible = true;
+                //    }
 
-                }
+                //}
                 cmd.Parameters.Clear();
                 //Rami
 
@@ -1145,6 +1145,23 @@ namespace Elite_system
                     //}
 
                     //BarCodeGenerateafter(dr.GetValue(dr.GetOrdinal("BarCode")).ToString());
+
+
+                    if ((dr.GetValue(dr.GetOrdinal("Refunded")).ToString())== "True")
+                    {
+                        Txt_Status.Text = "مُرجع";
+
+                    }
+                    else if ((dr.GetValue(dr.GetOrdinal("Delivered")).ToString()) == "True")
+                    {
+                        Txt_Status.Text = "مُسلم";
+                    }
+                    else
+                    {
+                        Txt_Status.Text = "غير محال الى موظف";
+                    }
+                   
+
                     LblBarcode.Text = (dr.GetValue(dr.GetOrdinal("BarCode")).ToString());
 
                 }
@@ -1727,6 +1744,11 @@ namespace Elite_system
                 Btn_Save1.Enabled = false;
                 
             }
+        }
+
+        protected void Txt_Check_No_TextChanged(object sender, EventArgs e)
+        {
+            Btn_Save1.Focus();
         }
     }
 }

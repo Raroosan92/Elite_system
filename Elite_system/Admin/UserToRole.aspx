@@ -46,10 +46,17 @@
                     </ItemTemplate>
 
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="الوصف">
+                    <ItemTemplate>
+                        <asp:Label runat="server" ID="DescriptionLabel" Text='<%# Eval("Role.Description")%>' />
+
+                    </ItemTemplate>
+
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
     </p>
     <br />
-        <br />
-        <br />
+    <br />
+    <br />
 </asp:Content>

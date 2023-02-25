@@ -25,6 +25,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
             HtmlControl Rpt_Receivables = (HtmlControl)Page.Master.FindControl("Rpt_Receivables");
             Rpt_Receivables.Attributes.Add("style", "display:none");
             
+            HtmlControl Rpt_Stamps_Subscriptions = (HtmlControl)Page.Master.FindControl("Rpt_Stamps_Subscriptions");
+            Rpt_Stamps_Subscriptions.Attributes.Add("style", "display:none");
+            
             HtmlControl spendings = (HtmlControl)Page.Master.FindControl("spendings");
             spendings.Attributes.Add("style", "display:none");
 
@@ -198,6 +201,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 if (HttpContext.Current.User.IsInRole("Rpt_Receivables"))
                 {
                     Rpt_Receivables.Attributes.Add("style", "display:Block");
+                }
+                
+                if (HttpContext.Current.User.IsInRole("Rpt_Stamps_Subscriptions"))
+                {
+                    Rpt_Stamps_Subscriptions.Attributes.Add("style", "display:Block");
                 }
 
                 if (HttpContext.Current.User.IsInRole("Medical_Types"))
@@ -438,6 +446,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             {
                 Claims_Report_Company.Attributes.Add("style", "display:Block");
                 Rpt_Receivables.Attributes.Add("style", "display:Block");
+                Rpt_Stamps_Subscriptions.Attributes.Add("style", "display:Block");
                 spendings.Attributes.Add("style", "display:Block");
                 CompletionRate.Attributes.Add("style", "display:Block");
                 Rpt_Medical_Name_Main_Company.Attributes.Add("style", "display:Block");

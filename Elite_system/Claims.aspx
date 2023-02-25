@@ -233,7 +233,7 @@
 
                                     <tr>
                                         <td>
-                                            <asp:CheckBox ID="Ch_Freez2" runat="server" />
+                                            <asp:CheckBox ID="Ch_Freez2" runat="server" onclick="checkfunction()" />
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="تجميد الاشتراك"></asp:Label>
@@ -242,7 +242,7 @@
 
                                     <tr>
                                         <td>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_FreezFrom"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_FreezFrom" Enabled="false"></asp:TextBox>
                                             <ajaxToolkit:CalendarExtender ID="CalendarExtender4" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_FreezFrom" />
                                         </td>
                                         <td>
@@ -252,7 +252,7 @@
 
                                     <tr>
                                         <td>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_FreezTo"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_FreezTo" Enabled="false"></asp:TextBox>
                                             <ajaxToolkit:CalendarExtender ID="CalendarExtender5" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_FreezTo" />
                                         </td>
                                         <td>
@@ -1063,7 +1063,43 @@
     <%--rami لتغيير التاريخ من لوحة المفاتيح--%>
 
 
+    <script>
+        function checkfunction() {
+            var check = document.getElementById("ContentPlaceHolder1_Ch_Freez2");
+            if (check.checked == true) {
+                var confirmAction =confirm("هل انت متأكد من تجميد الاشتراك للجهة الطبية  الحالية؟");
 
+                if (confirmAction) {
+                    ContentPlaceHolder1_Ch_Freez2.checked = true;
+                    ContentPlaceHolder1_Txt_FreezFrom.disabled = false;
+                    ContentPlaceHolder1_Txt_FreezTo.disabled = false;
+
+                } else {
+                    ContentPlaceHolder1_Ch_Freez2.checked = false;
+                    ContentPlaceHolder1_Txt_FreezFrom.disabled = true;
+                    ContentPlaceHolder1_Txt_FreezTo.disabled = true;
+                }
+
+            }
+
+            else {
+                
+                var confirmAction = confirm("هل انت متأكد من الغاء تجميد الاشتراك للجهة الطبية  الحالية؟");
+
+                if (confirmAction) {
+                    ContentPlaceHolder1_Ch_Freez2.checked = false;
+                    ContentPlaceHolder1_Txt_FreezFrom.disabled = true;
+                    ContentPlaceHolder1_Txt_FreezTo.disabled = true;
+
+                } else {
+                    ContentPlaceHolder1_Ch_Freez2.checked = true;
+                    ContentPlaceHolder1_Txt_FreezFrom.disabled = false;
+                    ContentPlaceHolder1_Txt_FreezTo.disabled = false;
+                }
+            }
+        }
+
+    </script>
     <script language="javascript" type="text/javascript">
         Sys.WebForms.PageRequestManager.getInstance().add_initializeRequest(
             function () {

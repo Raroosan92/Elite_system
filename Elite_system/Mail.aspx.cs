@@ -26,11 +26,11 @@ namespace Elite_system
             Txt_Entry_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender3.ClientID + "')");
             Txt_Delivery_Date.Attributes.Add("onkeydown", "DateField_KeyDown(this,'" + CalendarExtender1.ClientID + "')");
             //--rami لتغيير التاريخ من لوحة المفاتيح-- 
-          
-            Txt_MainMailID.Text = Get_MaxID().ToString();
+
 
             if (!Page.IsPostBack)
             {
+            Txt_MainMailID.Text = Get_MaxID().ToString();
                 //rami
                 slider.Visible = false;
 
@@ -65,6 +65,12 @@ namespace Elite_system
                 DDL_Company_Search.DataSource = Cls_Main_Claims.Get_Companies();
                 DDL_Company_Search.DataBind();
                 DDL_Company_Search.Items.Insert(0, new ListItem("--اختر--", "0"));
+
+
+                DDL_MedicalName_Search.DataSource = Cls_Main_Claims.Get_Medical_Types2();
+                DDL_MedicalName_Search.DataBind();
+                DDL_MedicalName_Search.Items.Insert(0, new ListItem("--اختر--", "0"));
+
 
                 //Get_MainMail_ForUpdate();
                 //Get_SubMails_ForGridView();
@@ -648,6 +654,45 @@ namespace Elite_system
             }
 
         }
+
+        protected void Btn_Search_MedicalName_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                SqlConnection con = new SqlConnection();
+
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["CONN"].ToString();
+                con = Cls_Connection._con;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                if (DDL_MedicalName_Search.SelectedItem.Text == "--اختر--")
+                {
+                    GridView_Mails.DataSource = SqlDataSource_Mails;
+                    GridView_Mails.DataBind();
+                }
+                else
+                {
+                    cmd.CommandText = "SELECT [ID],[Company],[CompanyDesc],[Entry_Date],[Received_Date],[Delivery_Date],[Sent_To],[Sent_To_Desc],[Mail_Type],[Mail_Type_Desc],[Mails_Count],[Notes],[Delivered] FROM [dbo].[V_Mails] WHERE [Sent_To] = " + long.Parse(DDL_MedicalName_Search.SelectedValue) + " ORDER BY [ID] DESC";
+                    Cls_Connection.open_connection();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    GridView_Mails.DataSourceID = null;
+                    GridView_Mails.DataSource = dt;
+                    GridView_Mails.DataBind();
+                    Cls_Connection.close_connection();
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                Cls_Connection.close_connection();
+
+
+            }
+        }
+
 
         protected void BtnDelete_Click(object sender, EventArgs e)
         {

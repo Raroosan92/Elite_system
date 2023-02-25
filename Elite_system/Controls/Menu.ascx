@@ -118,6 +118,7 @@
                                  <li class=""><a href="../Rpt_GetContractingValue.aspx">كشف االإشتراك الشهري <img src="../imgSideBar/header/nav-icon7.png" /></a></li>
                                  <li class=""><a href="../Rpt_Stamps.aspx">كشف الطوابع <img src="../imgSideBar/header/nav-icon7.png" /></a></li>
                                  <li class=""><a href="../Rpt_MedicalTypesWithNoClaims.aspx">كشف ليس لها مطالبات <img src="../imgSideBar/header/nav-icon7.png" /></a></li>
+                                 <li class=""><a href="../Rpt_Stamps_Subscriptions.aspx">كشف الطوابع والاشتراكات <img src="../imgSideBar/header/nav-icon7.png" /></a></li>
                                 
                                 
                                  <li class=""><a href="../Rep_Log.aspx">حركات النظام<img src="../imgSideBar/header/nav-icon7.png" /></a></li>

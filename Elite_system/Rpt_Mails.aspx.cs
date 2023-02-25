@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using Microsoft.Reporting.WebForms;
 using System.Web.UI.WebControls;
+using System.Web;
 
 namespace Elite_system
 {
@@ -117,6 +118,28 @@ namespace Elite_system
 
         private void PrintPDF()
         {
+            //////////////////////////////////////Export as PDF File////////////////////////////////////////
+            //Warning[] warnings;
+            //string[] streamIds;
+            //string contentType;
+            //string encoding;
+            //string extension;
+
+            ////Export the RDLC Report to Byte Array.
+            //byte[] bytes = ReportViewer1.LocalReport.Render("PDF", null, out contentType, out encoding, out extension, out streamIds, out warnings);
+
+            ////Download the RDLC Report in Word, Excel, PDF and Image formats.
+            //Response.Clear();
+            //Response.Buffer = true;
+            //Response.Charset = "";
+            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            //Response.ContentType = contentType;
+            //Response.AppendHeader("Content-Disposition", "attachment; filename=RDLC." + extension);
+            //Response.BinaryWrite(bytes);
+            //Response.Flush();
+            //Response.End();
+            //////////////////////////////////////Export as PDF File////////////////////////////////////////
+
             try
             {
                 Warning[] warnings = null;

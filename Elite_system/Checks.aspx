@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeBehind="Checks.aspx.cs" Inherits="Elite_system.Checks" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="Checks.aspx.cs" Inherits="Elite_system.Checks" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
@@ -184,9 +184,12 @@
                             </tr>
 
                             <tr>
-                                <td>
-                                    <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Check_No" Font-Bold="True" Font-Size="Medium" Width="300px"></asp:TextBox>
+                               
+<td>
+                                    <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Check_No" Font-Bold="True" Font-Size="Medium" Width="300px" onfocusout="validate()"></asp:TextBox>
                                 </td>
+                                
+                                
                                 <td>
 
                                     <asp:Label runat="server" Text="رقم الشيك" Font-Bold="True" Font-Size="Medium"></asp:Label><br />
@@ -210,6 +213,16 @@
                                     <asp:Label runat="server" Text="ملاحظات" Font-Bold="True" Font-Size="Medium"></asp:Label><br />
                                 </td>
                             </tr>
+
+                             <tr>
+                                <td>
+                                    <asp:TextBox AutoCompleteType="Disabled" runat="server" disabled="disabled" ID="Txt_Status" Font-Bold="True" Font-Size="Medium" Width="300px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:Label runat="server" Text="حالة الشيك" Font-Bold="True" Enabled="false" Font-Size="Medium"></asp:Label><br />
+                                </td>
+                            </tr>
+
 
                             <%-- <tr style="direction: rtl;">
                                         <td>
@@ -584,8 +597,17 @@
             $("#<%=DDL_Sent_To.ClientID%>").select2();
 
         })
-    </script>
 
+
+
+
+
+    </script>
+    <script>
+        function validate() {
+            document.getElementById("ContentPlaceHolder1_Btn_Save1").focus();
+        }
+    </script>
 
 
 

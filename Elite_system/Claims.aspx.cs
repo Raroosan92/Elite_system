@@ -237,7 +237,7 @@ namespace Elite_system
                 Acounting_No.Visible = false;
                 Receipt_Date.Visible = false;
                 Ammount.Visible = false;
-                Txt_Receipt_Date.Text = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
+                //Txt_Receipt_Date.Text = DateTimeOffset.UtcNow.AddHours(3).ToString("yyyy-MM-dd");
                 Sent_To.Visible = false;
                 Btn_SaveReceipt.Visible = false;
                 Fill_Statment();
@@ -372,15 +372,17 @@ namespace Elite_system
 
                 int Month = int.Parse(DateTime.UtcNow.AddHours(3).Month.ToString());
                 int Year = int.Parse(DateTime.UtcNow.AddHours(3).Year.ToString());
+                
                 if (Month > 1)
                 {
-                    Month = Month - 1;
+                    Month = int.Parse(DateTime.UtcNow.AddHours(3).AddMonths(-1).Month.ToString());
                 }
                 else
                 {
                     Year = Year - 1;
-
+                    Month = int.Parse(DateTime.UtcNow.AddHours(3).AddMonths(-1).Month.ToString());
                 }
+               
 
                 //string Month = Txt_Month_Year.Text.Substring(0, 1);
                 //string Year = Txt_Month_Year.Text.Substring(2, 4);
@@ -716,9 +718,10 @@ namespace Elite_system
                 Year = Year - 1;
             }
 
-            if (Month == 1)
+            if (DateTimeOffset.UtcNow.AddHours(3).Month == 1)
             {
                 Month = 12;
+                //Year--;
             }
 
             string MonthYear = Month.ToString() + "/" + Year.ToString();
@@ -1116,6 +1119,8 @@ namespace Elite_system
                 Main_Claims._Claim_ID = long.Parse(Txt_ID.Text);
                 Main_Claims._ID = Convert.ToInt64(GridView2.SelectedRow.Cells[1].Text);
                 Result = Main_Claims.Update_Main_Claims();
+
+
 
 
                 ////////////////////////////////       Log        /////////////////////////////////////////////
@@ -2340,6 +2345,7 @@ namespace Elite_system
             string Contracting_Value = Cls_Medical_Types_And_Companies.Get_Contracting_Value(long.Parse(DDL_Medical_Name.SelectedValue.ToString()));
             Label5.Text = " قيمة الإشتراك : " + Contracting_Value.ToString();
             Label10.Text = " قيمة الإشتراك : " + Contracting_Value.ToString();
+            DDL_Main_Company.Focus();
 
 
             //Fill_Claims_GV1(GridView2.SelectedRow.Cells[1].Text, GridView2.SelectedRow.Cells[3].Text);

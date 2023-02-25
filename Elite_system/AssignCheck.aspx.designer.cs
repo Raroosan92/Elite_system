@@ -60,6 +60,15 @@ namespace Elite_system
         protected global::System.Web.UI.WebControls.DropDownList DDL_Sent_To;
 
         /// <summary>
+        /// DDL_Sent_ToCompany control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Sent_ToCompany;
+
+        /// <summary>
         /// Txt_BarCode control.
         /// </summary>
         /// <remarks>

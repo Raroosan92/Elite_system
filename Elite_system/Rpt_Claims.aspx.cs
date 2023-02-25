@@ -109,13 +109,33 @@ namespace Elite_system
                 ReportParameter rp1;
                 if (Txt_Batch_No.Text == "")
                 {
-                    cmd.Parameters.AddWithValue("@Batch_No", 0);
+                    cmd.Parameters.AddWithValue("@Batch_No1", 0);
                     batch = "جميع الدفعات";
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("@Batch_No", int.Parse(Txt_Batch_No.Text));
-                    batch = " دفعة رقم " + Txt_Batch_No.Text;
+                    if (Txt_Batch_No.Text.Length>0)
+                    {
+                    cmd.Parameters.AddWithValue("@Batch_No1", int.Parse(Txt_Batch_No.Text));
+
+                    }
+                    if (Txt_Batch_No2.Text.Length > 0)
+                    {
+                    cmd.Parameters.AddWithValue("@Batch_No2", int.Parse(Txt_Batch_No2.Text));
+
+                    }
+                    if (Txt_Batch_No3.Text.Length > 0)
+                    {
+                    cmd.Parameters.AddWithValue("@Batch_No3", int.Parse(Txt_Batch_No3.Text));
+
+                    }
+                    if (Txt_Batch_No4.Text.Length > 0)
+                    {
+                    cmd.Parameters.AddWithValue("@Batch_No4", int.Parse(Txt_Batch_No4.Text));
+
+                    }
+
+                    batch = " دفعة رقم " + Txt_Batch_No.Text+","+ Txt_Batch_No2.Text + "," + Txt_Batch_No3.Text + "," + Txt_Batch_No4.Text ;
                 }
                 if (DDL_Medical_Name.SelectedValue != "0")
                 {

@@ -11,7 +11,7 @@
         }
 
         .auto-style1 {
-            width: 107%;
+            width: 62%;
         }
 
         .COLR {
@@ -29,9 +29,10 @@
             width: 540px;
             text-align: center;
             direction: rtl;
-                color: black;
+            color: black;
         }
-         .Barcode {
+
+        .Barcode {
             font-family: IDAutomationHC39M;
             background-color: white;
             margin-right: 73px;
@@ -78,7 +79,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:DropDownList ID="DDL_Company" runat="server" Width="300px" DataTextField="Name" DataValueField="ID"></asp:DropDownList>
+                                            <asp:DropDownList ID="DDL_Company" runat="server" Width="300px" tabindex="0"  DataTextField="Name" DataValueField="ID"></asp:DropDownList>
                                         </td>
                                         <td style="width: 98px">
                                             <asp:Label runat="server" Text="الشركة"></asp:Label>
@@ -87,7 +88,7 @@
 
                                     <tr>
                                         <td>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Received_Date" Width="300px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Received_Date" tabindex="1" Width="300px"></asp:TextBox>
                                             <ajaxToolkit:CalendarExtender ID="CalendarExtender2" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_Received_Date" />
                                         </td>
                                         <td style="width: 98px">
@@ -96,7 +97,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Delivery_Date" Width="300px"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Delivery_Date" tabindex="2" Width="300px"></asp:TextBox>
                                             <ajaxToolkit:CalendarExtender ID="CalendarExtender1" Format="yyyy-MM-dd" runat="server" TargetControlID="Txt_Delivery_Date" />
                                         </td>
                                         <td style="width: 98px">
@@ -105,7 +106,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:DropDownList ID="DDL_Sent_To" runat="server" Width="300px" DataTextField="Name" DataValueField="ID">
+                                            <asp:DropDownList ID="DDL_Sent_To" runat="server" Width="300px" tabindex="3" DataTextField="Name" DataValueField="ID">
                                             </asp:DropDownList>
                                         </td>
                                         <td>
@@ -125,7 +126,7 @@
 
                                     <tr>
                                         <td>
-                                            <asp:DropDownList ID="DDL_Mail_Type" runat="server" Width="300px" DataTextField="Description" DataValueField="ID">
+                                            <asp:DropDownList ID="DDL_Mail_Type" runat="server" Width="300px" tabindex="4" DataTextField="Description" DataValueField="ID">
                                             </asp:DropDownList>
                                         </td>
                                         <td>
@@ -140,7 +141,7 @@
                                                 ErrorMessage="*"
                                                 ValidationExpression="((\d+)((\.\d{1,2})?))$">
                                             </asp:RegularExpressionValidator>
-                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Mails_Count" Width="300px" AutoPostBack="false" OnTextChanged="Txt_Mails_Count_TextChanged"></asp:TextBox>
+                                            <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Mails_Count" tabindex="5"  Width="300px" AutoPostBack="false" OnTextChanged="Txt_Mails_Count_TextChanged"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Label runat="server" Text="العدد"></asp:Label>
@@ -175,7 +176,7 @@
                                         </td>
                                     </tr>--%>
 
-                                  <%--  <tr>
+                                    <%--  <tr>
                                         <td>
                                             <asp:RadioButtonList runat="server" ID="RB_Delivered">
                                                 <asp:ListItem Value="1">تم التسليم</asp:ListItem>
@@ -201,30 +202,30 @@
 
 
                                     <tr style="direction: rtl;">
-                                <td></td>
-                                <td>
-                                    <asp:Label runat="server" Text="BarCode" Font-Bold="True" Font-Size="Medium"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr style="direction: rtl;">
+                                        <td></td>
+                                        <td>
+                                            <asp:Label runat="server" Text="BarCode" Font-Bold="True" Font-Size="Medium"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr style="direction: rtl;">
 
-                                <td>
+                                        <td>
 
-                                    <%--<asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>--%>
-                                    <br />
-                                    <br />
-                                    <asp:Label runat="server" Text="" ID="LblBarcode" CssClass="Barcode" Font-Size="xx-large"></asp:Label>
-                                    <br />
-                                    <br />
+                                            <%--<asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>--%>
+                                            <br />
+                                            <br />
+                                            <asp:Label runat="server" Text="" ID="LblBarcode" CssClass="Barcode" Font-Size="xx-large"></asp:Label>
+                                            <br />
+                                            <br />
 
-                                </td>
-                            </tr>
+                                        </td>
+                                    </tr>
 
 
 
                                     <tr style="direction: rtl;">
                                         <td>
-                                            <asp:Button ID="Btn_Save" runat="server" Text="إدخال" OnClick="Btn_Save_Click" />
+                                            <asp:Button ID="Btn_Save" runat="server" tabindex="6" Text="إدخال" OnClick="Btn_Save_Click" />
                                             &nbsp; 	&nbsp; &nbsp;
                                             <asp:Button ID="Btn_Update" runat="server" Text="تعديل" OnClick="Btn_Update_Click" />
                                             &nbsp; 	&nbsp; &nbsp;
@@ -234,12 +235,12 @@
                                         <td></td>
                                     </tr>
 
-                                     <tr>
-                                <td>
-                                    <asp:Button ID="Btn_InsertAll" runat="server" Text="حفظ جميع المدخلات" Width="301px" OnClick="Btn_InsertAll_Click" />
-                                </td>
-                                <td></td>
-                            </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Button ID="Btn_InsertAll" runat="server" Text="حفظ جميع المدخلات" Width="301px" OnClick="Btn_InsertAll_Click" />
+                                        </td>
+                                        <td></td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
@@ -247,27 +248,50 @@
                         <div class="COLR">
                             <div class="table-responsive" style="height: 600px;">
                                 <table class="table-responsive">
-                                    <asp:DropDownList ID="DDL_Company_Search" runat="server" DataTextField="Name" DataValueField="ID" Width="300px"></asp:DropDownList>
-                                    <asp:Button ID="Btn_Search" runat="server" Text="بحث" OnClick="Btn_Search_Click" />
-                                    <caption>
-                                        <br />
-                                        <br />
-                                        <asp:SqlDataSource ID="SqlDataSource_Mails" runat="server" ConnectionString="<%$ ConnectionStrings:CONN %>" SelectCommand="SELECT [ID],[Company],[CompanyDesc],[Entry_Date],[Received_Date],[Delivery_Date],[Sent_To],[Sent_To_Desc],[Mail_Type],[Mail_Type_Desc],[Mails_Count],[Notes],[Delivered] FROM [dbo].[V_Mails] order by ID desc"></asp:SqlDataSource>
-                                        <asp:GridView ID="GridView_Mails" runat="server" AllowPaging="false" AutoGenerateColumns="False" CssClass="Grid" DataKeyNames="ID" DataSourceID="SqlDataSource_Mails" OnSelectedIndexChanged="GridView_Mails_SelectedIndexChanged" SelectedRowStyle-VerticalAlign="NotSet" SortedAscendingCellStyle-HorizontalAlign="NotSet">
-                                            <Columns>
-                                                <asp:CommandField SelectText="اختر" ShowSelectButton="True" ItemStyle-ForeColor="Black"/>
-                                                <asp:BoundField DataField="ID" HeaderText="التسلسل" ReadOnly="True" SortExpression="ID" />
-                                                <asp:BoundField DataField="CompanyDesc" HeaderText="الشركة" SortExpression="Name" />
-                                                <asp:BoundField DataField="Entry_Date" DataFormatString="{0:yyyy-MM-dd}" HeaderStyle-Width="80px" HeaderText="تاريخ الادخال" SortExpression="Entry_Date" />
-                                                <asp:BoundField DataField="Sent_To_Desc" DataFormatString="{0:yyyy-MM-dd}" HeaderText="الجهة الطبية" SortExpression="Sent_To_Desc" />
-                                                <asp:BoundField DataField="Mail_Type_Desc" HeaderText="نوع البريد" SortExpression="Mail_Type_Desc" />
-                                                <asp:BoundField DataField="Mails_Count" HeaderText="العدد" SortExpression="Mails_Count" />
-                                                <%--<asp:BoundField DataField="Notes" HeaderText="الملاحظات" SortExpression="Notes"></asp:BoundField>--%>
-                                            </Columns>
-                                        </asp:GridView>
-                                    </caption>
+                                     <caption>
+                                    <tr>
 
+                                        <td class="auto-style1">
+                                            <asp:DropDownList runat="server" ID="DDL_Company_Search" DataTextField="Name" DataValueField="ID" Width="300px" Font-Bold="True" Font-Size="Medium"></asp:DropDownList>
+                                        </td>
 
+                                        <td style="width: 98px">
+
+                                            <asp:Button ID="Btn_Search" runat="server" Text="بحث عن طريق الشركة" OnClick="Btn_Search_Click" />
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="auto-style1">
+                                            <asp:DropDownList runat="server" ID="DDL_MedicalName_Search" Width="300px" DataTextField="Name" DataValueField="ID" Font-Bold="True" Font-Size="Medium"></asp:DropDownList>
+                                        </td>
+                                        <td style="width: 98px">
+                                            <asp:Button ID="Btn_Search_MedicalName" runat="server" Text="بحث بإسم الجهة الطبية" OnClick="Btn_Search_MedicalName_Click" />
+                                        </td>
+                                    </tr>
+                                          </caption>
+                                    <tr>
+                                        <td>
+                                           
+                                                <br />
+                                                <br />
+                                                <asp:SqlDataSource ID="SqlDataSource_Mails" runat="server" ConnectionString="<%$ ConnectionStrings:CONN %>" SelectCommand="SELECT [ID],[Company],[CompanyDesc],[Entry_Date],[Received_Date],[Delivery_Date],[Sent_To],[Sent_To_Desc],[Mail_Type],[Mail_Type_Desc],[Mails_Count],[Notes],[Delivered] FROM [dbo].[V_Mails] order by ID desc"></asp:SqlDataSource>
+                                                <asp:GridView ID="GridView_Mails" runat="server" AllowPaging="false" AutoGenerateColumns="False" CssClass="Grid" DataKeyNames="ID" DataSourceID="SqlDataSource_Mails" OnSelectedIndexChanged="GridView_Mails_SelectedIndexChanged" SelectedRowStyle-VerticalAlign="NotSet" SortedAscendingCellStyle-HorizontalAlign="NotSet">
+                                                    <Columns>
+                                                        <asp:CommandField SelectText="اختر" ShowSelectButton="True" ItemStyle-ForeColor="Black" />
+                                                        <asp:BoundField DataField="ID" HeaderText="التسلسل" ReadOnly="True" SortExpression="ID" />
+                                                        <asp:BoundField DataField="CompanyDesc" HeaderText="الشركة" SortExpression="Name" />
+                                                        <asp:BoundField DataField="Entry_Date" DataFormatString="{0:yyyy-MM-dd}" HeaderStyle-Width="80px" HeaderText="تاريخ الادخال" SortExpression="Entry_Date" />
+                                                        <asp:BoundField DataField="Sent_To_Desc" DataFormatString="{0:yyyy-MM-dd}" HeaderText="الجهة الطبية" SortExpression="Sent_To_Desc" />
+                                                        <asp:BoundField DataField="Mail_Type_Desc" HeaderText="نوع البريد" SortExpression="Mail_Type_Desc" />
+                                                        <asp:BoundField DataField="Mails_Count" HeaderText="العدد" SortExpression="Mails_Count" />
+                                                        <%--<asp:BoundField DataField="Notes" HeaderText="الملاحظات" SortExpression="Notes"></asp:BoundField>--%>
+                                                    </Columns>
+                                                </asp:GridView>
+                                           
+                                        </td>
+                                    </tr>
                                 </table>
 
 
@@ -484,6 +508,7 @@
             $("#<%=DDL_Mail_Type.ClientID%>").select2();
             $("#<%=DDL_Company.ClientID%>").select2();
             $("#<%=DDL_Company_Search.ClientID%>").select2();
+            $("#<%=DDL_MedicalName_Search.ClientID%>").select2();
 
         }
 
@@ -494,7 +519,7 @@
             $("#<%=DDL_Mail_Type.ClientID%>").select2();
             $("#<%=DDL_Company.ClientID%>").select2();
             $("#<%=DDL_Company_Search.ClientID%>").select2();
-
+            $("#<%=DDL_MedicalName_Search.ClientID%>").select2();
         })
     </script>
 

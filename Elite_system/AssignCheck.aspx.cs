@@ -40,6 +40,10 @@ namespace Elite_system
                 DDL_Sent_To.DataSource = Cls_Main_Claims.Get_Medical_Types();
                 DDL_Sent_To.DataBind();
                 DDL_Sent_To.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--اختر--", "0"));
+
+                DDL_Sent_ToCompany.DataSource = Cls_Main_Claims.Get_Companies();
+                DDL_Sent_ToCompany.DataBind();
+                DDL_Sent_ToCompany.Items.Insert(0, new ListItem("--اختر--", "0"));
             }
         }
         //public void Get_MainChecks_GridView()
@@ -309,8 +313,18 @@ namespace Elite_system
                 }
                 else
                 {
+                    if (DDL_Sent_ToCompany.SelectedValue != "0")
+                    {
+
+                        cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + " and Company= " + long.Parse(DDL_Sent_ToCompany.SelectedValue) + "";
+
+                    }
+                    else
+                    {
 
                     cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE BarCode = '*" + Txt_BarCode.Text + "*' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+
+                    }
                 }
 
 
@@ -328,7 +342,18 @@ namespace Elite_system
                     }
                     else
                     {
+                        if (DDL_Sent_ToCompany.SelectedValue != "0")
+                        {
+
+                            cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '*" + Txt_BarCode.Text + "*' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + " and Company= " + long.Parse(DDL_Sent_ToCompany.SelectedValue) + "";
+
+                        }
+                        else
+                        {
+
                         cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE BarCode = '*" + Txt_BarCode.Text + "*' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+
+                        }
                     }
 
                     Cls_Connection.open_connection();
@@ -375,7 +400,18 @@ namespace Elite_system
                 }
                 else
                 {
+                    if (DDL_Sent_ToCompany.SelectedValue != "0")
+                    {
+
+                        cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Check_No = '" + Txt_CheckNo.Text + "'and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + " and Company= " + long.Parse(DDL_Sent_ToCompany.SelectedValue) + "";
+
+                    }
+                    else
+                    {
+
                     cmd.CommandText = "select count(id) from  [dbo].[Main_Check]  WHERE Check_No = '" + Txt_CheckNo.Text + "'and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+
+                    }
 
                 }
 
@@ -395,7 +431,18 @@ namespace Elite_system
                     }
                     else
                     {
+                        if (DDL_Sent_ToCompany.SelectedValue != "0")
+                        {
+
+                            cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + " and Company= " + long.Parse(DDL_Sent_ToCompany.SelectedValue) + "";
+
+                        }
+                        else
+                        {
+
                         cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = N'" + DDL_Employee.SelectedItem.ToString() + "',[Refunded] = " + 0 + ",Delivered=" + 0 + ",Modified= '" + dt1 + "' WHERE Check_No = '" + Txt_CheckNo.Text + "' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+
+                        }
 
 
                     }
@@ -493,7 +540,17 @@ namespace Elite_system
                 }
                 else
                 {
+                    if (DDL_Sent_ToCompany.SelectedValue != "0")
+                    {
+
+                        cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE Refunded=" + 0 + " and BarCode = '*" + Txt_BarCode.Text + "*' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + " and Company= " + long.Parse(DDL_Sent_ToCompany.SelectedValue) + "";
+
+                    }
+                    else
+                    {
+
                     cmd.CommandText = "select EmployeeName from  [dbo].[Main_Check]  WHERE Refunded=" + 0 + " and BarCode = '*" + Txt_BarCode.Text + "*' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+                    }
 
                 }
 
@@ -640,7 +697,16 @@ namespace Elite_system
                 }
                 else
                 {
+                    if (DDL_Sent_ToCompany.SelectedValue != "0")
+                    {
+                        cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = NULL ,Modified= '" + dt1 + "' WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + " and Company= " + long.Parse(DDL_Sent_ToCompany.SelectedValue) + "";
+
+                    }
+                    else
+                    {
+
                     cmd.CommandText = "UPDATE [dbo].[Main_Check] SET [EmployeeName] = NULL ,Modified= '" + dt1 + "' WHERE BarCode = '" + GV_ChecksAssigned.Rows[0].Cells[12].Text + "' and sent_To= " + long.Parse(DDL_Sent_To.SelectedValue) + "";
+                    }
                 }
 
                 

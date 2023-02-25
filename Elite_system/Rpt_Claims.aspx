@@ -115,10 +115,33 @@
                                     <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Batch_No" Width="150px"></asp:TextBox>
                                 </td>
                                 <td style="width: 98px">
-                                    <asp:Label runat="server" Text="رقم الدفعة"></asp:Label>
+                                    <asp:Label runat="server" Text="رقم الدفعة1"></asp:Label>
                                 </td>
                             </tr>
-
+                             <tr>
+                                <td class="auto-style1">
+                                    <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Batch_No2" Width="150px"></asp:TextBox>
+                                </td>
+                                <td style="width: 98px">
+                                    <asp:Label runat="server" Text="رقم الدفعة2"></asp:Label>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="auto-style1">
+                                    <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Batch_No3" Width="150px"></asp:TextBox>
+                                </td>
+                                <td style="width: 98px">
+                                    <asp:Label runat="server" Text="رقم الدفعة3"></asp:Label>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="auto-style1">
+                                    <asp:TextBox AutoCompleteType="Disabled" runat="server" ID="Txt_Batch_No4" Width="150px"></asp:TextBox>
+                                </td>
+                                <td style="width: 98px">
+                                    <asp:Label runat="server" Text="رقم الدفعة4"></asp:Label>
+                                </td>
+                            </tr>
                             <tr>
                                 <td class="auto-style1">
 

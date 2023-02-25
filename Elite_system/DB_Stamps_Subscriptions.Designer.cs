@@ -20,17 +20,17 @@ namespace Elite_system {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DS_Mails2")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DB_Stamps_Subscriptions")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DS_Mails2 : global::System.Data.DataSet {
+    public partial class DB_Stamps_Subscriptions : global::System.Data.DataSet {
         
-        private V_MailsDataTable tableV_Mails;
+        private Get_V_NetDataTable tableGet_V_Net;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public DS_Mails2() {
+        public DB_Stamps_Subscriptions() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Elite_system {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected DS_Mails2(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DB_Stamps_Subscriptions(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace Elite_system {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["V_Mails"] != null)) {
-                    base.Tables.Add(new V_MailsDataTable(ds.Tables["V_Mails"]));
+                if ((ds.Tables["Get_V_Net"] != null)) {
+                    base.Tables.Add(new Get_V_NetDataTable(ds.Tables["Get_V_Net"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Elite_system {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public V_MailsDataTable V_Mails {
+        public Get_V_NetDataTable Get_V_Net {
             get {
-                return this.tableV_Mails;
+                return this.tableGet_V_Net;
             }
         }
         
@@ -127,7 +127,7 @@ namespace Elite_system {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DS_Mails2 cln = ((DS_Mails2)(base.Clone()));
+            DB_Stamps_Subscriptions cln = ((DB_Stamps_Subscriptions)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace Elite_system {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["V_Mails"] != null)) {
-                    base.Tables.Add(new V_MailsDataTable(ds.Tables["V_Mails"]));
+                if ((ds.Tables["Get_V_Net"] != null)) {
+                    base.Tables.Add(new Get_V_NetDataTable(ds.Tables["Get_V_Net"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Elite_system {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableV_Mails = ((V_MailsDataTable)(base.Tables["V_Mails"]));
+            this.tableGet_V_Net = ((Get_V_NetDataTable)(base.Tables["Get_V_Net"]));
             if ((initTable == true)) {
-                if ((this.tableV_Mails != null)) {
-                    this.tableV_Mails.InitVars();
+                if ((this.tableGet_V_Net != null)) {
+                    this.tableGet_V_Net.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace Elite_system {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DS_Mails2";
+            this.DataSetName = "DB_Stamps_Subscriptions";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DS_Mails2.xsd";
+            this.Namespace = "http://tempuri.org/DB_Stamps_Subscriptions.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableV_Mails = new V_MailsDataTable();
-            base.Tables.Add(this.tableV_Mails);
+            this.tableGet_V_Net = new Get_V_NetDataTable();
+            base.Tables.Add(this.tableGet_V_Net);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeV_Mails() {
+        private bool ShouldSerializeGet_V_Net() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace Elite_system {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DS_Mails2 ds = new DS_Mails2();
+            DB_Stamps_Subscriptions ds = new DB_Stamps_Subscriptions();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,61 +270,31 @@ namespace Elite_system {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void V_MailsRowChangeEventHandler(object sender, V_MailsRowChangeEvent e);
+        public delegate void Get_V_NetRowChangeEventHandler(object sender, Get_V_NetRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class V_MailsDataTable : global::System.Data.TypedTableBase<V_MailsRow> {
+        public partial class Get_V_NetDataTable : global::System.Data.TypedTableBase<Get_V_NetRow> {
             
-            private global::System.Data.DataColumn columnID;
+            private global::System.Data.DataColumn columnMedical_Type;
             
-            private global::System.Data.DataColumn columnCompany;
+            private global::System.Data.DataColumn columnMedical_TypeName;
             
-            private global::System.Data.DataColumn columnCompanyDesc;
+            private global::System.Data.DataColumn columnEmployee;
             
-            private global::System.Data.DataColumn columnEntry_Date;
+            private global::System.Data.DataColumn columntype;
             
-            private global::System.Data.DataColumn columnReceived_Date;
+            private global::System.Data.DataColumn columnStamps;
             
-            private global::System.Data.DataColumn columnDelivery_Date;
-            
-            private global::System.Data.DataColumn columnSent_To;
-            
-            private global::System.Data.DataColumn columnSent_To_Desc;
-            
-            private global::System.Data.DataColumn columnMail_Type;
-            
-            private global::System.Data.DataColumn columnMail_Type_Desc;
-            
-            private global::System.Data.DataColumn columnMails_Count;
-            
-            private global::System.Data.DataColumn columnNotes;
-            
-            private global::System.Data.DataColumn columnDelivered;
-            
-            private global::System.Data.DataColumn columnAddress;
-            
-            private global::System.Data.DataColumn columnPhone;
-            
-            private global::System.Data.DataColumn columnDelivered1;
-            
-            private global::System.Data.DataColumn columnmodified;
-            
-            private global::System.Data.DataColumn columnBarCode;
-            
-            private global::System.Data.DataColumn columnRefunded;
-            
-            private global::System.Data.DataColumn columnEmployeeName;
-            
-            private global::System.Data.DataColumn columnReagon;
+            private global::System.Data.DataColumn columnSubscription;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public V_MailsDataTable() {
-                this.TableName = "V_Mails";
+            public Get_V_NetDataTable() {
+                this.TableName = "Get_V_Net";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -332,7 +302,7 @@ namespace Elite_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal V_MailsDataTable(global::System.Data.DataTable table) {
+            internal Get_V_NetDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -349,176 +319,56 @@ namespace Elite_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected V_MailsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected Get_V_NetDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
+            public global::System.Data.DataColumn Medical_TypeColumn {
                 get {
-                    return this.columnID;
+                    return this.columnMedical_Type;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CompanyColumn {
+            public global::System.Data.DataColumn Medical_TypeNameColumn {
                 get {
-                    return this.columnCompany;
+                    return this.columnMedical_TypeName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CompanyDescColumn {
+            public global::System.Data.DataColumn EmployeeColumn {
                 get {
-                    return this.columnCompanyDesc;
+                    return this.columnEmployee;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Entry_DateColumn {
+            public global::System.Data.DataColumn typeColumn {
                 get {
-                    return this.columnEntry_Date;
+                    return this.columntype;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Received_DateColumn {
+            public global::System.Data.DataColumn StampsColumn {
                 get {
-                    return this.columnReceived_Date;
+                    return this.columnStamps;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Delivery_DateColumn {
+            public global::System.Data.DataColumn SubscriptionColumn {
                 get {
-                    return this.columnDelivery_Date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Sent_ToColumn {
-                get {
-                    return this.columnSent_To;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Sent_To_DescColumn {
-                get {
-                    return this.columnSent_To_Desc;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Mail_TypeColumn {
-                get {
-                    return this.columnMail_Type;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Mail_Type_DescColumn {
-                get {
-                    return this.columnMail_Type_Desc;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Mails_CountColumn {
-                get {
-                    return this.columnMails_Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NotesColumn {
-                get {
-                    return this.columnNotes;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DeliveredColumn {
-                get {
-                    return this.columnDelivered;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AddressColumn {
-                get {
-                    return this.columnAddress;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PhoneColumn {
-                get {
-                    return this.columnPhone;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Delivered1Column {
-                get {
-                    return this.columnDelivered1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn modifiedColumn {
-                get {
-                    return this.columnmodified;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn BarCodeColumn {
-                get {
-                    return this.columnBarCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RefundedColumn {
-                get {
-                    return this.columnRefunded;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn EmployeeNameColumn {
-                get {
-                    return this.columnEmployeeName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ReagonColumn {
-                get {
-                    return this.columnReagon;
+                    return this.columnSubscription;
                 }
             }
             
@@ -533,93 +383,50 @@ namespace Elite_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public V_MailsRow this[int index] {
+            public Get_V_NetRow this[int index] {
                 get {
-                    return ((V_MailsRow)(this.Rows[index]));
+                    return ((Get_V_NetRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event V_MailsRowChangeEventHandler V_MailsRowChanging;
+            public event Get_V_NetRowChangeEventHandler Get_V_NetRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event V_MailsRowChangeEventHandler V_MailsRowChanged;
+            public event Get_V_NetRowChangeEventHandler Get_V_NetRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event V_MailsRowChangeEventHandler V_MailsRowDeleting;
+            public event Get_V_NetRowChangeEventHandler Get_V_NetRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event V_MailsRowChangeEventHandler V_MailsRowDeleted;
+            public event Get_V_NetRowChangeEventHandler Get_V_NetRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddV_MailsRow(V_MailsRow row) {
+            public void AddGet_V_NetRow(Get_V_NetRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public V_MailsRow AddV_MailsRow(
-                        decimal ID, 
-                        decimal Company, 
-                        string CompanyDesc, 
-                        System.DateTime Entry_Date, 
-                        System.DateTime Received_Date, 
-                        System.DateTime Delivery_Date, 
-                        decimal Sent_To, 
-                        string Sent_To_Desc, 
-                        int Mail_Type, 
-                        string Mail_Type_Desc, 
-                        int Mails_Count, 
-                        string Notes, 
-                        byte Delivered, 
-                        string Address, 
-                        string Phone, 
-                        bool Delivered1, 
-                        System.DateTime modified, 
-                        string BarCode, 
-                        bool Refunded, 
-                        string EmployeeName, 
-                        string Reagon) {
-                V_MailsRow rowV_MailsRow = ((V_MailsRow)(this.NewRow()));
+            public Get_V_NetRow AddGet_V_NetRow(decimal Medical_Type, string Medical_TypeName, string Employee, int type, decimal Stamps, decimal Subscription) {
+                Get_V_NetRow rowGet_V_NetRow = ((Get_V_NetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID,
-                        Company,
-                        CompanyDesc,
-                        Entry_Date,
-                        Received_Date,
-                        Delivery_Date,
-                        Sent_To,
-                        Sent_To_Desc,
-                        Mail_Type,
-                        Mail_Type_Desc,
-                        Mails_Count,
-                        Notes,
-                        Delivered,
-                        Address,
-                        Phone,
-                        Delivered1,
-                        modified,
-                        BarCode,
-                        Refunded,
-                        EmployeeName,
-                        Reagon};
-                rowV_MailsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowV_MailsRow);
-                return rowV_MailsRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public V_MailsRow FindByID(decimal ID) {
-                return ((V_MailsRow)(this.Rows.Find(new object[] {
-                            ID})));
+                        Medical_Type,
+                        Medical_TypeName,
+                        Employee,
+                        type,
+                        Stamps,
+                        Subscription};
+                rowGet_V_NetRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGet_V_NetRow);
+                return rowGet_V_NetRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                V_MailsDataTable cln = ((V_MailsDataTable)(base.Clone()));
+                Get_V_NetDataTable cln = ((Get_V_NetDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -627,120 +434,65 @@ namespace Elite_system {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new V_MailsDataTable();
+                return new Get_V_NetDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnID = base.Columns["ID"];
-                this.columnCompany = base.Columns["Company"];
-                this.columnCompanyDesc = base.Columns["CompanyDesc"];
-                this.columnEntry_Date = base.Columns["Entry_Date"];
-                this.columnReceived_Date = base.Columns["Received_Date"];
-                this.columnDelivery_Date = base.Columns["Delivery_Date"];
-                this.columnSent_To = base.Columns["Sent_To"];
-                this.columnSent_To_Desc = base.Columns["Sent_To_Desc"];
-                this.columnMail_Type = base.Columns["Mail_Type"];
-                this.columnMail_Type_Desc = base.Columns["Mail_Type_Desc"];
-                this.columnMails_Count = base.Columns["Mails_Count"];
-                this.columnNotes = base.Columns["Notes"];
-                this.columnDelivered = base.Columns["Delivered"];
-                this.columnAddress = base.Columns["Address"];
-                this.columnPhone = base.Columns["Phone"];
-                this.columnDelivered1 = base.Columns["Delivered1"];
-                this.columnmodified = base.Columns["modified"];
-                this.columnBarCode = base.Columns["BarCode"];
-                this.columnRefunded = base.Columns["Refunded"];
-                this.columnEmployeeName = base.Columns["EmployeeName"];
-                this.columnReagon = base.Columns["Reagon"];
+                this.columnMedical_Type = base.Columns["Medical_Type"];
+                this.columnMedical_TypeName = base.Columns["Medical_TypeName"];
+                this.columnEmployee = base.Columns["Employee"];
+                this.columntype = base.Columns["type"];
+                this.columnStamps = base.Columns["Stamps"];
+                this.columnSubscription = base.Columns["Subscription"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
-                this.columnCompany = new global::System.Data.DataColumn("Company", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCompany);
-                this.columnCompanyDesc = new global::System.Data.DataColumn("CompanyDesc", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCompanyDesc);
-                this.columnEntry_Date = new global::System.Data.DataColumn("Entry_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEntry_Date);
-                this.columnReceived_Date = new global::System.Data.DataColumn("Received_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReceived_Date);
-                this.columnDelivery_Date = new global::System.Data.DataColumn("Delivery_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDelivery_Date);
-                this.columnSent_To = new global::System.Data.DataColumn("Sent_To", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSent_To);
-                this.columnSent_To_Desc = new global::System.Data.DataColumn("Sent_To_Desc", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSent_To_Desc);
-                this.columnMail_Type = new global::System.Data.DataColumn("Mail_Type", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMail_Type);
-                this.columnMail_Type_Desc = new global::System.Data.DataColumn("Mail_Type_Desc", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMail_Type_Desc);
-                this.columnMails_Count = new global::System.Data.DataColumn("Mails_Count", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMails_Count);
-                this.columnNotes = new global::System.Data.DataColumn("Notes", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNotes);
-                this.columnDelivered = new global::System.Data.DataColumn("Delivered", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDelivered);
-                this.columnAddress = new global::System.Data.DataColumn("Address", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAddress);
-                this.columnPhone = new global::System.Data.DataColumn("Phone", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPhone);
-                this.columnDelivered1 = new global::System.Data.DataColumn("Delivered1", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDelivered1);
-                this.columnmodified = new global::System.Data.DataColumn("modified", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmodified);
-                this.columnBarCode = new global::System.Data.DataColumn("BarCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBarCode);
-                this.columnRefunded = new global::System.Data.DataColumn("Refunded", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRefunded);
-                this.columnEmployeeName = new global::System.Data.DataColumn("EmployeeName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEmployeeName);
-                this.columnReagon = new global::System.Data.DataColumn("Reagon", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReagon);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID}, true));
-                this.columnID.AllowDBNull = false;
-                this.columnID.Unique = true;
-                this.columnCompanyDesc.MaxLength = 200;
-                this.columnSent_To_Desc.MaxLength = 200;
-                this.columnMail_Type_Desc.MaxLength = 500;
-                this.columnNotes.MaxLength = 200;
-                this.columnAddress.MaxLength = 500;
-                this.columnPhone.MaxLength = 50;
-                this.columnDelivered1.Caption = "Delivered";
-                this.columnBarCode.MaxLength = 200;
-                this.columnEmployeeName.MaxLength = 200;
-                this.columnReagon.MaxLength = 500;
+                this.columnMedical_Type = new global::System.Data.DataColumn("Medical_Type", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMedical_Type);
+                this.columnMedical_TypeName = new global::System.Data.DataColumn("Medical_TypeName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMedical_TypeName);
+                this.columnEmployee = new global::System.Data.DataColumn("Employee", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmployee);
+                this.columntype = new global::System.Data.DataColumn("type", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntype);
+                this.columnStamps = new global::System.Data.DataColumn("Stamps", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStamps);
+                this.columnSubscription = new global::System.Data.DataColumn("Subscription", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubscription);
+                this.columnMedical_TypeName.MaxLength = 200;
+                this.columnEmployee.MaxLength = 300;
+                this.columnStamps.ReadOnly = true;
+                this.columnSubscription.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public V_MailsRow NewV_MailsRow() {
-                return ((V_MailsRow)(this.NewRow()));
+            public Get_V_NetRow NewGet_V_NetRow() {
+                return ((Get_V_NetRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new V_MailsRow(builder);
+                return new Get_V_NetRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(V_MailsRow);
+                return typeof(Get_V_NetRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.V_MailsRowChanged != null)) {
-                    this.V_MailsRowChanged(this, new V_MailsRowChangeEvent(((V_MailsRow)(e.Row)), e.Action));
+                if ((this.Get_V_NetRowChanged != null)) {
+                    this.Get_V_NetRowChanged(this, new Get_V_NetRowChangeEvent(((Get_V_NetRow)(e.Row)), e.Action));
                 }
             }
             
@@ -748,8 +500,8 @@ namespace Elite_system {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.V_MailsRowChanging != null)) {
-                    this.V_MailsRowChanging(this, new V_MailsRowChangeEvent(((V_MailsRow)(e.Row)), e.Action));
+                if ((this.Get_V_NetRowChanging != null)) {
+                    this.Get_V_NetRowChanging(this, new Get_V_NetRowChangeEvent(((Get_V_NetRow)(e.Row)), e.Action));
                 }
             }
             
@@ -757,8 +509,8 @@ namespace Elite_system {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.V_MailsRowDeleted != null)) {
-                    this.V_MailsRowDeleted(this, new V_MailsRowChangeEvent(((V_MailsRow)(e.Row)), e.Action));
+                if ((this.Get_V_NetRowDeleted != null)) {
+                    this.Get_V_NetRowDeleted(this, new Get_V_NetRowChangeEvent(((Get_V_NetRow)(e.Row)), e.Action));
                 }
             }
             
@@ -766,14 +518,14 @@ namespace Elite_system {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.V_MailsRowDeleting != null)) {
-                    this.V_MailsRowDeleting(this, new V_MailsRowChangeEvent(((V_MailsRow)(e.Row)), e.Action));
+                if ((this.Get_V_NetRowDeleting != null)) {
+                    this.Get_V_NetRowDeleting(this, new Get_V_NetRowChangeEvent(((Get_V_NetRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveV_MailsRow(V_MailsRow row) {
+            public void RemoveGet_V_NetRow(Get_V_NetRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -782,7 +534,7 @@ namespace Elite_system {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DS_Mails2 ds = new DS_Mails2();
+                DB_Stamps_Subscriptions ds = new DB_Stamps_Subscriptions();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -800,7 +552,7 @@ namespace Elite_system {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "V_MailsDataTable";
+                attribute2.FixedValue = "Get_V_NetDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -844,586 +596,183 @@ namespace Elite_system {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class V_MailsRow : global::System.Data.DataRow {
+        public partial class Get_V_NetRow : global::System.Data.DataRow {
             
-            private V_MailsDataTable tableV_Mails;
+            private Get_V_NetDataTable tableGet_V_Net;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal V_MailsRow(global::System.Data.DataRowBuilder rb) : 
+            internal Get_V_NetRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableV_Mails = ((V_MailsDataTable)(this.Table));
+                this.tableGet_V_Net = ((Get_V_NetDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal ID {
-                get {
-                    return ((decimal)(this[this.tableV_Mails.IDColumn]));
-                }
-                set {
-                    this[this.tableV_Mails.IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Company {
+            public decimal Medical_Type {
                 get {
                     try {
-                        return ((decimal)(this[this.tableV_Mails.CompanyColumn]));
+                        return ((decimal)(this[this.tableGet_V_Net.Medical_TypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company\' in table \'V_Mails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Medical_Type\' in table \'Get_V_Net\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Mails.CompanyColumn] = value;
+                    this[this.tableGet_V_Net.Medical_TypeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string CompanyDesc {
+            public string Medical_TypeName {
                 get {
                     try {
-                        return ((string)(this[this.tableV_Mails.CompanyDescColumn]));
+                        return ((string)(this[this.tableGet_V_Net.Medical_TypeNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CompanyDesc\' in table \'V_Mails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Medical_TypeName\' in table \'Get_V_Net\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Mails.CompanyDescColumn] = value;
+                    this[this.tableGet_V_Net.Medical_TypeNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Entry_Date {
+            public string Employee {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableV_Mails.Entry_DateColumn]));
+                        return ((string)(this[this.tableGet_V_Net.EmployeeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Entry_Date\' in table \'V_Mails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Employee\' in table \'Get_V_Net\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Mails.Entry_DateColumn] = value;
+                    this[this.tableGet_V_Net.EmployeeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Received_Date {
+            public int type {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableV_Mails.Received_DateColumn]));
+                        return ((int)(this[this.tableGet_V_Net.typeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Received_Date\' in table \'V_Mails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'type\' in table \'Get_V_Net\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Mails.Received_DateColumn] = value;
+                    this[this.tableGet_V_Net.typeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Delivery_Date {
+            public decimal Stamps {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableV_Mails.Delivery_DateColumn]));
+                        return ((decimal)(this[this.tableGet_V_Net.StampsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Delivery_Date\' in table \'V_Mails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Stamps\' in table \'Get_V_Net\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Mails.Delivery_DateColumn] = value;
+                    this[this.tableGet_V_Net.StampsColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Sent_To {
+            public decimal Subscription {
                 get {
                     try {
-                        return ((decimal)(this[this.tableV_Mails.Sent_ToColumn]));
+                        return ((decimal)(this[this.tableGet_V_Net.SubscriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Sent_To\' in table \'V_Mails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Subscription\' in table \'Get_V_Net\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_Mails.Sent_ToColumn] = value;
+                    this[this.tableGet_V_Net.SubscriptionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Sent_To_Desc {
-                get {
-                    try {
-                        return ((string)(this[this.tableV_Mails.Sent_To_DescColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Sent_To_Desc\' in table \'V_Mails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Mails.Sent_To_DescColumn] = value;
-                }
+            public bool IsMedical_TypeNull() {
+                return this.IsNull(this.tableGet_V_Net.Medical_TypeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Mail_Type {
-                get {
-                    try {
-                        return ((int)(this[this.tableV_Mails.Mail_TypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Mail_Type\' in table \'V_Mails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Mails.Mail_TypeColumn] = value;
-                }
+            public void SetMedical_TypeNull() {
+                this[this.tableGet_V_Net.Medical_TypeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Mail_Type_Desc {
-                get {
-                    try {
-                        return ((string)(this[this.tableV_Mails.Mail_Type_DescColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Mail_Type_Desc\' in table \'V_Mails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Mails.Mail_Type_DescColumn] = value;
-                }
+            public bool IsMedical_TypeNameNull() {
+                return this.IsNull(this.tableGet_V_Net.Medical_TypeNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Mails_Count {
-                get {
-                    try {
-                        return ((int)(this[this.tableV_Mails.Mails_CountColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Mails_Count\' in table \'V_Mails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Mails.Mails_CountColumn] = value;
-                }
+            public void SetMedical_TypeNameNull() {
+                this[this.tableGet_V_Net.Medical_TypeNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Notes {
-                get {
-                    try {
-                        return ((string)(this[this.tableV_Mails.NotesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Notes\' in table \'V_Mails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Mails.NotesColumn] = value;
-                }
+            public bool IsEmployeeNull() {
+                return this.IsNull(this.tableGet_V_Net.EmployeeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public byte Delivered {
-                get {
-                    try {
-                        return ((byte)(this[this.tableV_Mails.DeliveredColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Delivered\' in table \'V_Mails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Mails.DeliveredColumn] = value;
-                }
+            public void SetEmployeeNull() {
+                this[this.tableGet_V_Net.EmployeeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Address {
-                get {
-                    try {
-                        return ((string)(this[this.tableV_Mails.AddressColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Address\' in table \'V_Mails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Mails.AddressColumn] = value;
-                }
+            public bool IstypeNull() {
+                return this.IsNull(this.tableGet_V_Net.typeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Phone {
-                get {
-                    try {
-                        return ((string)(this[this.tableV_Mails.PhoneColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'V_Mails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Mails.PhoneColumn] = value;
-                }
+            public void SettypeNull() {
+                this[this.tableGet_V_Net.typeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Delivered1 {
-                get {
-                    try {
-                        return ((bool)(this[this.tableV_Mails.Delivered1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Delivered1\' in table \'V_Mails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Mails.Delivered1Column] = value;
-                }
+            public bool IsStampsNull() {
+                return this.IsNull(this.tableGet_V_Net.StampsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime modified {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableV_Mails.modifiedColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'modified\' in table \'V_Mails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Mails.modifiedColumn] = value;
-                }
+            public void SetStampsNull() {
+                this[this.tableGet_V_Net.StampsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string BarCode {
-                get {
-                    try {
-                        return ((string)(this[this.tableV_Mails.BarCodeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BarCode\' in table \'V_Mails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Mails.BarCodeColumn] = value;
-                }
+            public bool IsSubscriptionNull() {
+                return this.IsNull(this.tableGet_V_Net.SubscriptionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Refunded {
-                get {
-                    try {
-                        return ((bool)(this[this.tableV_Mails.RefundedColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Refunded\' in table \'V_Mails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Mails.RefundedColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string EmployeeName {
-                get {
-                    try {
-                        return ((string)(this[this.tableV_Mails.EmployeeNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EmployeeName\' in table \'V_Mails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Mails.EmployeeNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Reagon {
-                get {
-                    try {
-                        return ((string)(this[this.tableV_Mails.ReagonColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Reagon\' in table \'V_Mails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_Mails.ReagonColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCompanyNull() {
-                return this.IsNull(this.tableV_Mails.CompanyColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCompanyNull() {
-                this[this.tableV_Mails.CompanyColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCompanyDescNull() {
-                return this.IsNull(this.tableV_Mails.CompanyDescColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCompanyDescNull() {
-                this[this.tableV_Mails.CompanyDescColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsEntry_DateNull() {
-                return this.IsNull(this.tableV_Mails.Entry_DateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetEntry_DateNull() {
-                this[this.tableV_Mails.Entry_DateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsReceived_DateNull() {
-                return this.IsNull(this.tableV_Mails.Received_DateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetReceived_DateNull() {
-                this[this.tableV_Mails.Received_DateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDelivery_DateNull() {
-                return this.IsNull(this.tableV_Mails.Delivery_DateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDelivery_DateNull() {
-                this[this.tableV_Mails.Delivery_DateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSent_ToNull() {
-                return this.IsNull(this.tableV_Mails.Sent_ToColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSent_ToNull() {
-                this[this.tableV_Mails.Sent_ToColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSent_To_DescNull() {
-                return this.IsNull(this.tableV_Mails.Sent_To_DescColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSent_To_DescNull() {
-                this[this.tableV_Mails.Sent_To_DescColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMail_TypeNull() {
-                return this.IsNull(this.tableV_Mails.Mail_TypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMail_TypeNull() {
-                this[this.tableV_Mails.Mail_TypeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMail_Type_DescNull() {
-                return this.IsNull(this.tableV_Mails.Mail_Type_DescColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMail_Type_DescNull() {
-                this[this.tableV_Mails.Mail_Type_DescColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMails_CountNull() {
-                return this.IsNull(this.tableV_Mails.Mails_CountColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMails_CountNull() {
-                this[this.tableV_Mails.Mails_CountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNotesNull() {
-                return this.IsNull(this.tableV_Mails.NotesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNotesNull() {
-                this[this.tableV_Mails.NotesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDeliveredNull() {
-                return this.IsNull(this.tableV_Mails.DeliveredColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDeliveredNull() {
-                this[this.tableV_Mails.DeliveredColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAddressNull() {
-                return this.IsNull(this.tableV_Mails.AddressColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAddressNull() {
-                this[this.tableV_Mails.AddressColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPhoneNull() {
-                return this.IsNull(this.tableV_Mails.PhoneColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPhoneNull() {
-                this[this.tableV_Mails.PhoneColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDelivered1Null() {
-                return this.IsNull(this.tableV_Mails.Delivered1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDelivered1Null() {
-                this[this.tableV_Mails.Delivered1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsmodifiedNull() {
-                return this.IsNull(this.tableV_Mails.modifiedColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetmodifiedNull() {
-                this[this.tableV_Mails.modifiedColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsBarCodeNull() {
-                return this.IsNull(this.tableV_Mails.BarCodeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetBarCodeNull() {
-                this[this.tableV_Mails.BarCodeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRefundedNull() {
-                return this.IsNull(this.tableV_Mails.RefundedColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRefundedNull() {
-                this[this.tableV_Mails.RefundedColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsEmployeeNameNull() {
-                return this.IsNull(this.tableV_Mails.EmployeeNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetEmployeeNameNull() {
-                this[this.tableV_Mails.EmployeeNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsReagonNull() {
-                return this.IsNull(this.tableV_Mails.ReagonColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetReagonNull() {
-                this[this.tableV_Mails.ReagonColumn] = global::System.Convert.DBNull;
+            public void SetSubscriptionNull() {
+                this[this.tableGet_V_Net.SubscriptionColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1431,22 +780,22 @@ namespace Elite_system {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class V_MailsRowChangeEvent : global::System.EventArgs {
+        public class Get_V_NetRowChangeEvent : global::System.EventArgs {
             
-            private V_MailsRow eventRow;
+            private Get_V_NetRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public V_MailsRowChangeEvent(V_MailsRow row, global::System.Data.DataRowAction action) {
+            public Get_V_NetRowChangeEvent(Get_V_NetRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public V_MailsRow Row {
+            public Get_V_NetRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1462,7 +811,7 @@ namespace Elite_system {
         }
     }
 }
-namespace Elite_system.DS_Mails2TableAdapters {
+namespace Elite_system.DB_Stamps_SubscriptionsTableAdapters {
     
     
     /// <summary>
@@ -1474,7 +823,7 @@ namespace Elite_system.DS_Mails2TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class V_MailsTableAdapter : global::System.ComponentModel.Component {
+    public partial class Get_V_NetTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1488,7 +837,7 @@ namespace Elite_system.DS_Mails2TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public V_MailsTableAdapter() {
+        public Get_V_NetTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1585,27 +934,13 @@ namespace Elite_system.DS_Mails2TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "V_Mails";
-            tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("Company", "Company");
-            tableMapping.ColumnMappings.Add("CompanyDesc", "CompanyDesc");
-            tableMapping.ColumnMappings.Add("Entry_Date", "Entry_Date");
-            tableMapping.ColumnMappings.Add("Received_Date", "Received_Date");
-            tableMapping.ColumnMappings.Add("Delivery_Date", "Delivery_Date");
-            tableMapping.ColumnMappings.Add("Sent_To", "Sent_To");
-            tableMapping.ColumnMappings.Add("Sent_To_Desc", "Sent_To_Desc");
-            tableMapping.ColumnMappings.Add("Mail_Type", "Mail_Type");
-            tableMapping.ColumnMappings.Add("Mail_Type_Desc", "Mail_Type_Desc");
-            tableMapping.ColumnMappings.Add("Mails_Count", "Mails_Count");
-            tableMapping.ColumnMappings.Add("Notes", "Notes");
-            tableMapping.ColumnMappings.Add("Address", "Address");
-            tableMapping.ColumnMappings.Add("Phone", "Phone");
-            tableMapping.ColumnMappings.Add("Delivered", "Delivered1");
-            tableMapping.ColumnMappings.Add("modified", "modified");
-            tableMapping.ColumnMappings.Add("BarCode", "BarCode");
-            tableMapping.ColumnMappings.Add("Refunded", "Refunded");
-            tableMapping.ColumnMappings.Add("EmployeeName", "EmployeeName");
-            tableMapping.ColumnMappings.Add("Reagon", "Reagon");
+            tableMapping.DataSetTable = "Get_V_Net";
+            tableMapping.ColumnMappings.Add("Medical_Type", "Medical_Type");
+            tableMapping.ColumnMappings.Add("Medical_TypeName", "Medical_TypeName");
+            tableMapping.ColumnMappings.Add("Employee", "Employee");
+            tableMapping.ColumnMappings.Add("type", "type");
+            tableMapping.ColumnMappings.Add("Stamps", "Stamps");
+            tableMapping.ColumnMappings.Add("Subscription", "Subscription");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1622,18 +957,52 @@ namespace Elite_system.DS_Mails2TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Company, CompanyDesc, Entry_Date, Received_Date, Delivery_Date, Sent_T" +
-                "o, Sent_To_Desc, Mail_Type, Mail_Type_Desc, Mails_Count, Notes, Delivered, Addre" +
-                "ss, Phone, modified, BarCode, Refunded, EmployeeName, Reagon\r\nFROM     V_Mails";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].CommandText = "dbo.Get_V_Net";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Employee", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Medical_TypeName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@From", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@To", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DS_Mails2.V_MailsDataTable dataTable) {
+        public virtual int Fill(DB_Stamps_Subscriptions.Get_V_NetDataTable dataTable, global::System.Nullable<int> Type, string Employee, string Medical_TypeName, global::System.Nullable<global::System.DateTime> From, global::System.Nullable<global::System.DateTime> To) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Type.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Type.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Employee == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(Employee));
+            }
+            if ((Medical_TypeName == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(Medical_TypeName));
+            }
+            if ((From.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(From.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((To.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[5].Value = ((System.DateTime)(To.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1645,9 +1014,39 @@ namespace Elite_system.DS_Mails2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DS_Mails2.V_MailsDataTable GetData() {
+        public virtual DB_Stamps_Subscriptions.Get_V_NetDataTable GetData(global::System.Nullable<int> Type, string Employee, string Medical_TypeName, global::System.Nullable<global::System.DateTime> From, global::System.Nullable<global::System.DateTime> To) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DS_Mails2.V_MailsDataTable dataTable = new DS_Mails2.V_MailsDataTable();
+            if ((Type.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Type.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Employee == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(Employee));
+            }
+            if ((Medical_TypeName == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(Medical_TypeName));
+            }
+            if ((From.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(From.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((To.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[5].Value = ((System.DateTime)(To.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            DB_Stamps_Subscriptions.Get_V_NetDataTable dataTable = new DB_Stamps_Subscriptions.Get_V_NetDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1721,7 +1120,7 @@ namespace Elite_system.DS_Mails2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(DS_Mails2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DB_Stamps_Subscriptions dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1731,7 +1130,7 @@ namespace Elite_system.DS_Mails2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(DS_Mails2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DB_Stamps_Subscriptions dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1741,7 +1140,7 @@ namespace Elite_system.DS_Mails2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(DS_Mails2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DB_Stamps_Subscriptions dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1775,7 +1174,7 @@ namespace Elite_system.DS_Mails2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(DS_Mails2 dataSet) {
+        public virtual int UpdateAll(DB_Stamps_Subscriptions dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

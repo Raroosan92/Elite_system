@@ -51,6 +51,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit, Version=18.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
@@ -276,6 +277,7 @@
     <Content Include="AssignMail.aspx" />
     <Content Include="Bond_StartDate.aspx" />
     <Content Include="DeliveredMail.aspx" />
+    <Content Include="imgSideBar\header\EditeAccount.png" />
     <Content Include="RefundedMail.aspx" />
     <Content Include="Rpt_CheckLogStatus.aspx" />
     <Content Include="CompletionRate.aspx" />
@@ -706,6 +708,7 @@
     <Content Include="Rpt_MedicalTypesWithNoClaims.aspx" />
     <Content Include="Rpt_Medical_Name_Main_Company.aspx" />
     <Content Include="Rpt_PaidOrNot.aspx" />
+    <Content Include="Rpt_Stamps_Subscriptions.aspx" />
     <Content Include="Rpt_Stamps.aspx" />
     <Content Include="Scripts\i18n\af.js" />
     <Content Include="Scripts\i18n\ar.js" />
@@ -829,6 +832,17 @@
     </None>
     <Content Include="DB_A5D8AE_EliteSystemDataSet1.xss">
       <DependentUpon>DB_A5D8AE_EliteSystemDataSet1.xsd</DependentUpon>
+    </Content>
+    <Content Include="DB_Stamps_Subscriptions.xsc">
+      <DependentUpon>DB_Stamps_Subscriptions.xsd</DependentUpon>
+    </Content>
+    <None Include="DB_Stamps_Subscriptions.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_Stamps_Subscriptions.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DB_Stamps_Subscriptions.xss">
+      <DependentUpon>DB_Stamps_Subscriptions.xsd</DependentUpon>
     </Content>
     <None Include="DS_Account.xsd">
       <Generator>MSDataSetGenerator</Generator>
@@ -1047,6 +1061,7 @@
       <DependentUpon>Elite_DBDataSet2.xsd</DependentUpon>
     </Content>
     <Content Include="fonts\IDAutomationC128XS.ttf" />
+    <Content Include="fonts\IDAUTOMATIONHC39M.TTF" />
     <None Include="Properties\PublishProfiles\Demo.pubxml" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Properties\PublishProfiles\Main.pubxml" />
@@ -1100,7 +1115,9 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1189,6 +1206,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB_A5D8AE_EliteSystemDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_Stamps_Subscriptions.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_Stamps_Subscriptions.xsd</DependentUpon>
     </Compile>
     <Compile Include="DeliveredMail.aspx.cs">
       <DependentUpon>DeliveredMail.aspx</DependentUpon>
@@ -1741,6 +1763,13 @@
     <Compile Include="Rpt_PaidOrNot.aspx.designer.cs">
       <DependentUpon>Rpt_PaidOrNot.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Rpt_Stamps_Subscriptions.aspx.cs">
+      <DependentUpon>Rpt_Stamps_Subscriptions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt_Stamps_Subscriptions.aspx.designer.cs">
+      <DependentUpon>Rpt_Stamps_Subscriptions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Rpt_Stamps.aspx.cs">
       <DependentUpon>Rpt_Stamps.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1830,6 +1859,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AssignedChecksView.rdlc" />
+    <EmbeddedResource Include="Rpt_Stamps_Subscriptions.rdlc" />
     <EmbeddedResource Include="Rpt_Spendings_All.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -1877,6 +1907,7 @@
     <EmbeddedResource Include="Rpt_PaidOrNot.rdlc" />
     <EmbeddedResource Include="Rpt_Spendings.rdlc" />
     <EmbeddedResource Include="Rpt_Stamps.rdlc" />
+    <EmbeddedResource Include="Rpt_Stamps_Subscriptions11.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
