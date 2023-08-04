@@ -12,7 +12,8 @@
               <DbSource ConnectionRef="CONN (Web.config)" DbObjectName="DB_A5D8AE_EliteSystem.dbo.V_Mails" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT ID, Company, CompanyDesc, Entry_Date, Received_Date, Delivery_Date, Sent_To, Sent_To_Desc, Mail_Type, Mail_Type_Desc, Mails_Count, Notes, Delivered, Address, Phone, modified, BarCode, Refunded, EmployeeName, Reagon
+                    <CommandText>SELECT ID, Company, CompanyDesc, Entry_Date, Received_Date, Delivery_Date, Sent_To, Sent_To_Desc, Mail_Type, Mail_Type_Desc, Mails_Count, Notes, Delivered, Address, Phone, modified, BarCode, Refunded, EmployeeName, Reagon, 
+                  status
 FROM     V_Mails</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -40,6 +41,7 @@ FROM     V_Mails</CommandText>
               <Mapping SourceColumn="Refunded" DataSetColumn="Refunded" />
               <Mapping SourceColumn="EmployeeName" DataSetColumn="EmployeeName" />
               <Mapping SourceColumn="Reagon" DataSetColumn="Reagon" />
+              <Mapping SourceColumn="status" DataSetColumn="status" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -51,7 +53,7 @@ FROM     V_Mails</CommandText>
   <xs:element name="DS_Mails2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DS_Mails2" msprop:Generator_UserDSName="DS_Mails2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="V_Mails" msprop:Generator_TableClassName="V_MailsDataTable" msprop:Generator_TableVarName="tableV_Mails" msprop:Generator_TablePropName="V_Mails" msprop:Generator_RowDeletingName="V_MailsRowDeleting" msprop:Generator_RowChangingName="V_MailsRowChanging" msprop:Generator_RowEvHandlerName="V_MailsRowChangeEventHandler" msprop:Generator_RowDeletedName="V_MailsRowDeleted" msprop:Generator_UserTableName="V_Mails" msprop:Generator_RowChangedName="V_MailsRowChanged" msprop:Generator_RowEvArgName="V_MailsRowChangeEvent" msprop:Generator_RowClassName="V_MailsRow">
+        <xs:element name="V_Mails" msprop:Generator_TableClassName="V_MailsDataTable" msprop:Generator_TableVarName="tableV_Mails" msprop:Generator_RowChangedName="V_MailsRowChanged" msprop:Generator_TablePropName="V_Mails" msprop:Generator_RowDeletingName="V_MailsRowDeleting" msprop:Generator_RowChangingName="V_MailsRowChanging" msprop:Generator_RowEvHandlerName="V_MailsRowChangeEventHandler" msprop:Generator_RowDeletedName="V_MailsRowDeleted" msprop:Generator_RowClassName="V_MailsRow" msprop:Generator_UserTableName="V_Mails" msprop:Generator_RowEvArgName="V_MailsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:decimal" />
@@ -126,6 +128,13 @@ FROM     V_Mails</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="status" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

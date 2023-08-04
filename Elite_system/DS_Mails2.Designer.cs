@@ -321,6 +321,8 @@ namespace Elite_system {
             
             private global::System.Data.DataColumn columnReagon;
             
+            private global::System.Data.DataColumn columnstatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public V_MailsDataTable() {
@@ -524,6 +526,14 @@ namespace Elite_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn statusColumn {
+                get {
+                    return this.columnstatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -580,7 +590,8 @@ namespace Elite_system {
                         string BarCode, 
                         bool Refunded, 
                         string EmployeeName, 
-                        string Reagon) {
+                        string Reagon, 
+                        string status) {
                 V_MailsRow rowV_MailsRow = ((V_MailsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -603,7 +614,8 @@ namespace Elite_system {
                         BarCode,
                         Refunded,
                         EmployeeName,
-                        Reagon};
+                        Reagon,
+                        status};
                 rowV_MailsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowV_MailsRow);
                 return rowV_MailsRow;
@@ -654,6 +666,7 @@ namespace Elite_system {
                 this.columnRefunded = base.Columns["Refunded"];
                 this.columnEmployeeName = base.Columns["EmployeeName"];
                 this.columnReagon = base.Columns["Reagon"];
+                this.columnstatus = base.Columns["status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -701,6 +714,8 @@ namespace Elite_system {
                 base.Columns.Add(this.columnEmployeeName);
                 this.columnReagon = new global::System.Data.DataColumn("Reagon", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReagon);
+                this.columnstatus = new global::System.Data.DataColumn("status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AllowDBNull = false;
@@ -715,6 +730,8 @@ namespace Elite_system {
                 this.columnBarCode.MaxLength = 200;
                 this.columnEmployeeName.MaxLength = 200;
                 this.columnReagon.MaxLength = 500;
+                this.columnstatus.ReadOnly = true;
+                this.columnstatus.MaxLength = 8;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1188,6 +1205,22 @@ namespace Elite_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string status {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_Mails.statusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'status\' in table \'V_Mails\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Mails.statusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCompanyNull() {
                 return this.IsNull(this.tableV_Mails.CompanyColumn);
             }
@@ -1425,6 +1458,18 @@ namespace Elite_system {
             public void SetReagonNull() {
                 this[this.tableV_Mails.ReagonColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsstatusNull() {
+                return this.IsNull(this.tableV_Mails.statusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetstatusNull() {
+                this[this.tableV_Mails.statusColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1606,6 +1651,7 @@ namespace Elite_system.DS_Mails2TableAdapters {
             tableMapping.ColumnMappings.Add("Refunded", "Refunded");
             tableMapping.ColumnMappings.Add("EmployeeName", "EmployeeName");
             tableMapping.ColumnMappings.Add("Reagon", "Reagon");
+            tableMapping.ColumnMappings.Add("status", "status");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1622,9 +1668,9 @@ namespace Elite_system.DS_Mails2TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Company, CompanyDesc, Entry_Date, Received_Date, Delivery_Date, Sent_T" +
-                "o, Sent_To_Desc, Mail_Type, Mail_Type_Desc, Mails_Count, Notes, Delivered, Addre" +
-                "ss, Phone, modified, BarCode, Refunded, EmployeeName, Reagon\r\nFROM     V_Mails";
+            this._commandCollection[0].CommandText = @"SELECT ID, Company, CompanyDesc, Entry_Date, Received_Date, Delivery_Date, Sent_To, Sent_To_Desc, Mail_Type, Mail_Type_Desc, Mails_Count, Notes, Delivered, Address, Phone, modified, BarCode, Refunded, EmployeeName, Reagon, 
+                  status
+FROM     V_Mails";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

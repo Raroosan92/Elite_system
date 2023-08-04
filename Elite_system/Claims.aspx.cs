@@ -355,7 +355,7 @@ namespace Elite_system
             {
                 Cls_Connection.close_connection();
             }
-            MSG("تم التعديل على حسابات الجهات الطبية وتم اضافة الاشتراكات لشهر "+Txt_Month_Year.Text+"");
+            MSG("تم التعديل على حسابات الجهات الطبية وتم اضافة الاشتراكات لشهر " + Txt_Month_Year.Text + "");
             ////----------------------------------------------------------- 
 
 
@@ -372,7 +372,7 @@ namespace Elite_system
 
                 int Month = int.Parse(DateTime.UtcNow.AddHours(3).Month.ToString());
                 int Year = int.Parse(DateTime.UtcNow.AddHours(3).Year.ToString());
-                
+
                 if (Month > 1)
                 {
                     Month = int.Parse(DateTime.UtcNow.AddHours(3).AddMonths(-1).Month.ToString());
@@ -382,7 +382,7 @@ namespace Elite_system
                     Year = Year - 1;
                     Month = int.Parse(DateTime.UtcNow.AddHours(3).AddMonths(-1).Month.ToString());
                 }
-               
+
 
                 //string Month = Txt_Month_Year.Text.Substring(0, 1);
                 //string Year = Txt_Month_Year.Text.Substring(2, 4);
@@ -398,7 +398,7 @@ namespace Elite_system
                 {
 
                     MSG("حدث خطأ في رقم الدفعة");
-                    
+
                     return;
                 }
 
@@ -635,8 +635,8 @@ namespace Elite_system
                 }
 
 
-            //rami
-            if (HttpContext.Current.User.IsInRole("Doctor"))
+                //rami
+                if (HttpContext.Current.User.IsInRole("Doctor"))
                 {
                     Label3.Visible = false;
                     Get_MainClaims_ForGridView(HttpContext.Current.User.Identity.Name);
@@ -1119,6 +1119,48 @@ namespace Elite_system
                 Main_Claims._Claim_ID = long.Parse(Txt_ID.Text);
                 Main_Claims._ID = Convert.ToInt64(GridView2.SelectedRow.Cells[1].Text);
                 Result = Main_Claims.Update_Main_Claims();
+                if (Result == "تم التعديل بنجاح")
+                {
+                    bool ChFreez = Ch_Freez2.Checked;
+                    string Medical_ID = int.Parse(DDL_Medical_Name.SelectedValue).ToString();
+
+
+                    Cls_Medical_Types_And_Companies Medical_Type = new Cls_Medical_Types_And_Companies();
+
+
+                    Medical_Type._Freez = ChFreez;
+
+
+
+                    if (ChFreez)
+                    {
+                        if (Txt_FreezFrom.Text != "")
+                        {
+                            Medical_Type._FreezFrom = DateTime.Parse(Txt_FreezFrom.Text);
+                        }
+                        else
+                        {
+                            Medical_Type._FreezFrom = DateTime.Parse(DBNull.Value.ToString());
+                        }
+                        if (Txt_FreezTo.Text != "")
+                        {
+                            Medical_Type._FreezTo = DateTime.Parse(Txt_FreezTo.Text);
+                        }
+                        else
+                        {
+                            Medical_Type._FreezTo = DateTime.Parse(DBNull.Value.ToString());
+                        }
+                        //Medical_Type._ID = Int64.Parse(DDL_Medical_Name.SelectedValue.ToString());
+                        Medical_Type._ID = long.Parse(Medical_ID);
+                        Medical_Type.Update_Medical_TypesFreezing();
+                    }
+                    if (!ChFreez)
+                    {
+                        Medical_Type._ID = long.Parse(Medical_ID);
+                        Medical_Type.Update_Medical_TypesFreezing();
+                    }
+                }
+
 
 
 
