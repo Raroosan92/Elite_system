@@ -7,7 +7,7 @@
 
   
     <link href="../css/SideBar/style2.css" rel="stylesheet" />
-    <script src="../js/SideBar/bootstrap.min.js"></script>
+    <%--<script src="../js/SideBar/bootstrap.min.js"></script>--%>
 
     <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">--%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

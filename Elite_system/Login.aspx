@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Title="النخبة للمطالبات" Inherits="Elite_system.Account.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Title="نجوم النخبة للوساطة التجارية" Inherits="Elite_system.Account.Login" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +9,7 @@
     <meta name="keywords" content="Claims,مطالبات,Elite,النخبة" />
 
 
-    <title>شركة النخبة للمطالبات</title>
+    <title>شركة نجوم النخبة للوساطة التجارية</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 

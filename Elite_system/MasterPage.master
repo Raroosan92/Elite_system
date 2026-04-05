@@ -13,8 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="Dashboard" />
-    <meta name="keyword" content="النخبة لإدارة المطالبات والمستحقات الطبية" />
-    <title>النخبة لإدارة المطالبات والمستحقات الطبية</title>
+    <meta name="keyword" content="نجوم النخبة للوساطة التجارية" />
+    <title>نجوم النخبة للوساطة التجارية</title>
     <%--<link href="css/awesome-bootstrap-checkbox.css" rel="stylesheet" />--%>
     <link href="css/to-do.css" rel="stylesheet" />
 
@@ -60,7 +60,7 @@
 
     <%--For MenuBar--%>
     <link href="../css/SideBar/style2.css" rel="stylesheet" />
-    <script src="../js/SideBar/bootstrap.min.js"></script>
+    <%--<script src="../js/SideBar/bootstrap.min.js"></script>--%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -257,7 +257,7 @@
 
 
     </script>
-    <script src="../js/SideBar/theme.js"></script>
+    <%--<script src="../js/SideBar/theme.js"></script>--%>
 
 
 

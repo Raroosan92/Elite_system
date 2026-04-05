@@ -1,1 +1,3 @@
-﻿
+﻿namespace Elite_system
+{
+}

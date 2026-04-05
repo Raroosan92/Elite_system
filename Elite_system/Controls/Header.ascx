@@ -250,7 +250,7 @@
 
 <div class="navbar navbar-inverse navbar-fixed-top" style="height:9%;display:flex">
       <!--logo start-->
-    <a href="#" class="logo"><b>النخبة<span> Elite</span></b></a>
+    <a href="#" class="logo"><b>نجوم النخبة <span> للوساطة التجارية</span></b></a>
     <!--logo end-->
 
             <div class="container">

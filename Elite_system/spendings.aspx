@@ -68,7 +68,7 @@
                             <tr>
                                 <td class="auto-style1">
 
-                                    <asp:TextBox AutoCompleteType="Disabled" runat="server" Enabled="false" ID="Txt_Company" Text="شركة النخبة للمطالبات - طبربور" Width="300px"></asp:TextBox>
+                                    <asp:TextBox AutoCompleteType="Disabled" runat="server" Enabled="false" ID="Txt_Company" Text="شركة نجوم النخبة للوساطة التجارية - طبربور" Width="300px"></asp:TextBox>
                                 </td>
                                 <td style="width: 98px">
                                     <asp:Label runat="server" Text="عن شركة"></asp:Label>
