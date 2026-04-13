@@ -31,7 +31,7 @@
             <img src="../imgSideBar/Close.png" style="width: 17%;" /></span>
         <div class="menu-header" style="height: 106px">
             <div class="logo d-flex justify-content-center" style="text-align: -webkit-center;">
-                <img class="img-circle" src="img/Elite.jpg" width="32%" alt="">
+                <img class="img-circle" src="img/EliteSystem.png" width="32%" alt="">
             </div>
         </div>
         <div class="nav-wraper">
