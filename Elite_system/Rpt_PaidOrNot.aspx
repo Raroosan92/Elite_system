@@ -18,7 +18,7 @@
         }
 
         .COLR {
-            width: 50%;
+            width: 100%;
         }
 
         @media only screen and (max-width: 1000px) {
@@ -37,7 +37,7 @@
 
         .Report {
             MARGIN-LEFT: 8%;
-            margin-right: 79px;
+            margin-right: 0px;
         }
 
         @media only screen and (max-width: 1000px) {
@@ -45,6 +45,17 @@
                 MARGIN-LEFT: 2%;
                 width: 100% !important;
             }
+        }
+
+        table {
+            width: 69% !important;
+            height: 100%;
+            margin: 0 0 0 0 !important;
+            place-self: center;
+        }
+
+        .MenuBarBkGnd {
+            width: 100% !important;
         }
     </style>
 
@@ -140,7 +151,7 @@
 
     <section class="text-center Report" style="padding-top: 1%; direction: ltr;">
 
-        <rsweb:ReportViewer ID="ReportViewer1" CssClass="Report" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="974px">
+        <rsweb:ReportViewer ID="ReportViewer1" CssClass="Report" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="774px">
             <LocalReport ReportPath="Rpt_PaidOrNot.rdlc">
                 <DataSources>
                     <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DS_PaidOrNot" />
@@ -176,7 +187,7 @@
     <script>
         $(function () {
             $("#<%=DDL_Medical_Name.ClientID%>").select2();
-             $("#<%=DDL_Main_Company.ClientID%>").select2();
+            $("#<%=DDL_Main_Company.ClientID%>").select2();
         })
     </script>
 

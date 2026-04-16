@@ -54,6 +54,13 @@
             width: 350px;
             direction: rtl;
         }
+        .MSRS-RVC {
+    width: 100% !important;
+}
+        .Report {
+    place-self: anchor-center;
+    MARGIN-LEFT: -10% !important;
+}
     </style>
 
 

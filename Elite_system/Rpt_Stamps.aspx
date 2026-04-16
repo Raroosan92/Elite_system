@@ -40,8 +40,16 @@
         @media only screen and (max-width: 1000px) {
             .Report {
                 MARGIN-LEFT: 2%;
-                width: 100% !important;
             }
+        }
+        .MenuBarBkGnd {
+            width: 100% !important;
+        }
+        table {
+            width: 69% !important;
+            height: 100%;
+            margin: 0 0 0 0 !important;
+            place-self: center;
         }
     </style>
 
@@ -138,7 +146,7 @@
     <br />
     <section class="text-center Report" style="padding-top: 1%; direction: ltr;">
         
-        <rsweb:ReportViewer ID="ReportViewer1" CssClass="Report" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="930px" Height="500px">
+        <rsweb:ReportViewer ID="ReportViewer1" CssClass="Report" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="730px" Height="500px">
             <LocalReport ReportPath="Rpt_Log.rdlc">
                 <DataSources>
                     <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DS_Log" />
